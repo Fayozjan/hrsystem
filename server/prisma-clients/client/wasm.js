@@ -191,6 +191,9 @@ exports.Prisma.Face_passesScalarFieldEnum = {
   door_id: 'door_id',
   face_devices_id: 'face_devices_id',
   direction: 'direction',
+  source: 'source',
+  latitude: 'latitude',
+  longitude: 'longitude',
   added_at: 'added_at'
 };
 
@@ -271,6 +274,7 @@ exports.Prisma.UsersScalarFieldEnum = {
   view_mode: 'view_mode',
   personal_menus: 'personal_menus',
   active_branch_id: 'active_branch_id',
+  ignore_gps_check: 'ignore_gps_check',
   added_at: 'added_at'
 };
 
@@ -301,7 +305,10 @@ exports.Prisma.Work_schedulesScalarFieldEnum = {
   work_days: 'work_days',
   shifts: 'shifts',
   added_at: 'added_at',
-  status: 'status'
+  status: 'status',
+  late_tolerance_minutes: 'late_tolerance_minutes',
+  early_leave_tolerance_minutes: 'early_leave_tolerance_minutes',
+  late_leave_tolerance_minutes: 'late_leave_tolerance_minutes'
 };
 
 exports.Prisma.Employee_schedule_historyScalarFieldEnum = {
@@ -318,6 +325,9 @@ exports.Prisma.DoorsScalarFieldEnum = {
   id: 'id',
   name: 'name',
   status: 'status',
+  branch_id: 'branch_id',
+  latitude: 'latitude',
+  longitude: 'longitude',
   added_at: 'added_at'
 };
 

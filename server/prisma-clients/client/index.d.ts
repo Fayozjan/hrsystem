@@ -2772,6 +2772,7 @@ export namespace Prisma {
     gates: number
     vehiclePasses: number
     departments: number
+    doors: number
   }
 
   export type BranchesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2780,6 +2781,7 @@ export namespace Prisma {
     gates?: boolean | BranchesCountOutputTypeCountGatesArgs
     vehiclePasses?: boolean | BranchesCountOutputTypeCountVehiclePassesArgs
     departments?: boolean | BranchesCountOutputTypeCountDepartmentsArgs
+    doors?: boolean | BranchesCountOutputTypeCountDoorsArgs
   }
 
   // Custom InputTypes
@@ -2826,6 +2828,13 @@ export namespace Prisma {
    */
   export type BranchesCountOutputTypeCountDepartmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: departmentsWhereInput
+  }
+
+  /**
+   * BranchesCountOutputType without action
+   */
+  export type BranchesCountOutputTypeCountDoorsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: doorsWhereInput
   }
 
 
@@ -3582,6 +3591,7 @@ export namespace Prisma {
     gates?: boolean | branches$gatesArgs<ExtArgs>
     vehiclePasses?: boolean | branches$vehiclePassesArgs<ExtArgs>
     departments?: boolean | branches$departmentsArgs<ExtArgs>
+    doors?: boolean | branches$doorsArgs<ExtArgs>
     addedBy?: boolean | usersDefaultArgs<ExtArgs>
     _count?: boolean | BranchesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["branches"]>
@@ -3643,6 +3653,7 @@ export namespace Prisma {
     gates?: boolean | branches$gatesArgs<ExtArgs>
     vehiclePasses?: boolean | branches$vehiclePassesArgs<ExtArgs>
     departments?: boolean | branches$departmentsArgs<ExtArgs>
+    doors?: boolean | branches$doorsArgs<ExtArgs>
     addedBy?: boolean | usersDefaultArgs<ExtArgs>
     _count?: boolean | BranchesCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -3664,6 +3675,7 @@ export namespace Prisma {
       gates: Prisma.$gatesPayload<ExtArgs>[]
       vehiclePasses: Prisma.$vehicle_passesPayload<ExtArgs>[]
       departments: Prisma.$departmentsPayload<ExtArgs>[]
+      doors: Prisma.$doorsPayload<ExtArgs>[]
       addedBy: Prisma.$usersPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -4079,6 +4091,7 @@ export namespace Prisma {
     gates<T extends branches$gatesArgs<ExtArgs> = {}>(args?: Subset<T, branches$gatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$gatesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     vehiclePasses<T extends branches$vehiclePassesArgs<ExtArgs> = {}>(args?: Subset<T, branches$vehiclePassesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$vehicle_passesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     departments<T extends branches$departmentsArgs<ExtArgs> = {}>(args?: Subset<T, branches$departmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$departmentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    doors<T extends branches$doorsArgs<ExtArgs> = {}>(args?: Subset<T, branches$doorsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$doorsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     addedBy<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -4653,6 +4666,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: DepartmentsScalarFieldEnum | DepartmentsScalarFieldEnum[]
+  }
+
+  /**
+   * branches.doors
+   */
+  export type branches$doorsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the doors
+     */
+    select?: doorsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the doors
+     */
+    omit?: doorsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: doorsInclude<ExtArgs> | null
+    where?: doorsWhereInput
+    orderBy?: doorsOrderByWithRelationInput | doorsOrderByWithRelationInput[]
+    cursor?: doorsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DoorsScalarFieldEnum | DoorsScalarFieldEnum[]
   }
 
   /**
@@ -8785,6 +8822,8 @@ export namespace Prisma {
     employee_id: number | null
     door_id: number | null
     face_devices_id: number | null
+    latitude: number | null
+    longitude: number | null
   }
 
   export type Face_passesSumAggregateOutputType = {
@@ -8792,6 +8831,8 @@ export namespace Prisma {
     employee_id: number | null
     door_id: number | null
     face_devices_id: number | null
+    latitude: number | null
+    longitude: number | null
   }
 
   export type Face_passesMinAggregateOutputType = {
@@ -8803,6 +8844,9 @@ export namespace Prisma {
     door_id: number | null
     face_devices_id: number | null
     direction: string | null
+    source: string | null
+    latitude: number | null
+    longitude: number | null
     added_at: Date | null
   }
 
@@ -8815,6 +8859,9 @@ export namespace Prisma {
     door_id: number | null
     face_devices_id: number | null
     direction: string | null
+    source: string | null
+    latitude: number | null
+    longitude: number | null
     added_at: Date | null
   }
 
@@ -8827,6 +8874,9 @@ export namespace Prisma {
     door_id: number
     face_devices_id: number
     direction: number
+    source: number
+    latitude: number
+    longitude: number
     added_at: number
     _all: number
   }
@@ -8837,6 +8887,8 @@ export namespace Prisma {
     employee_id?: true
     door_id?: true
     face_devices_id?: true
+    latitude?: true
+    longitude?: true
   }
 
   export type Face_passesSumAggregateInputType = {
@@ -8844,6 +8896,8 @@ export namespace Prisma {
     employee_id?: true
     door_id?: true
     face_devices_id?: true
+    latitude?: true
+    longitude?: true
   }
 
   export type Face_passesMinAggregateInputType = {
@@ -8855,6 +8909,9 @@ export namespace Prisma {
     door_id?: true
     face_devices_id?: true
     direction?: true
+    source?: true
+    latitude?: true
+    longitude?: true
     added_at?: true
   }
 
@@ -8867,6 +8924,9 @@ export namespace Prisma {
     door_id?: true
     face_devices_id?: true
     direction?: true
+    source?: true
+    latitude?: true
+    longitude?: true
     added_at?: true
   }
 
@@ -8879,6 +8939,9 @@ export namespace Prisma {
     door_id?: true
     face_devices_id?: true
     direction?: true
+    source?: true
+    latitude?: true
+    longitude?: true
     added_at?: true
     _all?: true
   }
@@ -8975,9 +9038,12 @@ export namespace Prisma {
     identifier: string
     photo: string | null
     employee_id: number
-    door_id: number
+    door_id: number | null
     face_devices_id: number | null
     direction: string | null
+    source: string | null
+    latitude: number | null
+    longitude: number | null
     added_at: Date
     _count: Face_passesCountAggregateOutputType | null
     _avg: Face_passesAvgAggregateOutputType | null
@@ -9009,10 +9075,13 @@ export namespace Prisma {
     door_id?: boolean
     face_devices_id?: boolean
     direction?: boolean
+    source?: boolean
+    latitude?: boolean
+    longitude?: boolean
     added_at?: boolean
     employee?: boolean | employeesDefaultArgs<ExtArgs>
     faceDevice?: boolean | face_passes$faceDeviceArgs<ExtArgs>
-    door?: boolean | doorsDefaultArgs<ExtArgs>
+    door?: boolean | face_passes$doorArgs<ExtArgs>
   }, ExtArgs["result"]["face_passes"]>
 
   export type face_passesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -9024,10 +9093,13 @@ export namespace Prisma {
     door_id?: boolean
     face_devices_id?: boolean
     direction?: boolean
+    source?: boolean
+    latitude?: boolean
+    longitude?: boolean
     added_at?: boolean
     employee?: boolean | employeesDefaultArgs<ExtArgs>
     faceDevice?: boolean | face_passes$faceDeviceArgs<ExtArgs>
-    door?: boolean | doorsDefaultArgs<ExtArgs>
+    door?: boolean | face_passes$doorArgs<ExtArgs>
   }, ExtArgs["result"]["face_passes"]>
 
   export type face_passesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -9039,10 +9111,13 @@ export namespace Prisma {
     door_id?: boolean
     face_devices_id?: boolean
     direction?: boolean
+    source?: boolean
+    latitude?: boolean
+    longitude?: boolean
     added_at?: boolean
     employee?: boolean | employeesDefaultArgs<ExtArgs>
     faceDevice?: boolean | face_passes$faceDeviceArgs<ExtArgs>
-    door?: boolean | doorsDefaultArgs<ExtArgs>
+    door?: boolean | face_passes$doorArgs<ExtArgs>
   }, ExtArgs["result"]["face_passes"]>
 
   export type face_passesSelectScalar = {
@@ -9054,24 +9129,27 @@ export namespace Prisma {
     door_id?: boolean
     face_devices_id?: boolean
     direction?: boolean
+    source?: boolean
+    latitude?: boolean
+    longitude?: boolean
     added_at?: boolean
   }
 
-  export type face_passesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "date" | "identifier" | "photo" | "employee_id" | "door_id" | "face_devices_id" | "direction" | "added_at", ExtArgs["result"]["face_passes"]>
+  export type face_passesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "date" | "identifier" | "photo" | "employee_id" | "door_id" | "face_devices_id" | "direction" | "source" | "latitude" | "longitude" | "added_at", ExtArgs["result"]["face_passes"]>
   export type face_passesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     employee?: boolean | employeesDefaultArgs<ExtArgs>
     faceDevice?: boolean | face_passes$faceDeviceArgs<ExtArgs>
-    door?: boolean | doorsDefaultArgs<ExtArgs>
+    door?: boolean | face_passes$doorArgs<ExtArgs>
   }
   export type face_passesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     employee?: boolean | employeesDefaultArgs<ExtArgs>
     faceDevice?: boolean | face_passes$faceDeviceArgs<ExtArgs>
-    door?: boolean | doorsDefaultArgs<ExtArgs>
+    door?: boolean | face_passes$doorArgs<ExtArgs>
   }
   export type face_passesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     employee?: boolean | employeesDefaultArgs<ExtArgs>
     faceDevice?: boolean | face_passes$faceDeviceArgs<ExtArgs>
-    door?: boolean | doorsDefaultArgs<ExtArgs>
+    door?: boolean | face_passes$doorArgs<ExtArgs>
   }
 
   export type $face_passesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9079,7 +9157,7 @@ export namespace Prisma {
     objects: {
       employee: Prisma.$employeesPayload<ExtArgs>
       faceDevice: Prisma.$face_devicesPayload<ExtArgs> | null
-      door: Prisma.$doorsPayload<ExtArgs>
+      door: Prisma.$doorsPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -9087,9 +9165,12 @@ export namespace Prisma {
       identifier: string
       photo: string | null
       employee_id: number
-      door_id: number
+      door_id: number | null
       face_devices_id: number | null
       direction: string | null
+      source: string | null
+      latitude: number | null
+      longitude: number | null
       added_at: Date
     }, ExtArgs["result"]["face_passes"]>
     composites: {}
@@ -9487,7 +9568,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     employee<T extends employeesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, employeesDefaultArgs<ExtArgs>>): Prisma__employeesClient<$Result.GetResult<Prisma.$employeesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     faceDevice<T extends face_passes$faceDeviceArgs<ExtArgs> = {}>(args?: Subset<T, face_passes$faceDeviceArgs<ExtArgs>>): Prisma__face_devicesClient<$Result.GetResult<Prisma.$face_devicesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    door<T extends doorsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, doorsDefaultArgs<ExtArgs>>): Prisma__doorsClient<$Result.GetResult<Prisma.$doorsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    door<T extends face_passes$doorArgs<ExtArgs> = {}>(args?: Subset<T, face_passes$doorArgs<ExtArgs>>): Prisma__doorsClient<$Result.GetResult<Prisma.$doorsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9525,6 +9606,9 @@ export namespace Prisma {
     readonly door_id: FieldRef<"face_passes", 'Int'>
     readonly face_devices_id: FieldRef<"face_passes", 'Int'>
     readonly direction: FieldRef<"face_passes", 'String'>
+    readonly source: FieldRef<"face_passes", 'String'>
+    readonly latitude: FieldRef<"face_passes", 'Float'>
+    readonly longitude: FieldRef<"face_passes", 'Float'>
     readonly added_at: FieldRef<"face_passes", 'DateTime'>
   }
     
@@ -9938,6 +10022,25 @@ export namespace Prisma {
      */
     include?: face_devicesInclude<ExtArgs> | null
     where?: face_devicesWhereInput
+  }
+
+  /**
+   * face_passes.door
+   */
+  export type face_passes$doorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the doors
+     */
+    select?: doorsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the doors
+     */
+    omit?: doorsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: doorsInclude<ExtArgs> | null
+    where?: doorsWhereInput
   }
 
   /**
@@ -16671,6 +16774,7 @@ export namespace Prisma {
     sidebar: string | null
     view_mode: string | null
     active_branch_id: number | null
+    ignore_gps_check: boolean | null
     added_at: Date | null
   }
 
@@ -16687,6 +16791,7 @@ export namespace Prisma {
     sidebar: string | null
     view_mode: string | null
     active_branch_id: number | null
+    ignore_gps_check: boolean | null
     added_at: Date | null
   }
 
@@ -16706,6 +16811,7 @@ export namespace Prisma {
     view_mode: number
     personal_menus: number
     active_branch_id: number
+    ignore_gps_check: number
     added_at: number
     _all: number
   }
@@ -16740,6 +16846,7 @@ export namespace Prisma {
     sidebar?: true
     view_mode?: true
     active_branch_id?: true
+    ignore_gps_check?: true
     added_at?: true
   }
 
@@ -16756,6 +16863,7 @@ export namespace Prisma {
     sidebar?: true
     view_mode?: true
     active_branch_id?: true
+    ignore_gps_check?: true
     added_at?: true
   }
 
@@ -16775,6 +16883,7 @@ export namespace Prisma {
     view_mode?: true
     personal_menus?: true
     active_branch_id?: true
+    ignore_gps_check?: true
     added_at?: true
     _all?: true
   }
@@ -16881,6 +16990,7 @@ export namespace Prisma {
     view_mode: string
     personal_menus: string[]
     active_branch_id: number | null
+    ignore_gps_check: boolean
     added_at: Date
     _count: UsersCountAggregateOutputType | null
     _avg: UsersAvgAggregateOutputType | null
@@ -16919,6 +17029,7 @@ export namespace Prisma {
     view_mode?: boolean
     personal_menus?: boolean
     active_branch_id?: boolean
+    ignore_gps_check?: boolean
     added_at?: boolean
     employee?: boolean | users$employeeArgs<ExtArgs>
     menuAccess?: boolean | users$menuAccessArgs<ExtArgs>
@@ -16946,6 +17057,7 @@ export namespace Prisma {
     view_mode?: boolean
     personal_menus?: boolean
     active_branch_id?: boolean
+    ignore_gps_check?: boolean
     added_at?: boolean
     employee?: boolean | users$employeeArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
@@ -16966,6 +17078,7 @@ export namespace Prisma {
     view_mode?: boolean
     personal_menus?: boolean
     active_branch_id?: boolean
+    ignore_gps_check?: boolean
     added_at?: boolean
     employee?: boolean | users$employeeArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
@@ -16986,10 +17099,11 @@ export namespace Prisma {
     view_mode?: boolean
     personal_menus?: boolean
     active_branch_id?: boolean
+    ignore_gps_check?: boolean
     added_at?: boolean
   }
 
-  export type usersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "password" | "telegram_id" | "employee_id" | "status" | "access_level" | "branch_access" | "department_access" | "language" | "theme" | "sidebar" | "view_mode" | "personal_menus" | "active_branch_id" | "added_at", ExtArgs["result"]["users"]>
+  export type usersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "password" | "telegram_id" | "employee_id" | "status" | "access_level" | "branch_access" | "department_access" | "language" | "theme" | "sidebar" | "view_mode" | "personal_menus" | "active_branch_id" | "ignore_gps_check" | "added_at", ExtArgs["result"]["users"]>
   export type usersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     employee?: boolean | users$employeeArgs<ExtArgs>
     menuAccess?: boolean | users$menuAccessArgs<ExtArgs>
@@ -17034,6 +17148,7 @@ export namespace Prisma {
       view_mode: string
       personal_menus: string[]
       active_branch_id: number | null
+      ignore_gps_check: boolean
       added_at: Date
     }, ExtArgs["result"]["users"]>
     composites: {}
@@ -17480,6 +17595,7 @@ export namespace Prisma {
     readonly view_mode: FieldRef<"users", 'String'>
     readonly personal_menus: FieldRef<"users", 'String[]'>
     readonly active_branch_id: FieldRef<"users", 'Int'>
+    readonly ignore_gps_check: FieldRef<"users", 'Boolean'>
     readonly added_at: FieldRef<"users", 'DateTime'>
   }
     
@@ -20385,12 +20501,18 @@ export namespace Prisma {
     id: number | null
     weekly_days: number | null
     weekly_hours: number | null
+    late_tolerance_minutes: number | null
+    early_leave_tolerance_minutes: number | null
+    late_leave_tolerance_minutes: number | null
   }
 
   export type Work_schedulesSumAggregateOutputType = {
     id: number | null
     weekly_days: number | null
     weekly_hours: number | null
+    late_tolerance_minutes: number | null
+    early_leave_tolerance_minutes: number | null
+    late_leave_tolerance_minutes: number | null
   }
 
   export type Work_schedulesMinAggregateOutputType = {
@@ -20401,6 +20523,9 @@ export namespace Prisma {
     weekly_hours: number | null
     added_at: Date | null
     status: boolean | null
+    late_tolerance_minutes: number | null
+    early_leave_tolerance_minutes: number | null
+    late_leave_tolerance_minutes: number | null
   }
 
   export type Work_schedulesMaxAggregateOutputType = {
@@ -20411,6 +20536,9 @@ export namespace Prisma {
     weekly_hours: number | null
     added_at: Date | null
     status: boolean | null
+    late_tolerance_minutes: number | null
+    early_leave_tolerance_minutes: number | null
+    late_leave_tolerance_minutes: number | null
   }
 
   export type Work_schedulesCountAggregateOutputType = {
@@ -20423,6 +20551,9 @@ export namespace Prisma {
     shifts: number
     added_at: number
     status: number
+    late_tolerance_minutes: number
+    early_leave_tolerance_minutes: number
+    late_leave_tolerance_minutes: number
     _all: number
   }
 
@@ -20431,12 +20562,18 @@ export namespace Prisma {
     id?: true
     weekly_days?: true
     weekly_hours?: true
+    late_tolerance_minutes?: true
+    early_leave_tolerance_minutes?: true
+    late_leave_tolerance_minutes?: true
   }
 
   export type Work_schedulesSumAggregateInputType = {
     id?: true
     weekly_days?: true
     weekly_hours?: true
+    late_tolerance_minutes?: true
+    early_leave_tolerance_minutes?: true
+    late_leave_tolerance_minutes?: true
   }
 
   export type Work_schedulesMinAggregateInputType = {
@@ -20447,6 +20584,9 @@ export namespace Prisma {
     weekly_hours?: true
     added_at?: true
     status?: true
+    late_tolerance_minutes?: true
+    early_leave_tolerance_minutes?: true
+    late_leave_tolerance_minutes?: true
   }
 
   export type Work_schedulesMaxAggregateInputType = {
@@ -20457,6 +20597,9 @@ export namespace Prisma {
     weekly_hours?: true
     added_at?: true
     status?: true
+    late_tolerance_minutes?: true
+    early_leave_tolerance_minutes?: true
+    late_leave_tolerance_minutes?: true
   }
 
   export type Work_schedulesCountAggregateInputType = {
@@ -20469,6 +20612,9 @@ export namespace Prisma {
     shifts?: true
     added_at?: true
     status?: true
+    late_tolerance_minutes?: true
+    early_leave_tolerance_minutes?: true
+    late_leave_tolerance_minutes?: true
     _all?: true
   }
 
@@ -20568,6 +20714,9 @@ export namespace Prisma {
     shifts: JsonValue | null
     added_at: Date
     status: boolean | null
+    late_tolerance_minutes: number | null
+    early_leave_tolerance_minutes: number | null
+    late_leave_tolerance_minutes: number | null
     _count: Work_schedulesCountAggregateOutputType | null
     _avg: Work_schedulesAvgAggregateOutputType | null
     _sum: Work_schedulesSumAggregateOutputType | null
@@ -20599,6 +20748,9 @@ export namespace Prisma {
     shifts?: boolean
     added_at?: boolean
     status?: boolean
+    late_tolerance_minutes?: boolean
+    early_leave_tolerance_minutes?: boolean
+    late_leave_tolerance_minutes?: boolean
     employees?: boolean | work_schedules$employeesArgs<ExtArgs>
     employeeScheduleHistory?: boolean | work_schedules$employeeScheduleHistoryArgs<ExtArgs>
     _count?: boolean | Work_schedulesCountOutputTypeDefaultArgs<ExtArgs>
@@ -20614,6 +20766,9 @@ export namespace Prisma {
     shifts?: boolean
     added_at?: boolean
     status?: boolean
+    late_tolerance_minutes?: boolean
+    early_leave_tolerance_minutes?: boolean
+    late_leave_tolerance_minutes?: boolean
   }, ExtArgs["result"]["work_schedules"]>
 
   export type work_schedulesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -20626,6 +20781,9 @@ export namespace Prisma {
     shifts?: boolean
     added_at?: boolean
     status?: boolean
+    late_tolerance_minutes?: boolean
+    early_leave_tolerance_minutes?: boolean
+    late_leave_tolerance_minutes?: boolean
   }, ExtArgs["result"]["work_schedules"]>
 
   export type work_schedulesSelectScalar = {
@@ -20638,9 +20796,12 @@ export namespace Prisma {
     shifts?: boolean
     added_at?: boolean
     status?: boolean
+    late_tolerance_minutes?: boolean
+    early_leave_tolerance_minutes?: boolean
+    late_leave_tolerance_minutes?: boolean
   }
 
-  export type work_schedulesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "type" | "weekly_days" | "weekly_hours" | "work_days" | "shifts" | "added_at" | "status", ExtArgs["result"]["work_schedules"]>
+  export type work_schedulesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "type" | "weekly_days" | "weekly_hours" | "work_days" | "shifts" | "added_at" | "status" | "late_tolerance_minutes" | "early_leave_tolerance_minutes" | "late_leave_tolerance_minutes", ExtArgs["result"]["work_schedules"]>
   export type work_schedulesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     employees?: boolean | work_schedules$employeesArgs<ExtArgs>
     employeeScheduleHistory?: boolean | work_schedules$employeeScheduleHistoryArgs<ExtArgs>
@@ -20665,6 +20826,9 @@ export namespace Prisma {
       shifts: Prisma.JsonValue | null
       added_at: Date
       status: boolean | null
+      late_tolerance_minutes: number | null
+      early_leave_tolerance_minutes: number | null
+      late_leave_tolerance_minutes: number | null
     }, ExtArgs["result"]["work_schedules"]>
     composites: {}
   }
@@ -21099,6 +21263,9 @@ export namespace Prisma {
     readonly shifts: FieldRef<"work_schedules", 'Json'>
     readonly added_at: FieldRef<"work_schedules", 'DateTime'>
     readonly status: FieldRef<"work_schedules", 'Boolean'>
+    readonly late_tolerance_minutes: FieldRef<"work_schedules", 'Int'>
+    readonly early_leave_tolerance_minutes: FieldRef<"work_schedules", 'Int'>
+    readonly late_leave_tolerance_minutes: FieldRef<"work_schedules", 'Int'>
   }
     
 
@@ -22713,16 +22880,25 @@ export namespace Prisma {
 
   export type DoorsAvgAggregateOutputType = {
     id: number | null
+    branch_id: number | null
+    latitude: number | null
+    longitude: number | null
   }
 
   export type DoorsSumAggregateOutputType = {
     id: number | null
+    branch_id: number | null
+    latitude: number | null
+    longitude: number | null
   }
 
   export type DoorsMinAggregateOutputType = {
     id: number | null
     name: string | null
     status: boolean | null
+    branch_id: number | null
+    latitude: number | null
+    longitude: number | null
     added_at: Date | null
   }
 
@@ -22730,6 +22906,9 @@ export namespace Prisma {
     id: number | null
     name: string | null
     status: boolean | null
+    branch_id: number | null
+    latitude: number | null
+    longitude: number | null
     added_at: Date | null
   }
 
@@ -22737,6 +22916,9 @@ export namespace Prisma {
     id: number
     name: number
     status: number
+    branch_id: number
+    latitude: number
+    longitude: number
     added_at: number
     _all: number
   }
@@ -22744,16 +22926,25 @@ export namespace Prisma {
 
   export type DoorsAvgAggregateInputType = {
     id?: true
+    branch_id?: true
+    latitude?: true
+    longitude?: true
   }
 
   export type DoorsSumAggregateInputType = {
     id?: true
+    branch_id?: true
+    latitude?: true
+    longitude?: true
   }
 
   export type DoorsMinAggregateInputType = {
     id?: true
     name?: true
     status?: true
+    branch_id?: true
+    latitude?: true
+    longitude?: true
     added_at?: true
   }
 
@@ -22761,6 +22952,9 @@ export namespace Prisma {
     id?: true
     name?: true
     status?: true
+    branch_id?: true
+    latitude?: true
+    longitude?: true
     added_at?: true
   }
 
@@ -22768,6 +22962,9 @@ export namespace Prisma {
     id?: true
     name?: true
     status?: true
+    branch_id?: true
+    latitude?: true
+    longitude?: true
     added_at?: true
     _all?: true
   }
@@ -22862,6 +23059,9 @@ export namespace Prisma {
     id: number
     name: string
     status: boolean
+    branch_id: number | null
+    latitude: number | null
+    longitude: number | null
     added_at: Date
     _count: DoorsCountAggregateOutputType | null
     _avg: DoorsAvgAggregateOutputType | null
@@ -22888,7 +23088,11 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     status?: boolean
+    branch_id?: boolean
+    latitude?: boolean
+    longitude?: boolean
     added_at?: boolean
+    branch?: boolean | doors$branchArgs<ExtArgs>
     employees?: boolean | doors$employeesArgs<ExtArgs>
     faceDevices?: boolean | doors$faceDevicesArgs<ExtArgs>
     facePasses?: boolean | doors$facePassesArgs<ExtArgs>
@@ -22900,37 +23104,54 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     status?: boolean
+    branch_id?: boolean
+    latitude?: boolean
+    longitude?: boolean
     added_at?: boolean
+    branch?: boolean | doors$branchArgs<ExtArgs>
   }, ExtArgs["result"]["doors"]>
 
   export type doorsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     status?: boolean
+    branch_id?: boolean
+    latitude?: boolean
+    longitude?: boolean
     added_at?: boolean
+    branch?: boolean | doors$branchArgs<ExtArgs>
   }, ExtArgs["result"]["doors"]>
 
   export type doorsSelectScalar = {
     id?: boolean
     name?: boolean
     status?: boolean
+    branch_id?: boolean
+    latitude?: boolean
+    longitude?: boolean
     added_at?: boolean
   }
 
-  export type doorsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "status" | "added_at", ExtArgs["result"]["doors"]>
+  export type doorsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "status" | "branch_id" | "latitude" | "longitude" | "added_at", ExtArgs["result"]["doors"]>
   export type doorsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    branch?: boolean | doors$branchArgs<ExtArgs>
     employees?: boolean | doors$employeesArgs<ExtArgs>
     faceDevices?: boolean | doors$faceDevicesArgs<ExtArgs>
     facePasses?: boolean | doors$facePassesArgs<ExtArgs>
     doorTasks?: boolean | doors$doorTasksArgs<ExtArgs>
     _count?: boolean | DoorsCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type doorsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type doorsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type doorsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    branch?: boolean | doors$branchArgs<ExtArgs>
+  }
+  export type doorsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    branch?: boolean | doors$branchArgs<ExtArgs>
+  }
 
   export type $doorsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "doors"
     objects: {
+      branch: Prisma.$branchesPayload<ExtArgs> | null
       employees: Prisma.$employeesPayload<ExtArgs>[]
       faceDevices: Prisma.$face_devicesPayload<ExtArgs>[]
       facePasses: Prisma.$face_passesPayload<ExtArgs>[]
@@ -22940,6 +23161,9 @@ export namespace Prisma {
       id: number
       name: string
       status: boolean
+      branch_id: number | null
+      latitude: number | null
+      longitude: number | null
       added_at: Date
     }, ExtArgs["result"]["doors"]>
     composites: {}
@@ -23335,6 +23559,7 @@ export namespace Prisma {
    */
   export interface Prisma__doorsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    branch<T extends doors$branchArgs<ExtArgs> = {}>(args?: Subset<T, doors$branchArgs<ExtArgs>>): Prisma__branchesClient<$Result.GetResult<Prisma.$branchesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     employees<T extends doors$employeesArgs<ExtArgs> = {}>(args?: Subset<T, doors$employeesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employeesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     faceDevices<T extends doors$faceDevicesArgs<ExtArgs> = {}>(args?: Subset<T, doors$faceDevicesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$face_devicesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     facePasses<T extends doors$facePassesArgs<ExtArgs> = {}>(args?: Subset<T, doors$facePassesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$face_passesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -23371,6 +23596,9 @@ export namespace Prisma {
     readonly id: FieldRef<"doors", 'Int'>
     readonly name: FieldRef<"doors", 'String'>
     readonly status: FieldRef<"doors", 'Boolean'>
+    readonly branch_id: FieldRef<"doors", 'Int'>
+    readonly latitude: FieldRef<"doors", 'Float'>
+    readonly longitude: FieldRef<"doors", 'Float'>
     readonly added_at: FieldRef<"doors", 'DateTime'>
   }
     
@@ -23621,6 +23849,10 @@ export namespace Prisma {
      */
     data: doorsCreateManyInput | doorsCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: doorsIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -23691,6 +23923,10 @@ export namespace Prisma {
      * Limit how many doors to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: doorsIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -23757,6 +23993,25 @@ export namespace Prisma {
      * Limit how many doors to delete.
      */
     limit?: number
+  }
+
+  /**
+   * doors.branch
+   */
+  export type doors$branchArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the branches
+     */
+    select?: branchesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the branches
+     */
+    omit?: branchesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: branchesInclude<ExtArgs> | null
+    where?: branchesWhereInput
   }
 
   /**
@@ -29982,6 +30237,9 @@ export namespace Prisma {
     door_id: 'door_id',
     face_devices_id: 'face_devices_id',
     direction: 'direction',
+    source: 'source',
+    latitude: 'latitude',
+    longitude: 'longitude',
     added_at: 'added_at'
   };
 
@@ -30083,6 +30341,7 @@ export namespace Prisma {
     view_mode: 'view_mode',
     personal_menus: 'personal_menus',
     active_branch_id: 'active_branch_id',
+    ignore_gps_check: 'ignore_gps_check',
     added_at: 'added_at'
   };
 
@@ -30122,7 +30381,10 @@ export namespace Prisma {
     work_days: 'work_days',
     shifts: 'shifts',
     added_at: 'added_at',
-    status: 'status'
+    status: 'status',
+    late_tolerance_minutes: 'late_tolerance_minutes',
+    early_leave_tolerance_minutes: 'early_leave_tolerance_minutes',
+    late_leave_tolerance_minutes: 'late_leave_tolerance_minutes'
   };
 
   export type Work_schedulesScalarFieldEnum = (typeof Work_schedulesScalarFieldEnum)[keyof typeof Work_schedulesScalarFieldEnum]
@@ -30145,6 +30407,9 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     status: 'status',
+    branch_id: 'branch_id',
+    latitude: 'latitude',
+    longitude: 'longitude',
     added_at: 'added_at'
   };
 
@@ -30326,20 +30591,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Json'
-   */
-  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
-    
-
-
-  /**
-   * Reference to a field of type 'QueryMode'
-   */
-  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -30350,6 +30601,20 @@ export namespace Prisma {
    * Reference to a field of type 'Float[]'
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
   /**
    * Deep Input Types
@@ -30378,6 +30643,7 @@ export namespace Prisma {
     gates?: GatesListRelationFilter
     vehiclePasses?: Vehicle_passesListRelationFilter
     departments?: DepartmentsListRelationFilter
+    doors?: DoorsListRelationFilter
     addedBy?: XOR<UsersScalarRelationFilter, usersWhereInput>
   }
 
@@ -30400,6 +30666,7 @@ export namespace Prisma {
     gates?: gatesOrderByRelationAggregateInput
     vehiclePasses?: vehicle_passesOrderByRelationAggregateInput
     departments?: departmentsOrderByRelationAggregateInput
+    doors?: doorsOrderByRelationAggregateInput
     addedBy?: usersOrderByWithRelationInput
   }
 
@@ -30425,6 +30692,7 @@ export namespace Prisma {
     gates?: GatesListRelationFilter
     vehiclePasses?: Vehicle_passesListRelationFilter
     departments?: DepartmentsListRelationFilter
+    doors?: DoorsListRelationFilter
     addedBy?: XOR<UsersScalarRelationFilter, usersWhereInput>
   }, "id" | "name">
 
@@ -30809,13 +31077,16 @@ export namespace Prisma {
     identifier?: StringFilter<"face_passes"> | string
     photo?: StringNullableFilter<"face_passes"> | string | null
     employee_id?: IntFilter<"face_passes"> | number
-    door_id?: IntFilter<"face_passes"> | number
+    door_id?: IntNullableFilter<"face_passes"> | number | null
     face_devices_id?: IntNullableFilter<"face_passes"> | number | null
     direction?: StringNullableFilter<"face_passes"> | string | null
+    source?: StringNullableFilter<"face_passes"> | string | null
+    latitude?: FloatNullableFilter<"face_passes"> | number | null
+    longitude?: FloatNullableFilter<"face_passes"> | number | null
     added_at?: DateTimeFilter<"face_passes"> | Date | string
     employee?: XOR<EmployeesScalarRelationFilter, employeesWhereInput>
     faceDevice?: XOR<Face_devicesNullableScalarRelationFilter, face_devicesWhereInput> | null
-    door?: XOR<DoorsScalarRelationFilter, doorsWhereInput>
+    door?: XOR<DoorsNullableScalarRelationFilter, doorsWhereInput> | null
   }
 
   export type face_passesOrderByWithRelationInput = {
@@ -30824,9 +31095,12 @@ export namespace Prisma {
     identifier?: SortOrder
     photo?: SortOrderInput | SortOrder
     employee_id?: SortOrder
-    door_id?: SortOrder
+    door_id?: SortOrderInput | SortOrder
     face_devices_id?: SortOrderInput | SortOrder
     direction?: SortOrderInput | SortOrder
+    source?: SortOrderInput | SortOrder
+    latitude?: SortOrderInput | SortOrder
+    longitude?: SortOrderInput | SortOrder
     added_at?: SortOrder
     employee?: employeesOrderByWithRelationInput
     faceDevice?: face_devicesOrderByWithRelationInput
@@ -30842,13 +31116,16 @@ export namespace Prisma {
     date?: DateTimeFilter<"face_passes"> | Date | string
     photo?: StringNullableFilter<"face_passes"> | string | null
     employee_id?: IntFilter<"face_passes"> | number
-    door_id?: IntFilter<"face_passes"> | number
+    door_id?: IntNullableFilter<"face_passes"> | number | null
     face_devices_id?: IntNullableFilter<"face_passes"> | number | null
     direction?: StringNullableFilter<"face_passes"> | string | null
+    source?: StringNullableFilter<"face_passes"> | string | null
+    latitude?: FloatNullableFilter<"face_passes"> | number | null
+    longitude?: FloatNullableFilter<"face_passes"> | number | null
     added_at?: DateTimeFilter<"face_passes"> | Date | string
     employee?: XOR<EmployeesScalarRelationFilter, employeesWhereInput>
     faceDevice?: XOR<Face_devicesNullableScalarRelationFilter, face_devicesWhereInput> | null
-    door?: XOR<DoorsScalarRelationFilter, doorsWhereInput>
+    door?: XOR<DoorsNullableScalarRelationFilter, doorsWhereInput> | null
   }, "id" | "identifier">
 
   export type face_passesOrderByWithAggregationInput = {
@@ -30857,9 +31134,12 @@ export namespace Prisma {
     identifier?: SortOrder
     photo?: SortOrderInput | SortOrder
     employee_id?: SortOrder
-    door_id?: SortOrder
+    door_id?: SortOrderInput | SortOrder
     face_devices_id?: SortOrderInput | SortOrder
     direction?: SortOrderInput | SortOrder
+    source?: SortOrderInput | SortOrder
+    latitude?: SortOrderInput | SortOrder
+    longitude?: SortOrderInput | SortOrder
     added_at?: SortOrder
     _count?: face_passesCountOrderByAggregateInput
     _avg?: face_passesAvgOrderByAggregateInput
@@ -30877,9 +31157,12 @@ export namespace Prisma {
     identifier?: StringWithAggregatesFilter<"face_passes"> | string
     photo?: StringNullableWithAggregatesFilter<"face_passes"> | string | null
     employee_id?: IntWithAggregatesFilter<"face_passes"> | number
-    door_id?: IntWithAggregatesFilter<"face_passes"> | number
+    door_id?: IntNullableWithAggregatesFilter<"face_passes"> | number | null
     face_devices_id?: IntNullableWithAggregatesFilter<"face_passes"> | number | null
     direction?: StringNullableWithAggregatesFilter<"face_passes"> | string | null
+    source?: StringNullableWithAggregatesFilter<"face_passes"> | string | null
+    latitude?: FloatNullableWithAggregatesFilter<"face_passes"> | number | null
+    longitude?: FloatNullableWithAggregatesFilter<"face_passes"> | number | null
     added_at?: DateTimeWithAggregatesFilter<"face_passes"> | Date | string
   }
 
@@ -31309,6 +31592,7 @@ export namespace Prisma {
     view_mode?: StringFilter<"users"> | string
     personal_menus?: StringNullableListFilter<"users">
     active_branch_id?: IntNullableFilter<"users"> | number | null
+    ignore_gps_check?: BoolFilter<"users"> | boolean
     added_at?: DateTimeFilter<"users"> | Date | string
     employee?: XOR<EmployeesNullableScalarRelationFilter, employeesWhereInput> | null
     menuAccess?: User_menu_accessListRelationFilter
@@ -31335,6 +31619,7 @@ export namespace Prisma {
     view_mode?: SortOrder
     personal_menus?: SortOrder
     active_branch_id?: SortOrderInput | SortOrder
+    ignore_gps_check?: SortOrder
     added_at?: SortOrder
     employee?: employeesOrderByWithRelationInput
     menuAccess?: user_menu_accessOrderByRelationAggregateInput
@@ -31364,6 +31649,7 @@ export namespace Prisma {
     view_mode?: StringFilter<"users"> | string
     personal_menus?: StringNullableListFilter<"users">
     active_branch_id?: IntNullableFilter<"users"> | number | null
+    ignore_gps_check?: BoolFilter<"users"> | boolean
     added_at?: DateTimeFilter<"users"> | Date | string
     employee?: XOR<EmployeesNullableScalarRelationFilter, employeesWhereInput> | null
     menuAccess?: User_menu_accessListRelationFilter
@@ -31390,6 +31676,7 @@ export namespace Prisma {
     view_mode?: SortOrder
     personal_menus?: SortOrder
     active_branch_id?: SortOrderInput | SortOrder
+    ignore_gps_check?: SortOrder
     added_at?: SortOrder
     _count?: usersCountOrderByAggregateInput
     _avg?: usersAvgOrderByAggregateInput
@@ -31417,6 +31704,7 @@ export namespace Prisma {
     view_mode?: StringWithAggregatesFilter<"users"> | string
     personal_menus?: StringNullableListFilter<"users">
     active_branch_id?: IntNullableWithAggregatesFilter<"users"> | number | null
+    ignore_gps_check?: BoolWithAggregatesFilter<"users"> | boolean
     added_at?: DateTimeWithAggregatesFilter<"users"> | Date | string
   }
 
@@ -31567,6 +31855,9 @@ export namespace Prisma {
     shifts?: JsonNullableFilter<"work_schedules">
     added_at?: DateTimeFilter<"work_schedules"> | Date | string
     status?: BoolNullableFilter<"work_schedules"> | boolean | null
+    late_tolerance_minutes?: IntNullableFilter<"work_schedules"> | number | null
+    early_leave_tolerance_minutes?: IntNullableFilter<"work_schedules"> | number | null
+    late_leave_tolerance_minutes?: IntNullableFilter<"work_schedules"> | number | null
     employees?: EmployeesListRelationFilter
     employeeScheduleHistory?: Employee_schedule_historyListRelationFilter
   }
@@ -31581,6 +31872,9 @@ export namespace Prisma {
     shifts?: SortOrderInput | SortOrder
     added_at?: SortOrder
     status?: SortOrderInput | SortOrder
+    late_tolerance_minutes?: SortOrderInput | SortOrder
+    early_leave_tolerance_minutes?: SortOrderInput | SortOrder
+    late_leave_tolerance_minutes?: SortOrderInput | SortOrder
     employees?: employeesOrderByRelationAggregateInput
     employeeScheduleHistory?: employee_schedule_historyOrderByRelationAggregateInput
   }
@@ -31598,6 +31892,9 @@ export namespace Prisma {
     shifts?: JsonNullableFilter<"work_schedules">
     added_at?: DateTimeFilter<"work_schedules"> | Date | string
     status?: BoolNullableFilter<"work_schedules"> | boolean | null
+    late_tolerance_minutes?: IntNullableFilter<"work_schedules"> | number | null
+    early_leave_tolerance_minutes?: IntNullableFilter<"work_schedules"> | number | null
+    late_leave_tolerance_minutes?: IntNullableFilter<"work_schedules"> | number | null
     employees?: EmployeesListRelationFilter
     employeeScheduleHistory?: Employee_schedule_historyListRelationFilter
   }, "id">
@@ -31612,6 +31909,9 @@ export namespace Prisma {
     shifts?: SortOrderInput | SortOrder
     added_at?: SortOrder
     status?: SortOrderInput | SortOrder
+    late_tolerance_minutes?: SortOrderInput | SortOrder
+    early_leave_tolerance_minutes?: SortOrderInput | SortOrder
+    late_leave_tolerance_minutes?: SortOrderInput | SortOrder
     _count?: work_schedulesCountOrderByAggregateInput
     _avg?: work_schedulesAvgOrderByAggregateInput
     _max?: work_schedulesMaxOrderByAggregateInput
@@ -31632,6 +31932,9 @@ export namespace Prisma {
     shifts?: JsonNullableWithAggregatesFilter<"work_schedules">
     added_at?: DateTimeWithAggregatesFilter<"work_schedules"> | Date | string
     status?: BoolNullableWithAggregatesFilter<"work_schedules"> | boolean | null
+    late_tolerance_minutes?: IntNullableWithAggregatesFilter<"work_schedules"> | number | null
+    early_leave_tolerance_minutes?: IntNullableWithAggregatesFilter<"work_schedules"> | number | null
+    late_leave_tolerance_minutes?: IntNullableWithAggregatesFilter<"work_schedules"> | number | null
   }
 
   export type employee_schedule_historyWhereInput = {
@@ -31714,7 +32017,11 @@ export namespace Prisma {
     id?: IntFilter<"doors"> | number
     name?: StringFilter<"doors"> | string
     status?: BoolFilter<"doors"> | boolean
+    branch_id?: IntNullableFilter<"doors"> | number | null
+    latitude?: FloatNullableFilter<"doors"> | number | null
+    longitude?: FloatNullableFilter<"doors"> | number | null
     added_at?: DateTimeFilter<"doors"> | Date | string
+    branch?: XOR<BranchesNullableScalarRelationFilter, branchesWhereInput> | null
     employees?: EmployeesListRelationFilter
     faceDevices?: Face_devicesListRelationFilter
     facePasses?: Face_passesListRelationFilter
@@ -31725,7 +32032,11 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     status?: SortOrder
+    branch_id?: SortOrderInput | SortOrder
+    latitude?: SortOrderInput | SortOrder
+    longitude?: SortOrderInput | SortOrder
     added_at?: SortOrder
+    branch?: branchesOrderByWithRelationInput
     employees?: employeesOrderByRelationAggregateInput
     faceDevices?: face_devicesOrderByRelationAggregateInput
     facePasses?: face_passesOrderByRelationAggregateInput
@@ -31739,7 +32050,11 @@ export namespace Prisma {
     OR?: doorsWhereInput[]
     NOT?: doorsWhereInput | doorsWhereInput[]
     status?: BoolFilter<"doors"> | boolean
+    branch_id?: IntNullableFilter<"doors"> | number | null
+    latitude?: FloatNullableFilter<"doors"> | number | null
+    longitude?: FloatNullableFilter<"doors"> | number | null
     added_at?: DateTimeFilter<"doors"> | Date | string
+    branch?: XOR<BranchesNullableScalarRelationFilter, branchesWhereInput> | null
     employees?: EmployeesListRelationFilter
     faceDevices?: Face_devicesListRelationFilter
     facePasses?: Face_passesListRelationFilter
@@ -31750,6 +32065,9 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     status?: SortOrder
+    branch_id?: SortOrderInput | SortOrder
+    latitude?: SortOrderInput | SortOrder
+    longitude?: SortOrderInput | SortOrder
     added_at?: SortOrder
     _count?: doorsCountOrderByAggregateInput
     _avg?: doorsAvgOrderByAggregateInput
@@ -31765,6 +32083,9 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"doors"> | number
     name?: StringWithAggregatesFilter<"doors"> | string
     status?: BoolWithAggregatesFilter<"doors"> | boolean
+    branch_id?: IntNullableWithAggregatesFilter<"doors"> | number | null
+    latitude?: FloatNullableWithAggregatesFilter<"doors"> | number | null
+    longitude?: FloatNullableWithAggregatesFilter<"doors"> | number | null
     added_at?: DateTimeWithAggregatesFilter<"doors"> | Date | string
   }
 
@@ -32210,6 +32531,7 @@ export namespace Prisma {
     gates?: gatesCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesCreateNestedManyWithoutBranchInput
     departments?: departmentsCreateNestedManyWithoutBranchInput
+    doors?: doorsCreateNestedManyWithoutBranchInput
     addedBy: usersCreateNestedOneWithoutBranchesInput
   }
 
@@ -32231,6 +32553,7 @@ export namespace Prisma {
     gates?: gatesUncheckedCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
     departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
+    doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesUpdateInput = {
@@ -32249,6 +32572,7 @@ export namespace Prisma {
     gates?: gatesUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUpdateManyWithoutBranchNestedInput
     departments?: departmentsUpdateManyWithoutBranchNestedInput
+    doors?: doorsUpdateManyWithoutBranchNestedInput
     addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
   }
 
@@ -32270,6 +32594,7 @@ export namespace Prisma {
     gates?: gatesUncheckedUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
+    doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesCreateManyInput = {
@@ -32670,10 +32995,13 @@ export namespace Prisma {
     identifier: string
     photo?: string | null
     direction?: string | null
+    source?: string | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
     employee: employeesCreateNestedOneWithoutFacePassesInput
     faceDevice?: face_devicesCreateNestedOneWithoutFacePassesInput
-    door: doorsCreateNestedOneWithoutFacePassesInput
+    door?: doorsCreateNestedOneWithoutFacePassesInput
   }
 
   export type face_passesUncheckedCreateInput = {
@@ -32682,9 +33010,12 @@ export namespace Prisma {
     identifier: string
     photo?: string | null
     employee_id: number
-    door_id: number
+    door_id?: number | null
     face_devices_id?: number | null
     direction?: string | null
+    source?: string | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
   }
 
@@ -32693,10 +33024,13 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     direction?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneRequiredWithoutFacePassesNestedInput
     faceDevice?: face_devicesUpdateOneWithoutFacePassesNestedInput
-    door?: doorsUpdateOneRequiredWithoutFacePassesNestedInput
+    door?: doorsUpdateOneWithoutFacePassesNestedInput
   }
 
   export type face_passesUncheckedUpdateInput = {
@@ -32705,9 +33039,12 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     employee_id?: IntFieldUpdateOperationsInput | number
-    door_id?: IntFieldUpdateOperationsInput | number
+    door_id?: NullableIntFieldUpdateOperationsInput | number | null
     face_devices_id?: NullableIntFieldUpdateOperationsInput | number | null
     direction?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -32717,9 +33054,12 @@ export namespace Prisma {
     identifier: string
     photo?: string | null
     employee_id: number
-    door_id: number
+    door_id?: number | null
     face_devices_id?: number | null
     direction?: string | null
+    source?: string | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
   }
 
@@ -32728,6 +33068,9 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     direction?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -32737,9 +33080,12 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     employee_id?: IntFieldUpdateOperationsInput | number
-    door_id?: IntFieldUpdateOperationsInput | number
+    door_id?: NullableIntFieldUpdateOperationsInput | number | null
     face_devices_id?: NullableIntFieldUpdateOperationsInput | number | null
     direction?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -33173,6 +33519,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -33199,6 +33546,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -33222,6 +33570,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -33248,6 +33597,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
@@ -33273,6 +33623,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
   }
 
@@ -33290,6 +33641,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -33309,6 +33661,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -33446,6 +33799,9 @@ export namespace Prisma {
     shifts?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     status?: boolean | null
+    late_tolerance_minutes?: number | null
+    early_leave_tolerance_minutes?: number | null
+    late_leave_tolerance_minutes?: number | null
     employees?: employeesCreateNestedManyWithoutWorkScheduleInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutWorkScheduleInput
   }
@@ -33460,6 +33816,9 @@ export namespace Prisma {
     shifts?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     status?: boolean | null
+    late_tolerance_minutes?: number | null
+    early_leave_tolerance_minutes?: number | null
+    late_leave_tolerance_minutes?: number | null
     employees?: employeesUncheckedCreateNestedManyWithoutWorkScheduleInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutWorkScheduleInput
   }
@@ -33473,6 +33832,9 @@ export namespace Prisma {
     shifts?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     employees?: employeesUpdateManyWithoutWorkScheduleNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutWorkScheduleNestedInput
   }
@@ -33487,6 +33849,9 @@ export namespace Prisma {
     shifts?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     employees?: employeesUncheckedUpdateManyWithoutWorkScheduleNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutWorkScheduleNestedInput
   }
@@ -33501,6 +33866,9 @@ export namespace Prisma {
     shifts?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     status?: boolean | null
+    late_tolerance_minutes?: number | null
+    early_leave_tolerance_minutes?: number | null
+    late_leave_tolerance_minutes?: number | null
   }
 
   export type work_schedulesUpdateManyMutationInput = {
@@ -33512,6 +33880,9 @@ export namespace Prisma {
     shifts?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type work_schedulesUncheckedUpdateManyInput = {
@@ -33524,6 +33895,9 @@ export namespace Prisma {
     shifts?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type employee_schedule_historyCreateInput = {
@@ -33593,7 +33967,10 @@ export namespace Prisma {
   export type doorsCreateInput = {
     name: string
     status?: boolean
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
+    branch?: branchesCreateNestedOneWithoutDoorsInput
     employees?: employeesCreateNestedManyWithoutDoorsInput
     faceDevices?: face_devicesCreateNestedManyWithoutDoorInput
     facePasses?: face_passesCreateNestedManyWithoutDoorInput
@@ -33604,6 +33981,9 @@ export namespace Prisma {
     id?: number
     name: string
     status?: boolean
+    branch_id?: number | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
     employees?: employeesUncheckedCreateNestedManyWithoutDoorsInput
     faceDevices?: face_devicesUncheckedCreateNestedManyWithoutDoorInput
@@ -33614,7 +33994,10 @@ export namespace Prisma {
   export type doorsUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    branch?: branchesUpdateOneWithoutDoorsNestedInput
     employees?: employeesUpdateManyWithoutDoorsNestedInput
     faceDevices?: face_devicesUpdateManyWithoutDoorNestedInput
     facePasses?: face_passesUpdateManyWithoutDoorNestedInput
@@ -33625,6 +34008,9 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
+    branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employees?: employeesUncheckedUpdateManyWithoutDoorsNestedInput
     faceDevices?: face_devicesUncheckedUpdateManyWithoutDoorNestedInput
@@ -33636,12 +34022,17 @@ export namespace Prisma {
     id?: number
     name: string
     status?: boolean
+    branch_id?: number | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
   }
 
   export type doorsUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -33649,6 +34040,9 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
+    branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -34196,6 +34590,12 @@ export namespace Prisma {
     none?: departmentsWhereInput
   }
 
+  export type DoorsListRelationFilter = {
+    every?: doorsWhereInput
+    some?: doorsWhereInput
+    none?: doorsWhereInput
+  }
+
   export type UsersScalarRelationFilter = {
     is?: usersWhereInput
     isNot?: usersWhereInput
@@ -34223,6 +34623,10 @@ export namespace Prisma {
   }
 
   export type departmentsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type doorsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -34535,12 +34939,6 @@ export namespace Prisma {
     none?: face_passesWhereInput
   }
 
-  export type DoorsListRelationFilter = {
-    every?: doorsWhereInput
-    some?: doorsWhereInput
-    none?: doorsWhereInput
-  }
-
   export type Employee_door_tasksListRelationFilter = {
     every?: employee_door_tasksWhereInput
     some?: employee_door_tasksWhereInput
@@ -34567,10 +34965,6 @@ export namespace Prisma {
   }
 
   export type face_passesOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type doorsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -34686,6 +35080,17 @@ export namespace Prisma {
     _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type EmployeesScalarRelationFilter = {
     is?: employeesWhereInput
     isNot?: employeesWhereInput
@@ -34696,9 +35101,9 @@ export namespace Prisma {
     isNot?: face_devicesWhereInput | null
   }
 
-  export type DoorsScalarRelationFilter = {
-    is?: doorsWhereInput
-    isNot?: doorsWhereInput
+  export type DoorsNullableScalarRelationFilter = {
+    is?: doorsWhereInput | null
+    isNot?: doorsWhereInput | null
   }
 
   export type face_passesCountOrderByAggregateInput = {
@@ -34710,6 +35115,9 @@ export namespace Prisma {
     door_id?: SortOrder
     face_devices_id?: SortOrder
     direction?: SortOrder
+    source?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
     added_at?: SortOrder
   }
 
@@ -34718,6 +35126,8 @@ export namespace Prisma {
     employee_id?: SortOrder
     door_id?: SortOrder
     face_devices_id?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
   }
 
   export type face_passesMaxOrderByAggregateInput = {
@@ -34729,6 +35139,9 @@ export namespace Prisma {
     door_id?: SortOrder
     face_devices_id?: SortOrder
     direction?: SortOrder
+    source?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
     added_at?: SortOrder
   }
 
@@ -34741,6 +35154,9 @@ export namespace Prisma {
     door_id?: SortOrder
     face_devices_id?: SortOrder
     direction?: SortOrder
+    source?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
     added_at?: SortOrder
   }
 
@@ -34749,6 +35165,24 @@ export namespace Prisma {
     employee_id?: SortOrder
     door_id?: SortOrder
     face_devices_id?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type holidaysCountOrderByAggregateInput = {
@@ -35085,6 +35519,7 @@ export namespace Prisma {
     view_mode?: SortOrder
     personal_menus?: SortOrder
     active_branch_id?: SortOrder
+    ignore_gps_check?: SortOrder
     added_at?: SortOrder
   }
 
@@ -35109,6 +35544,7 @@ export namespace Prisma {
     sidebar?: SortOrder
     view_mode?: SortOrder
     active_branch_id?: SortOrder
+    ignore_gps_check?: SortOrder
     added_at?: SortOrder
   }
 
@@ -35125,6 +35561,7 @@ export namespace Prisma {
     sidebar?: SortOrder
     view_mode?: SortOrder
     active_branch_id?: SortOrder
+    ignore_gps_check?: SortOrder
     added_at?: SortOrder
   }
 
@@ -35272,12 +35709,18 @@ export namespace Prisma {
     shifts?: SortOrder
     added_at?: SortOrder
     status?: SortOrder
+    late_tolerance_minutes?: SortOrder
+    early_leave_tolerance_minutes?: SortOrder
+    late_leave_tolerance_minutes?: SortOrder
   }
 
   export type work_schedulesAvgOrderByAggregateInput = {
     id?: SortOrder
     weekly_days?: SortOrder
     weekly_hours?: SortOrder
+    late_tolerance_minutes?: SortOrder
+    early_leave_tolerance_minutes?: SortOrder
+    late_leave_tolerance_minutes?: SortOrder
   }
 
   export type work_schedulesMaxOrderByAggregateInput = {
@@ -35288,6 +35731,9 @@ export namespace Prisma {
     weekly_hours?: SortOrder
     added_at?: SortOrder
     status?: SortOrder
+    late_tolerance_minutes?: SortOrder
+    early_leave_tolerance_minutes?: SortOrder
+    late_leave_tolerance_minutes?: SortOrder
   }
 
   export type work_schedulesMinOrderByAggregateInput = {
@@ -35298,12 +35744,18 @@ export namespace Prisma {
     weekly_hours?: SortOrder
     added_at?: SortOrder
     status?: SortOrder
+    late_tolerance_minutes?: SortOrder
+    early_leave_tolerance_minutes?: SortOrder
+    late_leave_tolerance_minutes?: SortOrder
   }
 
   export type work_schedulesSumOrderByAggregateInput = {
     id?: SortOrder
     weekly_days?: SortOrder
     weekly_hours?: SortOrder
+    late_tolerance_minutes?: SortOrder
+    early_leave_tolerance_minutes?: SortOrder
+    late_leave_tolerance_minutes?: SortOrder
   }
   export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
     | PatchUndefined<
@@ -35395,17 +35847,26 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     status?: SortOrder
+    branch_id?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
     added_at?: SortOrder
   }
 
   export type doorsAvgOrderByAggregateInput = {
     id?: SortOrder
+    branch_id?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
   }
 
   export type doorsMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     status?: SortOrder
+    branch_id?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
     added_at?: SortOrder
   }
 
@@ -35413,11 +35874,22 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     status?: SortOrder
+    branch_id?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
     added_at?: SortOrder
   }
 
   export type doorsSumOrderByAggregateInput = {
     id?: SortOrder
+    branch_id?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+  }
+
+  export type DoorsScalarRelationFilter = {
+    is?: doorsWhereInput
+    isNot?: doorsWhereInput
   }
 
   export type face_devicesCountOrderByAggregateInput = {
@@ -35733,6 +36205,13 @@ export namespace Prisma {
     connect?: departmentsWhereUniqueInput | departmentsWhereUniqueInput[]
   }
 
+  export type doorsCreateNestedManyWithoutBranchInput = {
+    create?: XOR<doorsCreateWithoutBranchInput, doorsUncheckedCreateWithoutBranchInput> | doorsCreateWithoutBranchInput[] | doorsUncheckedCreateWithoutBranchInput[]
+    connectOrCreate?: doorsCreateOrConnectWithoutBranchInput | doorsCreateOrConnectWithoutBranchInput[]
+    createMany?: doorsCreateManyBranchInputEnvelope
+    connect?: doorsWhereUniqueInput | doorsWhereUniqueInput[]
+  }
+
   export type usersCreateNestedOneWithoutBranchesInput = {
     create?: XOR<usersCreateWithoutBranchesInput, usersUncheckedCreateWithoutBranchesInput>
     connectOrCreate?: usersCreateOrConnectWithoutBranchesInput
@@ -35772,6 +36251,13 @@ export namespace Prisma {
     connectOrCreate?: departmentsCreateOrConnectWithoutBranchInput | departmentsCreateOrConnectWithoutBranchInput[]
     createMany?: departmentsCreateManyBranchInputEnvelope
     connect?: departmentsWhereUniqueInput | departmentsWhereUniqueInput[]
+  }
+
+  export type doorsUncheckedCreateNestedManyWithoutBranchInput = {
+    create?: XOR<doorsCreateWithoutBranchInput, doorsUncheckedCreateWithoutBranchInput> | doorsCreateWithoutBranchInput[] | doorsUncheckedCreateWithoutBranchInput[]
+    connectOrCreate?: doorsCreateOrConnectWithoutBranchInput | doorsCreateOrConnectWithoutBranchInput[]
+    createMany?: doorsCreateManyBranchInputEnvelope
+    connect?: doorsWhereUniqueInput | doorsWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -35870,6 +36356,20 @@ export namespace Prisma {
     deleteMany?: departmentsScalarWhereInput | departmentsScalarWhereInput[]
   }
 
+  export type doorsUpdateManyWithoutBranchNestedInput = {
+    create?: XOR<doorsCreateWithoutBranchInput, doorsUncheckedCreateWithoutBranchInput> | doorsCreateWithoutBranchInput[] | doorsUncheckedCreateWithoutBranchInput[]
+    connectOrCreate?: doorsCreateOrConnectWithoutBranchInput | doorsCreateOrConnectWithoutBranchInput[]
+    upsert?: doorsUpsertWithWhereUniqueWithoutBranchInput | doorsUpsertWithWhereUniqueWithoutBranchInput[]
+    createMany?: doorsCreateManyBranchInputEnvelope
+    set?: doorsWhereUniqueInput | doorsWhereUniqueInput[]
+    disconnect?: doorsWhereUniqueInput | doorsWhereUniqueInput[]
+    delete?: doorsWhereUniqueInput | doorsWhereUniqueInput[]
+    connect?: doorsWhereUniqueInput | doorsWhereUniqueInput[]
+    update?: doorsUpdateWithWhereUniqueWithoutBranchInput | doorsUpdateWithWhereUniqueWithoutBranchInput[]
+    updateMany?: doorsUpdateManyWithWhereWithoutBranchInput | doorsUpdateManyWithWhereWithoutBranchInput[]
+    deleteMany?: doorsScalarWhereInput | doorsScalarWhereInput[]
+  }
+
   export type usersUpdateOneRequiredWithoutBranchesNestedInput = {
     create?: XOR<usersCreateWithoutBranchesInput, usersUncheckedCreateWithoutBranchesInput>
     connectOrCreate?: usersCreateOrConnectWithoutBranchesInput
@@ -35962,6 +36462,20 @@ export namespace Prisma {
     update?: departmentsUpdateWithWhereUniqueWithoutBranchInput | departmentsUpdateWithWhereUniqueWithoutBranchInput[]
     updateMany?: departmentsUpdateManyWithWhereWithoutBranchInput | departmentsUpdateManyWithWhereWithoutBranchInput[]
     deleteMany?: departmentsScalarWhereInput | departmentsScalarWhereInput[]
+  }
+
+  export type doorsUncheckedUpdateManyWithoutBranchNestedInput = {
+    create?: XOR<doorsCreateWithoutBranchInput, doorsUncheckedCreateWithoutBranchInput> | doorsCreateWithoutBranchInput[] | doorsUncheckedCreateWithoutBranchInput[]
+    connectOrCreate?: doorsCreateOrConnectWithoutBranchInput | doorsCreateOrConnectWithoutBranchInput[]
+    upsert?: doorsUpsertWithWhereUniqueWithoutBranchInput | doorsUpsertWithWhereUniqueWithoutBranchInput[]
+    createMany?: doorsCreateManyBranchInputEnvelope
+    set?: doorsWhereUniqueInput | doorsWhereUniqueInput[]
+    disconnect?: doorsWhereUniqueInput | doorsWhereUniqueInput[]
+    delete?: doorsWhereUniqueInput | doorsWhereUniqueInput[]
+    connect?: doorsWhereUniqueInput | doorsWhereUniqueInput[]
+    update?: doorsUpdateWithWhereUniqueWithoutBranchInput | doorsUpdateWithWhereUniqueWithoutBranchInput[]
+    updateMany?: doorsUpdateManyWithWhereWithoutBranchInput | doorsUpdateManyWithWhereWithoutBranchInput[]
+    deleteMany?: doorsScalarWhereInput | doorsScalarWhereInput[]
   }
 
   export type employment_ordersCreateNestedManyWithoutDepartmentInput = {
@@ -36538,6 +37052,14 @@ export namespace Prisma {
     connect?: doorsWhereUniqueInput
   }
 
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type employeesUpdateOneRequiredWithoutFacePassesNestedInput = {
     create?: XOR<employeesCreateWithoutFacePassesInput, employeesUncheckedCreateWithoutFacePassesInput>
     connectOrCreate?: employeesCreateOrConnectWithoutFacePassesInput
@@ -36556,10 +37078,12 @@ export namespace Prisma {
     update?: XOR<XOR<face_devicesUpdateToOneWithWhereWithoutFacePassesInput, face_devicesUpdateWithoutFacePassesInput>, face_devicesUncheckedUpdateWithoutFacePassesInput>
   }
 
-  export type doorsUpdateOneRequiredWithoutFacePassesNestedInput = {
+  export type doorsUpdateOneWithoutFacePassesNestedInput = {
     create?: XOR<doorsCreateWithoutFacePassesInput, doorsUncheckedCreateWithoutFacePassesInput>
     connectOrCreate?: doorsCreateOrConnectWithoutFacePassesInput
     upsert?: doorsUpsertWithoutFacePassesInput
+    disconnect?: doorsWhereInput | boolean
+    delete?: doorsWhereInput | boolean
     connect?: doorsWhereUniqueInput
     update?: XOR<XOR<doorsUpdateToOneWithWhereWithoutFacePassesInput, doorsUpdateWithoutFacePassesInput>, doorsUncheckedUpdateWithoutFacePassesInput>
   }
@@ -37271,6 +37795,12 @@ export namespace Prisma {
     update?: XOR<XOR<usersUpdateToOneWithWhereWithoutEmployeeScheduleHistoryInput, usersUpdateWithoutEmployeeScheduleHistoryInput>, usersUncheckedUpdateWithoutEmployeeScheduleHistoryInput>
   }
 
+  export type branchesCreateNestedOneWithoutDoorsInput = {
+    create?: XOR<branchesCreateWithoutDoorsInput, branchesUncheckedCreateWithoutDoorsInput>
+    connectOrCreate?: branchesCreateOrConnectWithoutDoorsInput
+    connect?: branchesWhereUniqueInput
+  }
+
   export type employeesCreateNestedManyWithoutDoorsInput = {
     create?: XOR<employeesCreateWithoutDoorsInput, employeesUncheckedCreateWithoutDoorsInput> | employeesCreateWithoutDoorsInput[] | employeesUncheckedCreateWithoutDoorsInput[]
     connectOrCreate?: employeesCreateOrConnectWithoutDoorsInput | employeesCreateOrConnectWithoutDoorsInput[]
@@ -37323,6 +37853,16 @@ export namespace Prisma {
     connectOrCreate?: employee_door_tasksCreateOrConnectWithoutDoorInput | employee_door_tasksCreateOrConnectWithoutDoorInput[]
     createMany?: employee_door_tasksCreateManyDoorInputEnvelope
     connect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
+  }
+
+  export type branchesUpdateOneWithoutDoorsNestedInput = {
+    create?: XOR<branchesCreateWithoutDoorsInput, branchesUncheckedCreateWithoutDoorsInput>
+    connectOrCreate?: branchesCreateOrConnectWithoutDoorsInput
+    upsert?: branchesUpsertWithoutDoorsInput
+    disconnect?: branchesWhereInput | boolean
+    delete?: branchesWhereInput | boolean
+    connect?: branchesWhereUniqueInput
+    update?: XOR<XOR<branchesUpdateToOneWithWhereWithoutDoorsInput, branchesUpdateWithoutDoorsInput>, branchesUncheckedUpdateWithoutDoorsInput>
   }
 
   export type employeesUpdateManyWithoutDoorsNestedInput = {
@@ -37944,6 +38484,22 @@ export namespace Prisma {
     _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
   export type NestedUuidFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -38259,6 +38815,41 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type doorsCreateWithoutBranchInput = {
+    name: string
+    status?: boolean
+    latitude?: number | null
+    longitude?: number | null
+    added_at?: Date | string
+    employees?: employeesCreateNestedManyWithoutDoorsInput
+    faceDevices?: face_devicesCreateNestedManyWithoutDoorInput
+    facePasses?: face_passesCreateNestedManyWithoutDoorInput
+    doorTasks?: employee_door_tasksCreateNestedManyWithoutDoorInput
+  }
+
+  export type doorsUncheckedCreateWithoutBranchInput = {
+    id?: number
+    name: string
+    status?: boolean
+    latitude?: number | null
+    longitude?: number | null
+    added_at?: Date | string
+    employees?: employeesUncheckedCreateNestedManyWithoutDoorsInput
+    faceDevices?: face_devicesUncheckedCreateNestedManyWithoutDoorInput
+    facePasses?: face_passesUncheckedCreateNestedManyWithoutDoorInput
+    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutDoorInput
+  }
+
+  export type doorsCreateOrConnectWithoutBranchInput = {
+    where: doorsWhereUniqueInput
+    create: XOR<doorsCreateWithoutBranchInput, doorsUncheckedCreateWithoutBranchInput>
+  }
+
+  export type doorsCreateManyBranchInputEnvelope = {
+    data: doorsCreateManyBranchInput | doorsCreateManyBranchInput[]
+    skipDuplicates?: boolean
+  }
+
   export type usersCreateWithoutBranchesInput = {
     username: string
     password: string
@@ -38273,6 +38864,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -38298,6 +38890,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -38551,6 +39144,35 @@ export namespace Prisma {
     added_at?: DateTimeFilter<"departments"> | Date | string
   }
 
+  export type doorsUpsertWithWhereUniqueWithoutBranchInput = {
+    where: doorsWhereUniqueInput
+    update: XOR<doorsUpdateWithoutBranchInput, doorsUncheckedUpdateWithoutBranchInput>
+    create: XOR<doorsCreateWithoutBranchInput, doorsUncheckedCreateWithoutBranchInput>
+  }
+
+  export type doorsUpdateWithWhereUniqueWithoutBranchInput = {
+    where: doorsWhereUniqueInput
+    data: XOR<doorsUpdateWithoutBranchInput, doorsUncheckedUpdateWithoutBranchInput>
+  }
+
+  export type doorsUpdateManyWithWhereWithoutBranchInput = {
+    where: doorsScalarWhereInput
+    data: XOR<doorsUpdateManyMutationInput, doorsUncheckedUpdateManyWithoutBranchInput>
+  }
+
+  export type doorsScalarWhereInput = {
+    AND?: doorsScalarWhereInput | doorsScalarWhereInput[]
+    OR?: doorsScalarWhereInput[]
+    NOT?: doorsScalarWhereInput | doorsScalarWhereInput[]
+    id?: IntFilter<"doors"> | number
+    name?: StringFilter<"doors"> | string
+    status?: BoolFilter<"doors"> | boolean
+    branch_id?: IntNullableFilter<"doors"> | number | null
+    latitude?: FloatNullableFilter<"doors"> | number | null
+    longitude?: FloatNullableFilter<"doors"> | number | null
+    added_at?: DateTimeFilter<"doors"> | Date | string
+  }
+
   export type usersUpsertWithoutBranchesInput = {
     update: XOR<usersUpdateWithoutBranchesInput, usersUncheckedUpdateWithoutBranchesInput>
     create: XOR<usersCreateWithoutBranchesInput, usersUncheckedCreateWithoutBranchesInput>
@@ -38576,6 +39198,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -38601,6 +39224,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
@@ -38732,6 +39356,7 @@ export namespace Prisma {
     employees?: employeesCreateNestedManyWithoutBranchInput
     gates?: gatesCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesCreateNestedManyWithoutBranchInput
+    doors?: doorsCreateNestedManyWithoutBranchInput
     addedBy: usersCreateNestedOneWithoutBranchesInput
   }
 
@@ -38752,6 +39377,7 @@ export namespace Prisma {
     employees?: employeesUncheckedCreateNestedManyWithoutBranchInput
     gates?: gatesUncheckedCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
+    doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesCreateOrConnectWithoutDepartmentsInput = {
@@ -38817,6 +39443,7 @@ export namespace Prisma {
     employees?: employeesUpdateManyWithoutBranchNestedInput
     gates?: gatesUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUpdateManyWithoutBranchNestedInput
+    doors?: doorsUpdateManyWithoutBranchNestedInput
     addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
   }
 
@@ -38837,6 +39464,7 @@ export namespace Prisma {
     employees?: employeesUncheckedUpdateManyWithoutBranchNestedInput
     gates?: gatesUncheckedUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
+    doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesCreateWithoutEmploymentOrdersInput = {
@@ -38854,6 +39482,7 @@ export namespace Prisma {
     gates?: gatesCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesCreateNestedManyWithoutBranchInput
     departments?: departmentsCreateNestedManyWithoutBranchInput
+    doors?: doorsCreateNestedManyWithoutBranchInput
     addedBy: usersCreateNestedOneWithoutBranchesInput
   }
 
@@ -38874,6 +39503,7 @@ export namespace Prisma {
     gates?: gatesUncheckedCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
     departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
+    doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesCreateOrConnectWithoutEmploymentOrdersInput = {
@@ -39019,6 +39649,7 @@ export namespace Prisma {
     gates?: gatesUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUpdateManyWithoutBranchNestedInput
     departments?: departmentsUpdateManyWithoutBranchNestedInput
+    doors?: doorsUpdateManyWithoutBranchNestedInput
     addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
   }
 
@@ -39039,6 +39670,7 @@ export namespace Prisma {
     gates?: gatesUncheckedUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
+    doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type departmentsUpsertWithoutEmploymentOrdersInput = {
@@ -39186,6 +39818,7 @@ export namespace Prisma {
     gates?: gatesCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesCreateNestedManyWithoutBranchInput
     departments?: departmentsCreateNestedManyWithoutBranchInput
+    doors?: doorsCreateNestedManyWithoutBranchInput
     addedBy: usersCreateNestedOneWithoutBranchesInput
   }
 
@@ -39206,6 +39839,7 @@ export namespace Prisma {
     gates?: gatesUncheckedCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
     departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
+    doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesCreateOrConnectWithoutEmployeesInput = {
@@ -39264,6 +39898,9 @@ export namespace Prisma {
     shifts?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     status?: boolean | null
+    late_tolerance_minutes?: number | null
+    early_leave_tolerance_minutes?: number | null
+    late_leave_tolerance_minutes?: number | null
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutWorkScheduleInput
   }
 
@@ -39277,6 +39914,9 @@ export namespace Prisma {
     shifts?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     status?: boolean | null
+    late_tolerance_minutes?: number | null
+    early_leave_tolerance_minutes?: number | null
+    late_leave_tolerance_minutes?: number | null
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutWorkScheduleInput
   }
 
@@ -39383,9 +40023,12 @@ export namespace Prisma {
     identifier: string
     photo?: string | null
     direction?: string | null
+    source?: string | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
     faceDevice?: face_devicesCreateNestedOneWithoutFacePassesInput
-    door: doorsCreateNestedOneWithoutFacePassesInput
+    door?: doorsCreateNestedOneWithoutFacePassesInput
   }
 
   export type face_passesUncheckedCreateWithoutEmployeeInput = {
@@ -39393,9 +40036,12 @@ export namespace Prisma {
     date: Date | string
     identifier: string
     photo?: string | null
-    door_id: number
+    door_id?: number | null
     face_devices_id?: number | null
     direction?: string | null
+    source?: string | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
   }
 
@@ -39412,7 +40058,10 @@ export namespace Prisma {
   export type doorsCreateWithoutEmployeesInput = {
     name: string
     status?: boolean
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
+    branch?: branchesCreateNestedOneWithoutDoorsInput
     faceDevices?: face_devicesCreateNestedManyWithoutDoorInput
     facePasses?: face_passesCreateNestedManyWithoutDoorInput
     doorTasks?: employee_door_tasksCreateNestedManyWithoutDoorInput
@@ -39422,6 +40071,9 @@ export namespace Prisma {
     id?: number
     name: string
     status?: boolean
+    branch_id?: number | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
     faceDevices?: face_devicesUncheckedCreateNestedManyWithoutDoorInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutDoorInput
@@ -39478,6 +40130,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
     sessions?: sessionsCreateNestedManyWithoutUserInput
@@ -39502,6 +40155,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -39531,6 +40185,7 @@ export namespace Prisma {
     gates?: gatesCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesCreateNestedManyWithoutBranchInput
     departments?: departmentsCreateNestedManyWithoutBranchInput
+    doors?: doorsCreateNestedManyWithoutBranchInput
     addedBy: usersCreateNestedOneWithoutBranchesInput
   }
 
@@ -39551,6 +40206,7 @@ export namespace Prisma {
     gates?: gatesUncheckedCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
     departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
+    doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesCreateOrConnectWithoutDirectorInput = {
@@ -39589,6 +40245,7 @@ export namespace Prisma {
     gates?: gatesUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUpdateManyWithoutBranchNestedInput
     departments?: departmentsUpdateManyWithoutBranchNestedInput
+    doors?: doorsUpdateManyWithoutBranchNestedInput
     addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
   }
 
@@ -39609,6 +40266,7 @@ export namespace Prisma {
     gates?: gatesUncheckedUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
+    doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type departmentsUpsertWithoutEmployeesInput = {
@@ -39685,6 +40343,9 @@ export namespace Prisma {
     shifts?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutWorkScheduleNestedInput
   }
 
@@ -39698,6 +40359,9 @@ export namespace Prisma {
     shifts?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutWorkScheduleNestedInput
   }
 
@@ -39803,9 +40467,12 @@ export namespace Prisma {
     identifier?: StringFilter<"face_passes"> | string
     photo?: StringNullableFilter<"face_passes"> | string | null
     employee_id?: IntFilter<"face_passes"> | number
-    door_id?: IntFilter<"face_passes"> | number
+    door_id?: IntNullableFilter<"face_passes"> | number | null
     face_devices_id?: IntNullableFilter<"face_passes"> | number | null
     direction?: StringNullableFilter<"face_passes"> | string | null
+    source?: StringNullableFilter<"face_passes"> | string | null
+    latitude?: FloatNullableFilter<"face_passes"> | number | null
+    longitude?: FloatNullableFilter<"face_passes"> | number | null
     added_at?: DateTimeFilter<"face_passes"> | Date | string
   }
 
@@ -39823,16 +40490,6 @@ export namespace Prisma {
   export type doorsUpdateManyWithWhereWithoutEmployeesInput = {
     where: doorsScalarWhereInput
     data: XOR<doorsUpdateManyMutationInput, doorsUncheckedUpdateManyWithoutEmployeesInput>
-  }
-
-  export type doorsScalarWhereInput = {
-    AND?: doorsScalarWhereInput | doorsScalarWhereInput[]
-    OR?: doorsScalarWhereInput[]
-    NOT?: doorsScalarWhereInput | doorsScalarWhereInput[]
-    id?: IntFilter<"doors"> | number
-    name?: StringFilter<"doors"> | string
-    status?: BoolFilter<"doors"> | boolean
-    added_at?: DateTimeFilter<"doors"> | Date | string
   }
 
   export type employee_door_tasksUpsertWithWhereUniqueWithoutEmployeeInput = {
@@ -39891,6 +40548,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
     sessions?: sessionsUpdateManyWithoutUserNestedInput
@@ -39915,6 +40573,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
@@ -40065,7 +40724,10 @@ export namespace Prisma {
   export type doorsCreateWithoutFacePassesInput = {
     name: string
     status?: boolean
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
+    branch?: branchesCreateNestedOneWithoutDoorsInput
     employees?: employeesCreateNestedManyWithoutDoorsInput
     faceDevices?: face_devicesCreateNestedManyWithoutDoorInput
     doorTasks?: employee_door_tasksCreateNestedManyWithoutDoorInput
@@ -40075,6 +40737,9 @@ export namespace Prisma {
     id?: number
     name: string
     status?: boolean
+    branch_id?: number | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
     employees?: employeesUncheckedCreateNestedManyWithoutDoorsInput
     faceDevices?: face_devicesUncheckedCreateNestedManyWithoutDoorInput
@@ -40216,7 +40881,10 @@ export namespace Prisma {
   export type doorsUpdateWithoutFacePassesInput = {
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    branch?: branchesUpdateOneWithoutDoorsNestedInput
     employees?: employeesUpdateManyWithoutDoorsNestedInput
     faceDevices?: face_devicesUpdateManyWithoutDoorNestedInput
     doorTasks?: employee_door_tasksUpdateManyWithoutDoorNestedInput
@@ -40226,6 +40894,9 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
+    branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employees?: employeesUncheckedUpdateManyWithoutDoorsNestedInput
     faceDevices?: face_devicesUncheckedUpdateManyWithoutDoorNestedInput
@@ -40246,6 +40917,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -40271,6 +40943,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -40309,6 +40982,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -40334,6 +41008,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
@@ -40496,6 +41171,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -40521,6 +41197,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     holidays?: holidaysUncheckedCreateNestedManyWithoutAddedByInput
@@ -40559,6 +41236,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -40584,6 +41262,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     holidays?: holidaysUncheckedUpdateManyWithoutAddedByNestedInput
@@ -40606,6 +41285,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -40631,6 +41311,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -40739,6 +41420,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -40764,6 +41446,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
@@ -41014,6 +41697,7 @@ export namespace Prisma {
     gates?: gatesCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesCreateNestedManyWithoutBranchInput
     departments?: departmentsCreateNestedManyWithoutBranchInput
+    doors?: doorsCreateNestedManyWithoutBranchInput
   }
 
   export type branchesUncheckedCreateWithoutAddedByInput = {
@@ -41033,6 +41717,7 @@ export namespace Prisma {
     gates?: gatesUncheckedCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
     departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
+    doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesCreateOrConnectWithoutAddedByInput = {
@@ -41476,6 +42161,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     sessions?: sessionsCreateNestedManyWithoutUserInput
@@ -41501,6 +42187,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
     holidays?: holidaysUncheckedCreateNestedManyWithoutAddedByInput
@@ -41561,6 +42248,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     sessions?: sessionsUpdateManyWithoutUserNestedInput
@@ -41586,6 +42274,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
     holidays?: holidaysUncheckedUpdateManyWithoutAddedByNestedInput
@@ -41835,6 +42524,9 @@ export namespace Prisma {
     shifts?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     status?: boolean | null
+    late_tolerance_minutes?: number | null
+    early_leave_tolerance_minutes?: number | null
+    late_leave_tolerance_minutes?: number | null
     employees?: employeesCreateNestedManyWithoutWorkScheduleInput
   }
 
@@ -41848,6 +42540,9 @@ export namespace Prisma {
     shifts?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     status?: boolean | null
+    late_tolerance_minutes?: number | null
+    early_leave_tolerance_minutes?: number | null
+    late_leave_tolerance_minutes?: number | null
     employees?: employeesUncheckedCreateNestedManyWithoutWorkScheduleInput
   }
 
@@ -41870,6 +42565,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -41895,6 +42591,7 @@ export namespace Prisma {
     view_mode?: string
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
+    ignore_gps_check?: boolean
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -42004,6 +42701,9 @@ export namespace Prisma {
     shifts?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     employees?: employeesUpdateManyWithoutWorkScheduleNestedInput
   }
 
@@ -42017,6 +42717,9 @@ export namespace Prisma {
     shifts?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     employees?: employeesUncheckedUpdateManyWithoutWorkScheduleNestedInput
   }
 
@@ -42045,6 +42748,7 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -42070,12 +42774,57 @@ export namespace Prisma {
     view_mode?: StringFieldUpdateOperationsInput | string
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
     holidays?: holidaysUncheckedUpdateManyWithoutAddedByNestedInput
     branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
+  }
+
+  export type branchesCreateWithoutDoorsInput = {
+    name: string
+    status?: boolean
+    region?: string | null
+    address?: string | null
+    bank_name?: string | null
+    bank_account?: string | null
+    inn?: string | null
+    mfo?: string | null
+    added_at?: Date | string
+    director?: employeesCreateNestedOneWithoutDirectedBranchesInput
+    employmentOrders?: employment_ordersCreateNestedManyWithoutBranchInput
+    employees?: employeesCreateNestedManyWithoutBranchInput
+    gates?: gatesCreateNestedManyWithoutBranchInput
+    vehiclePasses?: vehicle_passesCreateNestedManyWithoutBranchInput
+    departments?: departmentsCreateNestedManyWithoutBranchInput
+    addedBy: usersCreateNestedOneWithoutBranchesInput
+  }
+
+  export type branchesUncheckedCreateWithoutDoorsInput = {
+    id?: number
+    name: string
+    status?: boolean
+    director_id?: number | null
+    region?: string | null
+    address?: string | null
+    bank_name?: string | null
+    bank_account?: string | null
+    inn?: string | null
+    mfo?: string | null
+    added_at?: Date | string
+    added_by: number
+    employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutBranchInput
+    employees?: employeesUncheckedCreateNestedManyWithoutBranchInput
+    gates?: gatesUncheckedCreateNestedManyWithoutBranchInput
+    vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
+    departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
+  }
+
+  export type branchesCreateOrConnectWithoutDoorsInput = {
+    where: branchesWhereUniqueInput
+    create: XOR<branchesCreateWithoutDoorsInput, branchesUncheckedCreateWithoutDoorsInput>
   }
 
   export type employeesCreateWithoutDoorsInput = {
@@ -42192,6 +42941,9 @@ export namespace Prisma {
     identifier: string
     photo?: string | null
     direction?: string | null
+    source?: string | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
     employee: employeesCreateNestedOneWithoutFacePassesInput
     faceDevice?: face_devicesCreateNestedOneWithoutFacePassesInput
@@ -42205,6 +42957,9 @@ export namespace Prisma {
     employee_id: number
     face_devices_id?: number | null
     direction?: string | null
+    source?: string | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
   }
 
@@ -42247,6 +43002,56 @@ export namespace Prisma {
   export type employee_door_tasksCreateManyDoorInputEnvelope = {
     data: employee_door_tasksCreateManyDoorInput | employee_door_tasksCreateManyDoorInput[]
     skipDuplicates?: boolean
+  }
+
+  export type branchesUpsertWithoutDoorsInput = {
+    update: XOR<branchesUpdateWithoutDoorsInput, branchesUncheckedUpdateWithoutDoorsInput>
+    create: XOR<branchesCreateWithoutDoorsInput, branchesUncheckedCreateWithoutDoorsInput>
+    where?: branchesWhereInput
+  }
+
+  export type branchesUpdateToOneWithWhereWithoutDoorsInput = {
+    where?: branchesWhereInput
+    data: XOR<branchesUpdateWithoutDoorsInput, branchesUncheckedUpdateWithoutDoorsInput>
+  }
+
+  export type branchesUpdateWithoutDoorsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    bank_name?: NullableStringFieldUpdateOperationsInput | string | null
+    bank_account?: NullableStringFieldUpdateOperationsInput | string | null
+    inn?: NullableStringFieldUpdateOperationsInput | string | null
+    mfo?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    director?: employeesUpdateOneWithoutDirectedBranchesNestedInput
+    employmentOrders?: employment_ordersUpdateManyWithoutBranchNestedInput
+    employees?: employeesUpdateManyWithoutBranchNestedInput
+    gates?: gatesUpdateManyWithoutBranchNestedInput
+    vehiclePasses?: vehicle_passesUpdateManyWithoutBranchNestedInput
+    departments?: departmentsUpdateManyWithoutBranchNestedInput
+    addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
+  }
+
+  export type branchesUncheckedUpdateWithoutDoorsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    director_id?: NullableIntFieldUpdateOperationsInput | number | null
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    bank_name?: NullableStringFieldUpdateOperationsInput | string | null
+    bank_account?: NullableStringFieldUpdateOperationsInput | string | null
+    inn?: NullableStringFieldUpdateOperationsInput | string | null
+    mfo?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    added_by?: IntFieldUpdateOperationsInput | number
+    employmentOrders?: employment_ordersUncheckedUpdateManyWithoutBranchNestedInput
+    employees?: employeesUncheckedUpdateManyWithoutBranchNestedInput
+    gates?: gatesUncheckedUpdateManyWithoutBranchNestedInput
+    vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
+    departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type employeesUpsertWithWhereUniqueWithoutDoorsInput = {
@@ -42334,7 +43139,10 @@ export namespace Prisma {
   export type doorsCreateWithoutFaceDevicesInput = {
     name: string
     status?: boolean
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
+    branch?: branchesCreateNestedOneWithoutDoorsInput
     employees?: employeesCreateNestedManyWithoutDoorsInput
     facePasses?: face_passesCreateNestedManyWithoutDoorInput
     doorTasks?: employee_door_tasksCreateNestedManyWithoutDoorInput
@@ -42344,6 +43152,9 @@ export namespace Prisma {
     id?: number
     name: string
     status?: boolean
+    branch_id?: number | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
     employees?: employeesUncheckedCreateNestedManyWithoutDoorsInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutDoorInput
@@ -42360,9 +43171,12 @@ export namespace Prisma {
     identifier: string
     photo?: string | null
     direction?: string | null
+    source?: string | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
     employee: employeesCreateNestedOneWithoutFacePassesInput
-    door: doorsCreateNestedOneWithoutFacePassesInput
+    door?: doorsCreateNestedOneWithoutFacePassesInput
   }
 
   export type face_passesUncheckedCreateWithoutFaceDeviceInput = {
@@ -42371,8 +43185,11 @@ export namespace Prisma {
     identifier: string
     photo?: string | null
     employee_id: number
-    door_id: number
+    door_id?: number | null
     direction?: string | null
+    source?: string | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
   }
 
@@ -42400,7 +43217,10 @@ export namespace Prisma {
   export type doorsUpdateWithoutFaceDevicesInput = {
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    branch?: branchesUpdateOneWithoutDoorsNestedInput
     employees?: employeesUpdateManyWithoutDoorsNestedInput
     facePasses?: face_passesUpdateManyWithoutDoorNestedInput
     doorTasks?: employee_door_tasksUpdateManyWithoutDoorNestedInput
@@ -42410,6 +43230,9 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
+    branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employees?: employeesUncheckedUpdateManyWithoutDoorsNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutDoorNestedInput
@@ -42505,7 +43328,10 @@ export namespace Prisma {
   export type doorsCreateWithoutDoorTasksInput = {
     name: string
     status?: boolean
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
+    branch?: branchesCreateNestedOneWithoutDoorsInput
     employees?: employeesCreateNestedManyWithoutDoorsInput
     faceDevices?: face_devicesCreateNestedManyWithoutDoorInput
     facePasses?: face_passesCreateNestedManyWithoutDoorInput
@@ -42515,6 +43341,9 @@ export namespace Prisma {
     id?: number
     name: string
     status?: boolean
+    branch_id?: number | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
     employees?: employeesUncheckedCreateNestedManyWithoutDoorsInput
     faceDevices?: face_devicesUncheckedCreateNestedManyWithoutDoorInput
@@ -42616,7 +43445,10 @@ export namespace Prisma {
   export type doorsUpdateWithoutDoorTasksInput = {
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    branch?: branchesUpdateOneWithoutDoorsNestedInput
     employees?: employeesUpdateManyWithoutDoorsNestedInput
     faceDevices?: face_devicesUpdateManyWithoutDoorNestedInput
     facePasses?: face_passesUpdateManyWithoutDoorNestedInput
@@ -42626,6 +43458,9 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
+    branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employees?: employeesUncheckedUpdateManyWithoutDoorsNestedInput
     faceDevices?: face_devicesUncheckedUpdateManyWithoutDoorNestedInput
@@ -42647,6 +43482,7 @@ export namespace Prisma {
     employees?: employeesCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesCreateNestedManyWithoutBranchInput
     departments?: departmentsCreateNestedManyWithoutBranchInput
+    doors?: doorsCreateNestedManyWithoutBranchInput
     addedBy: usersCreateNestedOneWithoutBranchesInput
   }
 
@@ -42667,6 +43503,7 @@ export namespace Prisma {
     employees?: employeesUncheckedCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
     departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
+    doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesCreateOrConnectWithoutGatesInput = {
@@ -42770,6 +43607,7 @@ export namespace Prisma {
     employees?: employeesUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUpdateManyWithoutBranchNestedInput
     departments?: departmentsUpdateManyWithoutBranchNestedInput
+    doors?: doorsUpdateManyWithoutBranchNestedInput
     addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
   }
 
@@ -42790,6 +43628,7 @@ export namespace Prisma {
     employees?: employeesUncheckedUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
+    doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type anpr_camerasUpsertWithWhereUniqueWithoutGateInput = {
@@ -42962,6 +43801,7 @@ export namespace Prisma {
     employees?: employeesCreateNestedManyWithoutBranchInput
     gates?: gatesCreateNestedManyWithoutBranchInput
     departments?: departmentsCreateNestedManyWithoutBranchInput
+    doors?: doorsCreateNestedManyWithoutBranchInput
     addedBy: usersCreateNestedOneWithoutBranchesInput
   }
 
@@ -42982,6 +43822,7 @@ export namespace Prisma {
     employees?: employeesUncheckedCreateNestedManyWithoutBranchInput
     gates?: gatesUncheckedCreateNestedManyWithoutBranchInput
     departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
+    doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesCreateOrConnectWithoutVehiclePassesInput = {
@@ -43075,6 +43916,7 @@ export namespace Prisma {
     employees?: employeesUpdateManyWithoutBranchNestedInput
     gates?: gatesUpdateManyWithoutBranchNestedInput
     departments?: departmentsUpdateManyWithoutBranchNestedInput
+    doors?: doorsUpdateManyWithoutBranchNestedInput
     addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
   }
 
@@ -43095,6 +43937,7 @@ export namespace Prisma {
     employees?: employeesUncheckedUpdateManyWithoutBranchNestedInput
     gates?: gatesUncheckedUpdateManyWithoutBranchNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
+    doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type gatesUpsertWithoutVehiclePassesInput = {
@@ -43230,6 +44073,15 @@ export namespace Prisma {
     id?: number
     name?: string | null
     status?: boolean
+    added_at?: Date | string
+  }
+
+  export type doorsCreateManyBranchInput = {
+    id?: number
+    name: string
+    status?: boolean
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
   }
 
@@ -43444,6 +44296,40 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type doorsUpdateWithoutBranchInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: employeesUpdateManyWithoutDoorsNestedInput
+    faceDevices?: face_devicesUpdateManyWithoutDoorNestedInput
+    facePasses?: face_passesUpdateManyWithoutDoorNestedInput
+    doorTasks?: employee_door_tasksUpdateManyWithoutDoorNestedInput
+  }
+
+  export type doorsUncheckedUpdateWithoutBranchInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: employeesUncheckedUpdateManyWithoutDoorsNestedInput
+    faceDevices?: face_devicesUncheckedUpdateManyWithoutDoorNestedInput
+    facePasses?: face_passesUncheckedUpdateManyWithoutDoorNestedInput
+    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutDoorNestedInput
+  }
+
+  export type doorsUncheckedUpdateManyWithoutBranchInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type employment_ordersCreateManyDepartmentInput = {
     id?: number
     employee_id?: number | null
@@ -43644,9 +44530,12 @@ export namespace Prisma {
     date: Date | string
     identifier: string
     photo?: string | null
-    door_id: number
+    door_id?: number | null
     face_devices_id?: number | null
     direction?: string | null
+    source?: string | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
   }
 
@@ -43776,9 +44665,12 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     direction?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     faceDevice?: face_devicesUpdateOneWithoutFacePassesNestedInput
-    door?: doorsUpdateOneRequiredWithoutFacePassesNestedInput
+    door?: doorsUpdateOneWithoutFacePassesNestedInput
   }
 
   export type face_passesUncheckedUpdateWithoutEmployeeInput = {
@@ -43786,9 +44678,12 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     identifier?: StringFieldUpdateOperationsInput | string
     photo?: NullableStringFieldUpdateOperationsInput | string | null
-    door_id?: IntFieldUpdateOperationsInput | number
+    door_id?: NullableIntFieldUpdateOperationsInput | number | null
     face_devices_id?: NullableIntFieldUpdateOperationsInput | number | null
     direction?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -43797,16 +44692,22 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     identifier?: StringFieldUpdateOperationsInput | string
     photo?: NullableStringFieldUpdateOperationsInput | string | null
-    door_id?: IntFieldUpdateOperationsInput | number
+    door_id?: NullableIntFieldUpdateOperationsInput | number | null
     face_devices_id?: NullableIntFieldUpdateOperationsInput | number | null
     direction?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type doorsUpdateWithoutEmployeesInput = {
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    branch?: branchesUpdateOneWithoutDoorsNestedInput
     faceDevices?: face_devicesUpdateManyWithoutDoorNestedInput
     facePasses?: face_passesUpdateManyWithoutDoorNestedInput
     doorTasks?: employee_door_tasksUpdateManyWithoutDoorNestedInput
@@ -43816,6 +44717,9 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
+    branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     faceDevices?: face_devicesUncheckedUpdateManyWithoutDoorNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutDoorNestedInput
@@ -43826,6 +44730,9 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
+    branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -43876,6 +44783,7 @@ export namespace Prisma {
     gates?: gatesUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUpdateManyWithoutBranchNestedInput
     departments?: departmentsUpdateManyWithoutBranchNestedInput
+    doors?: doorsUpdateManyWithoutBranchNestedInput
     addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
   }
 
@@ -43896,6 +44804,7 @@ export namespace Prisma {
     gates?: gatesUncheckedUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
+    doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesUncheckedUpdateManyWithoutDirectorInput = {
@@ -44227,6 +45136,7 @@ export namespace Prisma {
     gates?: gatesUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUpdateManyWithoutBranchNestedInput
     departments?: departmentsUpdateManyWithoutBranchNestedInput
+    doors?: doorsUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesUncheckedUpdateWithoutAddedByInput = {
@@ -44246,6 +45156,7 @@ export namespace Prisma {
     gates?: gatesUncheckedUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
+    doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesUncheckedUpdateManyWithoutAddedByInput = {
@@ -44561,6 +45472,9 @@ export namespace Prisma {
     employee_id: number
     face_devices_id?: number | null
     direction?: string | null
+    source?: string | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
   }
 
@@ -44714,6 +45628,9 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     direction?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneRequiredWithoutFacePassesNestedInput
     faceDevice?: face_devicesUpdateOneWithoutFacePassesNestedInput
@@ -44727,6 +45644,9 @@ export namespace Prisma {
     employee_id?: IntFieldUpdateOperationsInput | number
     face_devices_id?: NullableIntFieldUpdateOperationsInput | number | null
     direction?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -44738,6 +45658,9 @@ export namespace Prisma {
     employee_id?: IntFieldUpdateOperationsInput | number
     face_devices_id?: NullableIntFieldUpdateOperationsInput | number | null
     direction?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -44779,8 +45702,11 @@ export namespace Prisma {
     identifier: string
     photo?: string | null
     employee_id: number
-    door_id: number
+    door_id?: number | null
     direction?: string | null
+    source?: string | null
+    latitude?: number | null
+    longitude?: number | null
     added_at?: Date | string
   }
 
@@ -44789,9 +45715,12 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     direction?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneRequiredWithoutFacePassesNestedInput
-    door?: doorsUpdateOneRequiredWithoutFacePassesNestedInput
+    door?: doorsUpdateOneWithoutFacePassesNestedInput
   }
 
   export type face_passesUncheckedUpdateWithoutFaceDeviceInput = {
@@ -44800,8 +45729,11 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     employee_id?: IntFieldUpdateOperationsInput | number
-    door_id?: IntFieldUpdateOperationsInput | number
+    door_id?: NullableIntFieldUpdateOperationsInput | number | null
     direction?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -44811,8 +45743,11 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     employee_id?: IntFieldUpdateOperationsInput | number
-    door_id?: IntFieldUpdateOperationsInput | number
+    door_id?: NullableIntFieldUpdateOperationsInput | number | null
     direction?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
