@@ -94,6 +94,11 @@ export type work_schedules = $Result.DefaultSelection<Prisma.$work_schedulesPayl
  */
 export type employee_schedule_history = $Result.DefaultSelection<Prisma.$employee_schedule_historyPayload>
 /**
+ * Model employee_salary_history
+ * 
+ */
+export type employee_salary_history = $Result.DefaultSelection<Prisma.$employee_salary_historyPayload>
+/**
  * Model doors
  * 
  */
@@ -401,6 +406,16 @@ export class PrismaClient<
     * ```
     */
   get employee_schedule_history(): Prisma.employee_schedule_historyDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.employee_salary_history`: Exposes CRUD operations for the **employee_salary_history** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Employee_salary_histories
+    * const employee_salary_histories = await prisma.employee_salary_history.findMany()
+    * ```
+    */
+  get employee_salary_history(): Prisma.employee_salary_historyDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.doors`: Exposes CRUD operations for the **doors** model.
@@ -917,6 +932,7 @@ export namespace Prisma {
     user_menu_access: 'user_menu_access',
     work_schedules: 'work_schedules',
     employee_schedule_history: 'employee_schedule_history',
+    employee_salary_history: 'employee_salary_history',
     doors: 'doors',
     face_devices: 'face_devices',
     employee_door_tasks: 'employee_door_tasks',
@@ -941,7 +957,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "branches" | "departments" | "employment_orders" | "employees" | "face_passes" | "holidays" | "positions" | "sessions" | "telegram_bots" | "time_off" | "timesheet" | "users" | "menus" | "user_menu_access" | "work_schedules" | "employee_schedule_history" | "doors" | "face_devices" | "employee_door_tasks" | "gates" | "anpr_cameras" | "vehicle_passes"
+      modelProps: "branches" | "departments" | "employment_orders" | "employees" | "face_passes" | "holidays" | "positions" | "sessions" | "telegram_bots" | "time_off" | "timesheet" | "users" | "menus" | "user_menu_access" | "work_schedules" | "employee_schedule_history" | "employee_salary_history" | "doors" | "face_devices" | "employee_door_tasks" | "gates" | "anpr_cameras" | "vehicle_passes"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2129,6 +2145,80 @@ export namespace Prisma {
           }
         }
       }
+      employee_salary_history: {
+        payload: Prisma.$employee_salary_historyPayload<ExtArgs>
+        fields: Prisma.employee_salary_historyFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.employee_salary_historyFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_salary_historyPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.employee_salary_historyFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_salary_historyPayload>
+          }
+          findFirst: {
+            args: Prisma.employee_salary_historyFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_salary_historyPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.employee_salary_historyFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_salary_historyPayload>
+          }
+          findMany: {
+            args: Prisma.employee_salary_historyFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_salary_historyPayload>[]
+          }
+          create: {
+            args: Prisma.employee_salary_historyCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_salary_historyPayload>
+          }
+          createMany: {
+            args: Prisma.employee_salary_historyCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.employee_salary_historyCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_salary_historyPayload>[]
+          }
+          delete: {
+            args: Prisma.employee_salary_historyDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_salary_historyPayload>
+          }
+          update: {
+            args: Prisma.employee_salary_historyUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_salary_historyPayload>
+          }
+          deleteMany: {
+            args: Prisma.employee_salary_historyDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.employee_salary_historyUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.employee_salary_historyUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_salary_historyPayload>[]
+          }
+          upsert: {
+            args: Prisma.employee_salary_historyUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_salary_historyPayload>
+          }
+          aggregate: {
+            args: Prisma.Employee_salary_historyAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmployee_salary_history>
+          }
+          groupBy: {
+            args: Prisma.employee_salary_historyGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Employee_salary_historyGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.employee_salary_historyCountArgs<ExtArgs>
+            result: $Utils.Optional<Employee_salary_historyCountAggregateOutputType> | number
+          }
+        }
+      }
       doors: {
         payload: Prisma.$doorsPayload<ExtArgs>
         fields: Prisma.doorsFieldRefs
@@ -2681,6 +2771,7 @@ export namespace Prisma {
     user_menu_access?: user_menu_accessOmit
     work_schedules?: work_schedulesOmit
     employee_schedule_history?: employee_schedule_historyOmit
+    employee_salary_history?: employee_salary_historyOmit
     doors?: doorsOmit
     face_devices?: face_devicesOmit
     employee_door_tasks?: employee_door_tasksOmit
@@ -2884,6 +2975,7 @@ export namespace Prisma {
 
   export type EmployeesCountOutputType = {
     employeeScheduleHistory: number
+    employeeSalaryHistory: number
     employmentOrders: number
     employeeTimeOffs: number
     facePasses: number
@@ -2894,6 +2986,7 @@ export namespace Prisma {
 
   export type EmployeesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     employeeScheduleHistory?: boolean | EmployeesCountOutputTypeCountEmployeeScheduleHistoryArgs
+    employeeSalaryHistory?: boolean | EmployeesCountOutputTypeCountEmployeeSalaryHistoryArgs
     employmentOrders?: boolean | EmployeesCountOutputTypeCountEmploymentOrdersArgs
     employeeTimeOffs?: boolean | EmployeesCountOutputTypeCountEmployeeTimeOffsArgs
     facePasses?: boolean | EmployeesCountOutputTypeCountFacePassesArgs
@@ -2918,6 +3011,13 @@ export namespace Prisma {
    */
   export type EmployeesCountOutputTypeCountEmployeeScheduleHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: employee_schedule_historyWhereInput
+  }
+
+  /**
+   * EmployeesCountOutputType without action
+   */
+  export type EmployeesCountOutputTypeCountEmployeeSalaryHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: employee_salary_historyWhereInput
   }
 
   /**
@@ -3014,6 +3114,7 @@ export namespace Prisma {
     branches: number
     timeOff: number
     employeeScheduleHistory: number
+    employeeSalaryHistory: number
   }
 
   export type UsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3023,6 +3124,7 @@ export namespace Prisma {
     branches?: boolean | UsersCountOutputTypeCountBranchesArgs
     timeOff?: boolean | UsersCountOutputTypeCountTimeOffArgs
     employeeScheduleHistory?: boolean | UsersCountOutputTypeCountEmployeeScheduleHistoryArgs
+    employeeSalaryHistory?: boolean | UsersCountOutputTypeCountEmployeeSalaryHistoryArgs
   }
 
   // Custom InputTypes
@@ -3076,6 +3178,13 @@ export namespace Prisma {
    */
   export type UsersCountOutputTypeCountEmployeeScheduleHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: employee_schedule_historyWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountEmployeeSalaryHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: employee_salary_historyWhereInput
   }
 
 
@@ -7505,6 +7614,7 @@ export namespace Prisma {
     position?: boolean | employees$positionArgs<ExtArgs>
     workSchedule?: boolean | employees$workScheduleArgs<ExtArgs>
     employeeScheduleHistory?: boolean | employees$employeeScheduleHistoryArgs<ExtArgs>
+    employeeSalaryHistory?: boolean | employees$employeeSalaryHistoryArgs<ExtArgs>
     employmentOrders?: boolean | employees$employmentOrdersArgs<ExtArgs>
     employeeTimeOffs?: boolean | employees$employeeTimeOffsArgs<ExtArgs>
     facePasses?: boolean | employees$facePassesArgs<ExtArgs>
@@ -7608,6 +7718,7 @@ export namespace Prisma {
     position?: boolean | employees$positionArgs<ExtArgs>
     workSchedule?: boolean | employees$workScheduleArgs<ExtArgs>
     employeeScheduleHistory?: boolean | employees$employeeScheduleHistoryArgs<ExtArgs>
+    employeeSalaryHistory?: boolean | employees$employeeSalaryHistoryArgs<ExtArgs>
     employmentOrders?: boolean | employees$employmentOrdersArgs<ExtArgs>
     employeeTimeOffs?: boolean | employees$employeeTimeOffsArgs<ExtArgs>
     facePasses?: boolean | employees$facePassesArgs<ExtArgs>
@@ -7638,6 +7749,7 @@ export namespace Prisma {
       position: Prisma.$positionsPayload<ExtArgs> | null
       workSchedule: Prisma.$work_schedulesPayload<ExtArgs> | null
       employeeScheduleHistory: Prisma.$employee_schedule_historyPayload<ExtArgs>[]
+      employeeSalaryHistory: Prisma.$employee_salary_historyPayload<ExtArgs>[]
       employmentOrders: Prisma.$employment_ordersPayload<ExtArgs>[]
       employeeTimeOffs: Prisma.$time_offPayload<ExtArgs>[]
       facePasses: Prisma.$face_passesPayload<ExtArgs>[]
@@ -8069,6 +8181,7 @@ export namespace Prisma {
     position<T extends employees$positionArgs<ExtArgs> = {}>(args?: Subset<T, employees$positionArgs<ExtArgs>>): Prisma__positionsClient<$Result.GetResult<Prisma.$positionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     workSchedule<T extends employees$workScheduleArgs<ExtArgs> = {}>(args?: Subset<T, employees$workScheduleArgs<ExtArgs>>): Prisma__work_schedulesClient<$Result.GetResult<Prisma.$work_schedulesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     employeeScheduleHistory<T extends employees$employeeScheduleHistoryArgs<ExtArgs> = {}>(args?: Subset<T, employees$employeeScheduleHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_schedule_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    employeeSalaryHistory<T extends employees$employeeSalaryHistoryArgs<ExtArgs> = {}>(args?: Subset<T, employees$employeeSalaryHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_salary_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     employmentOrders<T extends employees$employmentOrdersArgs<ExtArgs> = {}>(args?: Subset<T, employees$employmentOrdersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employment_ordersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     employeeTimeOffs<T extends employees$employeeTimeOffsArgs<ExtArgs> = {}>(args?: Subset<T, employees$employeeTimeOffsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$time_offPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     facePasses<T extends employees$facePassesArgs<ExtArgs> = {}>(args?: Subset<T, employees$facePassesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$face_passesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -8621,6 +8734,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Employee_schedule_historyScalarFieldEnum | Employee_schedule_historyScalarFieldEnum[]
+  }
+
+  /**
+   * employees.employeeSalaryHistory
+   */
+  export type employees$employeeSalaryHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_salary_history
+     */
+    select?: employee_salary_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_salary_history
+     */
+    omit?: employee_salary_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_salary_historyInclude<ExtArgs> | null
+    where?: employee_salary_historyWhereInput
+    orderBy?: employee_salary_historyOrderByWithRelationInput | employee_salary_historyOrderByWithRelationInput[]
+    cursor?: employee_salary_historyWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Employee_salary_historyScalarFieldEnum | Employee_salary_historyScalarFieldEnum[]
   }
 
   /**
@@ -17038,6 +17175,7 @@ export namespace Prisma {
     branches?: boolean | users$branchesArgs<ExtArgs>
     timeOff?: boolean | users$timeOffArgs<ExtArgs>
     employeeScheduleHistory?: boolean | users$employeeScheduleHistoryArgs<ExtArgs>
+    employeeSalaryHistory?: boolean | users$employeeSalaryHistoryArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
 
@@ -17112,6 +17250,7 @@ export namespace Prisma {
     branches?: boolean | users$branchesArgs<ExtArgs>
     timeOff?: boolean | users$timeOffArgs<ExtArgs>
     employeeScheduleHistory?: boolean | users$employeeScheduleHistoryArgs<ExtArgs>
+    employeeSalaryHistory?: boolean | users$employeeSalaryHistoryArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type usersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -17131,6 +17270,7 @@ export namespace Prisma {
       branches: Prisma.$branchesPayload<ExtArgs>[]
       timeOff: Prisma.$time_offPayload<ExtArgs>[]
       employeeScheduleHistory: Prisma.$employee_schedule_historyPayload<ExtArgs>[]
+      employeeSalaryHistory: Prisma.$employee_salary_historyPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -17551,6 +17691,7 @@ export namespace Prisma {
     branches<T extends users$branchesArgs<ExtArgs> = {}>(args?: Subset<T, users$branchesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$branchesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     timeOff<T extends users$timeOffArgs<ExtArgs> = {}>(args?: Subset<T, users$timeOffArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$time_offPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     employeeScheduleHistory<T extends users$employeeScheduleHistoryArgs<ExtArgs> = {}>(args?: Subset<T, users$employeeScheduleHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_schedule_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    employeeSalaryHistory<T extends users$employeeSalaryHistoryArgs<ExtArgs> = {}>(args?: Subset<T, users$employeeSalaryHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_salary_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -18153,6 +18294,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Employee_schedule_historyScalarFieldEnum | Employee_schedule_historyScalarFieldEnum[]
+  }
+
+  /**
+   * users.employeeSalaryHistory
+   */
+  export type users$employeeSalaryHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_salary_history
+     */
+    select?: employee_salary_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_salary_history
+     */
+    omit?: employee_salary_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_salary_historyInclude<ExtArgs> | null
+    where?: employee_salary_historyWhereInput
+    orderBy?: employee_salary_historyOrderByWithRelationInput | employee_salary_historyOrderByWithRelationInput[]
+    cursor?: employee_salary_historyWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Employee_salary_historyScalarFieldEnum | Employee_salary_historyScalarFieldEnum[]
   }
 
   /**
@@ -22863,6 +23028,1170 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: employee_schedule_historyInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model employee_salary_history
+   */
+
+  export type AggregateEmployee_salary_history = {
+    _count: Employee_salary_historyCountAggregateOutputType | null
+    _avg: Employee_salary_historyAvgAggregateOutputType | null
+    _sum: Employee_salary_historySumAggregateOutputType | null
+    _min: Employee_salary_historyMinAggregateOutputType | null
+    _max: Employee_salary_historyMaxAggregateOutputType | null
+  }
+
+  export type Employee_salary_historyAvgAggregateOutputType = {
+    id: number | null
+    employee_id: number | null
+    amount: Decimal | null
+    added_by: number | null
+  }
+
+  export type Employee_salary_historySumAggregateOutputType = {
+    id: number | null
+    employee_id: number | null
+    amount: Decimal | null
+    added_by: number | null
+  }
+
+  export type Employee_salary_historyMinAggregateOutputType = {
+    id: number | null
+    employee_id: number | null
+    salary_type: string | null
+    amount: Decimal | null
+    date_from: Date | null
+    date_to: Date | null
+    note: string | null
+    added_at: Date | null
+    added_by: number | null
+  }
+
+  export type Employee_salary_historyMaxAggregateOutputType = {
+    id: number | null
+    employee_id: number | null
+    salary_type: string | null
+    amount: Decimal | null
+    date_from: Date | null
+    date_to: Date | null
+    note: string | null
+    added_at: Date | null
+    added_by: number | null
+  }
+
+  export type Employee_salary_historyCountAggregateOutputType = {
+    id: number
+    employee_id: number
+    salary_type: number
+    amount: number
+    date_from: number
+    date_to: number
+    note: number
+    added_at: number
+    added_by: number
+    _all: number
+  }
+
+
+  export type Employee_salary_historyAvgAggregateInputType = {
+    id?: true
+    employee_id?: true
+    amount?: true
+    added_by?: true
+  }
+
+  export type Employee_salary_historySumAggregateInputType = {
+    id?: true
+    employee_id?: true
+    amount?: true
+    added_by?: true
+  }
+
+  export type Employee_salary_historyMinAggregateInputType = {
+    id?: true
+    employee_id?: true
+    salary_type?: true
+    amount?: true
+    date_from?: true
+    date_to?: true
+    note?: true
+    added_at?: true
+    added_by?: true
+  }
+
+  export type Employee_salary_historyMaxAggregateInputType = {
+    id?: true
+    employee_id?: true
+    salary_type?: true
+    amount?: true
+    date_from?: true
+    date_to?: true
+    note?: true
+    added_at?: true
+    added_by?: true
+  }
+
+  export type Employee_salary_historyCountAggregateInputType = {
+    id?: true
+    employee_id?: true
+    salary_type?: true
+    amount?: true
+    date_from?: true
+    date_to?: true
+    note?: true
+    added_at?: true
+    added_by?: true
+    _all?: true
+  }
+
+  export type Employee_salary_historyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which employee_salary_history to aggregate.
+     */
+    where?: employee_salary_historyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of employee_salary_histories to fetch.
+     */
+    orderBy?: employee_salary_historyOrderByWithRelationInput | employee_salary_historyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: employee_salary_historyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` employee_salary_histories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` employee_salary_histories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned employee_salary_histories
+    **/
+    _count?: true | Employee_salary_historyCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Employee_salary_historyAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Employee_salary_historySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Employee_salary_historyMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Employee_salary_historyMaxAggregateInputType
+  }
+
+  export type GetEmployee_salary_historyAggregateType<T extends Employee_salary_historyAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmployee_salary_history]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEmployee_salary_history[P]>
+      : GetScalarType<T[P], AggregateEmployee_salary_history[P]>
+  }
+
+
+
+
+  export type employee_salary_historyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: employee_salary_historyWhereInput
+    orderBy?: employee_salary_historyOrderByWithAggregationInput | employee_salary_historyOrderByWithAggregationInput[]
+    by: Employee_salary_historyScalarFieldEnum[] | Employee_salary_historyScalarFieldEnum
+    having?: employee_salary_historyScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Employee_salary_historyCountAggregateInputType | true
+    _avg?: Employee_salary_historyAvgAggregateInputType
+    _sum?: Employee_salary_historySumAggregateInputType
+    _min?: Employee_salary_historyMinAggregateInputType
+    _max?: Employee_salary_historyMaxAggregateInputType
+  }
+
+  export type Employee_salary_historyGroupByOutputType = {
+    id: number
+    employee_id: number
+    salary_type: string
+    amount: Decimal
+    date_from: Date
+    date_to: Date | null
+    note: string | null
+    added_at: Date
+    added_by: number
+    _count: Employee_salary_historyCountAggregateOutputType | null
+    _avg: Employee_salary_historyAvgAggregateOutputType | null
+    _sum: Employee_salary_historySumAggregateOutputType | null
+    _min: Employee_salary_historyMinAggregateOutputType | null
+    _max: Employee_salary_historyMaxAggregateOutputType | null
+  }
+
+  type GetEmployee_salary_historyGroupByPayload<T extends employee_salary_historyGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Employee_salary_historyGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Employee_salary_historyGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Employee_salary_historyGroupByOutputType[P]>
+            : GetScalarType<T[P], Employee_salary_historyGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type employee_salary_historySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employee_id?: boolean
+    salary_type?: boolean
+    amount?: boolean
+    date_from?: boolean
+    date_to?: boolean
+    note?: boolean
+    added_at?: boolean
+    added_by?: boolean
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employee_salary_history"]>
+
+  export type employee_salary_historySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employee_id?: boolean
+    salary_type?: boolean
+    amount?: boolean
+    date_from?: boolean
+    date_to?: boolean
+    note?: boolean
+    added_at?: boolean
+    added_by?: boolean
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employee_salary_history"]>
+
+  export type employee_salary_historySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employee_id?: boolean
+    salary_type?: boolean
+    amount?: boolean
+    date_from?: boolean
+    date_to?: boolean
+    note?: boolean
+    added_at?: boolean
+    added_by?: boolean
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employee_salary_history"]>
+
+  export type employee_salary_historySelectScalar = {
+    id?: boolean
+    employee_id?: boolean
+    salary_type?: boolean
+    amount?: boolean
+    date_from?: boolean
+    date_to?: boolean
+    note?: boolean
+    added_at?: boolean
+    added_by?: boolean
+  }
+
+  export type employee_salary_historyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "employee_id" | "salary_type" | "amount" | "date_from" | "date_to" | "note" | "added_at" | "added_by", ExtArgs["result"]["employee_salary_history"]>
+  export type employee_salary_historyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+  }
+  export type employee_salary_historyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+  }
+  export type employee_salary_historyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+  }
+
+  export type $employee_salary_historyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "employee_salary_history"
+    objects: {
+      employee: Prisma.$employeesPayload<ExtArgs>
+      addedBy: Prisma.$usersPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      employee_id: number
+      salary_type: string
+      amount: Prisma.Decimal
+      date_from: Date
+      date_to: Date | null
+      note: string | null
+      added_at: Date
+      added_by: number
+    }, ExtArgs["result"]["employee_salary_history"]>
+    composites: {}
+  }
+
+  type employee_salary_historyGetPayload<S extends boolean | null | undefined | employee_salary_historyDefaultArgs> = $Result.GetResult<Prisma.$employee_salary_historyPayload, S>
+
+  type employee_salary_historyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<employee_salary_historyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Employee_salary_historyCountAggregateInputType | true
+    }
+
+  export interface employee_salary_historyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['employee_salary_history'], meta: { name: 'employee_salary_history' } }
+    /**
+     * Find zero or one Employee_salary_history that matches the filter.
+     * @param {employee_salary_historyFindUniqueArgs} args - Arguments to find a Employee_salary_history
+     * @example
+     * // Get one Employee_salary_history
+     * const employee_salary_history = await prisma.employee_salary_history.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends employee_salary_historyFindUniqueArgs>(args: SelectSubset<T, employee_salary_historyFindUniqueArgs<ExtArgs>>): Prisma__employee_salary_historyClient<$Result.GetResult<Prisma.$employee_salary_historyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Employee_salary_history that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {employee_salary_historyFindUniqueOrThrowArgs} args - Arguments to find a Employee_salary_history
+     * @example
+     * // Get one Employee_salary_history
+     * const employee_salary_history = await prisma.employee_salary_history.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends employee_salary_historyFindUniqueOrThrowArgs>(args: SelectSubset<T, employee_salary_historyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__employee_salary_historyClient<$Result.GetResult<Prisma.$employee_salary_historyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Employee_salary_history that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {employee_salary_historyFindFirstArgs} args - Arguments to find a Employee_salary_history
+     * @example
+     * // Get one Employee_salary_history
+     * const employee_salary_history = await prisma.employee_salary_history.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends employee_salary_historyFindFirstArgs>(args?: SelectSubset<T, employee_salary_historyFindFirstArgs<ExtArgs>>): Prisma__employee_salary_historyClient<$Result.GetResult<Prisma.$employee_salary_historyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Employee_salary_history that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {employee_salary_historyFindFirstOrThrowArgs} args - Arguments to find a Employee_salary_history
+     * @example
+     * // Get one Employee_salary_history
+     * const employee_salary_history = await prisma.employee_salary_history.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends employee_salary_historyFindFirstOrThrowArgs>(args?: SelectSubset<T, employee_salary_historyFindFirstOrThrowArgs<ExtArgs>>): Prisma__employee_salary_historyClient<$Result.GetResult<Prisma.$employee_salary_historyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Employee_salary_histories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {employee_salary_historyFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Employee_salary_histories
+     * const employee_salary_histories = await prisma.employee_salary_history.findMany()
+     * 
+     * // Get first 10 Employee_salary_histories
+     * const employee_salary_histories = await prisma.employee_salary_history.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const employee_salary_historyWithIdOnly = await prisma.employee_salary_history.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends employee_salary_historyFindManyArgs>(args?: SelectSubset<T, employee_salary_historyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_salary_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Employee_salary_history.
+     * @param {employee_salary_historyCreateArgs} args - Arguments to create a Employee_salary_history.
+     * @example
+     * // Create one Employee_salary_history
+     * const Employee_salary_history = await prisma.employee_salary_history.create({
+     *   data: {
+     *     // ... data to create a Employee_salary_history
+     *   }
+     * })
+     * 
+     */
+    create<T extends employee_salary_historyCreateArgs>(args: SelectSubset<T, employee_salary_historyCreateArgs<ExtArgs>>): Prisma__employee_salary_historyClient<$Result.GetResult<Prisma.$employee_salary_historyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Employee_salary_histories.
+     * @param {employee_salary_historyCreateManyArgs} args - Arguments to create many Employee_salary_histories.
+     * @example
+     * // Create many Employee_salary_histories
+     * const employee_salary_history = await prisma.employee_salary_history.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends employee_salary_historyCreateManyArgs>(args?: SelectSubset<T, employee_salary_historyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Employee_salary_histories and returns the data saved in the database.
+     * @param {employee_salary_historyCreateManyAndReturnArgs} args - Arguments to create many Employee_salary_histories.
+     * @example
+     * // Create many Employee_salary_histories
+     * const employee_salary_history = await prisma.employee_salary_history.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Employee_salary_histories and only return the `id`
+     * const employee_salary_historyWithIdOnly = await prisma.employee_salary_history.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends employee_salary_historyCreateManyAndReturnArgs>(args?: SelectSubset<T, employee_salary_historyCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_salary_historyPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Employee_salary_history.
+     * @param {employee_salary_historyDeleteArgs} args - Arguments to delete one Employee_salary_history.
+     * @example
+     * // Delete one Employee_salary_history
+     * const Employee_salary_history = await prisma.employee_salary_history.delete({
+     *   where: {
+     *     // ... filter to delete one Employee_salary_history
+     *   }
+     * })
+     * 
+     */
+    delete<T extends employee_salary_historyDeleteArgs>(args: SelectSubset<T, employee_salary_historyDeleteArgs<ExtArgs>>): Prisma__employee_salary_historyClient<$Result.GetResult<Prisma.$employee_salary_historyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Employee_salary_history.
+     * @param {employee_salary_historyUpdateArgs} args - Arguments to update one Employee_salary_history.
+     * @example
+     * // Update one Employee_salary_history
+     * const employee_salary_history = await prisma.employee_salary_history.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends employee_salary_historyUpdateArgs>(args: SelectSubset<T, employee_salary_historyUpdateArgs<ExtArgs>>): Prisma__employee_salary_historyClient<$Result.GetResult<Prisma.$employee_salary_historyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Employee_salary_histories.
+     * @param {employee_salary_historyDeleteManyArgs} args - Arguments to filter Employee_salary_histories to delete.
+     * @example
+     * // Delete a few Employee_salary_histories
+     * const { count } = await prisma.employee_salary_history.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends employee_salary_historyDeleteManyArgs>(args?: SelectSubset<T, employee_salary_historyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Employee_salary_histories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {employee_salary_historyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Employee_salary_histories
+     * const employee_salary_history = await prisma.employee_salary_history.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends employee_salary_historyUpdateManyArgs>(args: SelectSubset<T, employee_salary_historyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Employee_salary_histories and returns the data updated in the database.
+     * @param {employee_salary_historyUpdateManyAndReturnArgs} args - Arguments to update many Employee_salary_histories.
+     * @example
+     * // Update many Employee_salary_histories
+     * const employee_salary_history = await prisma.employee_salary_history.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Employee_salary_histories and only return the `id`
+     * const employee_salary_historyWithIdOnly = await prisma.employee_salary_history.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends employee_salary_historyUpdateManyAndReturnArgs>(args: SelectSubset<T, employee_salary_historyUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_salary_historyPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Employee_salary_history.
+     * @param {employee_salary_historyUpsertArgs} args - Arguments to update or create a Employee_salary_history.
+     * @example
+     * // Update or create a Employee_salary_history
+     * const employee_salary_history = await prisma.employee_salary_history.upsert({
+     *   create: {
+     *     // ... data to create a Employee_salary_history
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Employee_salary_history we want to update
+     *   }
+     * })
+     */
+    upsert<T extends employee_salary_historyUpsertArgs>(args: SelectSubset<T, employee_salary_historyUpsertArgs<ExtArgs>>): Prisma__employee_salary_historyClient<$Result.GetResult<Prisma.$employee_salary_historyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Employee_salary_histories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {employee_salary_historyCountArgs} args - Arguments to filter Employee_salary_histories to count.
+     * @example
+     * // Count the number of Employee_salary_histories
+     * const count = await prisma.employee_salary_history.count({
+     *   where: {
+     *     // ... the filter for the Employee_salary_histories we want to count
+     *   }
+     * })
+    **/
+    count<T extends employee_salary_historyCountArgs>(
+      args?: Subset<T, employee_salary_historyCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Employee_salary_historyCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Employee_salary_history.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Employee_salary_historyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Employee_salary_historyAggregateArgs>(args: Subset<T, Employee_salary_historyAggregateArgs>): Prisma.PrismaPromise<GetEmployee_salary_historyAggregateType<T>>
+
+    /**
+     * Group by Employee_salary_history.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {employee_salary_historyGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends employee_salary_historyGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: employee_salary_historyGroupByArgs['orderBy'] }
+        : { orderBy?: employee_salary_historyGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, employee_salary_historyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmployee_salary_historyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the employee_salary_history model
+   */
+  readonly fields: employee_salary_historyFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for employee_salary_history.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__employee_salary_historyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    employee<T extends employeesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, employeesDefaultArgs<ExtArgs>>): Prisma__employeesClient<$Result.GetResult<Prisma.$employeesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    addedBy<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the employee_salary_history model
+   */
+  interface employee_salary_historyFieldRefs {
+    readonly id: FieldRef<"employee_salary_history", 'Int'>
+    readonly employee_id: FieldRef<"employee_salary_history", 'Int'>
+    readonly salary_type: FieldRef<"employee_salary_history", 'String'>
+    readonly amount: FieldRef<"employee_salary_history", 'Decimal'>
+    readonly date_from: FieldRef<"employee_salary_history", 'DateTime'>
+    readonly date_to: FieldRef<"employee_salary_history", 'DateTime'>
+    readonly note: FieldRef<"employee_salary_history", 'String'>
+    readonly added_at: FieldRef<"employee_salary_history", 'DateTime'>
+    readonly added_by: FieldRef<"employee_salary_history", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * employee_salary_history findUnique
+   */
+  export type employee_salary_historyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_salary_history
+     */
+    select?: employee_salary_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_salary_history
+     */
+    omit?: employee_salary_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_salary_historyInclude<ExtArgs> | null
+    /**
+     * Filter, which employee_salary_history to fetch.
+     */
+    where: employee_salary_historyWhereUniqueInput
+  }
+
+  /**
+   * employee_salary_history findUniqueOrThrow
+   */
+  export type employee_salary_historyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_salary_history
+     */
+    select?: employee_salary_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_salary_history
+     */
+    omit?: employee_salary_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_salary_historyInclude<ExtArgs> | null
+    /**
+     * Filter, which employee_salary_history to fetch.
+     */
+    where: employee_salary_historyWhereUniqueInput
+  }
+
+  /**
+   * employee_salary_history findFirst
+   */
+  export type employee_salary_historyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_salary_history
+     */
+    select?: employee_salary_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_salary_history
+     */
+    omit?: employee_salary_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_salary_historyInclude<ExtArgs> | null
+    /**
+     * Filter, which employee_salary_history to fetch.
+     */
+    where?: employee_salary_historyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of employee_salary_histories to fetch.
+     */
+    orderBy?: employee_salary_historyOrderByWithRelationInput | employee_salary_historyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for employee_salary_histories.
+     */
+    cursor?: employee_salary_historyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` employee_salary_histories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` employee_salary_histories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of employee_salary_histories.
+     */
+    distinct?: Employee_salary_historyScalarFieldEnum | Employee_salary_historyScalarFieldEnum[]
+  }
+
+  /**
+   * employee_salary_history findFirstOrThrow
+   */
+  export type employee_salary_historyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_salary_history
+     */
+    select?: employee_salary_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_salary_history
+     */
+    omit?: employee_salary_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_salary_historyInclude<ExtArgs> | null
+    /**
+     * Filter, which employee_salary_history to fetch.
+     */
+    where?: employee_salary_historyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of employee_salary_histories to fetch.
+     */
+    orderBy?: employee_salary_historyOrderByWithRelationInput | employee_salary_historyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for employee_salary_histories.
+     */
+    cursor?: employee_salary_historyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` employee_salary_histories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` employee_salary_histories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of employee_salary_histories.
+     */
+    distinct?: Employee_salary_historyScalarFieldEnum | Employee_salary_historyScalarFieldEnum[]
+  }
+
+  /**
+   * employee_salary_history findMany
+   */
+  export type employee_salary_historyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_salary_history
+     */
+    select?: employee_salary_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_salary_history
+     */
+    omit?: employee_salary_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_salary_historyInclude<ExtArgs> | null
+    /**
+     * Filter, which employee_salary_histories to fetch.
+     */
+    where?: employee_salary_historyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of employee_salary_histories to fetch.
+     */
+    orderBy?: employee_salary_historyOrderByWithRelationInput | employee_salary_historyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing employee_salary_histories.
+     */
+    cursor?: employee_salary_historyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` employee_salary_histories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` employee_salary_histories.
+     */
+    skip?: number
+    distinct?: Employee_salary_historyScalarFieldEnum | Employee_salary_historyScalarFieldEnum[]
+  }
+
+  /**
+   * employee_salary_history create
+   */
+  export type employee_salary_historyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_salary_history
+     */
+    select?: employee_salary_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_salary_history
+     */
+    omit?: employee_salary_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_salary_historyInclude<ExtArgs> | null
+    /**
+     * The data needed to create a employee_salary_history.
+     */
+    data: XOR<employee_salary_historyCreateInput, employee_salary_historyUncheckedCreateInput>
+  }
+
+  /**
+   * employee_salary_history createMany
+   */
+  export type employee_salary_historyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many employee_salary_histories.
+     */
+    data: employee_salary_historyCreateManyInput | employee_salary_historyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * employee_salary_history createManyAndReturn
+   */
+  export type employee_salary_historyCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_salary_history
+     */
+    select?: employee_salary_historySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_salary_history
+     */
+    omit?: employee_salary_historyOmit<ExtArgs> | null
+    /**
+     * The data used to create many employee_salary_histories.
+     */
+    data: employee_salary_historyCreateManyInput | employee_salary_historyCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_salary_historyIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * employee_salary_history update
+   */
+  export type employee_salary_historyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_salary_history
+     */
+    select?: employee_salary_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_salary_history
+     */
+    omit?: employee_salary_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_salary_historyInclude<ExtArgs> | null
+    /**
+     * The data needed to update a employee_salary_history.
+     */
+    data: XOR<employee_salary_historyUpdateInput, employee_salary_historyUncheckedUpdateInput>
+    /**
+     * Choose, which employee_salary_history to update.
+     */
+    where: employee_salary_historyWhereUniqueInput
+  }
+
+  /**
+   * employee_salary_history updateMany
+   */
+  export type employee_salary_historyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update employee_salary_histories.
+     */
+    data: XOR<employee_salary_historyUpdateManyMutationInput, employee_salary_historyUncheckedUpdateManyInput>
+    /**
+     * Filter which employee_salary_histories to update
+     */
+    where?: employee_salary_historyWhereInput
+    /**
+     * Limit how many employee_salary_histories to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * employee_salary_history updateManyAndReturn
+   */
+  export type employee_salary_historyUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_salary_history
+     */
+    select?: employee_salary_historySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_salary_history
+     */
+    omit?: employee_salary_historyOmit<ExtArgs> | null
+    /**
+     * The data used to update employee_salary_histories.
+     */
+    data: XOR<employee_salary_historyUpdateManyMutationInput, employee_salary_historyUncheckedUpdateManyInput>
+    /**
+     * Filter which employee_salary_histories to update
+     */
+    where?: employee_salary_historyWhereInput
+    /**
+     * Limit how many employee_salary_histories to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_salary_historyIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * employee_salary_history upsert
+   */
+  export type employee_salary_historyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_salary_history
+     */
+    select?: employee_salary_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_salary_history
+     */
+    omit?: employee_salary_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_salary_historyInclude<ExtArgs> | null
+    /**
+     * The filter to search for the employee_salary_history to update in case it exists.
+     */
+    where: employee_salary_historyWhereUniqueInput
+    /**
+     * In case the employee_salary_history found by the `where` argument doesn't exist, create a new employee_salary_history with this data.
+     */
+    create: XOR<employee_salary_historyCreateInput, employee_salary_historyUncheckedCreateInput>
+    /**
+     * In case the employee_salary_history was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<employee_salary_historyUpdateInput, employee_salary_historyUncheckedUpdateInput>
+  }
+
+  /**
+   * employee_salary_history delete
+   */
+  export type employee_salary_historyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_salary_history
+     */
+    select?: employee_salary_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_salary_history
+     */
+    omit?: employee_salary_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_salary_historyInclude<ExtArgs> | null
+    /**
+     * Filter which employee_salary_history to delete.
+     */
+    where: employee_salary_historyWhereUniqueInput
+  }
+
+  /**
+   * employee_salary_history deleteMany
+   */
+  export type employee_salary_historyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which employee_salary_histories to delete
+     */
+    where?: employee_salary_historyWhereInput
+    /**
+     * Limit how many employee_salary_histories to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * employee_salary_history without action
+   */
+  export type employee_salary_historyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_salary_history
+     */
+    select?: employee_salary_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_salary_history
+     */
+    omit?: employee_salary_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_salary_historyInclude<ExtArgs> | null
   }
 
 
@@ -30403,6 +31732,21 @@ export namespace Prisma {
   export type Employee_schedule_historyScalarFieldEnum = (typeof Employee_schedule_historyScalarFieldEnum)[keyof typeof Employee_schedule_historyScalarFieldEnum]
 
 
+  export const Employee_salary_historyScalarFieldEnum: {
+    id: 'id',
+    employee_id: 'employee_id',
+    salary_type: 'salary_type',
+    amount: 'amount',
+    date_from: 'date_from',
+    date_to: 'date_to',
+    note: 'note',
+    added_at: 'added_at',
+    added_by: 'added_by'
+  };
+
+  export type Employee_salary_historyScalarFieldEnum = (typeof Employee_salary_historyScalarFieldEnum)[keyof typeof Employee_salary_historyScalarFieldEnum]
+
+
   export const DoorsScalarFieldEnum: {
     id: 'id',
     name: 'name',
@@ -30615,6 +31959,20 @@ export namespace Prisma {
    * Reference to a field of type 'QueryMode'
    */
   export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal'
+   */
+  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal[]'
+   */
+  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
     
   /**
    * Deep Input Types
@@ -30920,6 +32278,7 @@ export namespace Prisma {
     position?: XOR<PositionsNullableScalarRelationFilter, positionsWhereInput> | null
     workSchedule?: XOR<Work_schedulesNullableScalarRelationFilter, work_schedulesWhereInput> | null
     employeeScheduleHistory?: Employee_schedule_historyListRelationFilter
+    employeeSalaryHistory?: Employee_salary_historyListRelationFilter
     employmentOrders?: Employment_ordersListRelationFilter
     employeeTimeOffs?: Time_offListRelationFilter
     facePasses?: Face_passesListRelationFilter
@@ -30958,6 +32317,7 @@ export namespace Prisma {
     position?: positionsOrderByWithRelationInput
     workSchedule?: work_schedulesOrderByWithRelationInput
     employeeScheduleHistory?: employee_schedule_historyOrderByRelationAggregateInput
+    employeeSalaryHistory?: employee_salary_historyOrderByRelationAggregateInput
     employmentOrders?: employment_ordersOrderByRelationAggregateInput
     employeeTimeOffs?: time_offOrderByRelationAggregateInput
     facePasses?: face_passesOrderByRelationAggregateInput
@@ -30999,6 +32359,7 @@ export namespace Prisma {
     position?: XOR<PositionsNullableScalarRelationFilter, positionsWhereInput> | null
     workSchedule?: XOR<Work_schedulesNullableScalarRelationFilter, work_schedulesWhereInput> | null
     employeeScheduleHistory?: Employee_schedule_historyListRelationFilter
+    employeeSalaryHistory?: Employee_salary_historyListRelationFilter
     employmentOrders?: Employment_ordersListRelationFilter
     employeeTimeOffs?: Time_offListRelationFilter
     facePasses?: Face_passesListRelationFilter
@@ -31601,6 +32962,7 @@ export namespace Prisma {
     branches?: BranchesListRelationFilter
     timeOff?: Time_offListRelationFilter
     employeeScheduleHistory?: Employee_schedule_historyListRelationFilter
+    employeeSalaryHistory?: Employee_salary_historyListRelationFilter
   }
 
   export type usersOrderByWithRelationInput = {
@@ -31628,6 +32990,7 @@ export namespace Prisma {
     branches?: branchesOrderByRelationAggregateInput
     timeOff?: time_offOrderByRelationAggregateInput
     employeeScheduleHistory?: employee_schedule_historyOrderByRelationAggregateInput
+    employeeSalaryHistory?: employee_salary_historyOrderByRelationAggregateInput
   }
 
   export type usersWhereUniqueInput = Prisma.AtLeast<{
@@ -31658,6 +33021,7 @@ export namespace Prisma {
     branches?: BranchesListRelationFilter
     timeOff?: Time_offListRelationFilter
     employeeScheduleHistory?: Employee_schedule_historyListRelationFilter
+    employeeSalaryHistory?: Employee_salary_historyListRelationFilter
   }, "id" | "username" | "telegram_id" | "employee_id">
 
   export type usersOrderByWithAggregationInput = {
@@ -32008,6 +33372,86 @@ export namespace Prisma {
     date_to?: DateTimeNullableWithAggregatesFilter<"employee_schedule_history"> | Date | string | null
     added_at?: DateTimeWithAggregatesFilter<"employee_schedule_history"> | Date | string
     added_by?: IntWithAggregatesFilter<"employee_schedule_history"> | number
+  }
+
+  export type employee_salary_historyWhereInput = {
+    AND?: employee_salary_historyWhereInput | employee_salary_historyWhereInput[]
+    OR?: employee_salary_historyWhereInput[]
+    NOT?: employee_salary_historyWhereInput | employee_salary_historyWhereInput[]
+    id?: IntFilter<"employee_salary_history"> | number
+    employee_id?: IntFilter<"employee_salary_history"> | number
+    salary_type?: StringFilter<"employee_salary_history"> | string
+    amount?: DecimalFilter<"employee_salary_history"> | Decimal | DecimalJsLike | number | string
+    date_from?: DateTimeFilter<"employee_salary_history"> | Date | string
+    date_to?: DateTimeNullableFilter<"employee_salary_history"> | Date | string | null
+    note?: StringNullableFilter<"employee_salary_history"> | string | null
+    added_at?: DateTimeFilter<"employee_salary_history"> | Date | string
+    added_by?: IntFilter<"employee_salary_history"> | number
+    employee?: XOR<EmployeesScalarRelationFilter, employeesWhereInput>
+    addedBy?: XOR<UsersScalarRelationFilter, usersWhereInput>
+  }
+
+  export type employee_salary_historyOrderByWithRelationInput = {
+    id?: SortOrder
+    employee_id?: SortOrder
+    salary_type?: SortOrder
+    amount?: SortOrder
+    date_from?: SortOrder
+    date_to?: SortOrderInput | SortOrder
+    note?: SortOrderInput | SortOrder
+    added_at?: SortOrder
+    added_by?: SortOrder
+    employee?: employeesOrderByWithRelationInput
+    addedBy?: usersOrderByWithRelationInput
+  }
+
+  export type employee_salary_historyWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: employee_salary_historyWhereInput | employee_salary_historyWhereInput[]
+    OR?: employee_salary_historyWhereInput[]
+    NOT?: employee_salary_historyWhereInput | employee_salary_historyWhereInput[]
+    employee_id?: IntFilter<"employee_salary_history"> | number
+    salary_type?: StringFilter<"employee_salary_history"> | string
+    amount?: DecimalFilter<"employee_salary_history"> | Decimal | DecimalJsLike | number | string
+    date_from?: DateTimeFilter<"employee_salary_history"> | Date | string
+    date_to?: DateTimeNullableFilter<"employee_salary_history"> | Date | string | null
+    note?: StringNullableFilter<"employee_salary_history"> | string | null
+    added_at?: DateTimeFilter<"employee_salary_history"> | Date | string
+    added_by?: IntFilter<"employee_salary_history"> | number
+    employee?: XOR<EmployeesScalarRelationFilter, employeesWhereInput>
+    addedBy?: XOR<UsersScalarRelationFilter, usersWhereInput>
+  }, "id">
+
+  export type employee_salary_historyOrderByWithAggregationInput = {
+    id?: SortOrder
+    employee_id?: SortOrder
+    salary_type?: SortOrder
+    amount?: SortOrder
+    date_from?: SortOrder
+    date_to?: SortOrderInput | SortOrder
+    note?: SortOrderInput | SortOrder
+    added_at?: SortOrder
+    added_by?: SortOrder
+    _count?: employee_salary_historyCountOrderByAggregateInput
+    _avg?: employee_salary_historyAvgOrderByAggregateInput
+    _max?: employee_salary_historyMaxOrderByAggregateInput
+    _min?: employee_salary_historyMinOrderByAggregateInput
+    _sum?: employee_salary_historySumOrderByAggregateInput
+  }
+
+  export type employee_salary_historyScalarWhereWithAggregatesInput = {
+    AND?: employee_salary_historyScalarWhereWithAggregatesInput | employee_salary_historyScalarWhereWithAggregatesInput[]
+    OR?: employee_salary_historyScalarWhereWithAggregatesInput[]
+    NOT?: employee_salary_historyScalarWhereWithAggregatesInput | employee_salary_historyScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"employee_salary_history"> | number
+    employee_id?: IntWithAggregatesFilter<"employee_salary_history"> | number
+    salary_type?: StringWithAggregatesFilter<"employee_salary_history"> | string
+    amount?: DecimalWithAggregatesFilter<"employee_salary_history"> | Decimal | DecimalJsLike | number | string
+    date_from?: DateTimeWithAggregatesFilter<"employee_salary_history"> | Date | string
+    date_to?: DateTimeNullableWithAggregatesFilter<"employee_salary_history"> | Date | string | null
+    note?: StringNullableWithAggregatesFilter<"employee_salary_history"> | string | null
+    added_at?: DateTimeWithAggregatesFilter<"employee_salary_history"> | Date | string
+    added_by?: IntWithAggregatesFilter<"employee_salary_history"> | number
   }
 
   export type doorsWhereInput = {
@@ -32807,6 +34251,7 @@ export namespace Prisma {
     position?: positionsCreateNestedOneWithoutEmployeesInput
     workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
@@ -32841,6 +34286,7 @@ export namespace Prisma {
     added_at?: Date | string
     updated_at?: Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
@@ -32874,6 +34320,7 @@ export namespace Prisma {
     position?: positionsUpdateOneWithoutEmployeesNestedInput
     workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
@@ -32908,6 +34355,7 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -33528,6 +34976,7 @@ export namespace Prisma {
     branches?: branchesCreateNestedManyWithoutAddedByInput
     timeOff?: time_offCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateInput = {
@@ -33554,6 +35003,7 @@ export namespace Prisma {
     branches?: branchesUncheckedCreateNestedManyWithoutAddedByInput
     timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUpdateInput = {
@@ -33579,6 +35029,7 @@ export namespace Prisma {
     branches?: branchesUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateInput = {
@@ -33605,6 +35056,7 @@ export namespace Prisma {
     branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersCreateManyInput = {
@@ -33960,6 +35412,85 @@ export namespace Prisma {
     work_schedule_id?: IntFieldUpdateOperationsInput | number
     date_from?: DateTimeFieldUpdateOperationsInput | Date | string
     date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    added_by?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type employee_salary_historyCreateInput = {
+    salary_type: string
+    amount: Decimal | DecimalJsLike | number | string
+    date_from: Date | string
+    date_to?: Date | string | null
+    note?: string | null
+    added_at?: Date | string
+    employee: employeesCreateNestedOneWithoutEmployeeSalaryHistoryInput
+    addedBy: usersCreateNestedOneWithoutEmployeeSalaryHistoryInput
+  }
+
+  export type employee_salary_historyUncheckedCreateInput = {
+    id?: number
+    employee_id: number
+    salary_type: string
+    amount: Decimal | DecimalJsLike | number | string
+    date_from: Date | string
+    date_to?: Date | string | null
+    note?: string | null
+    added_at?: Date | string
+    added_by: number
+  }
+
+  export type employee_salary_historyUpdateInput = {
+    salary_type?: StringFieldUpdateOperationsInput | string
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: employeesUpdateOneRequiredWithoutEmployeeSalaryHistoryNestedInput
+    addedBy?: usersUpdateOneRequiredWithoutEmployeeSalaryHistoryNestedInput
+  }
+
+  export type employee_salary_historyUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    salary_type?: StringFieldUpdateOperationsInput | string
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    added_by?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type employee_salary_historyCreateManyInput = {
+    id?: number
+    employee_id: number
+    salary_type: string
+    amount: Decimal | DecimalJsLike | number | string
+    date_from: Date | string
+    date_to?: Date | string | null
+    note?: string | null
+    added_at?: Date | string
+    added_by: number
+  }
+
+  export type employee_salary_historyUpdateManyMutationInput = {
+    salary_type?: StringFieldUpdateOperationsInput | string
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type employee_salary_historyUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    salary_type?: StringFieldUpdateOperationsInput | string
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     added_by?: IntFieldUpdateOperationsInput | number
   }
@@ -34927,6 +36458,12 @@ export namespace Prisma {
     none?: employee_schedule_historyWhereInput
   }
 
+  export type Employee_salary_historyListRelationFilter = {
+    every?: employee_salary_historyWhereInput
+    some?: employee_salary_historyWhereInput
+    none?: employee_salary_historyWhereInput
+  }
+
   export type Time_offListRelationFilter = {
     every?: time_offWhereInput
     some?: time_offWhereInput
@@ -34957,6 +36494,10 @@ export namespace Prisma {
   }
 
   export type employee_schedule_historyOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type employee_salary_historyOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -35833,6 +37374,83 @@ export namespace Prisma {
     added_by?: SortOrder
   }
 
+  export type DecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type employee_salary_historyCountOrderByAggregateInput = {
+    id?: SortOrder
+    employee_id?: SortOrder
+    salary_type?: SortOrder
+    amount?: SortOrder
+    date_from?: SortOrder
+    date_to?: SortOrder
+    note?: SortOrder
+    added_at?: SortOrder
+    added_by?: SortOrder
+  }
+
+  export type employee_salary_historyAvgOrderByAggregateInput = {
+    id?: SortOrder
+    employee_id?: SortOrder
+    amount?: SortOrder
+    added_by?: SortOrder
+  }
+
+  export type employee_salary_historyMaxOrderByAggregateInput = {
+    id?: SortOrder
+    employee_id?: SortOrder
+    salary_type?: SortOrder
+    amount?: SortOrder
+    date_from?: SortOrder
+    date_to?: SortOrder
+    note?: SortOrder
+    added_at?: SortOrder
+    added_by?: SortOrder
+  }
+
+  export type employee_salary_historyMinOrderByAggregateInput = {
+    id?: SortOrder
+    employee_id?: SortOrder
+    salary_type?: SortOrder
+    amount?: SortOrder
+    date_from?: SortOrder
+    date_to?: SortOrder
+    note?: SortOrder
+    added_at?: SortOrder
+    added_by?: SortOrder
+  }
+
+  export type employee_salary_historySumOrderByAggregateInput = {
+    id?: SortOrder
+    employee_id?: SortOrder
+    amount?: SortOrder
+    added_by?: SortOrder
+  }
+
+  export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
   export type Face_devicesListRelationFilter = {
     every?: face_devicesWhereInput
     some?: face_devicesWhereInput
@@ -36675,6 +38293,13 @@ export namespace Prisma {
     connect?: employee_schedule_historyWhereUniqueInput | employee_schedule_historyWhereUniqueInput[]
   }
 
+  export type employee_salary_historyCreateNestedManyWithoutEmployeeInput = {
+    create?: XOR<employee_salary_historyCreateWithoutEmployeeInput, employee_salary_historyUncheckedCreateWithoutEmployeeInput> | employee_salary_historyCreateWithoutEmployeeInput[] | employee_salary_historyUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: employee_salary_historyCreateOrConnectWithoutEmployeeInput | employee_salary_historyCreateOrConnectWithoutEmployeeInput[]
+    createMany?: employee_salary_historyCreateManyEmployeeInputEnvelope
+    connect?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+  }
+
   export type employment_ordersCreateNestedManyWithoutEmployeeInput = {
     create?: XOR<employment_ordersCreateWithoutEmployeeInput, employment_ordersUncheckedCreateWithoutEmployeeInput> | employment_ordersCreateWithoutEmployeeInput[] | employment_ordersUncheckedCreateWithoutEmployeeInput[]
     connectOrCreate?: employment_ordersCreateOrConnectWithoutEmployeeInput | employment_ordersCreateOrConnectWithoutEmployeeInput[]
@@ -36727,6 +38352,13 @@ export namespace Prisma {
     connectOrCreate?: employee_schedule_historyCreateOrConnectWithoutEmployeeInput | employee_schedule_historyCreateOrConnectWithoutEmployeeInput[]
     createMany?: employee_schedule_historyCreateManyEmployeeInputEnvelope
     connect?: employee_schedule_historyWhereUniqueInput | employee_schedule_historyWhereUniqueInput[]
+  }
+
+  export type employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput = {
+    create?: XOR<employee_salary_historyCreateWithoutEmployeeInput, employee_salary_historyUncheckedCreateWithoutEmployeeInput> | employee_salary_historyCreateWithoutEmployeeInput[] | employee_salary_historyUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: employee_salary_historyCreateOrConnectWithoutEmployeeInput | employee_salary_historyCreateOrConnectWithoutEmployeeInput[]
+    createMany?: employee_salary_historyCreateManyEmployeeInputEnvelope
+    connect?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
   }
 
   export type employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput = {
@@ -36834,6 +38466,20 @@ export namespace Prisma {
     deleteMany?: employee_schedule_historyScalarWhereInput | employee_schedule_historyScalarWhereInput[]
   }
 
+  export type employee_salary_historyUpdateManyWithoutEmployeeNestedInput = {
+    create?: XOR<employee_salary_historyCreateWithoutEmployeeInput, employee_salary_historyUncheckedCreateWithoutEmployeeInput> | employee_salary_historyCreateWithoutEmployeeInput[] | employee_salary_historyUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: employee_salary_historyCreateOrConnectWithoutEmployeeInput | employee_salary_historyCreateOrConnectWithoutEmployeeInput[]
+    upsert?: employee_salary_historyUpsertWithWhereUniqueWithoutEmployeeInput | employee_salary_historyUpsertWithWhereUniqueWithoutEmployeeInput[]
+    createMany?: employee_salary_historyCreateManyEmployeeInputEnvelope
+    set?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    disconnect?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    delete?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    connect?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    update?: employee_salary_historyUpdateWithWhereUniqueWithoutEmployeeInput | employee_salary_historyUpdateWithWhereUniqueWithoutEmployeeInput[]
+    updateMany?: employee_salary_historyUpdateManyWithWhereWithoutEmployeeInput | employee_salary_historyUpdateManyWithWhereWithoutEmployeeInput[]
+    deleteMany?: employee_salary_historyScalarWhereInput | employee_salary_historyScalarWhereInput[]
+  }
+
   export type employment_ordersUpdateManyWithoutEmployeeNestedInput = {
     create?: XOR<employment_ordersCreateWithoutEmployeeInput, employment_ordersUncheckedCreateWithoutEmployeeInput> | employment_ordersCreateWithoutEmployeeInput[] | employment_ordersUncheckedCreateWithoutEmployeeInput[]
     connectOrCreate?: employment_ordersCreateOrConnectWithoutEmployeeInput | employment_ordersCreateOrConnectWithoutEmployeeInput[]
@@ -36939,6 +38585,20 @@ export namespace Prisma {
     update?: employee_schedule_historyUpdateWithWhereUniqueWithoutEmployeeInput | employee_schedule_historyUpdateWithWhereUniqueWithoutEmployeeInput[]
     updateMany?: employee_schedule_historyUpdateManyWithWhereWithoutEmployeeInput | employee_schedule_historyUpdateManyWithWhereWithoutEmployeeInput[]
     deleteMany?: employee_schedule_historyScalarWhereInput | employee_schedule_historyScalarWhereInput[]
+  }
+
+  export type employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput = {
+    create?: XOR<employee_salary_historyCreateWithoutEmployeeInput, employee_salary_historyUncheckedCreateWithoutEmployeeInput> | employee_salary_historyCreateWithoutEmployeeInput[] | employee_salary_historyUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: employee_salary_historyCreateOrConnectWithoutEmployeeInput | employee_salary_historyCreateOrConnectWithoutEmployeeInput[]
+    upsert?: employee_salary_historyUpsertWithWhereUniqueWithoutEmployeeInput | employee_salary_historyUpsertWithWhereUniqueWithoutEmployeeInput[]
+    createMany?: employee_salary_historyCreateManyEmployeeInputEnvelope
+    set?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    disconnect?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    delete?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    connect?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    update?: employee_salary_historyUpdateWithWhereUniqueWithoutEmployeeInput | employee_salary_historyUpdateWithWhereUniqueWithoutEmployeeInput[]
+    updateMany?: employee_salary_historyUpdateManyWithWhereWithoutEmployeeInput | employee_salary_historyUpdateManyWithWhereWithoutEmployeeInput[]
+    deleteMany?: employee_salary_historyScalarWhereInput | employee_salary_historyScalarWhereInput[]
   }
 
   export type employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput = {
@@ -37306,6 +38966,13 @@ export namespace Prisma {
     connect?: employee_schedule_historyWhereUniqueInput | employee_schedule_historyWhereUniqueInput[]
   }
 
+  export type employee_salary_historyCreateNestedManyWithoutAddedByInput = {
+    create?: XOR<employee_salary_historyCreateWithoutAddedByInput, employee_salary_historyUncheckedCreateWithoutAddedByInput> | employee_salary_historyCreateWithoutAddedByInput[] | employee_salary_historyUncheckedCreateWithoutAddedByInput[]
+    connectOrCreate?: employee_salary_historyCreateOrConnectWithoutAddedByInput | employee_salary_historyCreateOrConnectWithoutAddedByInput[]
+    createMany?: employee_salary_historyCreateManyAddedByInputEnvelope
+    connect?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+  }
+
   export type user_menu_accessUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<user_menu_accessCreateWithoutUserInput, user_menu_accessUncheckedCreateWithoutUserInput> | user_menu_accessCreateWithoutUserInput[] | user_menu_accessUncheckedCreateWithoutUserInput[]
     connectOrCreate?: user_menu_accessCreateOrConnectWithoutUserInput | user_menu_accessCreateOrConnectWithoutUserInput[]
@@ -37346,6 +39013,13 @@ export namespace Prisma {
     connectOrCreate?: employee_schedule_historyCreateOrConnectWithoutAddedByInput | employee_schedule_historyCreateOrConnectWithoutAddedByInput[]
     createMany?: employee_schedule_historyCreateManyAddedByInputEnvelope
     connect?: employee_schedule_historyWhereUniqueInput | employee_schedule_historyWhereUniqueInput[]
+  }
+
+  export type employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput = {
+    create?: XOR<employee_salary_historyCreateWithoutAddedByInput, employee_salary_historyUncheckedCreateWithoutAddedByInput> | employee_salary_historyCreateWithoutAddedByInput[] | employee_salary_historyUncheckedCreateWithoutAddedByInput[]
+    connectOrCreate?: employee_salary_historyCreateOrConnectWithoutAddedByInput | employee_salary_historyCreateOrConnectWithoutAddedByInput[]
+    createMany?: employee_salary_historyCreateManyAddedByInputEnvelope
+    connect?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
   }
 
   export type usersUpdatebranch_accessInput = {
@@ -37457,6 +39131,20 @@ export namespace Prisma {
     deleteMany?: employee_schedule_historyScalarWhereInput | employee_schedule_historyScalarWhereInput[]
   }
 
+  export type employee_salary_historyUpdateManyWithoutAddedByNestedInput = {
+    create?: XOR<employee_salary_historyCreateWithoutAddedByInput, employee_salary_historyUncheckedCreateWithoutAddedByInput> | employee_salary_historyCreateWithoutAddedByInput[] | employee_salary_historyUncheckedCreateWithoutAddedByInput[]
+    connectOrCreate?: employee_salary_historyCreateOrConnectWithoutAddedByInput | employee_salary_historyCreateOrConnectWithoutAddedByInput[]
+    upsert?: employee_salary_historyUpsertWithWhereUniqueWithoutAddedByInput | employee_salary_historyUpsertWithWhereUniqueWithoutAddedByInput[]
+    createMany?: employee_salary_historyCreateManyAddedByInputEnvelope
+    set?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    disconnect?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    delete?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    connect?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    update?: employee_salary_historyUpdateWithWhereUniqueWithoutAddedByInput | employee_salary_historyUpdateWithWhereUniqueWithoutAddedByInput[]
+    updateMany?: employee_salary_historyUpdateManyWithWhereWithoutAddedByInput | employee_salary_historyUpdateManyWithWhereWithoutAddedByInput[]
+    deleteMany?: employee_salary_historyScalarWhereInput | employee_salary_historyScalarWhereInput[]
+  }
+
   export type user_menu_accessUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<user_menu_accessCreateWithoutUserInput, user_menu_accessUncheckedCreateWithoutUserInput> | user_menu_accessCreateWithoutUserInput[] | user_menu_accessUncheckedCreateWithoutUserInput[]
     connectOrCreate?: user_menu_accessCreateOrConnectWithoutUserInput | user_menu_accessCreateOrConnectWithoutUserInput[]
@@ -37539,6 +39227,20 @@ export namespace Prisma {
     update?: employee_schedule_historyUpdateWithWhereUniqueWithoutAddedByInput | employee_schedule_historyUpdateWithWhereUniqueWithoutAddedByInput[]
     updateMany?: employee_schedule_historyUpdateManyWithWhereWithoutAddedByInput | employee_schedule_historyUpdateManyWithWhereWithoutAddedByInput[]
     deleteMany?: employee_schedule_historyScalarWhereInput | employee_schedule_historyScalarWhereInput[]
+  }
+
+  export type employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput = {
+    create?: XOR<employee_salary_historyCreateWithoutAddedByInput, employee_salary_historyUncheckedCreateWithoutAddedByInput> | employee_salary_historyCreateWithoutAddedByInput[] | employee_salary_historyUncheckedCreateWithoutAddedByInput[]
+    connectOrCreate?: employee_salary_historyCreateOrConnectWithoutAddedByInput | employee_salary_historyCreateOrConnectWithoutAddedByInput[]
+    upsert?: employee_salary_historyUpsertWithWhereUniqueWithoutAddedByInput | employee_salary_historyUpsertWithWhereUniqueWithoutAddedByInput[]
+    createMany?: employee_salary_historyCreateManyAddedByInputEnvelope
+    set?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    disconnect?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    delete?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    connect?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+    update?: employee_salary_historyUpdateWithWhereUniqueWithoutAddedByInput | employee_salary_historyUpdateWithWhereUniqueWithoutAddedByInput[]
+    updateMany?: employee_salary_historyUpdateManyWithWhereWithoutAddedByInput | employee_salary_historyUpdateManyWithWhereWithoutAddedByInput[]
+    deleteMany?: employee_salary_historyScalarWhereInput | employee_salary_historyScalarWhereInput[]
   }
 
   export type menusCreateNestedOneWithoutChildrenInput = {
@@ -37793,6 +39495,42 @@ export namespace Prisma {
     upsert?: usersUpsertWithoutEmployeeScheduleHistoryInput
     connect?: usersWhereUniqueInput
     update?: XOR<XOR<usersUpdateToOneWithWhereWithoutEmployeeScheduleHistoryInput, usersUpdateWithoutEmployeeScheduleHistoryInput>, usersUncheckedUpdateWithoutEmployeeScheduleHistoryInput>
+  }
+
+  export type employeesCreateNestedOneWithoutEmployeeSalaryHistoryInput = {
+    create?: XOR<employeesCreateWithoutEmployeeSalaryHistoryInput, employeesUncheckedCreateWithoutEmployeeSalaryHistoryInput>
+    connectOrCreate?: employeesCreateOrConnectWithoutEmployeeSalaryHistoryInput
+    connect?: employeesWhereUniqueInput
+  }
+
+  export type usersCreateNestedOneWithoutEmployeeSalaryHistoryInput = {
+    create?: XOR<usersCreateWithoutEmployeeSalaryHistoryInput, usersUncheckedCreateWithoutEmployeeSalaryHistoryInput>
+    connectOrCreate?: usersCreateOrConnectWithoutEmployeeSalaryHistoryInput
+    connect?: usersWhereUniqueInput
+  }
+
+  export type DecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type employeesUpdateOneRequiredWithoutEmployeeSalaryHistoryNestedInput = {
+    create?: XOR<employeesCreateWithoutEmployeeSalaryHistoryInput, employeesUncheckedCreateWithoutEmployeeSalaryHistoryInput>
+    connectOrCreate?: employeesCreateOrConnectWithoutEmployeeSalaryHistoryInput
+    upsert?: employeesUpsertWithoutEmployeeSalaryHistoryInput
+    connect?: employeesWhereUniqueInput
+    update?: XOR<XOR<employeesUpdateToOneWithWhereWithoutEmployeeSalaryHistoryInput, employeesUpdateWithoutEmployeeSalaryHistoryInput>, employeesUncheckedUpdateWithoutEmployeeSalaryHistoryInput>
+  }
+
+  export type usersUpdateOneRequiredWithoutEmployeeSalaryHistoryNestedInput = {
+    create?: XOR<usersCreateWithoutEmployeeSalaryHistoryInput, usersUncheckedCreateWithoutEmployeeSalaryHistoryInput>
+    connectOrCreate?: usersCreateOrConnectWithoutEmployeeSalaryHistoryInput
+    upsert?: usersUpsertWithoutEmployeeSalaryHistoryInput
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutEmployeeSalaryHistoryInput, usersUpdateWithoutEmployeeSalaryHistoryInput>, usersUncheckedUpdateWithoutEmployeeSalaryHistoryInput>
   }
 
   export type branchesCreateNestedOneWithoutDoorsInput = {
@@ -38548,6 +40286,33 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type NestedDecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
   export type employeesCreateWithoutDirectedBranchesInput = {
     employee_number?: number | null
     last_name?: string | null
@@ -38572,6 +40337,7 @@ export namespace Prisma {
     position?: positionsCreateNestedOneWithoutEmployeesInput
     workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
@@ -38605,6 +40371,7 @@ export namespace Prisma {
     added_at?: Date | string
     updated_at?: Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
@@ -38674,6 +40441,7 @@ export namespace Prisma {
     position?: positionsCreateNestedOneWithoutEmployeesInput
     workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
@@ -38707,6 +40475,7 @@ export namespace Prisma {
     added_at?: Date | string
     updated_at?: Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
@@ -38872,6 +40641,7 @@ export namespace Prisma {
     holidays?: holidaysCreateNestedManyWithoutAddedByInput
     timeOff?: time_offCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutBranchesInput = {
@@ -38897,6 +40667,7 @@ export namespace Prisma {
     holidays?: holidaysUncheckedCreateNestedManyWithoutAddedByInput
     timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutBranchesInput = {
@@ -38939,6 +40710,7 @@ export namespace Prisma {
     position?: positionsUpdateOneWithoutEmployeesNestedInput
     workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
@@ -38972,6 +40744,7 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -39206,6 +40979,7 @@ export namespace Prisma {
     holidays?: holidaysUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutBranchesInput = {
@@ -39231,6 +41005,7 @@ export namespace Prisma {
     holidays?: holidaysUncheckedUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type employment_ordersCreateWithoutDepartmentInput = {
@@ -39289,6 +41064,7 @@ export namespace Prisma {
     position?: positionsCreateNestedOneWithoutEmployeesInput
     workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
@@ -39322,6 +41098,7 @@ export namespace Prisma {
     added_at?: Date | string
     updated_at?: Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
@@ -39577,6 +41354,7 @@ export namespace Prisma {
     position?: positionsCreateNestedOneWithoutEmployeesInput
     workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
@@ -39610,6 +41388,7 @@ export namespace Prisma {
     added_at?: Date | string
     updated_at?: Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
@@ -39762,6 +41541,7 @@ export namespace Prisma {
     position?: positionsUpdateOneWithoutEmployeesNestedInput
     workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
@@ -39795,6 +41575,7 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
@@ -39949,6 +41730,37 @@ export namespace Prisma {
 
   export type employee_schedule_historyCreateManyEmployeeInputEnvelope = {
     data: employee_schedule_historyCreateManyEmployeeInput | employee_schedule_historyCreateManyEmployeeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type employee_salary_historyCreateWithoutEmployeeInput = {
+    salary_type: string
+    amount: Decimal | DecimalJsLike | number | string
+    date_from: Date | string
+    date_to?: Date | string | null
+    note?: string | null
+    added_at?: Date | string
+    addedBy: usersCreateNestedOneWithoutEmployeeSalaryHistoryInput
+  }
+
+  export type employee_salary_historyUncheckedCreateWithoutEmployeeInput = {
+    id?: number
+    salary_type: string
+    amount: Decimal | DecimalJsLike | number | string
+    date_from: Date | string
+    date_to?: Date | string | null
+    note?: string | null
+    added_at?: Date | string
+    added_by: number
+  }
+
+  export type employee_salary_historyCreateOrConnectWithoutEmployeeInput = {
+    where: employee_salary_historyWhereUniqueInput
+    create: XOR<employee_salary_historyCreateWithoutEmployeeInput, employee_salary_historyUncheckedCreateWithoutEmployeeInput>
+  }
+
+  export type employee_salary_historyCreateManyEmployeeInputEnvelope = {
+    data: employee_salary_historyCreateManyEmployeeInput | employee_salary_historyCreateManyEmployeeInput[]
     skipDuplicates?: boolean
   }
 
@@ -40138,6 +41950,7 @@ export namespace Prisma {
     branches?: branchesCreateNestedManyWithoutAddedByInput
     timeOff?: time_offCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutEmployeeInput = {
@@ -40163,6 +41976,7 @@ export namespace Prisma {
     branches?: branchesUncheckedCreateNestedManyWithoutAddedByInput
     timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutEmployeeInput = {
@@ -40394,6 +42208,37 @@ export namespace Prisma {
     added_by?: IntFilter<"employee_schedule_history"> | number
   }
 
+  export type employee_salary_historyUpsertWithWhereUniqueWithoutEmployeeInput = {
+    where: employee_salary_historyWhereUniqueInput
+    update: XOR<employee_salary_historyUpdateWithoutEmployeeInput, employee_salary_historyUncheckedUpdateWithoutEmployeeInput>
+    create: XOR<employee_salary_historyCreateWithoutEmployeeInput, employee_salary_historyUncheckedCreateWithoutEmployeeInput>
+  }
+
+  export type employee_salary_historyUpdateWithWhereUniqueWithoutEmployeeInput = {
+    where: employee_salary_historyWhereUniqueInput
+    data: XOR<employee_salary_historyUpdateWithoutEmployeeInput, employee_salary_historyUncheckedUpdateWithoutEmployeeInput>
+  }
+
+  export type employee_salary_historyUpdateManyWithWhereWithoutEmployeeInput = {
+    where: employee_salary_historyScalarWhereInput
+    data: XOR<employee_salary_historyUpdateManyMutationInput, employee_salary_historyUncheckedUpdateManyWithoutEmployeeInput>
+  }
+
+  export type employee_salary_historyScalarWhereInput = {
+    AND?: employee_salary_historyScalarWhereInput | employee_salary_historyScalarWhereInput[]
+    OR?: employee_salary_historyScalarWhereInput[]
+    NOT?: employee_salary_historyScalarWhereInput | employee_salary_historyScalarWhereInput[]
+    id?: IntFilter<"employee_salary_history"> | number
+    employee_id?: IntFilter<"employee_salary_history"> | number
+    salary_type?: StringFilter<"employee_salary_history"> | string
+    amount?: DecimalFilter<"employee_salary_history"> | Decimal | DecimalJsLike | number | string
+    date_from?: DateTimeFilter<"employee_salary_history"> | Date | string
+    date_to?: DateTimeNullableFilter<"employee_salary_history"> | Date | string | null
+    note?: StringNullableFilter<"employee_salary_history"> | string | null
+    added_at?: DateTimeFilter<"employee_salary_history"> | Date | string
+    added_by?: IntFilter<"employee_salary_history"> | number
+  }
+
   export type employment_ordersUpsertWithWhereUniqueWithoutEmployeeInput = {
     where: employment_ordersWhereUniqueInput
     update: XOR<employment_ordersUpdateWithoutEmployeeInput, employment_ordersUncheckedUpdateWithoutEmployeeInput>
@@ -40556,6 +42401,7 @@ export namespace Prisma {
     branches?: branchesUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutEmployeeInput = {
@@ -40581,6 +42427,7 @@ export namespace Prisma {
     branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type branchesUpsertWithWhereUniqueWithoutDirectorInput = {
@@ -40641,6 +42488,7 @@ export namespace Prisma {
     position?: positionsCreateNestedOneWithoutEmployeesInput
     workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
@@ -40674,6 +42522,7 @@ export namespace Prisma {
     added_at?: Date | string
     updated_at?: Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
@@ -40786,6 +42635,7 @@ export namespace Prisma {
     position?: positionsUpdateOneWithoutEmployeesNestedInput
     workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
@@ -40819,6 +42669,7 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
@@ -40925,6 +42776,7 @@ export namespace Prisma {
     branches?: branchesCreateNestedManyWithoutAddedByInput
     timeOff?: time_offCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutHolidaysInput = {
@@ -40950,6 +42802,7 @@ export namespace Prisma {
     branches?: branchesUncheckedCreateNestedManyWithoutAddedByInput
     timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutHolidaysInput = {
@@ -40990,6 +42843,7 @@ export namespace Prisma {
     branches?: branchesUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutHolidaysInput = {
@@ -41015,6 +42869,7 @@ export namespace Prisma {
     branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type employment_ordersCreateWithoutPositionInput = {
@@ -41073,6 +42928,7 @@ export namespace Prisma {
     department?: departmentsCreateNestedOneWithoutEmployeesInput
     workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
@@ -41106,6 +42962,7 @@ export namespace Prisma {
     added_at?: Date | string
     updated_at?: Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
@@ -41179,6 +43036,7 @@ export namespace Prisma {
     branches?: branchesCreateNestedManyWithoutAddedByInput
     timeOff?: time_offCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutSessionsInput = {
@@ -41204,6 +43062,7 @@ export namespace Prisma {
     branches?: branchesUncheckedCreateNestedManyWithoutAddedByInput
     timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutSessionsInput = {
@@ -41244,6 +43103,7 @@ export namespace Prisma {
     branches?: branchesUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutSessionsInput = {
@@ -41269,6 +43129,7 @@ export namespace Prisma {
     branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersCreateWithoutTimeOffInput = {
@@ -41293,6 +43154,7 @@ export namespace Prisma {
     holidays?: holidaysCreateNestedManyWithoutAddedByInput
     branches?: branchesCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutTimeOffInput = {
@@ -41318,6 +43180,7 @@ export namespace Prisma {
     holidays?: holidaysUncheckedCreateNestedManyWithoutAddedByInput
     branches?: branchesUncheckedCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutTimeOffInput = {
@@ -41349,6 +43212,7 @@ export namespace Prisma {
     position?: positionsCreateNestedOneWithoutEmployeesInput
     workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
@@ -41382,6 +43246,7 @@ export namespace Prisma {
     added_at?: Date | string
     updated_at?: Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
@@ -41428,6 +43293,7 @@ export namespace Prisma {
     holidays?: holidaysUpdateManyWithoutAddedByNestedInput
     branches?: branchesUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutTimeOffInput = {
@@ -41453,6 +43319,7 @@ export namespace Prisma {
     holidays?: holidaysUncheckedUpdateManyWithoutAddedByNestedInput
     branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type employeesUpsertWithoutEmployeeTimeOffsInput = {
@@ -41490,6 +43357,7 @@ export namespace Prisma {
     position?: positionsUpdateOneWithoutEmployeesNestedInput
     workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
@@ -41523,6 +43391,7 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
@@ -41555,6 +43424,7 @@ export namespace Prisma {
     position?: positionsCreateNestedOneWithoutEmployeesInput
     workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
@@ -41588,6 +43458,7 @@ export namespace Prisma {
     added_at?: Date | string
     updated_at?: Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
@@ -41790,6 +43661,37 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type employee_salary_historyCreateWithoutAddedByInput = {
+    salary_type: string
+    amount: Decimal | DecimalJsLike | number | string
+    date_from: Date | string
+    date_to?: Date | string | null
+    note?: string | null
+    added_at?: Date | string
+    employee: employeesCreateNestedOneWithoutEmployeeSalaryHistoryInput
+  }
+
+  export type employee_salary_historyUncheckedCreateWithoutAddedByInput = {
+    id?: number
+    employee_id: number
+    salary_type: string
+    amount: Decimal | DecimalJsLike | number | string
+    date_from: Date | string
+    date_to?: Date | string | null
+    note?: string | null
+    added_at?: Date | string
+  }
+
+  export type employee_salary_historyCreateOrConnectWithoutAddedByInput = {
+    where: employee_salary_historyWhereUniqueInput
+    create: XOR<employee_salary_historyCreateWithoutAddedByInput, employee_salary_historyUncheckedCreateWithoutAddedByInput>
+  }
+
+  export type employee_salary_historyCreateManyAddedByInputEnvelope = {
+    data: employee_salary_historyCreateManyAddedByInput | employee_salary_historyCreateManyAddedByInput[]
+    skipDuplicates?: boolean
+  }
+
   export type employeesUpsertWithoutUserInput = {
     update: XOR<employeesUpdateWithoutUserInput, employeesUncheckedUpdateWithoutUserInput>
     create: XOR<employeesCreateWithoutUserInput, employeesUncheckedCreateWithoutUserInput>
@@ -41825,6 +43727,7 @@ export namespace Prisma {
     position?: positionsUpdateOneWithoutEmployeesNestedInput
     workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
@@ -41858,6 +43761,7 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -41998,6 +43902,22 @@ export namespace Prisma {
   export type employee_schedule_historyUpdateManyWithWhereWithoutAddedByInput = {
     where: employee_schedule_historyScalarWhereInput
     data: XOR<employee_schedule_historyUpdateManyMutationInput, employee_schedule_historyUncheckedUpdateManyWithoutAddedByInput>
+  }
+
+  export type employee_salary_historyUpsertWithWhereUniqueWithoutAddedByInput = {
+    where: employee_salary_historyWhereUniqueInput
+    update: XOR<employee_salary_historyUpdateWithoutAddedByInput, employee_salary_historyUncheckedUpdateWithoutAddedByInput>
+    create: XOR<employee_salary_historyCreateWithoutAddedByInput, employee_salary_historyUncheckedCreateWithoutAddedByInput>
+  }
+
+  export type employee_salary_historyUpdateWithWhereUniqueWithoutAddedByInput = {
+    where: employee_salary_historyWhereUniqueInput
+    data: XOR<employee_salary_historyUpdateWithoutAddedByInput, employee_salary_historyUncheckedUpdateWithoutAddedByInput>
+  }
+
+  export type employee_salary_historyUpdateManyWithWhereWithoutAddedByInput = {
+    where: employee_salary_historyScalarWhereInput
+    data: XOR<employee_salary_historyUpdateManyMutationInput, employee_salary_historyUncheckedUpdateManyWithoutAddedByInput>
   }
 
   export type menusCreateWithoutChildrenInput = {
@@ -42169,6 +44089,7 @@ export namespace Prisma {
     branches?: branchesCreateNestedManyWithoutAddedByInput
     timeOff?: time_offCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutMenuAccessInput = {
@@ -42194,6 +44115,7 @@ export namespace Prisma {
     branches?: branchesUncheckedCreateNestedManyWithoutAddedByInput
     timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutMenuAccessInput = {
@@ -42256,6 +44178,7 @@ export namespace Prisma {
     branches?: branchesUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutMenuAccessInput = {
@@ -42281,6 +44204,7 @@ export namespace Prisma {
     branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type menusUpsertWithoutAccessInput = {
@@ -42334,6 +44258,7 @@ export namespace Prisma {
     department?: departmentsCreateNestedOneWithoutEmployeesInput
     position?: positionsCreateNestedOneWithoutEmployeesInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
@@ -42367,6 +44292,7 @@ export namespace Prisma {
     added_at?: Date | string
     updated_at?: Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
@@ -42468,6 +44394,7 @@ export namespace Prisma {
     department?: departmentsCreateNestedOneWithoutEmployeesInput
     position?: positionsCreateNestedOneWithoutEmployeesInput
     workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
@@ -42501,6 +44428,7 @@ export namespace Prisma {
     education_specialty?: string | null
     added_at?: Date | string
     updated_at?: Date | string
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
@@ -42573,6 +44501,7 @@ export namespace Prisma {
     holidays?: holidaysCreateNestedManyWithoutAddedByInput
     branches?: branchesCreateNestedManyWithoutAddedByInput
     timeOff?: time_offCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutEmployeeScheduleHistoryInput = {
@@ -42598,6 +44527,7 @@ export namespace Prisma {
     holidays?: holidaysUncheckedCreateNestedManyWithoutAddedByInput
     branches?: branchesUncheckedCreateNestedManyWithoutAddedByInput
     timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutEmployeeScheduleHistoryInput = {
@@ -42639,6 +44569,7 @@ export namespace Prisma {
     department?: departmentsUpdateOneWithoutEmployeesNestedInput
     position?: positionsUpdateOneWithoutEmployeesNestedInput
     workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
@@ -42672,6 +44603,7 @@ export namespace Prisma {
     education_specialty?: NullableStringFieldUpdateOperationsInput | string | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -42756,6 +44688,7 @@ export namespace Prisma {
     holidays?: holidaysUpdateManyWithoutAddedByNestedInput
     branches?: branchesUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutEmployeeScheduleHistoryInput = {
@@ -42781,6 +44714,275 @@ export namespace Prisma {
     holidays?: holidaysUncheckedUpdateManyWithoutAddedByNestedInput
     branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
+  }
+
+  export type employeesCreateWithoutEmployeeSalaryHistoryInput = {
+    employee_number?: number | null
+    last_name?: string | null
+    first_name?: string | null
+    middle_name?: string | null
+    date_of_birth?: Date | string | null
+    gender?: string | null
+    passport?: string | null
+    passport_expiry_date?: Date | string | null
+    pinfl?: string | null
+    education?: string | null
+    phone?: string | null
+    email?: string | null
+    address?: string | null
+    status?: boolean | null
+    photo?: string | null
+    education_specialty?: string | null
+    added_at?: Date | string
+    updated_at?: Date | string
+    branch?: branchesCreateNestedOneWithoutEmployeesInput
+    department?: departmentsCreateNestedOneWithoutEmployeesInput
+    position?: positionsCreateNestedOneWithoutEmployeesInput
+    workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
+    employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
+    employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
+    employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
+    facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
+    doors?: doorsCreateNestedManyWithoutEmployeesInput
+    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
+    user?: usersCreateNestedOneWithoutEmployeeInput
+    directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+  }
+
+  export type employeesUncheckedCreateWithoutEmployeeSalaryHistoryInput = {
+    id?: number
+    employee_number?: number | null
+    last_name?: string | null
+    first_name?: string | null
+    middle_name?: string | null
+    date_of_birth?: Date | string | null
+    gender?: string | null
+    passport?: string | null
+    passport_expiry_date?: Date | string | null
+    pinfl?: string | null
+    education?: string | null
+    phone?: string | null
+    email?: string | null
+    address?: string | null
+    status?: boolean | null
+    photo?: string | null
+    branch_id?: number | null
+    department_id?: number | null
+    position_id?: number | null
+    work_schedule_id?: number | null
+    education_specialty?: string | null
+    added_at?: Date | string
+    updated_at?: Date | string
+    employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
+    facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
+    doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
+    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
+    user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
+    directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+  }
+
+  export type employeesCreateOrConnectWithoutEmployeeSalaryHistoryInput = {
+    where: employeesWhereUniqueInput
+    create: XOR<employeesCreateWithoutEmployeeSalaryHistoryInput, employeesUncheckedCreateWithoutEmployeeSalaryHistoryInput>
+  }
+
+  export type usersCreateWithoutEmployeeSalaryHistoryInput = {
+    username: string
+    password: string
+    telegram_id?: string | null
+    status?: boolean
+    access_level?: string | null
+    branch_access?: usersCreatebranch_accessInput | number[]
+    department_access?: usersCreatedepartment_accessInput | number[]
+    language?: string
+    theme?: string
+    sidebar?: string
+    view_mode?: string
+    personal_menus?: usersCreatepersonal_menusInput | string[]
+    active_branch_id?: number | null
+    ignore_gps_check?: boolean
+    added_at?: Date | string
+    employee?: employeesCreateNestedOneWithoutUserInput
+    menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
+    sessions?: sessionsCreateNestedManyWithoutUserInput
+    holidays?: holidaysCreateNestedManyWithoutAddedByInput
+    branches?: branchesCreateNestedManyWithoutAddedByInput
+    timeOff?: time_offCreateNestedManyWithoutAddedByInput
+    employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
+  }
+
+  export type usersUncheckedCreateWithoutEmployeeSalaryHistoryInput = {
+    id?: number
+    username: string
+    password: string
+    telegram_id?: string | null
+    employee_id?: number | null
+    status?: boolean
+    access_level?: string | null
+    branch_access?: usersCreatebranch_accessInput | number[]
+    department_access?: usersCreatedepartment_accessInput | number[]
+    language?: string
+    theme?: string
+    sidebar?: string
+    view_mode?: string
+    personal_menus?: usersCreatepersonal_menusInput | string[]
+    active_branch_id?: number | null
+    ignore_gps_check?: boolean
+    added_at?: Date | string
+    menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
+    sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
+    holidays?: holidaysUncheckedCreateNestedManyWithoutAddedByInput
+    branches?: branchesUncheckedCreateNestedManyWithoutAddedByInput
+    timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
+    employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
+  }
+
+  export type usersCreateOrConnectWithoutEmployeeSalaryHistoryInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutEmployeeSalaryHistoryInput, usersUncheckedCreateWithoutEmployeeSalaryHistoryInput>
+  }
+
+  export type employeesUpsertWithoutEmployeeSalaryHistoryInput = {
+    update: XOR<employeesUpdateWithoutEmployeeSalaryHistoryInput, employeesUncheckedUpdateWithoutEmployeeSalaryHistoryInput>
+    create: XOR<employeesCreateWithoutEmployeeSalaryHistoryInput, employeesUncheckedCreateWithoutEmployeeSalaryHistoryInput>
+    where?: employeesWhereInput
+  }
+
+  export type employeesUpdateToOneWithWhereWithoutEmployeeSalaryHistoryInput = {
+    where?: employeesWhereInput
+    data: XOR<employeesUpdateWithoutEmployeeSalaryHistoryInput, employeesUncheckedUpdateWithoutEmployeeSalaryHistoryInput>
+  }
+
+  export type employeesUpdateWithoutEmployeeSalaryHistoryInput = {
+    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    middle_name?: NullableStringFieldUpdateOperationsInput | string | null
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    passport?: NullableStringFieldUpdateOperationsInput | string | null
+    passport_expiry_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pinfl?: NullableStringFieldUpdateOperationsInput | string | null
+    education?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    photo?: NullableStringFieldUpdateOperationsInput | string | null
+    education_specialty?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    branch?: branchesUpdateOneWithoutEmployeesNestedInput
+    department?: departmentsUpdateOneWithoutEmployeesNestedInput
+    position?: positionsUpdateOneWithoutEmployeesNestedInput
+    workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
+    employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
+    employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
+    employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
+    facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
+    doors?: doorsUpdateManyWithoutEmployeesNestedInput
+    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
+    user?: usersUpdateOneWithoutEmployeeNestedInput
+    directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+  }
+
+  export type employeesUncheckedUpdateWithoutEmployeeSalaryHistoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    middle_name?: NullableStringFieldUpdateOperationsInput | string | null
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    passport?: NullableStringFieldUpdateOperationsInput | string | null
+    passport_expiry_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pinfl?: NullableStringFieldUpdateOperationsInput | string | null
+    education?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    photo?: NullableStringFieldUpdateOperationsInput | string | null
+    branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    position_id?: NullableIntFieldUpdateOperationsInput | number | null
+    work_schedule_id?: NullableIntFieldUpdateOperationsInput | number | null
+    education_specialty?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
+    facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
+    doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
+    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
+    user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
+    directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+  }
+
+  export type usersUpsertWithoutEmployeeSalaryHistoryInput = {
+    update: XOR<usersUpdateWithoutEmployeeSalaryHistoryInput, usersUncheckedUpdateWithoutEmployeeSalaryHistoryInput>
+    create: XOR<usersCreateWithoutEmployeeSalaryHistoryInput, usersUncheckedCreateWithoutEmployeeSalaryHistoryInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutEmployeeSalaryHistoryInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutEmployeeSalaryHistoryInput, usersUncheckedUpdateWithoutEmployeeSalaryHistoryInput>
+  }
+
+  export type usersUpdateWithoutEmployeeSalaryHistoryInput = {
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    telegram_id?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    branch_access?: usersUpdatebranch_accessInput | number[]
+    department_access?: usersUpdatedepartment_accessInput | number[]
+    language?: StringFieldUpdateOperationsInput | string
+    theme?: StringFieldUpdateOperationsInput | string
+    sidebar?: StringFieldUpdateOperationsInput | string
+    view_mode?: StringFieldUpdateOperationsInput | string
+    personal_menus?: usersUpdatepersonal_menusInput | string[]
+    active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: employeesUpdateOneWithoutUserNestedInput
+    menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
+    sessions?: sessionsUpdateManyWithoutUserNestedInput
+    holidays?: holidaysUpdateManyWithoutAddedByNestedInput
+    branches?: branchesUpdateManyWithoutAddedByNestedInput
+    timeOff?: time_offUpdateManyWithoutAddedByNestedInput
+    employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutEmployeeSalaryHistoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    telegram_id?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    branch_access?: usersUpdatebranch_accessInput | number[]
+    department_access?: usersUpdatedepartment_accessInput | number[]
+    language?: StringFieldUpdateOperationsInput | string
+    theme?: StringFieldUpdateOperationsInput | string
+    sidebar?: StringFieldUpdateOperationsInput | string
+    view_mode?: StringFieldUpdateOperationsInput | string
+    personal_menus?: usersUpdatepersonal_menusInput | string[]
+    active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
+    holidays?: holidaysUncheckedUpdateManyWithoutAddedByNestedInput
+    branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
+    timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type branchesCreateWithoutDoorsInput = {
@@ -42851,6 +45053,7 @@ export namespace Prisma {
     position?: positionsCreateNestedOneWithoutEmployeesInput
     workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
@@ -42884,6 +45087,7 @@ export namespace Prisma {
     added_at?: Date | string
     updated_at?: Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
@@ -43279,6 +45483,7 @@ export namespace Prisma {
     position?: positionsCreateNestedOneWithoutEmployeesInput
     workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
@@ -43312,6 +45517,7 @@ export namespace Prisma {
     added_at?: Date | string
     updated_at?: Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
@@ -43390,6 +45596,7 @@ export namespace Prisma {
     position?: positionsUpdateOneWithoutEmployeesNestedInput
     workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
@@ -43423,6 +45630,7 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -44143,6 +46351,7 @@ export namespace Prisma {
     position?: positionsUpdateOneWithoutEmployeesNestedInput
     workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
@@ -44176,6 +46385,7 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -44425,6 +46635,7 @@ export namespace Prisma {
     position?: positionsUpdateOneWithoutEmployeesNestedInput
     workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
@@ -44458,6 +46669,7 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -44497,6 +46709,17 @@ export namespace Prisma {
     work_schedule_id: number
     date_from: Date | string
     date_to?: Date | string | null
+    added_at?: Date | string
+    added_by: number
+  }
+
+  export type employee_salary_historyCreateManyEmployeeInput = {
+    id?: number
+    salary_type: string
+    amount: Decimal | DecimalJsLike | number | string
+    date_from: Date | string
+    date_to?: Date | string | null
+    note?: string | null
     added_at?: Date | string
     added_by: number
   }
@@ -44586,6 +46809,38 @@ export namespace Prisma {
     work_schedule_id?: IntFieldUpdateOperationsInput | number
     date_from?: DateTimeFieldUpdateOperationsInput | Date | string
     date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    added_by?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type employee_salary_historyUpdateWithoutEmployeeInput = {
+    salary_type?: StringFieldUpdateOperationsInput | string
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    addedBy?: usersUpdateOneRequiredWithoutEmployeeSalaryHistoryNestedInput
+  }
+
+  export type employee_salary_historyUncheckedUpdateWithoutEmployeeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    salary_type?: StringFieldUpdateOperationsInput | string
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    added_by?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type employee_salary_historyUncheckedUpdateManyWithoutEmployeeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    salary_type?: StringFieldUpdateOperationsInput | string
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     added_by?: IntFieldUpdateOperationsInput | number
   }
@@ -44916,6 +47171,7 @@ export namespace Prisma {
     department?: departmentsUpdateOneWithoutEmployeesNestedInput
     workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
@@ -44949,6 +47205,7 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -45041,6 +47298,17 @@ export namespace Prisma {
     work_schedule_id: number
     date_from: Date | string
     date_to?: Date | string | null
+    added_at?: Date | string
+  }
+
+  export type employee_salary_historyCreateManyAddedByInput = {
+    id?: number
+    employee_id: number
+    salary_type: string
+    amount: Decimal | DecimalJsLike | number | string
+    date_from: Date | string
+    date_to?: Date | string | null
+    note?: string | null
     added_at?: Date | string
   }
 
@@ -45234,6 +47502,38 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type employee_salary_historyUpdateWithoutAddedByInput = {
+    salary_type?: StringFieldUpdateOperationsInput | string
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: employeesUpdateOneRequiredWithoutEmployeeSalaryHistoryNestedInput
+  }
+
+  export type employee_salary_historyUncheckedUpdateWithoutAddedByInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    salary_type?: StringFieldUpdateOperationsInput | string
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type employee_salary_historyUncheckedUpdateManyWithoutAddedByInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    salary_type?: StringFieldUpdateOperationsInput | string
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type menusCreateManyParentInput = {
     id?: number
     name: string
@@ -45357,6 +47657,7 @@ export namespace Prisma {
     department?: departmentsUpdateOneWithoutEmployeesNestedInput
     position?: positionsUpdateOneWithoutEmployeesNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
@@ -45390,6 +47691,7 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -45513,6 +47815,7 @@ export namespace Prisma {
     position?: positionsUpdateOneWithoutEmployeesNestedInput
     workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
@@ -45546,6 +47849,7 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput

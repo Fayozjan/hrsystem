@@ -321,6 +321,18 @@ exports.Prisma.Employee_schedule_historyScalarFieldEnum = {
   added_by: 'added_by'
 };
 
+exports.Prisma.Employee_salary_historyScalarFieldEnum = {
+  id: 'id',
+  employee_id: 'employee_id',
+  salary_type: 'salary_type',
+  amount: 'amount',
+  date_from: 'date_from',
+  date_to: 'date_to',
+  note: 'note',
+  added_at: 'added_at',
+  added_by: 'added_by'
+};
+
 exports.Prisma.DoorsScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -439,6 +451,7 @@ exports.Prisma.ModelName = {
   user_menu_access: 'user_menu_access',
   work_schedules: 'work_schedules',
   employee_schedule_history: 'employee_schedule_history',
+  employee_salary_history: 'employee_salary_history',
   doors: 'doors',
   face_devices: 'face_devices',
   employee_door_tasks: 'employee_door_tasks',
