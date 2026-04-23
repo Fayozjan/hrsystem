@@ -407,6 +407,66 @@ exports.Prisma.Vehicle_passesScalarFieldEnum = {
   created_at: 'created_at'
 };
 
+exports.Prisma.Payroll_sheetsScalarFieldEnum = {
+  id: 'id',
+  month: 'month',
+  year: 'year',
+  status: 'status',
+  added_by: 'added_by',
+  added_at: 'added_at',
+  approved_by: 'approved_by',
+  approved_at: 'approved_at'
+};
+
+exports.Prisma.Payroll_sheet_itemsScalarFieldEnum = {
+  id: 'id',
+  sheet_id: 'sheet_id',
+  employee_id: 'employee_id',
+  base_salary: 'base_salary',
+  salary_type: 'salary_type',
+  worked_days: 'worked_days',
+  total_work_days: 'total_work_days',
+  worked_hours: 'worked_hours',
+  total_work_hours: 'total_work_hours',
+  accrued: 'accrued',
+  debt_balance: 'debt_balance',
+  debt_deduction: 'debt_deduction',
+  debt_mode: 'debt_mode',
+  debt_comment: 'debt_comment',
+  manual_adjustment: 'manual_adjustment',
+  adjustment_comment: 'adjustment_comment',
+  late_minutes: 'late_minutes',
+  overtime_minutes: 'overtime_minutes',
+  apply_late: 'apply_late',
+  apply_overtime: 'apply_overtime',
+  late_amount: 'late_amount',
+  overtime_amount: 'overtime_amount',
+  advance_total: 'advance_total',
+  net: 'net',
+  salary_balance: 'salary_balance',
+  paid_amount: 'paid_amount',
+  status: 'status'
+};
+
+exports.Prisma.Payroll_payment_logsScalarFieldEnum = {
+  id: 'id',
+  item_id: 'item_id',
+  amount: 'amount',
+  payment_date: 'payment_date',
+  note: 'note',
+  added_at: 'added_at'
+};
+
+exports.Prisma.Salary_advancesScalarFieldEnum = {
+  id: 'id',
+  employee_id: 'employee_id',
+  amount: 'amount',
+  advance_date: 'advance_date',
+  note: 'note',
+  given_by: 'given_by',
+  added_at: 'added_at'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -457,7 +517,11 @@ exports.Prisma.ModelName = {
   employee_door_tasks: 'employee_door_tasks',
   gates: 'gates',
   anpr_cameras: 'anpr_cameras',
-  vehicle_passes: 'vehicle_passes'
+  vehicle_passes: 'vehicle_passes',
+  payroll_sheets: 'payroll_sheets',
+  payroll_sheet_items: 'payroll_sheet_items',
+  payroll_payment_logs: 'payroll_payment_logs',
+  salary_advances: 'salary_advances'
 };
 
 /**

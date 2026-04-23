@@ -128,6 +128,26 @@ export type anpr_cameras = $Result.DefaultSelection<Prisma.$anpr_camerasPayload>
  * 
  */
 export type vehicle_passes = $Result.DefaultSelection<Prisma.$vehicle_passesPayload>
+/**
+ * Model payroll_sheets
+ * 
+ */
+export type payroll_sheets = $Result.DefaultSelection<Prisma.$payroll_sheetsPayload>
+/**
+ * Model payroll_sheet_items
+ * 
+ */
+export type payroll_sheet_items = $Result.DefaultSelection<Prisma.$payroll_sheet_itemsPayload>
+/**
+ * Model payroll_payment_logs
+ * 
+ */
+export type payroll_payment_logs = $Result.DefaultSelection<Prisma.$payroll_payment_logsPayload>
+/**
+ * Model salary_advances
+ * 
+ */
+export type salary_advances = $Result.DefaultSelection<Prisma.$salary_advancesPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -476,6 +496,46 @@ export class PrismaClient<
     * ```
     */
   get vehicle_passes(): Prisma.vehicle_passesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.payroll_sheets`: Exposes CRUD operations for the **payroll_sheets** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Payroll_sheets
+    * const payroll_sheets = await prisma.payroll_sheets.findMany()
+    * ```
+    */
+  get payroll_sheets(): Prisma.payroll_sheetsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.payroll_sheet_items`: Exposes CRUD operations for the **payroll_sheet_items** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Payroll_sheet_items
+    * const payroll_sheet_items = await prisma.payroll_sheet_items.findMany()
+    * ```
+    */
+  get payroll_sheet_items(): Prisma.payroll_sheet_itemsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.payroll_payment_logs`: Exposes CRUD operations for the **payroll_payment_logs** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Payroll_payment_logs
+    * const payroll_payment_logs = await prisma.payroll_payment_logs.findMany()
+    * ```
+    */
+  get payroll_payment_logs(): Prisma.payroll_payment_logsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.salary_advances`: Exposes CRUD operations for the **salary_advances** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Salary_advances
+    * const salary_advances = await prisma.salary_advances.findMany()
+    * ```
+    */
+  get salary_advances(): Prisma.salary_advancesDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -938,7 +998,11 @@ export namespace Prisma {
     employee_door_tasks: 'employee_door_tasks',
     gates: 'gates',
     anpr_cameras: 'anpr_cameras',
-    vehicle_passes: 'vehicle_passes'
+    vehicle_passes: 'vehicle_passes',
+    payroll_sheets: 'payroll_sheets',
+    payroll_sheet_items: 'payroll_sheet_items',
+    payroll_payment_logs: 'payroll_payment_logs',
+    salary_advances: 'salary_advances'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -957,7 +1021,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "branches" | "departments" | "employment_orders" | "employees" | "face_passes" | "holidays" | "positions" | "sessions" | "telegram_bots" | "time_off" | "timesheet" | "users" | "menus" | "user_menu_access" | "work_schedules" | "employee_schedule_history" | "employee_salary_history" | "doors" | "face_devices" | "employee_door_tasks" | "gates" | "anpr_cameras" | "vehicle_passes"
+      modelProps: "branches" | "departments" | "employment_orders" | "employees" | "face_passes" | "holidays" | "positions" | "sessions" | "telegram_bots" | "time_off" | "timesheet" | "users" | "menus" | "user_menu_access" | "work_schedules" | "employee_schedule_history" | "employee_salary_history" | "doors" | "face_devices" | "employee_door_tasks" | "gates" | "anpr_cameras" | "vehicle_passes" | "payroll_sheets" | "payroll_sheet_items" | "payroll_payment_logs" | "salary_advances"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2663,6 +2727,302 @@ export namespace Prisma {
           }
         }
       }
+      payroll_sheets: {
+        payload: Prisma.$payroll_sheetsPayload<ExtArgs>
+        fields: Prisma.payroll_sheetsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.payroll_sheetsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheetsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.payroll_sheetsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheetsPayload>
+          }
+          findFirst: {
+            args: Prisma.payroll_sheetsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheetsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.payroll_sheetsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheetsPayload>
+          }
+          findMany: {
+            args: Prisma.payroll_sheetsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheetsPayload>[]
+          }
+          create: {
+            args: Prisma.payroll_sheetsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheetsPayload>
+          }
+          createMany: {
+            args: Prisma.payroll_sheetsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.payroll_sheetsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheetsPayload>[]
+          }
+          delete: {
+            args: Prisma.payroll_sheetsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheetsPayload>
+          }
+          update: {
+            args: Prisma.payroll_sheetsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheetsPayload>
+          }
+          deleteMany: {
+            args: Prisma.payroll_sheetsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.payroll_sheetsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.payroll_sheetsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheetsPayload>[]
+          }
+          upsert: {
+            args: Prisma.payroll_sheetsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheetsPayload>
+          }
+          aggregate: {
+            args: Prisma.Payroll_sheetsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePayroll_sheets>
+          }
+          groupBy: {
+            args: Prisma.payroll_sheetsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Payroll_sheetsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.payroll_sheetsCountArgs<ExtArgs>
+            result: $Utils.Optional<Payroll_sheetsCountAggregateOutputType> | number
+          }
+        }
+      }
+      payroll_sheet_items: {
+        payload: Prisma.$payroll_sheet_itemsPayload<ExtArgs>
+        fields: Prisma.payroll_sheet_itemsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.payroll_sheet_itemsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheet_itemsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.payroll_sheet_itemsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheet_itemsPayload>
+          }
+          findFirst: {
+            args: Prisma.payroll_sheet_itemsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheet_itemsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.payroll_sheet_itemsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheet_itemsPayload>
+          }
+          findMany: {
+            args: Prisma.payroll_sheet_itemsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheet_itemsPayload>[]
+          }
+          create: {
+            args: Prisma.payroll_sheet_itemsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheet_itemsPayload>
+          }
+          createMany: {
+            args: Prisma.payroll_sheet_itemsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.payroll_sheet_itemsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheet_itemsPayload>[]
+          }
+          delete: {
+            args: Prisma.payroll_sheet_itemsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheet_itemsPayload>
+          }
+          update: {
+            args: Prisma.payroll_sheet_itemsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheet_itemsPayload>
+          }
+          deleteMany: {
+            args: Prisma.payroll_sheet_itemsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.payroll_sheet_itemsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.payroll_sheet_itemsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheet_itemsPayload>[]
+          }
+          upsert: {
+            args: Prisma.payroll_sheet_itemsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_sheet_itemsPayload>
+          }
+          aggregate: {
+            args: Prisma.Payroll_sheet_itemsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePayroll_sheet_items>
+          }
+          groupBy: {
+            args: Prisma.payroll_sheet_itemsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Payroll_sheet_itemsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.payroll_sheet_itemsCountArgs<ExtArgs>
+            result: $Utils.Optional<Payroll_sheet_itemsCountAggregateOutputType> | number
+          }
+        }
+      }
+      payroll_payment_logs: {
+        payload: Prisma.$payroll_payment_logsPayload<ExtArgs>
+        fields: Prisma.payroll_payment_logsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.payroll_payment_logsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_payment_logsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.payroll_payment_logsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_payment_logsPayload>
+          }
+          findFirst: {
+            args: Prisma.payroll_payment_logsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_payment_logsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.payroll_payment_logsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_payment_logsPayload>
+          }
+          findMany: {
+            args: Prisma.payroll_payment_logsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_payment_logsPayload>[]
+          }
+          create: {
+            args: Prisma.payroll_payment_logsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_payment_logsPayload>
+          }
+          createMany: {
+            args: Prisma.payroll_payment_logsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.payroll_payment_logsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_payment_logsPayload>[]
+          }
+          delete: {
+            args: Prisma.payroll_payment_logsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_payment_logsPayload>
+          }
+          update: {
+            args: Prisma.payroll_payment_logsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_payment_logsPayload>
+          }
+          deleteMany: {
+            args: Prisma.payroll_payment_logsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.payroll_payment_logsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.payroll_payment_logsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_payment_logsPayload>[]
+          }
+          upsert: {
+            args: Prisma.payroll_payment_logsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payroll_payment_logsPayload>
+          }
+          aggregate: {
+            args: Prisma.Payroll_payment_logsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePayroll_payment_logs>
+          }
+          groupBy: {
+            args: Prisma.payroll_payment_logsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Payroll_payment_logsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.payroll_payment_logsCountArgs<ExtArgs>
+            result: $Utils.Optional<Payroll_payment_logsCountAggregateOutputType> | number
+          }
+        }
+      }
+      salary_advances: {
+        payload: Prisma.$salary_advancesPayload<ExtArgs>
+        fields: Prisma.salary_advancesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.salary_advancesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salary_advancesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.salary_advancesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salary_advancesPayload>
+          }
+          findFirst: {
+            args: Prisma.salary_advancesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salary_advancesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.salary_advancesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salary_advancesPayload>
+          }
+          findMany: {
+            args: Prisma.salary_advancesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salary_advancesPayload>[]
+          }
+          create: {
+            args: Prisma.salary_advancesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salary_advancesPayload>
+          }
+          createMany: {
+            args: Prisma.salary_advancesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.salary_advancesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salary_advancesPayload>[]
+          }
+          delete: {
+            args: Prisma.salary_advancesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salary_advancesPayload>
+          }
+          update: {
+            args: Prisma.salary_advancesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salary_advancesPayload>
+          }
+          deleteMany: {
+            args: Prisma.salary_advancesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.salary_advancesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.salary_advancesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salary_advancesPayload>[]
+          }
+          upsert: {
+            args: Prisma.salary_advancesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salary_advancesPayload>
+          }
+          aggregate: {
+            args: Prisma.Salary_advancesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSalary_advances>
+          }
+          groupBy: {
+            args: Prisma.salary_advancesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Salary_advancesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.salary_advancesCountArgs<ExtArgs>
+            result: $Utils.Optional<Salary_advancesCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2778,6 +3138,10 @@ export namespace Prisma {
     gates?: gatesOmit
     anpr_cameras?: anpr_camerasOmit
     vehicle_passes?: vehicle_passesOmit
+    payroll_sheets?: payroll_sheetsOmit
+    payroll_sheet_items?: payroll_sheet_itemsOmit
+    payroll_payment_logs?: payroll_payment_logsOmit
+    salary_advances?: salary_advancesOmit
   }
 
   /* Types for Logging */
@@ -2982,6 +3346,8 @@ export namespace Prisma {
     doors: number
     doorTasks: number
     directedBranches: number
+    payrollSheetItems: number
+    salaryAdvances: number
   }
 
   export type EmployeesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2993,6 +3359,8 @@ export namespace Prisma {
     doors?: boolean | EmployeesCountOutputTypeCountDoorsArgs
     doorTasks?: boolean | EmployeesCountOutputTypeCountDoorTasksArgs
     directedBranches?: boolean | EmployeesCountOutputTypeCountDirectedBranchesArgs
+    payrollSheetItems?: boolean | EmployeesCountOutputTypeCountPayrollSheetItemsArgs
+    salaryAdvances?: boolean | EmployeesCountOutputTypeCountSalaryAdvancesArgs
   }
 
   // Custom InputTypes
@@ -3062,6 +3430,20 @@ export namespace Prisma {
     where?: branchesWhereInput
   }
 
+  /**
+   * EmployeesCountOutputType without action
+   */
+  export type EmployeesCountOutputTypeCountPayrollSheetItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: payroll_sheet_itemsWhereInput
+  }
+
+  /**
+   * EmployeesCountOutputType without action
+   */
+  export type EmployeesCountOutputTypeCountSalaryAdvancesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: salary_advancesWhereInput
+  }
+
 
   /**
    * Count Type PositionsCountOutputType
@@ -3115,6 +3497,9 @@ export namespace Prisma {
     timeOff: number
     employeeScheduleHistory: number
     employeeSalaryHistory: number
+    payrollSheetsAdded: number
+    payrollSheetsApproved: number
+    salaryAdvancesGiven: number
   }
 
   export type UsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3125,6 +3510,9 @@ export namespace Prisma {
     timeOff?: boolean | UsersCountOutputTypeCountTimeOffArgs
     employeeScheduleHistory?: boolean | UsersCountOutputTypeCountEmployeeScheduleHistoryArgs
     employeeSalaryHistory?: boolean | UsersCountOutputTypeCountEmployeeSalaryHistoryArgs
+    payrollSheetsAdded?: boolean | UsersCountOutputTypeCountPayrollSheetsAddedArgs
+    payrollSheetsApproved?: boolean | UsersCountOutputTypeCountPayrollSheetsApprovedArgs
+    salaryAdvancesGiven?: boolean | UsersCountOutputTypeCountSalaryAdvancesGivenArgs
   }
 
   // Custom InputTypes
@@ -3185,6 +3573,27 @@ export namespace Prisma {
    */
   export type UsersCountOutputTypeCountEmployeeSalaryHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: employee_salary_historyWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountPayrollSheetsAddedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: payroll_sheetsWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountPayrollSheetsApprovedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: payroll_sheetsWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountSalaryAdvancesGivenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: salary_advancesWhereInput
   }
 
 
@@ -3425,6 +3834,68 @@ export namespace Prisma {
    */
   export type Anpr_camerasCountOutputTypeCountVehiclePassesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: vehicle_passesWhereInput
+  }
+
+
+  /**
+   * Count Type Payroll_sheetsCountOutputType
+   */
+
+  export type Payroll_sheetsCountOutputType = {
+    items: number
+  }
+
+  export type Payroll_sheetsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    items?: boolean | Payroll_sheetsCountOutputTypeCountItemsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Payroll_sheetsCountOutputType without action
+   */
+  export type Payroll_sheetsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payroll_sheetsCountOutputType
+     */
+    select?: Payroll_sheetsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Payroll_sheetsCountOutputType without action
+   */
+  export type Payroll_sheetsCountOutputTypeCountItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: payroll_sheet_itemsWhereInput
+  }
+
+
+  /**
+   * Count Type Payroll_sheet_itemsCountOutputType
+   */
+
+  export type Payroll_sheet_itemsCountOutputType = {
+    paymentLogs: number
+  }
+
+  export type Payroll_sheet_itemsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    paymentLogs?: boolean | Payroll_sheet_itemsCountOutputTypeCountPaymentLogsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Payroll_sheet_itemsCountOutputType without action
+   */
+  export type Payroll_sheet_itemsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payroll_sheet_itemsCountOutputType
+     */
+    select?: Payroll_sheet_itemsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Payroll_sheet_itemsCountOutputType without action
+   */
+  export type Payroll_sheet_itemsCountOutputTypeCountPaymentLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: payroll_payment_logsWhereInput
   }
 
 
@@ -7622,6 +8093,8 @@ export namespace Prisma {
     doorTasks?: boolean | employees$doorTasksArgs<ExtArgs>
     user?: boolean | employees$userArgs<ExtArgs>
     directedBranches?: boolean | employees$directedBranchesArgs<ExtArgs>
+    payrollSheetItems?: boolean | employees$payrollSheetItemsArgs<ExtArgs>
+    salaryAdvances?: boolean | employees$salaryAdvancesArgs<ExtArgs>
     _count?: boolean | EmployeesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["employees"]>
 
@@ -7726,6 +8199,8 @@ export namespace Prisma {
     doorTasks?: boolean | employees$doorTasksArgs<ExtArgs>
     user?: boolean | employees$userArgs<ExtArgs>
     directedBranches?: boolean | employees$directedBranchesArgs<ExtArgs>
+    payrollSheetItems?: boolean | employees$payrollSheetItemsArgs<ExtArgs>
+    salaryAdvances?: boolean | employees$salaryAdvancesArgs<ExtArgs>
     _count?: boolean | EmployeesCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type employeesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7757,6 +8232,8 @@ export namespace Prisma {
       doorTasks: Prisma.$employee_door_tasksPayload<ExtArgs>[]
       user: Prisma.$usersPayload<ExtArgs> | null
       directedBranches: Prisma.$branchesPayload<ExtArgs>[]
+      payrollSheetItems: Prisma.$payroll_sheet_itemsPayload<ExtArgs>[]
+      salaryAdvances: Prisma.$salary_advancesPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -8189,6 +8666,8 @@ export namespace Prisma {
     doorTasks<T extends employees$doorTasksArgs<ExtArgs> = {}>(args?: Subset<T, employees$doorTasksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     user<T extends employees$userArgs<ExtArgs> = {}>(args?: Subset<T, employees$userArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     directedBranches<T extends employees$directedBranchesArgs<ExtArgs> = {}>(args?: Subset<T, employees$directedBranchesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$branchesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    payrollSheetItems<T extends employees$payrollSheetItemsArgs<ExtArgs> = {}>(args?: Subset<T, employees$payrollSheetItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_sheet_itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    salaryAdvances<T extends employees$salaryAdvancesArgs<ExtArgs> = {}>(args?: Subset<T, employees$salaryAdvancesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$salary_advancesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8921,6 +9400,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: BranchesScalarFieldEnum | BranchesScalarFieldEnum[]
+  }
+
+  /**
+   * employees.payrollSheetItems
+   */
+  export type employees$payrollSheetItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheet_items
+     */
+    select?: payroll_sheet_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheet_items
+     */
+    omit?: payroll_sheet_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheet_itemsInclude<ExtArgs> | null
+    where?: payroll_sheet_itemsWhereInput
+    orderBy?: payroll_sheet_itemsOrderByWithRelationInput | payroll_sheet_itemsOrderByWithRelationInput[]
+    cursor?: payroll_sheet_itemsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Payroll_sheet_itemsScalarFieldEnum | Payroll_sheet_itemsScalarFieldEnum[]
+  }
+
+  /**
+   * employees.salaryAdvances
+   */
+  export type employees$salaryAdvancesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salary_advances
+     */
+    select?: salary_advancesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salary_advances
+     */
+    omit?: salary_advancesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: salary_advancesInclude<ExtArgs> | null
+    where?: salary_advancesWhereInput
+    orderBy?: salary_advancesOrderByWithRelationInput | salary_advancesOrderByWithRelationInput[]
+    cursor?: salary_advancesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Salary_advancesScalarFieldEnum | Salary_advancesScalarFieldEnum[]
   }
 
   /**
@@ -17176,6 +17703,9 @@ export namespace Prisma {
     timeOff?: boolean | users$timeOffArgs<ExtArgs>
     employeeScheduleHistory?: boolean | users$employeeScheduleHistoryArgs<ExtArgs>
     employeeSalaryHistory?: boolean | users$employeeSalaryHistoryArgs<ExtArgs>
+    payrollSheetsAdded?: boolean | users$payrollSheetsAddedArgs<ExtArgs>
+    payrollSheetsApproved?: boolean | users$payrollSheetsApprovedArgs<ExtArgs>
+    salaryAdvancesGiven?: boolean | users$salaryAdvancesGivenArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
 
@@ -17251,6 +17781,9 @@ export namespace Prisma {
     timeOff?: boolean | users$timeOffArgs<ExtArgs>
     employeeScheduleHistory?: boolean | users$employeeScheduleHistoryArgs<ExtArgs>
     employeeSalaryHistory?: boolean | users$employeeSalaryHistoryArgs<ExtArgs>
+    payrollSheetsAdded?: boolean | users$payrollSheetsAddedArgs<ExtArgs>
+    payrollSheetsApproved?: boolean | users$payrollSheetsApprovedArgs<ExtArgs>
+    salaryAdvancesGiven?: boolean | users$salaryAdvancesGivenArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type usersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -17271,6 +17804,9 @@ export namespace Prisma {
       timeOff: Prisma.$time_offPayload<ExtArgs>[]
       employeeScheduleHistory: Prisma.$employee_schedule_historyPayload<ExtArgs>[]
       employeeSalaryHistory: Prisma.$employee_salary_historyPayload<ExtArgs>[]
+      payrollSheetsAdded: Prisma.$payroll_sheetsPayload<ExtArgs>[]
+      payrollSheetsApproved: Prisma.$payroll_sheetsPayload<ExtArgs>[]
+      salaryAdvancesGiven: Prisma.$salary_advancesPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -17692,6 +18228,9 @@ export namespace Prisma {
     timeOff<T extends users$timeOffArgs<ExtArgs> = {}>(args?: Subset<T, users$timeOffArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$time_offPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     employeeScheduleHistory<T extends users$employeeScheduleHistoryArgs<ExtArgs> = {}>(args?: Subset<T, users$employeeScheduleHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_schedule_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     employeeSalaryHistory<T extends users$employeeSalaryHistoryArgs<ExtArgs> = {}>(args?: Subset<T, users$employeeSalaryHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_salary_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    payrollSheetsAdded<T extends users$payrollSheetsAddedArgs<ExtArgs> = {}>(args?: Subset<T, users$payrollSheetsAddedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    payrollSheetsApproved<T extends users$payrollSheetsApprovedArgs<ExtArgs> = {}>(args?: Subset<T, users$payrollSheetsApprovedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    salaryAdvancesGiven<T extends users$salaryAdvancesGivenArgs<ExtArgs> = {}>(args?: Subset<T, users$salaryAdvancesGivenArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$salary_advancesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -18318,6 +18857,78 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Employee_salary_historyScalarFieldEnum | Employee_salary_historyScalarFieldEnum[]
+  }
+
+  /**
+   * users.payrollSheetsAdded
+   */
+  export type users$payrollSheetsAddedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheets
+     */
+    select?: payroll_sheetsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheets
+     */
+    omit?: payroll_sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheetsInclude<ExtArgs> | null
+    where?: payroll_sheetsWhereInput
+    orderBy?: payroll_sheetsOrderByWithRelationInput | payroll_sheetsOrderByWithRelationInput[]
+    cursor?: payroll_sheetsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Payroll_sheetsScalarFieldEnum | Payroll_sheetsScalarFieldEnum[]
+  }
+
+  /**
+   * users.payrollSheetsApproved
+   */
+  export type users$payrollSheetsApprovedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheets
+     */
+    select?: payroll_sheetsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheets
+     */
+    omit?: payroll_sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheetsInclude<ExtArgs> | null
+    where?: payroll_sheetsWhereInput
+    orderBy?: payroll_sheetsOrderByWithRelationInput | payroll_sheetsOrderByWithRelationInput[]
+    cursor?: payroll_sheetsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Payroll_sheetsScalarFieldEnum | Payroll_sheetsScalarFieldEnum[]
+  }
+
+  /**
+   * users.salaryAdvancesGiven
+   */
+  export type users$salaryAdvancesGivenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salary_advances
+     */
+    select?: salary_advancesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salary_advances
+     */
+    omit?: salary_advancesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: salary_advancesInclude<ExtArgs> | null
+    where?: salary_advancesWhereInput
+    orderBy?: salary_advancesOrderByWithRelationInput | salary_advancesOrderByWithRelationInput[]
+    cursor?: salary_advancesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Salary_advancesScalarFieldEnum | Salary_advancesScalarFieldEnum[]
   }
 
   /**
@@ -31470,6 +32081,4945 @@ export namespace Prisma {
 
 
   /**
+   * Model payroll_sheets
+   */
+
+  export type AggregatePayroll_sheets = {
+    _count: Payroll_sheetsCountAggregateOutputType | null
+    _avg: Payroll_sheetsAvgAggregateOutputType | null
+    _sum: Payroll_sheetsSumAggregateOutputType | null
+    _min: Payroll_sheetsMinAggregateOutputType | null
+    _max: Payroll_sheetsMaxAggregateOutputType | null
+  }
+
+  export type Payroll_sheetsAvgAggregateOutputType = {
+    id: number | null
+    month: number | null
+    year: number | null
+    added_by: number | null
+    approved_by: number | null
+  }
+
+  export type Payroll_sheetsSumAggregateOutputType = {
+    id: number | null
+    month: number | null
+    year: number | null
+    added_by: number | null
+    approved_by: number | null
+  }
+
+  export type Payroll_sheetsMinAggregateOutputType = {
+    id: number | null
+    month: number | null
+    year: number | null
+    status: string | null
+    added_by: number | null
+    added_at: Date | null
+    approved_by: number | null
+    approved_at: Date | null
+  }
+
+  export type Payroll_sheetsMaxAggregateOutputType = {
+    id: number | null
+    month: number | null
+    year: number | null
+    status: string | null
+    added_by: number | null
+    added_at: Date | null
+    approved_by: number | null
+    approved_at: Date | null
+  }
+
+  export type Payroll_sheetsCountAggregateOutputType = {
+    id: number
+    month: number
+    year: number
+    status: number
+    added_by: number
+    added_at: number
+    approved_by: number
+    approved_at: number
+    _all: number
+  }
+
+
+  export type Payroll_sheetsAvgAggregateInputType = {
+    id?: true
+    month?: true
+    year?: true
+    added_by?: true
+    approved_by?: true
+  }
+
+  export type Payroll_sheetsSumAggregateInputType = {
+    id?: true
+    month?: true
+    year?: true
+    added_by?: true
+    approved_by?: true
+  }
+
+  export type Payroll_sheetsMinAggregateInputType = {
+    id?: true
+    month?: true
+    year?: true
+    status?: true
+    added_by?: true
+    added_at?: true
+    approved_by?: true
+    approved_at?: true
+  }
+
+  export type Payroll_sheetsMaxAggregateInputType = {
+    id?: true
+    month?: true
+    year?: true
+    status?: true
+    added_by?: true
+    added_at?: true
+    approved_by?: true
+    approved_at?: true
+  }
+
+  export type Payroll_sheetsCountAggregateInputType = {
+    id?: true
+    month?: true
+    year?: true
+    status?: true
+    added_by?: true
+    added_at?: true
+    approved_by?: true
+    approved_at?: true
+    _all?: true
+  }
+
+  export type Payroll_sheetsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which payroll_sheets to aggregate.
+     */
+    where?: payroll_sheetsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payroll_sheets to fetch.
+     */
+    orderBy?: payroll_sheetsOrderByWithRelationInput | payroll_sheetsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: payroll_sheetsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payroll_sheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payroll_sheets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned payroll_sheets
+    **/
+    _count?: true | Payroll_sheetsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Payroll_sheetsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Payroll_sheetsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Payroll_sheetsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Payroll_sheetsMaxAggregateInputType
+  }
+
+  export type GetPayroll_sheetsAggregateType<T extends Payroll_sheetsAggregateArgs> = {
+        [P in keyof T & keyof AggregatePayroll_sheets]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePayroll_sheets[P]>
+      : GetScalarType<T[P], AggregatePayroll_sheets[P]>
+  }
+
+
+
+
+  export type payroll_sheetsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: payroll_sheetsWhereInput
+    orderBy?: payroll_sheetsOrderByWithAggregationInput | payroll_sheetsOrderByWithAggregationInput[]
+    by: Payroll_sheetsScalarFieldEnum[] | Payroll_sheetsScalarFieldEnum
+    having?: payroll_sheetsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Payroll_sheetsCountAggregateInputType | true
+    _avg?: Payroll_sheetsAvgAggregateInputType
+    _sum?: Payroll_sheetsSumAggregateInputType
+    _min?: Payroll_sheetsMinAggregateInputType
+    _max?: Payroll_sheetsMaxAggregateInputType
+  }
+
+  export type Payroll_sheetsGroupByOutputType = {
+    id: number
+    month: number
+    year: number
+    status: string
+    added_by: number
+    added_at: Date
+    approved_by: number | null
+    approved_at: Date | null
+    _count: Payroll_sheetsCountAggregateOutputType | null
+    _avg: Payroll_sheetsAvgAggregateOutputType | null
+    _sum: Payroll_sheetsSumAggregateOutputType | null
+    _min: Payroll_sheetsMinAggregateOutputType | null
+    _max: Payroll_sheetsMaxAggregateOutputType | null
+  }
+
+  type GetPayroll_sheetsGroupByPayload<T extends payroll_sheetsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Payroll_sheetsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Payroll_sheetsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Payroll_sheetsGroupByOutputType[P]>
+            : GetScalarType<T[P], Payroll_sheetsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type payroll_sheetsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    month?: boolean
+    year?: boolean
+    status?: boolean
+    added_by?: boolean
+    added_at?: boolean
+    approved_by?: boolean
+    approved_at?: boolean
+    items?: boolean | payroll_sheets$itemsArgs<ExtArgs>
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+    approvedBy?: boolean | payroll_sheets$approvedByArgs<ExtArgs>
+    _count?: boolean | Payroll_sheetsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["payroll_sheets"]>
+
+  export type payroll_sheetsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    month?: boolean
+    year?: boolean
+    status?: boolean
+    added_by?: boolean
+    added_at?: boolean
+    approved_by?: boolean
+    approved_at?: boolean
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+    approvedBy?: boolean | payroll_sheets$approvedByArgs<ExtArgs>
+  }, ExtArgs["result"]["payroll_sheets"]>
+
+  export type payroll_sheetsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    month?: boolean
+    year?: boolean
+    status?: boolean
+    added_by?: boolean
+    added_at?: boolean
+    approved_by?: boolean
+    approved_at?: boolean
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+    approvedBy?: boolean | payroll_sheets$approvedByArgs<ExtArgs>
+  }, ExtArgs["result"]["payroll_sheets"]>
+
+  export type payroll_sheetsSelectScalar = {
+    id?: boolean
+    month?: boolean
+    year?: boolean
+    status?: boolean
+    added_by?: boolean
+    added_at?: boolean
+    approved_by?: boolean
+    approved_at?: boolean
+  }
+
+  export type payroll_sheetsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "month" | "year" | "status" | "added_by" | "added_at" | "approved_by" | "approved_at", ExtArgs["result"]["payroll_sheets"]>
+  export type payroll_sheetsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    items?: boolean | payroll_sheets$itemsArgs<ExtArgs>
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+    approvedBy?: boolean | payroll_sheets$approvedByArgs<ExtArgs>
+    _count?: boolean | Payroll_sheetsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type payroll_sheetsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+    approvedBy?: boolean | payroll_sheets$approvedByArgs<ExtArgs>
+  }
+  export type payroll_sheetsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+    approvedBy?: boolean | payroll_sheets$approvedByArgs<ExtArgs>
+  }
+
+  export type $payroll_sheetsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "payroll_sheets"
+    objects: {
+      items: Prisma.$payroll_sheet_itemsPayload<ExtArgs>[]
+      addedBy: Prisma.$usersPayload<ExtArgs>
+      approvedBy: Prisma.$usersPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      month: number
+      year: number
+      status: string
+      added_by: number
+      added_at: Date
+      approved_by: number | null
+      approved_at: Date | null
+    }, ExtArgs["result"]["payroll_sheets"]>
+    composites: {}
+  }
+
+  type payroll_sheetsGetPayload<S extends boolean | null | undefined | payroll_sheetsDefaultArgs> = $Result.GetResult<Prisma.$payroll_sheetsPayload, S>
+
+  type payroll_sheetsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<payroll_sheetsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Payroll_sheetsCountAggregateInputType | true
+    }
+
+  export interface payroll_sheetsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['payroll_sheets'], meta: { name: 'payroll_sheets' } }
+    /**
+     * Find zero or one Payroll_sheets that matches the filter.
+     * @param {payroll_sheetsFindUniqueArgs} args - Arguments to find a Payroll_sheets
+     * @example
+     * // Get one Payroll_sheets
+     * const payroll_sheets = await prisma.payroll_sheets.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends payroll_sheetsFindUniqueArgs>(args: SelectSubset<T, payroll_sheetsFindUniqueArgs<ExtArgs>>): Prisma__payroll_sheetsClient<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Payroll_sheets that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {payroll_sheetsFindUniqueOrThrowArgs} args - Arguments to find a Payroll_sheets
+     * @example
+     * // Get one Payroll_sheets
+     * const payroll_sheets = await prisma.payroll_sheets.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends payroll_sheetsFindUniqueOrThrowArgs>(args: SelectSubset<T, payroll_sheetsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__payroll_sheetsClient<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Payroll_sheets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_sheetsFindFirstArgs} args - Arguments to find a Payroll_sheets
+     * @example
+     * // Get one Payroll_sheets
+     * const payroll_sheets = await prisma.payroll_sheets.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends payroll_sheetsFindFirstArgs>(args?: SelectSubset<T, payroll_sheetsFindFirstArgs<ExtArgs>>): Prisma__payroll_sheetsClient<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Payroll_sheets that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_sheetsFindFirstOrThrowArgs} args - Arguments to find a Payroll_sheets
+     * @example
+     * // Get one Payroll_sheets
+     * const payroll_sheets = await prisma.payroll_sheets.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends payroll_sheetsFindFirstOrThrowArgs>(args?: SelectSubset<T, payroll_sheetsFindFirstOrThrowArgs<ExtArgs>>): Prisma__payroll_sheetsClient<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Payroll_sheets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_sheetsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Payroll_sheets
+     * const payroll_sheets = await prisma.payroll_sheets.findMany()
+     * 
+     * // Get first 10 Payroll_sheets
+     * const payroll_sheets = await prisma.payroll_sheets.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const payroll_sheetsWithIdOnly = await prisma.payroll_sheets.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends payroll_sheetsFindManyArgs>(args?: SelectSubset<T, payroll_sheetsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Payroll_sheets.
+     * @param {payroll_sheetsCreateArgs} args - Arguments to create a Payroll_sheets.
+     * @example
+     * // Create one Payroll_sheets
+     * const Payroll_sheets = await prisma.payroll_sheets.create({
+     *   data: {
+     *     // ... data to create a Payroll_sheets
+     *   }
+     * })
+     * 
+     */
+    create<T extends payroll_sheetsCreateArgs>(args: SelectSubset<T, payroll_sheetsCreateArgs<ExtArgs>>): Prisma__payroll_sheetsClient<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Payroll_sheets.
+     * @param {payroll_sheetsCreateManyArgs} args - Arguments to create many Payroll_sheets.
+     * @example
+     * // Create many Payroll_sheets
+     * const payroll_sheets = await prisma.payroll_sheets.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends payroll_sheetsCreateManyArgs>(args?: SelectSubset<T, payroll_sheetsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Payroll_sheets and returns the data saved in the database.
+     * @param {payroll_sheetsCreateManyAndReturnArgs} args - Arguments to create many Payroll_sheets.
+     * @example
+     * // Create many Payroll_sheets
+     * const payroll_sheets = await prisma.payroll_sheets.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Payroll_sheets and only return the `id`
+     * const payroll_sheetsWithIdOnly = await prisma.payroll_sheets.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends payroll_sheetsCreateManyAndReturnArgs>(args?: SelectSubset<T, payroll_sheetsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Payroll_sheets.
+     * @param {payroll_sheetsDeleteArgs} args - Arguments to delete one Payroll_sheets.
+     * @example
+     * // Delete one Payroll_sheets
+     * const Payroll_sheets = await prisma.payroll_sheets.delete({
+     *   where: {
+     *     // ... filter to delete one Payroll_sheets
+     *   }
+     * })
+     * 
+     */
+    delete<T extends payroll_sheetsDeleteArgs>(args: SelectSubset<T, payroll_sheetsDeleteArgs<ExtArgs>>): Prisma__payroll_sheetsClient<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Payroll_sheets.
+     * @param {payroll_sheetsUpdateArgs} args - Arguments to update one Payroll_sheets.
+     * @example
+     * // Update one Payroll_sheets
+     * const payroll_sheets = await prisma.payroll_sheets.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends payroll_sheetsUpdateArgs>(args: SelectSubset<T, payroll_sheetsUpdateArgs<ExtArgs>>): Prisma__payroll_sheetsClient<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Payroll_sheets.
+     * @param {payroll_sheetsDeleteManyArgs} args - Arguments to filter Payroll_sheets to delete.
+     * @example
+     * // Delete a few Payroll_sheets
+     * const { count } = await prisma.payroll_sheets.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends payroll_sheetsDeleteManyArgs>(args?: SelectSubset<T, payroll_sheetsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Payroll_sheets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_sheetsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Payroll_sheets
+     * const payroll_sheets = await prisma.payroll_sheets.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends payroll_sheetsUpdateManyArgs>(args: SelectSubset<T, payroll_sheetsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Payroll_sheets and returns the data updated in the database.
+     * @param {payroll_sheetsUpdateManyAndReturnArgs} args - Arguments to update many Payroll_sheets.
+     * @example
+     * // Update many Payroll_sheets
+     * const payroll_sheets = await prisma.payroll_sheets.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Payroll_sheets and only return the `id`
+     * const payroll_sheetsWithIdOnly = await prisma.payroll_sheets.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends payroll_sheetsUpdateManyAndReturnArgs>(args: SelectSubset<T, payroll_sheetsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Payroll_sheets.
+     * @param {payroll_sheetsUpsertArgs} args - Arguments to update or create a Payroll_sheets.
+     * @example
+     * // Update or create a Payroll_sheets
+     * const payroll_sheets = await prisma.payroll_sheets.upsert({
+     *   create: {
+     *     // ... data to create a Payroll_sheets
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Payroll_sheets we want to update
+     *   }
+     * })
+     */
+    upsert<T extends payroll_sheetsUpsertArgs>(args: SelectSubset<T, payroll_sheetsUpsertArgs<ExtArgs>>): Prisma__payroll_sheetsClient<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Payroll_sheets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_sheetsCountArgs} args - Arguments to filter Payroll_sheets to count.
+     * @example
+     * // Count the number of Payroll_sheets
+     * const count = await prisma.payroll_sheets.count({
+     *   where: {
+     *     // ... the filter for the Payroll_sheets we want to count
+     *   }
+     * })
+    **/
+    count<T extends payroll_sheetsCountArgs>(
+      args?: Subset<T, payroll_sheetsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Payroll_sheetsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Payroll_sheets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Payroll_sheetsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Payroll_sheetsAggregateArgs>(args: Subset<T, Payroll_sheetsAggregateArgs>): Prisma.PrismaPromise<GetPayroll_sheetsAggregateType<T>>
+
+    /**
+     * Group by Payroll_sheets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_sheetsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends payroll_sheetsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: payroll_sheetsGroupByArgs['orderBy'] }
+        : { orderBy?: payroll_sheetsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, payroll_sheetsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPayroll_sheetsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the payroll_sheets model
+   */
+  readonly fields: payroll_sheetsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for payroll_sheets.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__payroll_sheetsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    items<T extends payroll_sheets$itemsArgs<ExtArgs> = {}>(args?: Subset<T, payroll_sheets$itemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_sheet_itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    addedBy<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    approvedBy<T extends payroll_sheets$approvedByArgs<ExtArgs> = {}>(args?: Subset<T, payroll_sheets$approvedByArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the payroll_sheets model
+   */
+  interface payroll_sheetsFieldRefs {
+    readonly id: FieldRef<"payroll_sheets", 'Int'>
+    readonly month: FieldRef<"payroll_sheets", 'Int'>
+    readonly year: FieldRef<"payroll_sheets", 'Int'>
+    readonly status: FieldRef<"payroll_sheets", 'String'>
+    readonly added_by: FieldRef<"payroll_sheets", 'Int'>
+    readonly added_at: FieldRef<"payroll_sheets", 'DateTime'>
+    readonly approved_by: FieldRef<"payroll_sheets", 'Int'>
+    readonly approved_at: FieldRef<"payroll_sheets", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * payroll_sheets findUnique
+   */
+  export type payroll_sheetsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheets
+     */
+    select?: payroll_sheetsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheets
+     */
+    omit?: payroll_sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheetsInclude<ExtArgs> | null
+    /**
+     * Filter, which payroll_sheets to fetch.
+     */
+    where: payroll_sheetsWhereUniqueInput
+  }
+
+  /**
+   * payroll_sheets findUniqueOrThrow
+   */
+  export type payroll_sheetsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheets
+     */
+    select?: payroll_sheetsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheets
+     */
+    omit?: payroll_sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheetsInclude<ExtArgs> | null
+    /**
+     * Filter, which payroll_sheets to fetch.
+     */
+    where: payroll_sheetsWhereUniqueInput
+  }
+
+  /**
+   * payroll_sheets findFirst
+   */
+  export type payroll_sheetsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheets
+     */
+    select?: payroll_sheetsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheets
+     */
+    omit?: payroll_sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheetsInclude<ExtArgs> | null
+    /**
+     * Filter, which payroll_sheets to fetch.
+     */
+    where?: payroll_sheetsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payroll_sheets to fetch.
+     */
+    orderBy?: payroll_sheetsOrderByWithRelationInput | payroll_sheetsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for payroll_sheets.
+     */
+    cursor?: payroll_sheetsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payroll_sheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payroll_sheets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of payroll_sheets.
+     */
+    distinct?: Payroll_sheetsScalarFieldEnum | Payroll_sheetsScalarFieldEnum[]
+  }
+
+  /**
+   * payroll_sheets findFirstOrThrow
+   */
+  export type payroll_sheetsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheets
+     */
+    select?: payroll_sheetsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheets
+     */
+    omit?: payroll_sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheetsInclude<ExtArgs> | null
+    /**
+     * Filter, which payroll_sheets to fetch.
+     */
+    where?: payroll_sheetsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payroll_sheets to fetch.
+     */
+    orderBy?: payroll_sheetsOrderByWithRelationInput | payroll_sheetsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for payroll_sheets.
+     */
+    cursor?: payroll_sheetsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payroll_sheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payroll_sheets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of payroll_sheets.
+     */
+    distinct?: Payroll_sheetsScalarFieldEnum | Payroll_sheetsScalarFieldEnum[]
+  }
+
+  /**
+   * payroll_sheets findMany
+   */
+  export type payroll_sheetsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheets
+     */
+    select?: payroll_sheetsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheets
+     */
+    omit?: payroll_sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheetsInclude<ExtArgs> | null
+    /**
+     * Filter, which payroll_sheets to fetch.
+     */
+    where?: payroll_sheetsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payroll_sheets to fetch.
+     */
+    orderBy?: payroll_sheetsOrderByWithRelationInput | payroll_sheetsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing payroll_sheets.
+     */
+    cursor?: payroll_sheetsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payroll_sheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payroll_sheets.
+     */
+    skip?: number
+    distinct?: Payroll_sheetsScalarFieldEnum | Payroll_sheetsScalarFieldEnum[]
+  }
+
+  /**
+   * payroll_sheets create
+   */
+  export type payroll_sheetsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheets
+     */
+    select?: payroll_sheetsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheets
+     */
+    omit?: payroll_sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheetsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a payroll_sheets.
+     */
+    data: XOR<payroll_sheetsCreateInput, payroll_sheetsUncheckedCreateInput>
+  }
+
+  /**
+   * payroll_sheets createMany
+   */
+  export type payroll_sheetsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many payroll_sheets.
+     */
+    data: payroll_sheetsCreateManyInput | payroll_sheetsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * payroll_sheets createManyAndReturn
+   */
+  export type payroll_sheetsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheets
+     */
+    select?: payroll_sheetsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheets
+     */
+    omit?: payroll_sheetsOmit<ExtArgs> | null
+    /**
+     * The data used to create many payroll_sheets.
+     */
+    data: payroll_sheetsCreateManyInput | payroll_sheetsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheetsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * payroll_sheets update
+   */
+  export type payroll_sheetsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheets
+     */
+    select?: payroll_sheetsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheets
+     */
+    omit?: payroll_sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheetsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a payroll_sheets.
+     */
+    data: XOR<payroll_sheetsUpdateInput, payroll_sheetsUncheckedUpdateInput>
+    /**
+     * Choose, which payroll_sheets to update.
+     */
+    where: payroll_sheetsWhereUniqueInput
+  }
+
+  /**
+   * payroll_sheets updateMany
+   */
+  export type payroll_sheetsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update payroll_sheets.
+     */
+    data: XOR<payroll_sheetsUpdateManyMutationInput, payroll_sheetsUncheckedUpdateManyInput>
+    /**
+     * Filter which payroll_sheets to update
+     */
+    where?: payroll_sheetsWhereInput
+    /**
+     * Limit how many payroll_sheets to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * payroll_sheets updateManyAndReturn
+   */
+  export type payroll_sheetsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheets
+     */
+    select?: payroll_sheetsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheets
+     */
+    omit?: payroll_sheetsOmit<ExtArgs> | null
+    /**
+     * The data used to update payroll_sheets.
+     */
+    data: XOR<payroll_sheetsUpdateManyMutationInput, payroll_sheetsUncheckedUpdateManyInput>
+    /**
+     * Filter which payroll_sheets to update
+     */
+    where?: payroll_sheetsWhereInput
+    /**
+     * Limit how many payroll_sheets to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheetsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * payroll_sheets upsert
+   */
+  export type payroll_sheetsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheets
+     */
+    select?: payroll_sheetsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheets
+     */
+    omit?: payroll_sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheetsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the payroll_sheets to update in case it exists.
+     */
+    where: payroll_sheetsWhereUniqueInput
+    /**
+     * In case the payroll_sheets found by the `where` argument doesn't exist, create a new payroll_sheets with this data.
+     */
+    create: XOR<payroll_sheetsCreateInput, payroll_sheetsUncheckedCreateInput>
+    /**
+     * In case the payroll_sheets was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<payroll_sheetsUpdateInput, payroll_sheetsUncheckedUpdateInput>
+  }
+
+  /**
+   * payroll_sheets delete
+   */
+  export type payroll_sheetsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheets
+     */
+    select?: payroll_sheetsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheets
+     */
+    omit?: payroll_sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheetsInclude<ExtArgs> | null
+    /**
+     * Filter which payroll_sheets to delete.
+     */
+    where: payroll_sheetsWhereUniqueInput
+  }
+
+  /**
+   * payroll_sheets deleteMany
+   */
+  export type payroll_sheetsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which payroll_sheets to delete
+     */
+    where?: payroll_sheetsWhereInput
+    /**
+     * Limit how many payroll_sheets to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * payroll_sheets.items
+   */
+  export type payroll_sheets$itemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheet_items
+     */
+    select?: payroll_sheet_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheet_items
+     */
+    omit?: payroll_sheet_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheet_itemsInclude<ExtArgs> | null
+    where?: payroll_sheet_itemsWhereInput
+    orderBy?: payroll_sheet_itemsOrderByWithRelationInput | payroll_sheet_itemsOrderByWithRelationInput[]
+    cursor?: payroll_sheet_itemsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Payroll_sheet_itemsScalarFieldEnum | Payroll_sheet_itemsScalarFieldEnum[]
+  }
+
+  /**
+   * payroll_sheets.approvedBy
+   */
+  export type payroll_sheets$approvedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users
+     */
+    select?: usersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users
+     */
+    omit?: usersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usersInclude<ExtArgs> | null
+    where?: usersWhereInput
+  }
+
+  /**
+   * payroll_sheets without action
+   */
+  export type payroll_sheetsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheets
+     */
+    select?: payroll_sheetsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheets
+     */
+    omit?: payroll_sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheetsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model payroll_sheet_items
+   */
+
+  export type AggregatePayroll_sheet_items = {
+    _count: Payroll_sheet_itemsCountAggregateOutputType | null
+    _avg: Payroll_sheet_itemsAvgAggregateOutputType | null
+    _sum: Payroll_sheet_itemsSumAggregateOutputType | null
+    _min: Payroll_sheet_itemsMinAggregateOutputType | null
+    _max: Payroll_sheet_itemsMaxAggregateOutputType | null
+  }
+
+  export type Payroll_sheet_itemsAvgAggregateOutputType = {
+    id: number | null
+    sheet_id: number | null
+    employee_id: number | null
+    base_salary: Decimal | null
+    worked_days: number | null
+    total_work_days: number | null
+    accrued: Decimal | null
+    debt_balance: Decimal | null
+    debt_deduction: Decimal | null
+    manual_adjustment: Decimal | null
+    late_minutes: number | null
+    overtime_minutes: number | null
+    late_amount: Decimal | null
+    overtime_amount: Decimal | null
+    advance_total: Decimal | null
+    net: Decimal | null
+    salary_balance: Decimal | null
+    paid_amount: Decimal | null
+  }
+
+  export type Payroll_sheet_itemsSumAggregateOutputType = {
+    id: number | null
+    sheet_id: number | null
+    employee_id: number | null
+    base_salary: Decimal | null
+    worked_days: number | null
+    total_work_days: number | null
+    accrued: Decimal | null
+    debt_balance: Decimal | null
+    debt_deduction: Decimal | null
+    manual_adjustment: Decimal | null
+    late_minutes: number | null
+    overtime_minutes: number | null
+    late_amount: Decimal | null
+    overtime_amount: Decimal | null
+    advance_total: Decimal | null
+    net: Decimal | null
+    salary_balance: Decimal | null
+    paid_amount: Decimal | null
+  }
+
+  export type Payroll_sheet_itemsMinAggregateOutputType = {
+    id: number | null
+    sheet_id: number | null
+    employee_id: number | null
+    base_salary: Decimal | null
+    salary_type: string | null
+    worked_days: number | null
+    total_work_days: number | null
+    worked_hours: string | null
+    total_work_hours: string | null
+    accrued: Decimal | null
+    debt_balance: Decimal | null
+    debt_deduction: Decimal | null
+    debt_mode: string | null
+    debt_comment: string | null
+    manual_adjustment: Decimal | null
+    adjustment_comment: string | null
+    late_minutes: number | null
+    overtime_minutes: number | null
+    apply_late: boolean | null
+    apply_overtime: boolean | null
+    late_amount: Decimal | null
+    overtime_amount: Decimal | null
+    advance_total: Decimal | null
+    net: Decimal | null
+    salary_balance: Decimal | null
+    paid_amount: Decimal | null
+    status: string | null
+  }
+
+  export type Payroll_sheet_itemsMaxAggregateOutputType = {
+    id: number | null
+    sheet_id: number | null
+    employee_id: number | null
+    base_salary: Decimal | null
+    salary_type: string | null
+    worked_days: number | null
+    total_work_days: number | null
+    worked_hours: string | null
+    total_work_hours: string | null
+    accrued: Decimal | null
+    debt_balance: Decimal | null
+    debt_deduction: Decimal | null
+    debt_mode: string | null
+    debt_comment: string | null
+    manual_adjustment: Decimal | null
+    adjustment_comment: string | null
+    late_minutes: number | null
+    overtime_minutes: number | null
+    apply_late: boolean | null
+    apply_overtime: boolean | null
+    late_amount: Decimal | null
+    overtime_amount: Decimal | null
+    advance_total: Decimal | null
+    net: Decimal | null
+    salary_balance: Decimal | null
+    paid_amount: Decimal | null
+    status: string | null
+  }
+
+  export type Payroll_sheet_itemsCountAggregateOutputType = {
+    id: number
+    sheet_id: number
+    employee_id: number
+    base_salary: number
+    salary_type: number
+    worked_days: number
+    total_work_days: number
+    worked_hours: number
+    total_work_hours: number
+    accrued: number
+    debt_balance: number
+    debt_deduction: number
+    debt_mode: number
+    debt_comment: number
+    manual_adjustment: number
+    adjustment_comment: number
+    late_minutes: number
+    overtime_minutes: number
+    apply_late: number
+    apply_overtime: number
+    late_amount: number
+    overtime_amount: number
+    advance_total: number
+    net: number
+    salary_balance: number
+    paid_amount: number
+    status: number
+    _all: number
+  }
+
+
+  export type Payroll_sheet_itemsAvgAggregateInputType = {
+    id?: true
+    sheet_id?: true
+    employee_id?: true
+    base_salary?: true
+    worked_days?: true
+    total_work_days?: true
+    accrued?: true
+    debt_balance?: true
+    debt_deduction?: true
+    manual_adjustment?: true
+    late_minutes?: true
+    overtime_minutes?: true
+    late_amount?: true
+    overtime_amount?: true
+    advance_total?: true
+    net?: true
+    salary_balance?: true
+    paid_amount?: true
+  }
+
+  export type Payroll_sheet_itemsSumAggregateInputType = {
+    id?: true
+    sheet_id?: true
+    employee_id?: true
+    base_salary?: true
+    worked_days?: true
+    total_work_days?: true
+    accrued?: true
+    debt_balance?: true
+    debt_deduction?: true
+    manual_adjustment?: true
+    late_minutes?: true
+    overtime_minutes?: true
+    late_amount?: true
+    overtime_amount?: true
+    advance_total?: true
+    net?: true
+    salary_balance?: true
+    paid_amount?: true
+  }
+
+  export type Payroll_sheet_itemsMinAggregateInputType = {
+    id?: true
+    sheet_id?: true
+    employee_id?: true
+    base_salary?: true
+    salary_type?: true
+    worked_days?: true
+    total_work_days?: true
+    worked_hours?: true
+    total_work_hours?: true
+    accrued?: true
+    debt_balance?: true
+    debt_deduction?: true
+    debt_mode?: true
+    debt_comment?: true
+    manual_adjustment?: true
+    adjustment_comment?: true
+    late_minutes?: true
+    overtime_minutes?: true
+    apply_late?: true
+    apply_overtime?: true
+    late_amount?: true
+    overtime_amount?: true
+    advance_total?: true
+    net?: true
+    salary_balance?: true
+    paid_amount?: true
+    status?: true
+  }
+
+  export type Payroll_sheet_itemsMaxAggregateInputType = {
+    id?: true
+    sheet_id?: true
+    employee_id?: true
+    base_salary?: true
+    salary_type?: true
+    worked_days?: true
+    total_work_days?: true
+    worked_hours?: true
+    total_work_hours?: true
+    accrued?: true
+    debt_balance?: true
+    debt_deduction?: true
+    debt_mode?: true
+    debt_comment?: true
+    manual_adjustment?: true
+    adjustment_comment?: true
+    late_minutes?: true
+    overtime_minutes?: true
+    apply_late?: true
+    apply_overtime?: true
+    late_amount?: true
+    overtime_amount?: true
+    advance_total?: true
+    net?: true
+    salary_balance?: true
+    paid_amount?: true
+    status?: true
+  }
+
+  export type Payroll_sheet_itemsCountAggregateInputType = {
+    id?: true
+    sheet_id?: true
+    employee_id?: true
+    base_salary?: true
+    salary_type?: true
+    worked_days?: true
+    total_work_days?: true
+    worked_hours?: true
+    total_work_hours?: true
+    accrued?: true
+    debt_balance?: true
+    debt_deduction?: true
+    debt_mode?: true
+    debt_comment?: true
+    manual_adjustment?: true
+    adjustment_comment?: true
+    late_minutes?: true
+    overtime_minutes?: true
+    apply_late?: true
+    apply_overtime?: true
+    late_amount?: true
+    overtime_amount?: true
+    advance_total?: true
+    net?: true
+    salary_balance?: true
+    paid_amount?: true
+    status?: true
+    _all?: true
+  }
+
+  export type Payroll_sheet_itemsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which payroll_sheet_items to aggregate.
+     */
+    where?: payroll_sheet_itemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payroll_sheet_items to fetch.
+     */
+    orderBy?: payroll_sheet_itemsOrderByWithRelationInput | payroll_sheet_itemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: payroll_sheet_itemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payroll_sheet_items from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payroll_sheet_items.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned payroll_sheet_items
+    **/
+    _count?: true | Payroll_sheet_itemsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Payroll_sheet_itemsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Payroll_sheet_itemsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Payroll_sheet_itemsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Payroll_sheet_itemsMaxAggregateInputType
+  }
+
+  export type GetPayroll_sheet_itemsAggregateType<T extends Payroll_sheet_itemsAggregateArgs> = {
+        [P in keyof T & keyof AggregatePayroll_sheet_items]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePayroll_sheet_items[P]>
+      : GetScalarType<T[P], AggregatePayroll_sheet_items[P]>
+  }
+
+
+
+
+  export type payroll_sheet_itemsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: payroll_sheet_itemsWhereInput
+    orderBy?: payroll_sheet_itemsOrderByWithAggregationInput | payroll_sheet_itemsOrderByWithAggregationInput[]
+    by: Payroll_sheet_itemsScalarFieldEnum[] | Payroll_sheet_itemsScalarFieldEnum
+    having?: payroll_sheet_itemsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Payroll_sheet_itemsCountAggregateInputType | true
+    _avg?: Payroll_sheet_itemsAvgAggregateInputType
+    _sum?: Payroll_sheet_itemsSumAggregateInputType
+    _min?: Payroll_sheet_itemsMinAggregateInputType
+    _max?: Payroll_sheet_itemsMaxAggregateInputType
+  }
+
+  export type Payroll_sheet_itemsGroupByOutputType = {
+    id: number
+    sheet_id: number
+    employee_id: number
+    base_salary: Decimal
+    salary_type: string
+    worked_days: number
+    total_work_days: number
+    worked_hours: string | null
+    total_work_hours: string | null
+    accrued: Decimal
+    debt_balance: Decimal
+    debt_deduction: Decimal
+    debt_mode: string
+    debt_comment: string | null
+    manual_adjustment: Decimal
+    adjustment_comment: string | null
+    late_minutes: number
+    overtime_minutes: number
+    apply_late: boolean
+    apply_overtime: boolean
+    late_amount: Decimal
+    overtime_amount: Decimal
+    advance_total: Decimal
+    net: Decimal
+    salary_balance: Decimal
+    paid_amount: Decimal
+    status: string
+    _count: Payroll_sheet_itemsCountAggregateOutputType | null
+    _avg: Payroll_sheet_itemsAvgAggregateOutputType | null
+    _sum: Payroll_sheet_itemsSumAggregateOutputType | null
+    _min: Payroll_sheet_itemsMinAggregateOutputType | null
+    _max: Payroll_sheet_itemsMaxAggregateOutputType | null
+  }
+
+  type GetPayroll_sheet_itemsGroupByPayload<T extends payroll_sheet_itemsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Payroll_sheet_itemsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Payroll_sheet_itemsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Payroll_sheet_itemsGroupByOutputType[P]>
+            : GetScalarType<T[P], Payroll_sheet_itemsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type payroll_sheet_itemsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sheet_id?: boolean
+    employee_id?: boolean
+    base_salary?: boolean
+    salary_type?: boolean
+    worked_days?: boolean
+    total_work_days?: boolean
+    worked_hours?: boolean
+    total_work_hours?: boolean
+    accrued?: boolean
+    debt_balance?: boolean
+    debt_deduction?: boolean
+    debt_mode?: boolean
+    debt_comment?: boolean
+    manual_adjustment?: boolean
+    adjustment_comment?: boolean
+    late_minutes?: boolean
+    overtime_minutes?: boolean
+    apply_late?: boolean
+    apply_overtime?: boolean
+    late_amount?: boolean
+    overtime_amount?: boolean
+    advance_total?: boolean
+    net?: boolean
+    salary_balance?: boolean
+    paid_amount?: boolean
+    status?: boolean
+    sheet?: boolean | payroll_sheetsDefaultArgs<ExtArgs>
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+    paymentLogs?: boolean | payroll_sheet_items$paymentLogsArgs<ExtArgs>
+    _count?: boolean | Payroll_sheet_itemsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["payroll_sheet_items"]>
+
+  export type payroll_sheet_itemsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sheet_id?: boolean
+    employee_id?: boolean
+    base_salary?: boolean
+    salary_type?: boolean
+    worked_days?: boolean
+    total_work_days?: boolean
+    worked_hours?: boolean
+    total_work_hours?: boolean
+    accrued?: boolean
+    debt_balance?: boolean
+    debt_deduction?: boolean
+    debt_mode?: boolean
+    debt_comment?: boolean
+    manual_adjustment?: boolean
+    adjustment_comment?: boolean
+    late_minutes?: boolean
+    overtime_minutes?: boolean
+    apply_late?: boolean
+    apply_overtime?: boolean
+    late_amount?: boolean
+    overtime_amount?: boolean
+    advance_total?: boolean
+    net?: boolean
+    salary_balance?: boolean
+    paid_amount?: boolean
+    status?: boolean
+    sheet?: boolean | payroll_sheetsDefaultArgs<ExtArgs>
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["payroll_sheet_items"]>
+
+  export type payroll_sheet_itemsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sheet_id?: boolean
+    employee_id?: boolean
+    base_salary?: boolean
+    salary_type?: boolean
+    worked_days?: boolean
+    total_work_days?: boolean
+    worked_hours?: boolean
+    total_work_hours?: boolean
+    accrued?: boolean
+    debt_balance?: boolean
+    debt_deduction?: boolean
+    debt_mode?: boolean
+    debt_comment?: boolean
+    manual_adjustment?: boolean
+    adjustment_comment?: boolean
+    late_minutes?: boolean
+    overtime_minutes?: boolean
+    apply_late?: boolean
+    apply_overtime?: boolean
+    late_amount?: boolean
+    overtime_amount?: boolean
+    advance_total?: boolean
+    net?: boolean
+    salary_balance?: boolean
+    paid_amount?: boolean
+    status?: boolean
+    sheet?: boolean | payroll_sheetsDefaultArgs<ExtArgs>
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["payroll_sheet_items"]>
+
+  export type payroll_sheet_itemsSelectScalar = {
+    id?: boolean
+    sheet_id?: boolean
+    employee_id?: boolean
+    base_salary?: boolean
+    salary_type?: boolean
+    worked_days?: boolean
+    total_work_days?: boolean
+    worked_hours?: boolean
+    total_work_hours?: boolean
+    accrued?: boolean
+    debt_balance?: boolean
+    debt_deduction?: boolean
+    debt_mode?: boolean
+    debt_comment?: boolean
+    manual_adjustment?: boolean
+    adjustment_comment?: boolean
+    late_minutes?: boolean
+    overtime_minutes?: boolean
+    apply_late?: boolean
+    apply_overtime?: boolean
+    late_amount?: boolean
+    overtime_amount?: boolean
+    advance_total?: boolean
+    net?: boolean
+    salary_balance?: boolean
+    paid_amount?: boolean
+    status?: boolean
+  }
+
+  export type payroll_sheet_itemsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sheet_id" | "employee_id" | "base_salary" | "salary_type" | "worked_days" | "total_work_days" | "worked_hours" | "total_work_hours" | "accrued" | "debt_balance" | "debt_deduction" | "debt_mode" | "debt_comment" | "manual_adjustment" | "adjustment_comment" | "late_minutes" | "overtime_minutes" | "apply_late" | "apply_overtime" | "late_amount" | "overtime_amount" | "advance_total" | "net" | "salary_balance" | "paid_amount" | "status", ExtArgs["result"]["payroll_sheet_items"]>
+  export type payroll_sheet_itemsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sheet?: boolean | payroll_sheetsDefaultArgs<ExtArgs>
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+    paymentLogs?: boolean | payroll_sheet_items$paymentLogsArgs<ExtArgs>
+    _count?: boolean | Payroll_sheet_itemsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type payroll_sheet_itemsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sheet?: boolean | payroll_sheetsDefaultArgs<ExtArgs>
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+  }
+  export type payroll_sheet_itemsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sheet?: boolean | payroll_sheetsDefaultArgs<ExtArgs>
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+  }
+
+  export type $payroll_sheet_itemsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "payroll_sheet_items"
+    objects: {
+      sheet: Prisma.$payroll_sheetsPayload<ExtArgs>
+      employee: Prisma.$employeesPayload<ExtArgs>
+      paymentLogs: Prisma.$payroll_payment_logsPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      sheet_id: number
+      employee_id: number
+      base_salary: Prisma.Decimal
+      salary_type: string
+      worked_days: number
+      total_work_days: number
+      worked_hours: string | null
+      total_work_hours: string | null
+      accrued: Prisma.Decimal
+      debt_balance: Prisma.Decimal
+      debt_deduction: Prisma.Decimal
+      debt_mode: string
+      debt_comment: string | null
+      manual_adjustment: Prisma.Decimal
+      adjustment_comment: string | null
+      late_minutes: number
+      overtime_minutes: number
+      apply_late: boolean
+      apply_overtime: boolean
+      late_amount: Prisma.Decimal
+      overtime_amount: Prisma.Decimal
+      advance_total: Prisma.Decimal
+      net: Prisma.Decimal
+      salary_balance: Prisma.Decimal
+      paid_amount: Prisma.Decimal
+      status: string
+    }, ExtArgs["result"]["payroll_sheet_items"]>
+    composites: {}
+  }
+
+  type payroll_sheet_itemsGetPayload<S extends boolean | null | undefined | payroll_sheet_itemsDefaultArgs> = $Result.GetResult<Prisma.$payroll_sheet_itemsPayload, S>
+
+  type payroll_sheet_itemsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<payroll_sheet_itemsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Payroll_sheet_itemsCountAggregateInputType | true
+    }
+
+  export interface payroll_sheet_itemsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['payroll_sheet_items'], meta: { name: 'payroll_sheet_items' } }
+    /**
+     * Find zero or one Payroll_sheet_items that matches the filter.
+     * @param {payroll_sheet_itemsFindUniqueArgs} args - Arguments to find a Payroll_sheet_items
+     * @example
+     * // Get one Payroll_sheet_items
+     * const payroll_sheet_items = await prisma.payroll_sheet_items.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends payroll_sheet_itemsFindUniqueArgs>(args: SelectSubset<T, payroll_sheet_itemsFindUniqueArgs<ExtArgs>>): Prisma__payroll_sheet_itemsClient<$Result.GetResult<Prisma.$payroll_sheet_itemsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Payroll_sheet_items that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {payroll_sheet_itemsFindUniqueOrThrowArgs} args - Arguments to find a Payroll_sheet_items
+     * @example
+     * // Get one Payroll_sheet_items
+     * const payroll_sheet_items = await prisma.payroll_sheet_items.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends payroll_sheet_itemsFindUniqueOrThrowArgs>(args: SelectSubset<T, payroll_sheet_itemsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__payroll_sheet_itemsClient<$Result.GetResult<Prisma.$payroll_sheet_itemsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Payroll_sheet_items that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_sheet_itemsFindFirstArgs} args - Arguments to find a Payroll_sheet_items
+     * @example
+     * // Get one Payroll_sheet_items
+     * const payroll_sheet_items = await prisma.payroll_sheet_items.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends payroll_sheet_itemsFindFirstArgs>(args?: SelectSubset<T, payroll_sheet_itemsFindFirstArgs<ExtArgs>>): Prisma__payroll_sheet_itemsClient<$Result.GetResult<Prisma.$payroll_sheet_itemsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Payroll_sheet_items that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_sheet_itemsFindFirstOrThrowArgs} args - Arguments to find a Payroll_sheet_items
+     * @example
+     * // Get one Payroll_sheet_items
+     * const payroll_sheet_items = await prisma.payroll_sheet_items.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends payroll_sheet_itemsFindFirstOrThrowArgs>(args?: SelectSubset<T, payroll_sheet_itemsFindFirstOrThrowArgs<ExtArgs>>): Prisma__payroll_sheet_itemsClient<$Result.GetResult<Prisma.$payroll_sheet_itemsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Payroll_sheet_items that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_sheet_itemsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Payroll_sheet_items
+     * const payroll_sheet_items = await prisma.payroll_sheet_items.findMany()
+     * 
+     * // Get first 10 Payroll_sheet_items
+     * const payroll_sheet_items = await prisma.payroll_sheet_items.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const payroll_sheet_itemsWithIdOnly = await prisma.payroll_sheet_items.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends payroll_sheet_itemsFindManyArgs>(args?: SelectSubset<T, payroll_sheet_itemsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_sheet_itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Payroll_sheet_items.
+     * @param {payroll_sheet_itemsCreateArgs} args - Arguments to create a Payroll_sheet_items.
+     * @example
+     * // Create one Payroll_sheet_items
+     * const Payroll_sheet_items = await prisma.payroll_sheet_items.create({
+     *   data: {
+     *     // ... data to create a Payroll_sheet_items
+     *   }
+     * })
+     * 
+     */
+    create<T extends payroll_sheet_itemsCreateArgs>(args: SelectSubset<T, payroll_sheet_itemsCreateArgs<ExtArgs>>): Prisma__payroll_sheet_itemsClient<$Result.GetResult<Prisma.$payroll_sheet_itemsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Payroll_sheet_items.
+     * @param {payroll_sheet_itemsCreateManyArgs} args - Arguments to create many Payroll_sheet_items.
+     * @example
+     * // Create many Payroll_sheet_items
+     * const payroll_sheet_items = await prisma.payroll_sheet_items.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends payroll_sheet_itemsCreateManyArgs>(args?: SelectSubset<T, payroll_sheet_itemsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Payroll_sheet_items and returns the data saved in the database.
+     * @param {payroll_sheet_itemsCreateManyAndReturnArgs} args - Arguments to create many Payroll_sheet_items.
+     * @example
+     * // Create many Payroll_sheet_items
+     * const payroll_sheet_items = await prisma.payroll_sheet_items.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Payroll_sheet_items and only return the `id`
+     * const payroll_sheet_itemsWithIdOnly = await prisma.payroll_sheet_items.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends payroll_sheet_itemsCreateManyAndReturnArgs>(args?: SelectSubset<T, payroll_sheet_itemsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_sheet_itemsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Payroll_sheet_items.
+     * @param {payroll_sheet_itemsDeleteArgs} args - Arguments to delete one Payroll_sheet_items.
+     * @example
+     * // Delete one Payroll_sheet_items
+     * const Payroll_sheet_items = await prisma.payroll_sheet_items.delete({
+     *   where: {
+     *     // ... filter to delete one Payroll_sheet_items
+     *   }
+     * })
+     * 
+     */
+    delete<T extends payroll_sheet_itemsDeleteArgs>(args: SelectSubset<T, payroll_sheet_itemsDeleteArgs<ExtArgs>>): Prisma__payroll_sheet_itemsClient<$Result.GetResult<Prisma.$payroll_sheet_itemsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Payroll_sheet_items.
+     * @param {payroll_sheet_itemsUpdateArgs} args - Arguments to update one Payroll_sheet_items.
+     * @example
+     * // Update one Payroll_sheet_items
+     * const payroll_sheet_items = await prisma.payroll_sheet_items.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends payroll_sheet_itemsUpdateArgs>(args: SelectSubset<T, payroll_sheet_itemsUpdateArgs<ExtArgs>>): Prisma__payroll_sheet_itemsClient<$Result.GetResult<Prisma.$payroll_sheet_itemsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Payroll_sheet_items.
+     * @param {payroll_sheet_itemsDeleteManyArgs} args - Arguments to filter Payroll_sheet_items to delete.
+     * @example
+     * // Delete a few Payroll_sheet_items
+     * const { count } = await prisma.payroll_sheet_items.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends payroll_sheet_itemsDeleteManyArgs>(args?: SelectSubset<T, payroll_sheet_itemsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Payroll_sheet_items.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_sheet_itemsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Payroll_sheet_items
+     * const payroll_sheet_items = await prisma.payroll_sheet_items.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends payroll_sheet_itemsUpdateManyArgs>(args: SelectSubset<T, payroll_sheet_itemsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Payroll_sheet_items and returns the data updated in the database.
+     * @param {payroll_sheet_itemsUpdateManyAndReturnArgs} args - Arguments to update many Payroll_sheet_items.
+     * @example
+     * // Update many Payroll_sheet_items
+     * const payroll_sheet_items = await prisma.payroll_sheet_items.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Payroll_sheet_items and only return the `id`
+     * const payroll_sheet_itemsWithIdOnly = await prisma.payroll_sheet_items.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends payroll_sheet_itemsUpdateManyAndReturnArgs>(args: SelectSubset<T, payroll_sheet_itemsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_sheet_itemsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Payroll_sheet_items.
+     * @param {payroll_sheet_itemsUpsertArgs} args - Arguments to update or create a Payroll_sheet_items.
+     * @example
+     * // Update or create a Payroll_sheet_items
+     * const payroll_sheet_items = await prisma.payroll_sheet_items.upsert({
+     *   create: {
+     *     // ... data to create a Payroll_sheet_items
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Payroll_sheet_items we want to update
+     *   }
+     * })
+     */
+    upsert<T extends payroll_sheet_itemsUpsertArgs>(args: SelectSubset<T, payroll_sheet_itemsUpsertArgs<ExtArgs>>): Prisma__payroll_sheet_itemsClient<$Result.GetResult<Prisma.$payroll_sheet_itemsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Payroll_sheet_items.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_sheet_itemsCountArgs} args - Arguments to filter Payroll_sheet_items to count.
+     * @example
+     * // Count the number of Payroll_sheet_items
+     * const count = await prisma.payroll_sheet_items.count({
+     *   where: {
+     *     // ... the filter for the Payroll_sheet_items we want to count
+     *   }
+     * })
+    **/
+    count<T extends payroll_sheet_itemsCountArgs>(
+      args?: Subset<T, payroll_sheet_itemsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Payroll_sheet_itemsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Payroll_sheet_items.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Payroll_sheet_itemsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Payroll_sheet_itemsAggregateArgs>(args: Subset<T, Payroll_sheet_itemsAggregateArgs>): Prisma.PrismaPromise<GetPayroll_sheet_itemsAggregateType<T>>
+
+    /**
+     * Group by Payroll_sheet_items.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_sheet_itemsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends payroll_sheet_itemsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: payroll_sheet_itemsGroupByArgs['orderBy'] }
+        : { orderBy?: payroll_sheet_itemsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, payroll_sheet_itemsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPayroll_sheet_itemsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the payroll_sheet_items model
+   */
+  readonly fields: payroll_sheet_itemsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for payroll_sheet_items.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__payroll_sheet_itemsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    sheet<T extends payroll_sheetsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, payroll_sheetsDefaultArgs<ExtArgs>>): Prisma__payroll_sheetsClient<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    employee<T extends employeesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, employeesDefaultArgs<ExtArgs>>): Prisma__employeesClient<$Result.GetResult<Prisma.$employeesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    paymentLogs<T extends payroll_sheet_items$paymentLogsArgs<ExtArgs> = {}>(args?: Subset<T, payroll_sheet_items$paymentLogsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_payment_logsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the payroll_sheet_items model
+   */
+  interface payroll_sheet_itemsFieldRefs {
+    readonly id: FieldRef<"payroll_sheet_items", 'Int'>
+    readonly sheet_id: FieldRef<"payroll_sheet_items", 'Int'>
+    readonly employee_id: FieldRef<"payroll_sheet_items", 'Int'>
+    readonly base_salary: FieldRef<"payroll_sheet_items", 'Decimal'>
+    readonly salary_type: FieldRef<"payroll_sheet_items", 'String'>
+    readonly worked_days: FieldRef<"payroll_sheet_items", 'Int'>
+    readonly total_work_days: FieldRef<"payroll_sheet_items", 'Int'>
+    readonly worked_hours: FieldRef<"payroll_sheet_items", 'String'>
+    readonly total_work_hours: FieldRef<"payroll_sheet_items", 'String'>
+    readonly accrued: FieldRef<"payroll_sheet_items", 'Decimal'>
+    readonly debt_balance: FieldRef<"payroll_sheet_items", 'Decimal'>
+    readonly debt_deduction: FieldRef<"payroll_sheet_items", 'Decimal'>
+    readonly debt_mode: FieldRef<"payroll_sheet_items", 'String'>
+    readonly debt_comment: FieldRef<"payroll_sheet_items", 'String'>
+    readonly manual_adjustment: FieldRef<"payroll_sheet_items", 'Decimal'>
+    readonly adjustment_comment: FieldRef<"payroll_sheet_items", 'String'>
+    readonly late_minutes: FieldRef<"payroll_sheet_items", 'Int'>
+    readonly overtime_minutes: FieldRef<"payroll_sheet_items", 'Int'>
+    readonly apply_late: FieldRef<"payroll_sheet_items", 'Boolean'>
+    readonly apply_overtime: FieldRef<"payroll_sheet_items", 'Boolean'>
+    readonly late_amount: FieldRef<"payroll_sheet_items", 'Decimal'>
+    readonly overtime_amount: FieldRef<"payroll_sheet_items", 'Decimal'>
+    readonly advance_total: FieldRef<"payroll_sheet_items", 'Decimal'>
+    readonly net: FieldRef<"payroll_sheet_items", 'Decimal'>
+    readonly salary_balance: FieldRef<"payroll_sheet_items", 'Decimal'>
+    readonly paid_amount: FieldRef<"payroll_sheet_items", 'Decimal'>
+    readonly status: FieldRef<"payroll_sheet_items", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * payroll_sheet_items findUnique
+   */
+  export type payroll_sheet_itemsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheet_items
+     */
+    select?: payroll_sheet_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheet_items
+     */
+    omit?: payroll_sheet_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheet_itemsInclude<ExtArgs> | null
+    /**
+     * Filter, which payroll_sheet_items to fetch.
+     */
+    where: payroll_sheet_itemsWhereUniqueInput
+  }
+
+  /**
+   * payroll_sheet_items findUniqueOrThrow
+   */
+  export type payroll_sheet_itemsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheet_items
+     */
+    select?: payroll_sheet_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheet_items
+     */
+    omit?: payroll_sheet_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheet_itemsInclude<ExtArgs> | null
+    /**
+     * Filter, which payroll_sheet_items to fetch.
+     */
+    where: payroll_sheet_itemsWhereUniqueInput
+  }
+
+  /**
+   * payroll_sheet_items findFirst
+   */
+  export type payroll_sheet_itemsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheet_items
+     */
+    select?: payroll_sheet_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheet_items
+     */
+    omit?: payroll_sheet_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheet_itemsInclude<ExtArgs> | null
+    /**
+     * Filter, which payroll_sheet_items to fetch.
+     */
+    where?: payroll_sheet_itemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payroll_sheet_items to fetch.
+     */
+    orderBy?: payroll_sheet_itemsOrderByWithRelationInput | payroll_sheet_itemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for payroll_sheet_items.
+     */
+    cursor?: payroll_sheet_itemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payroll_sheet_items from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payroll_sheet_items.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of payroll_sheet_items.
+     */
+    distinct?: Payroll_sheet_itemsScalarFieldEnum | Payroll_sheet_itemsScalarFieldEnum[]
+  }
+
+  /**
+   * payroll_sheet_items findFirstOrThrow
+   */
+  export type payroll_sheet_itemsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheet_items
+     */
+    select?: payroll_sheet_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheet_items
+     */
+    omit?: payroll_sheet_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheet_itemsInclude<ExtArgs> | null
+    /**
+     * Filter, which payroll_sheet_items to fetch.
+     */
+    where?: payroll_sheet_itemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payroll_sheet_items to fetch.
+     */
+    orderBy?: payroll_sheet_itemsOrderByWithRelationInput | payroll_sheet_itemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for payroll_sheet_items.
+     */
+    cursor?: payroll_sheet_itemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payroll_sheet_items from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payroll_sheet_items.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of payroll_sheet_items.
+     */
+    distinct?: Payroll_sheet_itemsScalarFieldEnum | Payroll_sheet_itemsScalarFieldEnum[]
+  }
+
+  /**
+   * payroll_sheet_items findMany
+   */
+  export type payroll_sheet_itemsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheet_items
+     */
+    select?: payroll_sheet_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheet_items
+     */
+    omit?: payroll_sheet_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheet_itemsInclude<ExtArgs> | null
+    /**
+     * Filter, which payroll_sheet_items to fetch.
+     */
+    where?: payroll_sheet_itemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payroll_sheet_items to fetch.
+     */
+    orderBy?: payroll_sheet_itemsOrderByWithRelationInput | payroll_sheet_itemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing payroll_sheet_items.
+     */
+    cursor?: payroll_sheet_itemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payroll_sheet_items from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payroll_sheet_items.
+     */
+    skip?: number
+    distinct?: Payroll_sheet_itemsScalarFieldEnum | Payroll_sheet_itemsScalarFieldEnum[]
+  }
+
+  /**
+   * payroll_sheet_items create
+   */
+  export type payroll_sheet_itemsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheet_items
+     */
+    select?: payroll_sheet_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheet_items
+     */
+    omit?: payroll_sheet_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheet_itemsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a payroll_sheet_items.
+     */
+    data: XOR<payroll_sheet_itemsCreateInput, payroll_sheet_itemsUncheckedCreateInput>
+  }
+
+  /**
+   * payroll_sheet_items createMany
+   */
+  export type payroll_sheet_itemsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many payroll_sheet_items.
+     */
+    data: payroll_sheet_itemsCreateManyInput | payroll_sheet_itemsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * payroll_sheet_items createManyAndReturn
+   */
+  export type payroll_sheet_itemsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheet_items
+     */
+    select?: payroll_sheet_itemsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheet_items
+     */
+    omit?: payroll_sheet_itemsOmit<ExtArgs> | null
+    /**
+     * The data used to create many payroll_sheet_items.
+     */
+    data: payroll_sheet_itemsCreateManyInput | payroll_sheet_itemsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheet_itemsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * payroll_sheet_items update
+   */
+  export type payroll_sheet_itemsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheet_items
+     */
+    select?: payroll_sheet_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheet_items
+     */
+    omit?: payroll_sheet_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheet_itemsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a payroll_sheet_items.
+     */
+    data: XOR<payroll_sheet_itemsUpdateInput, payroll_sheet_itemsUncheckedUpdateInput>
+    /**
+     * Choose, which payroll_sheet_items to update.
+     */
+    where: payroll_sheet_itemsWhereUniqueInput
+  }
+
+  /**
+   * payroll_sheet_items updateMany
+   */
+  export type payroll_sheet_itemsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update payroll_sheet_items.
+     */
+    data: XOR<payroll_sheet_itemsUpdateManyMutationInput, payroll_sheet_itemsUncheckedUpdateManyInput>
+    /**
+     * Filter which payroll_sheet_items to update
+     */
+    where?: payroll_sheet_itemsWhereInput
+    /**
+     * Limit how many payroll_sheet_items to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * payroll_sheet_items updateManyAndReturn
+   */
+  export type payroll_sheet_itemsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheet_items
+     */
+    select?: payroll_sheet_itemsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheet_items
+     */
+    omit?: payroll_sheet_itemsOmit<ExtArgs> | null
+    /**
+     * The data used to update payroll_sheet_items.
+     */
+    data: XOR<payroll_sheet_itemsUpdateManyMutationInput, payroll_sheet_itemsUncheckedUpdateManyInput>
+    /**
+     * Filter which payroll_sheet_items to update
+     */
+    where?: payroll_sheet_itemsWhereInput
+    /**
+     * Limit how many payroll_sheet_items to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheet_itemsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * payroll_sheet_items upsert
+   */
+  export type payroll_sheet_itemsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheet_items
+     */
+    select?: payroll_sheet_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheet_items
+     */
+    omit?: payroll_sheet_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheet_itemsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the payroll_sheet_items to update in case it exists.
+     */
+    where: payroll_sheet_itemsWhereUniqueInput
+    /**
+     * In case the payroll_sheet_items found by the `where` argument doesn't exist, create a new payroll_sheet_items with this data.
+     */
+    create: XOR<payroll_sheet_itemsCreateInput, payroll_sheet_itemsUncheckedCreateInput>
+    /**
+     * In case the payroll_sheet_items was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<payroll_sheet_itemsUpdateInput, payroll_sheet_itemsUncheckedUpdateInput>
+  }
+
+  /**
+   * payroll_sheet_items delete
+   */
+  export type payroll_sheet_itemsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheet_items
+     */
+    select?: payroll_sheet_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheet_items
+     */
+    omit?: payroll_sheet_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheet_itemsInclude<ExtArgs> | null
+    /**
+     * Filter which payroll_sheet_items to delete.
+     */
+    where: payroll_sheet_itemsWhereUniqueInput
+  }
+
+  /**
+   * payroll_sheet_items deleteMany
+   */
+  export type payroll_sheet_itemsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which payroll_sheet_items to delete
+     */
+    where?: payroll_sheet_itemsWhereInput
+    /**
+     * Limit how many payroll_sheet_items to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * payroll_sheet_items.paymentLogs
+   */
+  export type payroll_sheet_items$paymentLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_payment_logs
+     */
+    select?: payroll_payment_logsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_payment_logs
+     */
+    omit?: payroll_payment_logsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_payment_logsInclude<ExtArgs> | null
+    where?: payroll_payment_logsWhereInput
+    orderBy?: payroll_payment_logsOrderByWithRelationInput | payroll_payment_logsOrderByWithRelationInput[]
+    cursor?: payroll_payment_logsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Payroll_payment_logsScalarFieldEnum | Payroll_payment_logsScalarFieldEnum[]
+  }
+
+  /**
+   * payroll_sheet_items without action
+   */
+  export type payroll_sheet_itemsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_sheet_items
+     */
+    select?: payroll_sheet_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_sheet_items
+     */
+    omit?: payroll_sheet_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_sheet_itemsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model payroll_payment_logs
+   */
+
+  export type AggregatePayroll_payment_logs = {
+    _count: Payroll_payment_logsCountAggregateOutputType | null
+    _avg: Payroll_payment_logsAvgAggregateOutputType | null
+    _sum: Payroll_payment_logsSumAggregateOutputType | null
+    _min: Payroll_payment_logsMinAggregateOutputType | null
+    _max: Payroll_payment_logsMaxAggregateOutputType | null
+  }
+
+  export type Payroll_payment_logsAvgAggregateOutputType = {
+    id: number | null
+    item_id: number | null
+    amount: Decimal | null
+  }
+
+  export type Payroll_payment_logsSumAggregateOutputType = {
+    id: number | null
+    item_id: number | null
+    amount: Decimal | null
+  }
+
+  export type Payroll_payment_logsMinAggregateOutputType = {
+    id: number | null
+    item_id: number | null
+    amount: Decimal | null
+    payment_date: Date | null
+    note: string | null
+    added_at: Date | null
+  }
+
+  export type Payroll_payment_logsMaxAggregateOutputType = {
+    id: number | null
+    item_id: number | null
+    amount: Decimal | null
+    payment_date: Date | null
+    note: string | null
+    added_at: Date | null
+  }
+
+  export type Payroll_payment_logsCountAggregateOutputType = {
+    id: number
+    item_id: number
+    amount: number
+    payment_date: number
+    note: number
+    added_at: number
+    _all: number
+  }
+
+
+  export type Payroll_payment_logsAvgAggregateInputType = {
+    id?: true
+    item_id?: true
+    amount?: true
+  }
+
+  export type Payroll_payment_logsSumAggregateInputType = {
+    id?: true
+    item_id?: true
+    amount?: true
+  }
+
+  export type Payroll_payment_logsMinAggregateInputType = {
+    id?: true
+    item_id?: true
+    amount?: true
+    payment_date?: true
+    note?: true
+    added_at?: true
+  }
+
+  export type Payroll_payment_logsMaxAggregateInputType = {
+    id?: true
+    item_id?: true
+    amount?: true
+    payment_date?: true
+    note?: true
+    added_at?: true
+  }
+
+  export type Payroll_payment_logsCountAggregateInputType = {
+    id?: true
+    item_id?: true
+    amount?: true
+    payment_date?: true
+    note?: true
+    added_at?: true
+    _all?: true
+  }
+
+  export type Payroll_payment_logsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which payroll_payment_logs to aggregate.
+     */
+    where?: payroll_payment_logsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payroll_payment_logs to fetch.
+     */
+    orderBy?: payroll_payment_logsOrderByWithRelationInput | payroll_payment_logsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: payroll_payment_logsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payroll_payment_logs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payroll_payment_logs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned payroll_payment_logs
+    **/
+    _count?: true | Payroll_payment_logsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Payroll_payment_logsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Payroll_payment_logsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Payroll_payment_logsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Payroll_payment_logsMaxAggregateInputType
+  }
+
+  export type GetPayroll_payment_logsAggregateType<T extends Payroll_payment_logsAggregateArgs> = {
+        [P in keyof T & keyof AggregatePayroll_payment_logs]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePayroll_payment_logs[P]>
+      : GetScalarType<T[P], AggregatePayroll_payment_logs[P]>
+  }
+
+
+
+
+  export type payroll_payment_logsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: payroll_payment_logsWhereInput
+    orderBy?: payroll_payment_logsOrderByWithAggregationInput | payroll_payment_logsOrderByWithAggregationInput[]
+    by: Payroll_payment_logsScalarFieldEnum[] | Payroll_payment_logsScalarFieldEnum
+    having?: payroll_payment_logsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Payroll_payment_logsCountAggregateInputType | true
+    _avg?: Payroll_payment_logsAvgAggregateInputType
+    _sum?: Payroll_payment_logsSumAggregateInputType
+    _min?: Payroll_payment_logsMinAggregateInputType
+    _max?: Payroll_payment_logsMaxAggregateInputType
+  }
+
+  export type Payroll_payment_logsGroupByOutputType = {
+    id: number
+    item_id: number
+    amount: Decimal
+    payment_date: Date
+    note: string | null
+    added_at: Date
+    _count: Payroll_payment_logsCountAggregateOutputType | null
+    _avg: Payroll_payment_logsAvgAggregateOutputType | null
+    _sum: Payroll_payment_logsSumAggregateOutputType | null
+    _min: Payroll_payment_logsMinAggregateOutputType | null
+    _max: Payroll_payment_logsMaxAggregateOutputType | null
+  }
+
+  type GetPayroll_payment_logsGroupByPayload<T extends payroll_payment_logsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Payroll_payment_logsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Payroll_payment_logsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Payroll_payment_logsGroupByOutputType[P]>
+            : GetScalarType<T[P], Payroll_payment_logsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type payroll_payment_logsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    item_id?: boolean
+    amount?: boolean
+    payment_date?: boolean
+    note?: boolean
+    added_at?: boolean
+    item?: boolean | payroll_sheet_itemsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["payroll_payment_logs"]>
+
+  export type payroll_payment_logsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    item_id?: boolean
+    amount?: boolean
+    payment_date?: boolean
+    note?: boolean
+    added_at?: boolean
+    item?: boolean | payroll_sheet_itemsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["payroll_payment_logs"]>
+
+  export type payroll_payment_logsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    item_id?: boolean
+    amount?: boolean
+    payment_date?: boolean
+    note?: boolean
+    added_at?: boolean
+    item?: boolean | payroll_sheet_itemsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["payroll_payment_logs"]>
+
+  export type payroll_payment_logsSelectScalar = {
+    id?: boolean
+    item_id?: boolean
+    amount?: boolean
+    payment_date?: boolean
+    note?: boolean
+    added_at?: boolean
+  }
+
+  export type payroll_payment_logsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "item_id" | "amount" | "payment_date" | "note" | "added_at", ExtArgs["result"]["payroll_payment_logs"]>
+  export type payroll_payment_logsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    item?: boolean | payroll_sheet_itemsDefaultArgs<ExtArgs>
+  }
+  export type payroll_payment_logsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    item?: boolean | payroll_sheet_itemsDefaultArgs<ExtArgs>
+  }
+  export type payroll_payment_logsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    item?: boolean | payroll_sheet_itemsDefaultArgs<ExtArgs>
+  }
+
+  export type $payroll_payment_logsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "payroll_payment_logs"
+    objects: {
+      item: Prisma.$payroll_sheet_itemsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      item_id: number
+      amount: Prisma.Decimal
+      payment_date: Date
+      note: string | null
+      added_at: Date
+    }, ExtArgs["result"]["payroll_payment_logs"]>
+    composites: {}
+  }
+
+  type payroll_payment_logsGetPayload<S extends boolean | null | undefined | payroll_payment_logsDefaultArgs> = $Result.GetResult<Prisma.$payroll_payment_logsPayload, S>
+
+  type payroll_payment_logsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<payroll_payment_logsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Payroll_payment_logsCountAggregateInputType | true
+    }
+
+  export interface payroll_payment_logsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['payroll_payment_logs'], meta: { name: 'payroll_payment_logs' } }
+    /**
+     * Find zero or one Payroll_payment_logs that matches the filter.
+     * @param {payroll_payment_logsFindUniqueArgs} args - Arguments to find a Payroll_payment_logs
+     * @example
+     * // Get one Payroll_payment_logs
+     * const payroll_payment_logs = await prisma.payroll_payment_logs.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends payroll_payment_logsFindUniqueArgs>(args: SelectSubset<T, payroll_payment_logsFindUniqueArgs<ExtArgs>>): Prisma__payroll_payment_logsClient<$Result.GetResult<Prisma.$payroll_payment_logsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Payroll_payment_logs that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {payroll_payment_logsFindUniqueOrThrowArgs} args - Arguments to find a Payroll_payment_logs
+     * @example
+     * // Get one Payroll_payment_logs
+     * const payroll_payment_logs = await prisma.payroll_payment_logs.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends payroll_payment_logsFindUniqueOrThrowArgs>(args: SelectSubset<T, payroll_payment_logsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__payroll_payment_logsClient<$Result.GetResult<Prisma.$payroll_payment_logsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Payroll_payment_logs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_payment_logsFindFirstArgs} args - Arguments to find a Payroll_payment_logs
+     * @example
+     * // Get one Payroll_payment_logs
+     * const payroll_payment_logs = await prisma.payroll_payment_logs.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends payroll_payment_logsFindFirstArgs>(args?: SelectSubset<T, payroll_payment_logsFindFirstArgs<ExtArgs>>): Prisma__payroll_payment_logsClient<$Result.GetResult<Prisma.$payroll_payment_logsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Payroll_payment_logs that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_payment_logsFindFirstOrThrowArgs} args - Arguments to find a Payroll_payment_logs
+     * @example
+     * // Get one Payroll_payment_logs
+     * const payroll_payment_logs = await prisma.payroll_payment_logs.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends payroll_payment_logsFindFirstOrThrowArgs>(args?: SelectSubset<T, payroll_payment_logsFindFirstOrThrowArgs<ExtArgs>>): Prisma__payroll_payment_logsClient<$Result.GetResult<Prisma.$payroll_payment_logsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Payroll_payment_logs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_payment_logsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Payroll_payment_logs
+     * const payroll_payment_logs = await prisma.payroll_payment_logs.findMany()
+     * 
+     * // Get first 10 Payroll_payment_logs
+     * const payroll_payment_logs = await prisma.payroll_payment_logs.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const payroll_payment_logsWithIdOnly = await prisma.payroll_payment_logs.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends payroll_payment_logsFindManyArgs>(args?: SelectSubset<T, payroll_payment_logsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_payment_logsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Payroll_payment_logs.
+     * @param {payroll_payment_logsCreateArgs} args - Arguments to create a Payroll_payment_logs.
+     * @example
+     * // Create one Payroll_payment_logs
+     * const Payroll_payment_logs = await prisma.payroll_payment_logs.create({
+     *   data: {
+     *     // ... data to create a Payroll_payment_logs
+     *   }
+     * })
+     * 
+     */
+    create<T extends payroll_payment_logsCreateArgs>(args: SelectSubset<T, payroll_payment_logsCreateArgs<ExtArgs>>): Prisma__payroll_payment_logsClient<$Result.GetResult<Prisma.$payroll_payment_logsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Payroll_payment_logs.
+     * @param {payroll_payment_logsCreateManyArgs} args - Arguments to create many Payroll_payment_logs.
+     * @example
+     * // Create many Payroll_payment_logs
+     * const payroll_payment_logs = await prisma.payroll_payment_logs.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends payroll_payment_logsCreateManyArgs>(args?: SelectSubset<T, payroll_payment_logsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Payroll_payment_logs and returns the data saved in the database.
+     * @param {payroll_payment_logsCreateManyAndReturnArgs} args - Arguments to create many Payroll_payment_logs.
+     * @example
+     * // Create many Payroll_payment_logs
+     * const payroll_payment_logs = await prisma.payroll_payment_logs.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Payroll_payment_logs and only return the `id`
+     * const payroll_payment_logsWithIdOnly = await prisma.payroll_payment_logs.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends payroll_payment_logsCreateManyAndReturnArgs>(args?: SelectSubset<T, payroll_payment_logsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_payment_logsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Payroll_payment_logs.
+     * @param {payroll_payment_logsDeleteArgs} args - Arguments to delete one Payroll_payment_logs.
+     * @example
+     * // Delete one Payroll_payment_logs
+     * const Payroll_payment_logs = await prisma.payroll_payment_logs.delete({
+     *   where: {
+     *     // ... filter to delete one Payroll_payment_logs
+     *   }
+     * })
+     * 
+     */
+    delete<T extends payroll_payment_logsDeleteArgs>(args: SelectSubset<T, payroll_payment_logsDeleteArgs<ExtArgs>>): Prisma__payroll_payment_logsClient<$Result.GetResult<Prisma.$payroll_payment_logsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Payroll_payment_logs.
+     * @param {payroll_payment_logsUpdateArgs} args - Arguments to update one Payroll_payment_logs.
+     * @example
+     * // Update one Payroll_payment_logs
+     * const payroll_payment_logs = await prisma.payroll_payment_logs.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends payroll_payment_logsUpdateArgs>(args: SelectSubset<T, payroll_payment_logsUpdateArgs<ExtArgs>>): Prisma__payroll_payment_logsClient<$Result.GetResult<Prisma.$payroll_payment_logsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Payroll_payment_logs.
+     * @param {payroll_payment_logsDeleteManyArgs} args - Arguments to filter Payroll_payment_logs to delete.
+     * @example
+     * // Delete a few Payroll_payment_logs
+     * const { count } = await prisma.payroll_payment_logs.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends payroll_payment_logsDeleteManyArgs>(args?: SelectSubset<T, payroll_payment_logsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Payroll_payment_logs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_payment_logsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Payroll_payment_logs
+     * const payroll_payment_logs = await prisma.payroll_payment_logs.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends payroll_payment_logsUpdateManyArgs>(args: SelectSubset<T, payroll_payment_logsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Payroll_payment_logs and returns the data updated in the database.
+     * @param {payroll_payment_logsUpdateManyAndReturnArgs} args - Arguments to update many Payroll_payment_logs.
+     * @example
+     * // Update many Payroll_payment_logs
+     * const payroll_payment_logs = await prisma.payroll_payment_logs.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Payroll_payment_logs and only return the `id`
+     * const payroll_payment_logsWithIdOnly = await prisma.payroll_payment_logs.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends payroll_payment_logsUpdateManyAndReturnArgs>(args: SelectSubset<T, payroll_payment_logsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_payment_logsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Payroll_payment_logs.
+     * @param {payroll_payment_logsUpsertArgs} args - Arguments to update or create a Payroll_payment_logs.
+     * @example
+     * // Update or create a Payroll_payment_logs
+     * const payroll_payment_logs = await prisma.payroll_payment_logs.upsert({
+     *   create: {
+     *     // ... data to create a Payroll_payment_logs
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Payroll_payment_logs we want to update
+     *   }
+     * })
+     */
+    upsert<T extends payroll_payment_logsUpsertArgs>(args: SelectSubset<T, payroll_payment_logsUpsertArgs<ExtArgs>>): Prisma__payroll_payment_logsClient<$Result.GetResult<Prisma.$payroll_payment_logsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Payroll_payment_logs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_payment_logsCountArgs} args - Arguments to filter Payroll_payment_logs to count.
+     * @example
+     * // Count the number of Payroll_payment_logs
+     * const count = await prisma.payroll_payment_logs.count({
+     *   where: {
+     *     // ... the filter for the Payroll_payment_logs we want to count
+     *   }
+     * })
+    **/
+    count<T extends payroll_payment_logsCountArgs>(
+      args?: Subset<T, payroll_payment_logsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Payroll_payment_logsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Payroll_payment_logs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Payroll_payment_logsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Payroll_payment_logsAggregateArgs>(args: Subset<T, Payroll_payment_logsAggregateArgs>): Prisma.PrismaPromise<GetPayroll_payment_logsAggregateType<T>>
+
+    /**
+     * Group by Payroll_payment_logs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payroll_payment_logsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends payroll_payment_logsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: payroll_payment_logsGroupByArgs['orderBy'] }
+        : { orderBy?: payroll_payment_logsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, payroll_payment_logsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPayroll_payment_logsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the payroll_payment_logs model
+   */
+  readonly fields: payroll_payment_logsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for payroll_payment_logs.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__payroll_payment_logsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    item<T extends payroll_sheet_itemsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, payroll_sheet_itemsDefaultArgs<ExtArgs>>): Prisma__payroll_sheet_itemsClient<$Result.GetResult<Prisma.$payroll_sheet_itemsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the payroll_payment_logs model
+   */
+  interface payroll_payment_logsFieldRefs {
+    readonly id: FieldRef<"payroll_payment_logs", 'Int'>
+    readonly item_id: FieldRef<"payroll_payment_logs", 'Int'>
+    readonly amount: FieldRef<"payroll_payment_logs", 'Decimal'>
+    readonly payment_date: FieldRef<"payroll_payment_logs", 'DateTime'>
+    readonly note: FieldRef<"payroll_payment_logs", 'String'>
+    readonly added_at: FieldRef<"payroll_payment_logs", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * payroll_payment_logs findUnique
+   */
+  export type payroll_payment_logsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_payment_logs
+     */
+    select?: payroll_payment_logsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_payment_logs
+     */
+    omit?: payroll_payment_logsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_payment_logsInclude<ExtArgs> | null
+    /**
+     * Filter, which payroll_payment_logs to fetch.
+     */
+    where: payroll_payment_logsWhereUniqueInput
+  }
+
+  /**
+   * payroll_payment_logs findUniqueOrThrow
+   */
+  export type payroll_payment_logsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_payment_logs
+     */
+    select?: payroll_payment_logsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_payment_logs
+     */
+    omit?: payroll_payment_logsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_payment_logsInclude<ExtArgs> | null
+    /**
+     * Filter, which payroll_payment_logs to fetch.
+     */
+    where: payroll_payment_logsWhereUniqueInput
+  }
+
+  /**
+   * payroll_payment_logs findFirst
+   */
+  export type payroll_payment_logsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_payment_logs
+     */
+    select?: payroll_payment_logsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_payment_logs
+     */
+    omit?: payroll_payment_logsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_payment_logsInclude<ExtArgs> | null
+    /**
+     * Filter, which payroll_payment_logs to fetch.
+     */
+    where?: payroll_payment_logsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payroll_payment_logs to fetch.
+     */
+    orderBy?: payroll_payment_logsOrderByWithRelationInput | payroll_payment_logsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for payroll_payment_logs.
+     */
+    cursor?: payroll_payment_logsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payroll_payment_logs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payroll_payment_logs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of payroll_payment_logs.
+     */
+    distinct?: Payroll_payment_logsScalarFieldEnum | Payroll_payment_logsScalarFieldEnum[]
+  }
+
+  /**
+   * payroll_payment_logs findFirstOrThrow
+   */
+  export type payroll_payment_logsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_payment_logs
+     */
+    select?: payroll_payment_logsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_payment_logs
+     */
+    omit?: payroll_payment_logsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_payment_logsInclude<ExtArgs> | null
+    /**
+     * Filter, which payroll_payment_logs to fetch.
+     */
+    where?: payroll_payment_logsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payroll_payment_logs to fetch.
+     */
+    orderBy?: payroll_payment_logsOrderByWithRelationInput | payroll_payment_logsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for payroll_payment_logs.
+     */
+    cursor?: payroll_payment_logsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payroll_payment_logs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payroll_payment_logs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of payroll_payment_logs.
+     */
+    distinct?: Payroll_payment_logsScalarFieldEnum | Payroll_payment_logsScalarFieldEnum[]
+  }
+
+  /**
+   * payroll_payment_logs findMany
+   */
+  export type payroll_payment_logsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_payment_logs
+     */
+    select?: payroll_payment_logsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_payment_logs
+     */
+    omit?: payroll_payment_logsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_payment_logsInclude<ExtArgs> | null
+    /**
+     * Filter, which payroll_payment_logs to fetch.
+     */
+    where?: payroll_payment_logsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payroll_payment_logs to fetch.
+     */
+    orderBy?: payroll_payment_logsOrderByWithRelationInput | payroll_payment_logsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing payroll_payment_logs.
+     */
+    cursor?: payroll_payment_logsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payroll_payment_logs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payroll_payment_logs.
+     */
+    skip?: number
+    distinct?: Payroll_payment_logsScalarFieldEnum | Payroll_payment_logsScalarFieldEnum[]
+  }
+
+  /**
+   * payroll_payment_logs create
+   */
+  export type payroll_payment_logsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_payment_logs
+     */
+    select?: payroll_payment_logsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_payment_logs
+     */
+    omit?: payroll_payment_logsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_payment_logsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a payroll_payment_logs.
+     */
+    data: XOR<payroll_payment_logsCreateInput, payroll_payment_logsUncheckedCreateInput>
+  }
+
+  /**
+   * payroll_payment_logs createMany
+   */
+  export type payroll_payment_logsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many payroll_payment_logs.
+     */
+    data: payroll_payment_logsCreateManyInput | payroll_payment_logsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * payroll_payment_logs createManyAndReturn
+   */
+  export type payroll_payment_logsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_payment_logs
+     */
+    select?: payroll_payment_logsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_payment_logs
+     */
+    omit?: payroll_payment_logsOmit<ExtArgs> | null
+    /**
+     * The data used to create many payroll_payment_logs.
+     */
+    data: payroll_payment_logsCreateManyInput | payroll_payment_logsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_payment_logsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * payroll_payment_logs update
+   */
+  export type payroll_payment_logsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_payment_logs
+     */
+    select?: payroll_payment_logsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_payment_logs
+     */
+    omit?: payroll_payment_logsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_payment_logsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a payroll_payment_logs.
+     */
+    data: XOR<payroll_payment_logsUpdateInput, payroll_payment_logsUncheckedUpdateInput>
+    /**
+     * Choose, which payroll_payment_logs to update.
+     */
+    where: payroll_payment_logsWhereUniqueInput
+  }
+
+  /**
+   * payroll_payment_logs updateMany
+   */
+  export type payroll_payment_logsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update payroll_payment_logs.
+     */
+    data: XOR<payroll_payment_logsUpdateManyMutationInput, payroll_payment_logsUncheckedUpdateManyInput>
+    /**
+     * Filter which payroll_payment_logs to update
+     */
+    where?: payroll_payment_logsWhereInput
+    /**
+     * Limit how many payroll_payment_logs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * payroll_payment_logs updateManyAndReturn
+   */
+  export type payroll_payment_logsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_payment_logs
+     */
+    select?: payroll_payment_logsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_payment_logs
+     */
+    omit?: payroll_payment_logsOmit<ExtArgs> | null
+    /**
+     * The data used to update payroll_payment_logs.
+     */
+    data: XOR<payroll_payment_logsUpdateManyMutationInput, payroll_payment_logsUncheckedUpdateManyInput>
+    /**
+     * Filter which payroll_payment_logs to update
+     */
+    where?: payroll_payment_logsWhereInput
+    /**
+     * Limit how many payroll_payment_logs to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_payment_logsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * payroll_payment_logs upsert
+   */
+  export type payroll_payment_logsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_payment_logs
+     */
+    select?: payroll_payment_logsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_payment_logs
+     */
+    omit?: payroll_payment_logsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_payment_logsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the payroll_payment_logs to update in case it exists.
+     */
+    where: payroll_payment_logsWhereUniqueInput
+    /**
+     * In case the payroll_payment_logs found by the `where` argument doesn't exist, create a new payroll_payment_logs with this data.
+     */
+    create: XOR<payroll_payment_logsCreateInput, payroll_payment_logsUncheckedCreateInput>
+    /**
+     * In case the payroll_payment_logs was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<payroll_payment_logsUpdateInput, payroll_payment_logsUncheckedUpdateInput>
+  }
+
+  /**
+   * payroll_payment_logs delete
+   */
+  export type payroll_payment_logsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_payment_logs
+     */
+    select?: payroll_payment_logsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_payment_logs
+     */
+    omit?: payroll_payment_logsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_payment_logsInclude<ExtArgs> | null
+    /**
+     * Filter which payroll_payment_logs to delete.
+     */
+    where: payroll_payment_logsWhereUniqueInput
+  }
+
+  /**
+   * payroll_payment_logs deleteMany
+   */
+  export type payroll_payment_logsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which payroll_payment_logs to delete
+     */
+    where?: payroll_payment_logsWhereInput
+    /**
+     * Limit how many payroll_payment_logs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * payroll_payment_logs without action
+   */
+  export type payroll_payment_logsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payroll_payment_logs
+     */
+    select?: payroll_payment_logsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payroll_payment_logs
+     */
+    omit?: payroll_payment_logsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payroll_payment_logsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model salary_advances
+   */
+
+  export type AggregateSalary_advances = {
+    _count: Salary_advancesCountAggregateOutputType | null
+    _avg: Salary_advancesAvgAggregateOutputType | null
+    _sum: Salary_advancesSumAggregateOutputType | null
+    _min: Salary_advancesMinAggregateOutputType | null
+    _max: Salary_advancesMaxAggregateOutputType | null
+  }
+
+  export type Salary_advancesAvgAggregateOutputType = {
+    id: number | null
+    employee_id: number | null
+    amount: Decimal | null
+    given_by: number | null
+  }
+
+  export type Salary_advancesSumAggregateOutputType = {
+    id: number | null
+    employee_id: number | null
+    amount: Decimal | null
+    given_by: number | null
+  }
+
+  export type Salary_advancesMinAggregateOutputType = {
+    id: number | null
+    employee_id: number | null
+    amount: Decimal | null
+    advance_date: Date | null
+    note: string | null
+    given_by: number | null
+    added_at: Date | null
+  }
+
+  export type Salary_advancesMaxAggregateOutputType = {
+    id: number | null
+    employee_id: number | null
+    amount: Decimal | null
+    advance_date: Date | null
+    note: string | null
+    given_by: number | null
+    added_at: Date | null
+  }
+
+  export type Salary_advancesCountAggregateOutputType = {
+    id: number
+    employee_id: number
+    amount: number
+    advance_date: number
+    note: number
+    given_by: number
+    added_at: number
+    _all: number
+  }
+
+
+  export type Salary_advancesAvgAggregateInputType = {
+    id?: true
+    employee_id?: true
+    amount?: true
+    given_by?: true
+  }
+
+  export type Salary_advancesSumAggregateInputType = {
+    id?: true
+    employee_id?: true
+    amount?: true
+    given_by?: true
+  }
+
+  export type Salary_advancesMinAggregateInputType = {
+    id?: true
+    employee_id?: true
+    amount?: true
+    advance_date?: true
+    note?: true
+    given_by?: true
+    added_at?: true
+  }
+
+  export type Salary_advancesMaxAggregateInputType = {
+    id?: true
+    employee_id?: true
+    amount?: true
+    advance_date?: true
+    note?: true
+    given_by?: true
+    added_at?: true
+  }
+
+  export type Salary_advancesCountAggregateInputType = {
+    id?: true
+    employee_id?: true
+    amount?: true
+    advance_date?: true
+    note?: true
+    given_by?: true
+    added_at?: true
+    _all?: true
+  }
+
+  export type Salary_advancesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which salary_advances to aggregate.
+     */
+    where?: salary_advancesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of salary_advances to fetch.
+     */
+    orderBy?: salary_advancesOrderByWithRelationInput | salary_advancesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: salary_advancesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` salary_advances from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` salary_advances.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned salary_advances
+    **/
+    _count?: true | Salary_advancesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Salary_advancesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Salary_advancesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Salary_advancesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Salary_advancesMaxAggregateInputType
+  }
+
+  export type GetSalary_advancesAggregateType<T extends Salary_advancesAggregateArgs> = {
+        [P in keyof T & keyof AggregateSalary_advances]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSalary_advances[P]>
+      : GetScalarType<T[P], AggregateSalary_advances[P]>
+  }
+
+
+
+
+  export type salary_advancesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: salary_advancesWhereInput
+    orderBy?: salary_advancesOrderByWithAggregationInput | salary_advancesOrderByWithAggregationInput[]
+    by: Salary_advancesScalarFieldEnum[] | Salary_advancesScalarFieldEnum
+    having?: salary_advancesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Salary_advancesCountAggregateInputType | true
+    _avg?: Salary_advancesAvgAggregateInputType
+    _sum?: Salary_advancesSumAggregateInputType
+    _min?: Salary_advancesMinAggregateInputType
+    _max?: Salary_advancesMaxAggregateInputType
+  }
+
+  export type Salary_advancesGroupByOutputType = {
+    id: number
+    employee_id: number
+    amount: Decimal
+    advance_date: Date
+    note: string | null
+    given_by: number
+    added_at: Date
+    _count: Salary_advancesCountAggregateOutputType | null
+    _avg: Salary_advancesAvgAggregateOutputType | null
+    _sum: Salary_advancesSumAggregateOutputType | null
+    _min: Salary_advancesMinAggregateOutputType | null
+    _max: Salary_advancesMaxAggregateOutputType | null
+  }
+
+  type GetSalary_advancesGroupByPayload<T extends salary_advancesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Salary_advancesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Salary_advancesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Salary_advancesGroupByOutputType[P]>
+            : GetScalarType<T[P], Salary_advancesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type salary_advancesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employee_id?: boolean
+    amount?: boolean
+    advance_date?: boolean
+    note?: boolean
+    given_by?: boolean
+    added_at?: boolean
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+    givenBy?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["salary_advances"]>
+
+  export type salary_advancesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employee_id?: boolean
+    amount?: boolean
+    advance_date?: boolean
+    note?: boolean
+    given_by?: boolean
+    added_at?: boolean
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+    givenBy?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["salary_advances"]>
+
+  export type salary_advancesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employee_id?: boolean
+    amount?: boolean
+    advance_date?: boolean
+    note?: boolean
+    given_by?: boolean
+    added_at?: boolean
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+    givenBy?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["salary_advances"]>
+
+  export type salary_advancesSelectScalar = {
+    id?: boolean
+    employee_id?: boolean
+    amount?: boolean
+    advance_date?: boolean
+    note?: boolean
+    given_by?: boolean
+    added_at?: boolean
+  }
+
+  export type salary_advancesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "employee_id" | "amount" | "advance_date" | "note" | "given_by" | "added_at", ExtArgs["result"]["salary_advances"]>
+  export type salary_advancesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+    givenBy?: boolean | usersDefaultArgs<ExtArgs>
+  }
+  export type salary_advancesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+    givenBy?: boolean | usersDefaultArgs<ExtArgs>
+  }
+  export type salary_advancesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | employeesDefaultArgs<ExtArgs>
+    givenBy?: boolean | usersDefaultArgs<ExtArgs>
+  }
+
+  export type $salary_advancesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "salary_advances"
+    objects: {
+      employee: Prisma.$employeesPayload<ExtArgs>
+      givenBy: Prisma.$usersPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      employee_id: number
+      amount: Prisma.Decimal
+      advance_date: Date
+      note: string | null
+      given_by: number
+      added_at: Date
+    }, ExtArgs["result"]["salary_advances"]>
+    composites: {}
+  }
+
+  type salary_advancesGetPayload<S extends boolean | null | undefined | salary_advancesDefaultArgs> = $Result.GetResult<Prisma.$salary_advancesPayload, S>
+
+  type salary_advancesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<salary_advancesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Salary_advancesCountAggregateInputType | true
+    }
+
+  export interface salary_advancesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['salary_advances'], meta: { name: 'salary_advances' } }
+    /**
+     * Find zero or one Salary_advances that matches the filter.
+     * @param {salary_advancesFindUniqueArgs} args - Arguments to find a Salary_advances
+     * @example
+     * // Get one Salary_advances
+     * const salary_advances = await prisma.salary_advances.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends salary_advancesFindUniqueArgs>(args: SelectSubset<T, salary_advancesFindUniqueArgs<ExtArgs>>): Prisma__salary_advancesClient<$Result.GetResult<Prisma.$salary_advancesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Salary_advances that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {salary_advancesFindUniqueOrThrowArgs} args - Arguments to find a Salary_advances
+     * @example
+     * // Get one Salary_advances
+     * const salary_advances = await prisma.salary_advances.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends salary_advancesFindUniqueOrThrowArgs>(args: SelectSubset<T, salary_advancesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__salary_advancesClient<$Result.GetResult<Prisma.$salary_advancesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Salary_advances that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {salary_advancesFindFirstArgs} args - Arguments to find a Salary_advances
+     * @example
+     * // Get one Salary_advances
+     * const salary_advances = await prisma.salary_advances.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends salary_advancesFindFirstArgs>(args?: SelectSubset<T, salary_advancesFindFirstArgs<ExtArgs>>): Prisma__salary_advancesClient<$Result.GetResult<Prisma.$salary_advancesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Salary_advances that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {salary_advancesFindFirstOrThrowArgs} args - Arguments to find a Salary_advances
+     * @example
+     * // Get one Salary_advances
+     * const salary_advances = await prisma.salary_advances.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends salary_advancesFindFirstOrThrowArgs>(args?: SelectSubset<T, salary_advancesFindFirstOrThrowArgs<ExtArgs>>): Prisma__salary_advancesClient<$Result.GetResult<Prisma.$salary_advancesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Salary_advances that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {salary_advancesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Salary_advances
+     * const salary_advances = await prisma.salary_advances.findMany()
+     * 
+     * // Get first 10 Salary_advances
+     * const salary_advances = await prisma.salary_advances.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const salary_advancesWithIdOnly = await prisma.salary_advances.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends salary_advancesFindManyArgs>(args?: SelectSubset<T, salary_advancesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$salary_advancesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Salary_advances.
+     * @param {salary_advancesCreateArgs} args - Arguments to create a Salary_advances.
+     * @example
+     * // Create one Salary_advances
+     * const Salary_advances = await prisma.salary_advances.create({
+     *   data: {
+     *     // ... data to create a Salary_advances
+     *   }
+     * })
+     * 
+     */
+    create<T extends salary_advancesCreateArgs>(args: SelectSubset<T, salary_advancesCreateArgs<ExtArgs>>): Prisma__salary_advancesClient<$Result.GetResult<Prisma.$salary_advancesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Salary_advances.
+     * @param {salary_advancesCreateManyArgs} args - Arguments to create many Salary_advances.
+     * @example
+     * // Create many Salary_advances
+     * const salary_advances = await prisma.salary_advances.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends salary_advancesCreateManyArgs>(args?: SelectSubset<T, salary_advancesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Salary_advances and returns the data saved in the database.
+     * @param {salary_advancesCreateManyAndReturnArgs} args - Arguments to create many Salary_advances.
+     * @example
+     * // Create many Salary_advances
+     * const salary_advances = await prisma.salary_advances.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Salary_advances and only return the `id`
+     * const salary_advancesWithIdOnly = await prisma.salary_advances.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends salary_advancesCreateManyAndReturnArgs>(args?: SelectSubset<T, salary_advancesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$salary_advancesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Salary_advances.
+     * @param {salary_advancesDeleteArgs} args - Arguments to delete one Salary_advances.
+     * @example
+     * // Delete one Salary_advances
+     * const Salary_advances = await prisma.salary_advances.delete({
+     *   where: {
+     *     // ... filter to delete one Salary_advances
+     *   }
+     * })
+     * 
+     */
+    delete<T extends salary_advancesDeleteArgs>(args: SelectSubset<T, salary_advancesDeleteArgs<ExtArgs>>): Prisma__salary_advancesClient<$Result.GetResult<Prisma.$salary_advancesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Salary_advances.
+     * @param {salary_advancesUpdateArgs} args - Arguments to update one Salary_advances.
+     * @example
+     * // Update one Salary_advances
+     * const salary_advances = await prisma.salary_advances.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends salary_advancesUpdateArgs>(args: SelectSubset<T, salary_advancesUpdateArgs<ExtArgs>>): Prisma__salary_advancesClient<$Result.GetResult<Prisma.$salary_advancesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Salary_advances.
+     * @param {salary_advancesDeleteManyArgs} args - Arguments to filter Salary_advances to delete.
+     * @example
+     * // Delete a few Salary_advances
+     * const { count } = await prisma.salary_advances.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends salary_advancesDeleteManyArgs>(args?: SelectSubset<T, salary_advancesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Salary_advances.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {salary_advancesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Salary_advances
+     * const salary_advances = await prisma.salary_advances.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends salary_advancesUpdateManyArgs>(args: SelectSubset<T, salary_advancesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Salary_advances and returns the data updated in the database.
+     * @param {salary_advancesUpdateManyAndReturnArgs} args - Arguments to update many Salary_advances.
+     * @example
+     * // Update many Salary_advances
+     * const salary_advances = await prisma.salary_advances.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Salary_advances and only return the `id`
+     * const salary_advancesWithIdOnly = await prisma.salary_advances.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends salary_advancesUpdateManyAndReturnArgs>(args: SelectSubset<T, salary_advancesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$salary_advancesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Salary_advances.
+     * @param {salary_advancesUpsertArgs} args - Arguments to update or create a Salary_advances.
+     * @example
+     * // Update or create a Salary_advances
+     * const salary_advances = await prisma.salary_advances.upsert({
+     *   create: {
+     *     // ... data to create a Salary_advances
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Salary_advances we want to update
+     *   }
+     * })
+     */
+    upsert<T extends salary_advancesUpsertArgs>(args: SelectSubset<T, salary_advancesUpsertArgs<ExtArgs>>): Prisma__salary_advancesClient<$Result.GetResult<Prisma.$salary_advancesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Salary_advances.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {salary_advancesCountArgs} args - Arguments to filter Salary_advances to count.
+     * @example
+     * // Count the number of Salary_advances
+     * const count = await prisma.salary_advances.count({
+     *   where: {
+     *     // ... the filter for the Salary_advances we want to count
+     *   }
+     * })
+    **/
+    count<T extends salary_advancesCountArgs>(
+      args?: Subset<T, salary_advancesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Salary_advancesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Salary_advances.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Salary_advancesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Salary_advancesAggregateArgs>(args: Subset<T, Salary_advancesAggregateArgs>): Prisma.PrismaPromise<GetSalary_advancesAggregateType<T>>
+
+    /**
+     * Group by Salary_advances.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {salary_advancesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends salary_advancesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: salary_advancesGroupByArgs['orderBy'] }
+        : { orderBy?: salary_advancesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, salary_advancesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSalary_advancesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the salary_advances model
+   */
+  readonly fields: salary_advancesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for salary_advances.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__salary_advancesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    employee<T extends employeesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, employeesDefaultArgs<ExtArgs>>): Prisma__employeesClient<$Result.GetResult<Prisma.$employeesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    givenBy<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the salary_advances model
+   */
+  interface salary_advancesFieldRefs {
+    readonly id: FieldRef<"salary_advances", 'Int'>
+    readonly employee_id: FieldRef<"salary_advances", 'Int'>
+    readonly amount: FieldRef<"salary_advances", 'Decimal'>
+    readonly advance_date: FieldRef<"salary_advances", 'DateTime'>
+    readonly note: FieldRef<"salary_advances", 'String'>
+    readonly given_by: FieldRef<"salary_advances", 'Int'>
+    readonly added_at: FieldRef<"salary_advances", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * salary_advances findUnique
+   */
+  export type salary_advancesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salary_advances
+     */
+    select?: salary_advancesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salary_advances
+     */
+    omit?: salary_advancesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: salary_advancesInclude<ExtArgs> | null
+    /**
+     * Filter, which salary_advances to fetch.
+     */
+    where: salary_advancesWhereUniqueInput
+  }
+
+  /**
+   * salary_advances findUniqueOrThrow
+   */
+  export type salary_advancesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salary_advances
+     */
+    select?: salary_advancesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salary_advances
+     */
+    omit?: salary_advancesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: salary_advancesInclude<ExtArgs> | null
+    /**
+     * Filter, which salary_advances to fetch.
+     */
+    where: salary_advancesWhereUniqueInput
+  }
+
+  /**
+   * salary_advances findFirst
+   */
+  export type salary_advancesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salary_advances
+     */
+    select?: salary_advancesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salary_advances
+     */
+    omit?: salary_advancesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: salary_advancesInclude<ExtArgs> | null
+    /**
+     * Filter, which salary_advances to fetch.
+     */
+    where?: salary_advancesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of salary_advances to fetch.
+     */
+    orderBy?: salary_advancesOrderByWithRelationInput | salary_advancesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for salary_advances.
+     */
+    cursor?: salary_advancesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` salary_advances from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` salary_advances.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of salary_advances.
+     */
+    distinct?: Salary_advancesScalarFieldEnum | Salary_advancesScalarFieldEnum[]
+  }
+
+  /**
+   * salary_advances findFirstOrThrow
+   */
+  export type salary_advancesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salary_advances
+     */
+    select?: salary_advancesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salary_advances
+     */
+    omit?: salary_advancesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: salary_advancesInclude<ExtArgs> | null
+    /**
+     * Filter, which salary_advances to fetch.
+     */
+    where?: salary_advancesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of salary_advances to fetch.
+     */
+    orderBy?: salary_advancesOrderByWithRelationInput | salary_advancesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for salary_advances.
+     */
+    cursor?: salary_advancesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` salary_advances from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` salary_advances.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of salary_advances.
+     */
+    distinct?: Salary_advancesScalarFieldEnum | Salary_advancesScalarFieldEnum[]
+  }
+
+  /**
+   * salary_advances findMany
+   */
+  export type salary_advancesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salary_advances
+     */
+    select?: salary_advancesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salary_advances
+     */
+    omit?: salary_advancesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: salary_advancesInclude<ExtArgs> | null
+    /**
+     * Filter, which salary_advances to fetch.
+     */
+    where?: salary_advancesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of salary_advances to fetch.
+     */
+    orderBy?: salary_advancesOrderByWithRelationInput | salary_advancesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing salary_advances.
+     */
+    cursor?: salary_advancesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` salary_advances from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` salary_advances.
+     */
+    skip?: number
+    distinct?: Salary_advancesScalarFieldEnum | Salary_advancesScalarFieldEnum[]
+  }
+
+  /**
+   * salary_advances create
+   */
+  export type salary_advancesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salary_advances
+     */
+    select?: salary_advancesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salary_advances
+     */
+    omit?: salary_advancesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: salary_advancesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a salary_advances.
+     */
+    data: XOR<salary_advancesCreateInput, salary_advancesUncheckedCreateInput>
+  }
+
+  /**
+   * salary_advances createMany
+   */
+  export type salary_advancesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many salary_advances.
+     */
+    data: salary_advancesCreateManyInput | salary_advancesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * salary_advances createManyAndReturn
+   */
+  export type salary_advancesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salary_advances
+     */
+    select?: salary_advancesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the salary_advances
+     */
+    omit?: salary_advancesOmit<ExtArgs> | null
+    /**
+     * The data used to create many salary_advances.
+     */
+    data: salary_advancesCreateManyInput | salary_advancesCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: salary_advancesIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * salary_advances update
+   */
+  export type salary_advancesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salary_advances
+     */
+    select?: salary_advancesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salary_advances
+     */
+    omit?: salary_advancesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: salary_advancesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a salary_advances.
+     */
+    data: XOR<salary_advancesUpdateInput, salary_advancesUncheckedUpdateInput>
+    /**
+     * Choose, which salary_advances to update.
+     */
+    where: salary_advancesWhereUniqueInput
+  }
+
+  /**
+   * salary_advances updateMany
+   */
+  export type salary_advancesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update salary_advances.
+     */
+    data: XOR<salary_advancesUpdateManyMutationInput, salary_advancesUncheckedUpdateManyInput>
+    /**
+     * Filter which salary_advances to update
+     */
+    where?: salary_advancesWhereInput
+    /**
+     * Limit how many salary_advances to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * salary_advances updateManyAndReturn
+   */
+  export type salary_advancesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salary_advances
+     */
+    select?: salary_advancesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the salary_advances
+     */
+    omit?: salary_advancesOmit<ExtArgs> | null
+    /**
+     * The data used to update salary_advances.
+     */
+    data: XOR<salary_advancesUpdateManyMutationInput, salary_advancesUncheckedUpdateManyInput>
+    /**
+     * Filter which salary_advances to update
+     */
+    where?: salary_advancesWhereInput
+    /**
+     * Limit how many salary_advances to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: salary_advancesIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * salary_advances upsert
+   */
+  export type salary_advancesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salary_advances
+     */
+    select?: salary_advancesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salary_advances
+     */
+    omit?: salary_advancesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: salary_advancesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the salary_advances to update in case it exists.
+     */
+    where: salary_advancesWhereUniqueInput
+    /**
+     * In case the salary_advances found by the `where` argument doesn't exist, create a new salary_advances with this data.
+     */
+    create: XOR<salary_advancesCreateInput, salary_advancesUncheckedCreateInput>
+    /**
+     * In case the salary_advances was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<salary_advancesUpdateInput, salary_advancesUncheckedUpdateInput>
+  }
+
+  /**
+   * salary_advances delete
+   */
+  export type salary_advancesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salary_advances
+     */
+    select?: salary_advancesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salary_advances
+     */
+    omit?: salary_advancesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: salary_advancesInclude<ExtArgs> | null
+    /**
+     * Filter which salary_advances to delete.
+     */
+    where: salary_advancesWhereUniqueInput
+  }
+
+  /**
+   * salary_advances deleteMany
+   */
+  export type salary_advancesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which salary_advances to delete
+     */
+    where?: salary_advancesWhereInput
+    /**
+     * Limit how many salary_advances to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * salary_advances without action
+   */
+  export type salary_advancesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salary_advances
+     */
+    select?: salary_advancesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salary_advances
+     */
+    omit?: salary_advancesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: salary_advancesInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -31837,6 +37387,78 @@ export namespace Prisma {
   };
 
   export type Vehicle_passesScalarFieldEnum = (typeof Vehicle_passesScalarFieldEnum)[keyof typeof Vehicle_passesScalarFieldEnum]
+
+
+  export const Payroll_sheetsScalarFieldEnum: {
+    id: 'id',
+    month: 'month',
+    year: 'year',
+    status: 'status',
+    added_by: 'added_by',
+    added_at: 'added_at',
+    approved_by: 'approved_by',
+    approved_at: 'approved_at'
+  };
+
+  export type Payroll_sheetsScalarFieldEnum = (typeof Payroll_sheetsScalarFieldEnum)[keyof typeof Payroll_sheetsScalarFieldEnum]
+
+
+  export const Payroll_sheet_itemsScalarFieldEnum: {
+    id: 'id',
+    sheet_id: 'sheet_id',
+    employee_id: 'employee_id',
+    base_salary: 'base_salary',
+    salary_type: 'salary_type',
+    worked_days: 'worked_days',
+    total_work_days: 'total_work_days',
+    worked_hours: 'worked_hours',
+    total_work_hours: 'total_work_hours',
+    accrued: 'accrued',
+    debt_balance: 'debt_balance',
+    debt_deduction: 'debt_deduction',
+    debt_mode: 'debt_mode',
+    debt_comment: 'debt_comment',
+    manual_adjustment: 'manual_adjustment',
+    adjustment_comment: 'adjustment_comment',
+    late_minutes: 'late_minutes',
+    overtime_minutes: 'overtime_minutes',
+    apply_late: 'apply_late',
+    apply_overtime: 'apply_overtime',
+    late_amount: 'late_amount',
+    overtime_amount: 'overtime_amount',
+    advance_total: 'advance_total',
+    net: 'net',
+    salary_balance: 'salary_balance',
+    paid_amount: 'paid_amount',
+    status: 'status'
+  };
+
+  export type Payroll_sheet_itemsScalarFieldEnum = (typeof Payroll_sheet_itemsScalarFieldEnum)[keyof typeof Payroll_sheet_itemsScalarFieldEnum]
+
+
+  export const Payroll_payment_logsScalarFieldEnum: {
+    id: 'id',
+    item_id: 'item_id',
+    amount: 'amount',
+    payment_date: 'payment_date',
+    note: 'note',
+    added_at: 'added_at'
+  };
+
+  export type Payroll_payment_logsScalarFieldEnum = (typeof Payroll_payment_logsScalarFieldEnum)[keyof typeof Payroll_payment_logsScalarFieldEnum]
+
+
+  export const Salary_advancesScalarFieldEnum: {
+    id: 'id',
+    employee_id: 'employee_id',
+    amount: 'amount',
+    advance_date: 'advance_date',
+    note: 'note',
+    given_by: 'given_by',
+    added_at: 'added_at'
+  };
+
+  export type Salary_advancesScalarFieldEnum = (typeof Salary_advancesScalarFieldEnum)[keyof typeof Salary_advancesScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -32286,6 +37908,8 @@ export namespace Prisma {
     doorTasks?: Employee_door_tasksListRelationFilter
     user?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
     directedBranches?: BranchesListRelationFilter
+    payrollSheetItems?: Payroll_sheet_itemsListRelationFilter
+    salaryAdvances?: Salary_advancesListRelationFilter
   }
 
   export type employeesOrderByWithRelationInput = {
@@ -32325,6 +37949,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksOrderByRelationAggregateInput
     user?: usersOrderByWithRelationInput
     directedBranches?: branchesOrderByRelationAggregateInput
+    payrollSheetItems?: payroll_sheet_itemsOrderByRelationAggregateInput
+    salaryAdvances?: salary_advancesOrderByRelationAggregateInput
   }
 
   export type employeesWhereUniqueInput = Prisma.AtLeast<{
@@ -32367,6 +37993,8 @@ export namespace Prisma {
     doorTasks?: Employee_door_tasksListRelationFilter
     user?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
     directedBranches?: BranchesListRelationFilter
+    payrollSheetItems?: Payroll_sheet_itemsListRelationFilter
+    salaryAdvances?: Salary_advancesListRelationFilter
   }, "id" | "employee_number" | "pinfl">
 
   export type employeesOrderByWithAggregationInput = {
@@ -32963,6 +38591,9 @@ export namespace Prisma {
     timeOff?: Time_offListRelationFilter
     employeeScheduleHistory?: Employee_schedule_historyListRelationFilter
     employeeSalaryHistory?: Employee_salary_historyListRelationFilter
+    payrollSheetsAdded?: Payroll_sheetsListRelationFilter
+    payrollSheetsApproved?: Payroll_sheetsListRelationFilter
+    salaryAdvancesGiven?: Salary_advancesListRelationFilter
   }
 
   export type usersOrderByWithRelationInput = {
@@ -32991,6 +38622,9 @@ export namespace Prisma {
     timeOff?: time_offOrderByRelationAggregateInput
     employeeScheduleHistory?: employee_schedule_historyOrderByRelationAggregateInput
     employeeSalaryHistory?: employee_salary_historyOrderByRelationAggregateInput
+    payrollSheetsAdded?: payroll_sheetsOrderByRelationAggregateInput
+    payrollSheetsApproved?: payroll_sheetsOrderByRelationAggregateInput
+    salaryAdvancesGiven?: salary_advancesOrderByRelationAggregateInput
   }
 
   export type usersWhereUniqueInput = Prisma.AtLeast<{
@@ -33022,6 +38656,9 @@ export namespace Prisma {
     timeOff?: Time_offListRelationFilter
     employeeScheduleHistory?: Employee_schedule_historyListRelationFilter
     employeeSalaryHistory?: Employee_salary_historyListRelationFilter
+    payrollSheetsAdded?: Payroll_sheetsListRelationFilter
+    payrollSheetsApproved?: Payroll_sheetsListRelationFilter
+    salaryAdvancesGiven?: Salary_advancesListRelationFilter
   }, "id" | "username" | "telegram_id" | "employee_id">
 
   export type usersOrderByWithAggregationInput = {
@@ -33959,6 +39596,391 @@ export namespace Prisma {
     created_at?: DateTimeWithAggregatesFilter<"vehicle_passes"> | Date | string
   }
 
+  export type payroll_sheetsWhereInput = {
+    AND?: payroll_sheetsWhereInput | payroll_sheetsWhereInput[]
+    OR?: payroll_sheetsWhereInput[]
+    NOT?: payroll_sheetsWhereInput | payroll_sheetsWhereInput[]
+    id?: IntFilter<"payroll_sheets"> | number
+    month?: IntFilter<"payroll_sheets"> | number
+    year?: IntFilter<"payroll_sheets"> | number
+    status?: StringFilter<"payroll_sheets"> | string
+    added_by?: IntFilter<"payroll_sheets"> | number
+    added_at?: DateTimeFilter<"payroll_sheets"> | Date | string
+    approved_by?: IntNullableFilter<"payroll_sheets"> | number | null
+    approved_at?: DateTimeNullableFilter<"payroll_sheets"> | Date | string | null
+    items?: Payroll_sheet_itemsListRelationFilter
+    addedBy?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    approvedBy?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
+  }
+
+  export type payroll_sheetsOrderByWithRelationInput = {
+    id?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    status?: SortOrder
+    added_by?: SortOrder
+    added_at?: SortOrder
+    approved_by?: SortOrderInput | SortOrder
+    approved_at?: SortOrderInput | SortOrder
+    items?: payroll_sheet_itemsOrderByRelationAggregateInput
+    addedBy?: usersOrderByWithRelationInput
+    approvedBy?: usersOrderByWithRelationInput
+  }
+
+  export type payroll_sheetsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    month_year?: payroll_sheetsMonthYearCompoundUniqueInput
+    AND?: payroll_sheetsWhereInput | payroll_sheetsWhereInput[]
+    OR?: payroll_sheetsWhereInput[]
+    NOT?: payroll_sheetsWhereInput | payroll_sheetsWhereInput[]
+    month?: IntFilter<"payroll_sheets"> | number
+    year?: IntFilter<"payroll_sheets"> | number
+    status?: StringFilter<"payroll_sheets"> | string
+    added_by?: IntFilter<"payroll_sheets"> | number
+    added_at?: DateTimeFilter<"payroll_sheets"> | Date | string
+    approved_by?: IntNullableFilter<"payroll_sheets"> | number | null
+    approved_at?: DateTimeNullableFilter<"payroll_sheets"> | Date | string | null
+    items?: Payroll_sheet_itemsListRelationFilter
+    addedBy?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    approvedBy?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
+  }, "id" | "month_year">
+
+  export type payroll_sheetsOrderByWithAggregationInput = {
+    id?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    status?: SortOrder
+    added_by?: SortOrder
+    added_at?: SortOrder
+    approved_by?: SortOrderInput | SortOrder
+    approved_at?: SortOrderInput | SortOrder
+    _count?: payroll_sheetsCountOrderByAggregateInput
+    _avg?: payroll_sheetsAvgOrderByAggregateInput
+    _max?: payroll_sheetsMaxOrderByAggregateInput
+    _min?: payroll_sheetsMinOrderByAggregateInput
+    _sum?: payroll_sheetsSumOrderByAggregateInput
+  }
+
+  export type payroll_sheetsScalarWhereWithAggregatesInput = {
+    AND?: payroll_sheetsScalarWhereWithAggregatesInput | payroll_sheetsScalarWhereWithAggregatesInput[]
+    OR?: payroll_sheetsScalarWhereWithAggregatesInput[]
+    NOT?: payroll_sheetsScalarWhereWithAggregatesInput | payroll_sheetsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"payroll_sheets"> | number
+    month?: IntWithAggregatesFilter<"payroll_sheets"> | number
+    year?: IntWithAggregatesFilter<"payroll_sheets"> | number
+    status?: StringWithAggregatesFilter<"payroll_sheets"> | string
+    added_by?: IntWithAggregatesFilter<"payroll_sheets"> | number
+    added_at?: DateTimeWithAggregatesFilter<"payroll_sheets"> | Date | string
+    approved_by?: IntNullableWithAggregatesFilter<"payroll_sheets"> | number | null
+    approved_at?: DateTimeNullableWithAggregatesFilter<"payroll_sheets"> | Date | string | null
+  }
+
+  export type payroll_sheet_itemsWhereInput = {
+    AND?: payroll_sheet_itemsWhereInput | payroll_sheet_itemsWhereInput[]
+    OR?: payroll_sheet_itemsWhereInput[]
+    NOT?: payroll_sheet_itemsWhereInput | payroll_sheet_itemsWhereInput[]
+    id?: IntFilter<"payroll_sheet_items"> | number
+    sheet_id?: IntFilter<"payroll_sheet_items"> | number
+    employee_id?: IntFilter<"payroll_sheet_items"> | number
+    base_salary?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    salary_type?: StringFilter<"payroll_sheet_items"> | string
+    worked_days?: IntFilter<"payroll_sheet_items"> | number
+    total_work_days?: IntFilter<"payroll_sheet_items"> | number
+    worked_hours?: StringNullableFilter<"payroll_sheet_items"> | string | null
+    total_work_hours?: StringNullableFilter<"payroll_sheet_items"> | string | null
+    accrued?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringFilter<"payroll_sheet_items"> | string
+    debt_comment?: StringNullableFilter<"payroll_sheet_items"> | string | null
+    manual_adjustment?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: StringNullableFilter<"payroll_sheet_items"> | string | null
+    late_minutes?: IntFilter<"payroll_sheet_items"> | number
+    overtime_minutes?: IntFilter<"payroll_sheet_items"> | number
+    apply_late?: BoolFilter<"payroll_sheet_items"> | boolean
+    apply_overtime?: BoolFilter<"payroll_sheet_items"> | boolean
+    late_amount?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    net?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    status?: StringFilter<"payroll_sheet_items"> | string
+    sheet?: XOR<Payroll_sheetsScalarRelationFilter, payroll_sheetsWhereInput>
+    employee?: XOR<EmployeesScalarRelationFilter, employeesWhereInput>
+    paymentLogs?: Payroll_payment_logsListRelationFilter
+  }
+
+  export type payroll_sheet_itemsOrderByWithRelationInput = {
+    id?: SortOrder
+    sheet_id?: SortOrder
+    employee_id?: SortOrder
+    base_salary?: SortOrder
+    salary_type?: SortOrder
+    worked_days?: SortOrder
+    total_work_days?: SortOrder
+    worked_hours?: SortOrderInput | SortOrder
+    total_work_hours?: SortOrderInput | SortOrder
+    accrued?: SortOrder
+    debt_balance?: SortOrder
+    debt_deduction?: SortOrder
+    debt_mode?: SortOrder
+    debt_comment?: SortOrderInput | SortOrder
+    manual_adjustment?: SortOrder
+    adjustment_comment?: SortOrderInput | SortOrder
+    late_minutes?: SortOrder
+    overtime_minutes?: SortOrder
+    apply_late?: SortOrder
+    apply_overtime?: SortOrder
+    late_amount?: SortOrder
+    overtime_amount?: SortOrder
+    advance_total?: SortOrder
+    net?: SortOrder
+    salary_balance?: SortOrder
+    paid_amount?: SortOrder
+    status?: SortOrder
+    sheet?: payroll_sheetsOrderByWithRelationInput
+    employee?: employeesOrderByWithRelationInput
+    paymentLogs?: payroll_payment_logsOrderByRelationAggregateInput
+  }
+
+  export type payroll_sheet_itemsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    sheet_id_employee_id?: payroll_sheet_itemsSheet_idEmployee_idCompoundUniqueInput
+    AND?: payroll_sheet_itemsWhereInput | payroll_sheet_itemsWhereInput[]
+    OR?: payroll_sheet_itemsWhereInput[]
+    NOT?: payroll_sheet_itemsWhereInput | payroll_sheet_itemsWhereInput[]
+    sheet_id?: IntFilter<"payroll_sheet_items"> | number
+    employee_id?: IntFilter<"payroll_sheet_items"> | number
+    base_salary?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    salary_type?: StringFilter<"payroll_sheet_items"> | string
+    worked_days?: IntFilter<"payroll_sheet_items"> | number
+    total_work_days?: IntFilter<"payroll_sheet_items"> | number
+    worked_hours?: StringNullableFilter<"payroll_sheet_items"> | string | null
+    total_work_hours?: StringNullableFilter<"payroll_sheet_items"> | string | null
+    accrued?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringFilter<"payroll_sheet_items"> | string
+    debt_comment?: StringNullableFilter<"payroll_sheet_items"> | string | null
+    manual_adjustment?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: StringNullableFilter<"payroll_sheet_items"> | string | null
+    late_minutes?: IntFilter<"payroll_sheet_items"> | number
+    overtime_minutes?: IntFilter<"payroll_sheet_items"> | number
+    apply_late?: BoolFilter<"payroll_sheet_items"> | boolean
+    apply_overtime?: BoolFilter<"payroll_sheet_items"> | boolean
+    late_amount?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    net?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    status?: StringFilter<"payroll_sheet_items"> | string
+    sheet?: XOR<Payroll_sheetsScalarRelationFilter, payroll_sheetsWhereInput>
+    employee?: XOR<EmployeesScalarRelationFilter, employeesWhereInput>
+    paymentLogs?: Payroll_payment_logsListRelationFilter
+  }, "id" | "sheet_id_employee_id">
+
+  export type payroll_sheet_itemsOrderByWithAggregationInput = {
+    id?: SortOrder
+    sheet_id?: SortOrder
+    employee_id?: SortOrder
+    base_salary?: SortOrder
+    salary_type?: SortOrder
+    worked_days?: SortOrder
+    total_work_days?: SortOrder
+    worked_hours?: SortOrderInput | SortOrder
+    total_work_hours?: SortOrderInput | SortOrder
+    accrued?: SortOrder
+    debt_balance?: SortOrder
+    debt_deduction?: SortOrder
+    debt_mode?: SortOrder
+    debt_comment?: SortOrderInput | SortOrder
+    manual_adjustment?: SortOrder
+    adjustment_comment?: SortOrderInput | SortOrder
+    late_minutes?: SortOrder
+    overtime_minutes?: SortOrder
+    apply_late?: SortOrder
+    apply_overtime?: SortOrder
+    late_amount?: SortOrder
+    overtime_amount?: SortOrder
+    advance_total?: SortOrder
+    net?: SortOrder
+    salary_balance?: SortOrder
+    paid_amount?: SortOrder
+    status?: SortOrder
+    _count?: payroll_sheet_itemsCountOrderByAggregateInput
+    _avg?: payroll_sheet_itemsAvgOrderByAggregateInput
+    _max?: payroll_sheet_itemsMaxOrderByAggregateInput
+    _min?: payroll_sheet_itemsMinOrderByAggregateInput
+    _sum?: payroll_sheet_itemsSumOrderByAggregateInput
+  }
+
+  export type payroll_sheet_itemsScalarWhereWithAggregatesInput = {
+    AND?: payroll_sheet_itemsScalarWhereWithAggregatesInput | payroll_sheet_itemsScalarWhereWithAggregatesInput[]
+    OR?: payroll_sheet_itemsScalarWhereWithAggregatesInput[]
+    NOT?: payroll_sheet_itemsScalarWhereWithAggregatesInput | payroll_sheet_itemsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"payroll_sheet_items"> | number
+    sheet_id?: IntWithAggregatesFilter<"payroll_sheet_items"> | number
+    employee_id?: IntWithAggregatesFilter<"payroll_sheet_items"> | number
+    base_salary?: DecimalWithAggregatesFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    salary_type?: StringWithAggregatesFilter<"payroll_sheet_items"> | string
+    worked_days?: IntWithAggregatesFilter<"payroll_sheet_items"> | number
+    total_work_days?: IntWithAggregatesFilter<"payroll_sheet_items"> | number
+    worked_hours?: StringNullableWithAggregatesFilter<"payroll_sheet_items"> | string | null
+    total_work_hours?: StringNullableWithAggregatesFilter<"payroll_sheet_items"> | string | null
+    accrued?: DecimalWithAggregatesFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalWithAggregatesFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalWithAggregatesFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringWithAggregatesFilter<"payroll_sheet_items"> | string
+    debt_comment?: StringNullableWithAggregatesFilter<"payroll_sheet_items"> | string | null
+    manual_adjustment?: DecimalWithAggregatesFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: StringNullableWithAggregatesFilter<"payroll_sheet_items"> | string | null
+    late_minutes?: IntWithAggregatesFilter<"payroll_sheet_items"> | number
+    overtime_minutes?: IntWithAggregatesFilter<"payroll_sheet_items"> | number
+    apply_late?: BoolWithAggregatesFilter<"payroll_sheet_items"> | boolean
+    apply_overtime?: BoolWithAggregatesFilter<"payroll_sheet_items"> | boolean
+    late_amount?: DecimalWithAggregatesFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalWithAggregatesFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalWithAggregatesFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    net?: DecimalWithAggregatesFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalWithAggregatesFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalWithAggregatesFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    status?: StringWithAggregatesFilter<"payroll_sheet_items"> | string
+  }
+
+  export type payroll_payment_logsWhereInput = {
+    AND?: payroll_payment_logsWhereInput | payroll_payment_logsWhereInput[]
+    OR?: payroll_payment_logsWhereInput[]
+    NOT?: payroll_payment_logsWhereInput | payroll_payment_logsWhereInput[]
+    id?: IntFilter<"payroll_payment_logs"> | number
+    item_id?: IntFilter<"payroll_payment_logs"> | number
+    amount?: DecimalFilter<"payroll_payment_logs"> | Decimal | DecimalJsLike | number | string
+    payment_date?: DateTimeFilter<"payroll_payment_logs"> | Date | string
+    note?: StringNullableFilter<"payroll_payment_logs"> | string | null
+    added_at?: DateTimeFilter<"payroll_payment_logs"> | Date | string
+    item?: XOR<Payroll_sheet_itemsScalarRelationFilter, payroll_sheet_itemsWhereInput>
+  }
+
+  export type payroll_payment_logsOrderByWithRelationInput = {
+    id?: SortOrder
+    item_id?: SortOrder
+    amount?: SortOrder
+    payment_date?: SortOrder
+    note?: SortOrderInput | SortOrder
+    added_at?: SortOrder
+    item?: payroll_sheet_itemsOrderByWithRelationInput
+  }
+
+  export type payroll_payment_logsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: payroll_payment_logsWhereInput | payroll_payment_logsWhereInput[]
+    OR?: payroll_payment_logsWhereInput[]
+    NOT?: payroll_payment_logsWhereInput | payroll_payment_logsWhereInput[]
+    item_id?: IntFilter<"payroll_payment_logs"> | number
+    amount?: DecimalFilter<"payroll_payment_logs"> | Decimal | DecimalJsLike | number | string
+    payment_date?: DateTimeFilter<"payroll_payment_logs"> | Date | string
+    note?: StringNullableFilter<"payroll_payment_logs"> | string | null
+    added_at?: DateTimeFilter<"payroll_payment_logs"> | Date | string
+    item?: XOR<Payroll_sheet_itemsScalarRelationFilter, payroll_sheet_itemsWhereInput>
+  }, "id">
+
+  export type payroll_payment_logsOrderByWithAggregationInput = {
+    id?: SortOrder
+    item_id?: SortOrder
+    amount?: SortOrder
+    payment_date?: SortOrder
+    note?: SortOrderInput | SortOrder
+    added_at?: SortOrder
+    _count?: payroll_payment_logsCountOrderByAggregateInput
+    _avg?: payroll_payment_logsAvgOrderByAggregateInput
+    _max?: payroll_payment_logsMaxOrderByAggregateInput
+    _min?: payroll_payment_logsMinOrderByAggregateInput
+    _sum?: payroll_payment_logsSumOrderByAggregateInput
+  }
+
+  export type payroll_payment_logsScalarWhereWithAggregatesInput = {
+    AND?: payroll_payment_logsScalarWhereWithAggregatesInput | payroll_payment_logsScalarWhereWithAggregatesInput[]
+    OR?: payroll_payment_logsScalarWhereWithAggregatesInput[]
+    NOT?: payroll_payment_logsScalarWhereWithAggregatesInput | payroll_payment_logsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"payroll_payment_logs"> | number
+    item_id?: IntWithAggregatesFilter<"payroll_payment_logs"> | number
+    amount?: DecimalWithAggregatesFilter<"payroll_payment_logs"> | Decimal | DecimalJsLike | number | string
+    payment_date?: DateTimeWithAggregatesFilter<"payroll_payment_logs"> | Date | string
+    note?: StringNullableWithAggregatesFilter<"payroll_payment_logs"> | string | null
+    added_at?: DateTimeWithAggregatesFilter<"payroll_payment_logs"> | Date | string
+  }
+
+  export type salary_advancesWhereInput = {
+    AND?: salary_advancesWhereInput | salary_advancesWhereInput[]
+    OR?: salary_advancesWhereInput[]
+    NOT?: salary_advancesWhereInput | salary_advancesWhereInput[]
+    id?: IntFilter<"salary_advances"> | number
+    employee_id?: IntFilter<"salary_advances"> | number
+    amount?: DecimalFilter<"salary_advances"> | Decimal | DecimalJsLike | number | string
+    advance_date?: DateTimeFilter<"salary_advances"> | Date | string
+    note?: StringNullableFilter<"salary_advances"> | string | null
+    given_by?: IntFilter<"salary_advances"> | number
+    added_at?: DateTimeFilter<"salary_advances"> | Date | string
+    employee?: XOR<EmployeesScalarRelationFilter, employeesWhereInput>
+    givenBy?: XOR<UsersScalarRelationFilter, usersWhereInput>
+  }
+
+  export type salary_advancesOrderByWithRelationInput = {
+    id?: SortOrder
+    employee_id?: SortOrder
+    amount?: SortOrder
+    advance_date?: SortOrder
+    note?: SortOrderInput | SortOrder
+    given_by?: SortOrder
+    added_at?: SortOrder
+    employee?: employeesOrderByWithRelationInput
+    givenBy?: usersOrderByWithRelationInput
+  }
+
+  export type salary_advancesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: salary_advancesWhereInput | salary_advancesWhereInput[]
+    OR?: salary_advancesWhereInput[]
+    NOT?: salary_advancesWhereInput | salary_advancesWhereInput[]
+    employee_id?: IntFilter<"salary_advances"> | number
+    amount?: DecimalFilter<"salary_advances"> | Decimal | DecimalJsLike | number | string
+    advance_date?: DateTimeFilter<"salary_advances"> | Date | string
+    note?: StringNullableFilter<"salary_advances"> | string | null
+    given_by?: IntFilter<"salary_advances"> | number
+    added_at?: DateTimeFilter<"salary_advances"> | Date | string
+    employee?: XOR<EmployeesScalarRelationFilter, employeesWhereInput>
+    givenBy?: XOR<UsersScalarRelationFilter, usersWhereInput>
+  }, "id">
+
+  export type salary_advancesOrderByWithAggregationInput = {
+    id?: SortOrder
+    employee_id?: SortOrder
+    amount?: SortOrder
+    advance_date?: SortOrder
+    note?: SortOrderInput | SortOrder
+    given_by?: SortOrder
+    added_at?: SortOrder
+    _count?: salary_advancesCountOrderByAggregateInput
+    _avg?: salary_advancesAvgOrderByAggregateInput
+    _max?: salary_advancesMaxOrderByAggregateInput
+    _min?: salary_advancesMinOrderByAggregateInput
+    _sum?: salary_advancesSumOrderByAggregateInput
+  }
+
+  export type salary_advancesScalarWhereWithAggregatesInput = {
+    AND?: salary_advancesScalarWhereWithAggregatesInput | salary_advancesScalarWhereWithAggregatesInput[]
+    OR?: salary_advancesScalarWhereWithAggregatesInput[]
+    NOT?: salary_advancesScalarWhereWithAggregatesInput | salary_advancesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"salary_advances"> | number
+    employee_id?: IntWithAggregatesFilter<"salary_advances"> | number
+    amount?: DecimalWithAggregatesFilter<"salary_advances"> | Decimal | DecimalJsLike | number | string
+    advance_date?: DateTimeWithAggregatesFilter<"salary_advances"> | Date | string
+    note?: StringNullableWithAggregatesFilter<"salary_advances"> | string | null
+    given_by?: IntWithAggregatesFilter<"salary_advances"> | number
+    added_at?: DateTimeWithAggregatesFilter<"salary_advances"> | Date | string
+  }
+
   export type branchesCreateInput = {
     name: string
     status?: boolean
@@ -34259,6 +40281,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesUncheckedCreateInput = {
@@ -34294,6 +40318,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesUpdateInput = {
@@ -34328,6 +40354,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateInput = {
@@ -34363,6 +40391,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesCreateManyInput = {
@@ -34977,6 +41007,9 @@ export namespace Prisma {
     timeOff?: time_offCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
   }
 
   export type usersUncheckedCreateInput = {
@@ -35004,6 +41037,9 @@ export namespace Prisma {
     timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
   }
 
   export type usersUpdateInput = {
@@ -35030,6 +41066,9 @@ export namespace Prisma {
     timeOff?: time_offUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
   }
 
   export type usersUncheckedUpdateInput = {
@@ -35057,6 +41096,9 @@ export namespace Prisma {
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
   }
 
   export type usersCreateManyInput = {
@@ -36018,6 +42060,415 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type payroll_sheetsCreateInput = {
+    month: number
+    year: number
+    status?: string
+    added_at?: Date | string
+    approved_at?: Date | string | null
+    items?: payroll_sheet_itemsCreateNestedManyWithoutSheetInput
+    addedBy: usersCreateNestedOneWithoutPayrollSheetsAddedInput
+    approvedBy?: usersCreateNestedOneWithoutPayrollSheetsApprovedInput
+  }
+
+  export type payroll_sheetsUncheckedCreateInput = {
+    id?: number
+    month: number
+    year: number
+    status?: string
+    added_by: number
+    added_at?: Date | string
+    approved_by?: number | null
+    approved_at?: Date | string | null
+    items?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutSheetInput
+  }
+
+  export type payroll_sheetsUpdateInput = {
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    items?: payroll_sheet_itemsUpdateManyWithoutSheetNestedInput
+    addedBy?: usersUpdateOneRequiredWithoutPayrollSheetsAddedNestedInput
+    approvedBy?: usersUpdateOneWithoutPayrollSheetsApprovedNestedInput
+  }
+
+  export type payroll_sheetsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    added_by?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    approved_by?: NullableIntFieldUpdateOperationsInput | number | null
+    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    items?: payroll_sheet_itemsUncheckedUpdateManyWithoutSheetNestedInput
+  }
+
+  export type payroll_sheetsCreateManyInput = {
+    id?: number
+    month: number
+    year: number
+    status?: string
+    added_by: number
+    added_at?: Date | string
+    approved_by?: number | null
+    approved_at?: Date | string | null
+  }
+
+  export type payroll_sheetsUpdateManyMutationInput = {
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type payroll_sheetsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    added_by?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    approved_by?: NullableIntFieldUpdateOperationsInput | number | null
+    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type payroll_sheet_itemsCreateInput = {
+    base_salary: Decimal | DecimalJsLike | number | string
+    salary_type: string
+    worked_days?: number
+    total_work_days?: number
+    worked_hours?: string | null
+    total_work_hours?: string | null
+    accrued: Decimal | DecimalJsLike | number | string
+    debt_balance?: Decimal | DecimalJsLike | number | string
+    debt_deduction?: Decimal | DecimalJsLike | number | string
+    debt_mode?: string
+    debt_comment?: string | null
+    manual_adjustment?: Decimal | DecimalJsLike | number | string
+    adjustment_comment?: string | null
+    late_minutes?: number
+    overtime_minutes?: number
+    apply_late?: boolean
+    apply_overtime?: boolean
+    late_amount?: Decimal | DecimalJsLike | number | string
+    overtime_amount?: Decimal | DecimalJsLike | number | string
+    advance_total?: Decimal | DecimalJsLike | number | string
+    net: Decimal | DecimalJsLike | number | string
+    salary_balance?: Decimal | DecimalJsLike | number | string
+    paid_amount?: Decimal | DecimalJsLike | number | string
+    status?: string
+    sheet: payroll_sheetsCreateNestedOneWithoutItemsInput
+    employee: employeesCreateNestedOneWithoutPayrollSheetItemsInput
+    paymentLogs?: payroll_payment_logsCreateNestedManyWithoutItemInput
+  }
+
+  export type payroll_sheet_itemsUncheckedCreateInput = {
+    id?: number
+    sheet_id: number
+    employee_id: number
+    base_salary: Decimal | DecimalJsLike | number | string
+    salary_type: string
+    worked_days?: number
+    total_work_days?: number
+    worked_hours?: string | null
+    total_work_hours?: string | null
+    accrued: Decimal | DecimalJsLike | number | string
+    debt_balance?: Decimal | DecimalJsLike | number | string
+    debt_deduction?: Decimal | DecimalJsLike | number | string
+    debt_mode?: string
+    debt_comment?: string | null
+    manual_adjustment?: Decimal | DecimalJsLike | number | string
+    adjustment_comment?: string | null
+    late_minutes?: number
+    overtime_minutes?: number
+    apply_late?: boolean
+    apply_overtime?: boolean
+    late_amount?: Decimal | DecimalJsLike | number | string
+    overtime_amount?: Decimal | DecimalJsLike | number | string
+    advance_total?: Decimal | DecimalJsLike | number | string
+    net: Decimal | DecimalJsLike | number | string
+    salary_balance?: Decimal | DecimalJsLike | number | string
+    paid_amount?: Decimal | DecimalJsLike | number | string
+    status?: string
+    paymentLogs?: payroll_payment_logsUncheckedCreateNestedManyWithoutItemInput
+  }
+
+  export type payroll_sheet_itemsUpdateInput = {
+    base_salary?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_type?: StringFieldUpdateOperationsInput | string
+    worked_days?: IntFieldUpdateOperationsInput | number
+    total_work_days?: IntFieldUpdateOperationsInput | number
+    worked_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    total_work_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    accrued?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringFieldUpdateOperationsInput | string
+    debt_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    manual_adjustment?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    late_minutes?: IntFieldUpdateOperationsInput | number
+    overtime_minutes?: IntFieldUpdateOperationsInput | number
+    apply_late?: BoolFieldUpdateOperationsInput | boolean
+    apply_overtime?: BoolFieldUpdateOperationsInput | boolean
+    late_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    net?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    status?: StringFieldUpdateOperationsInput | string
+    sheet?: payroll_sheetsUpdateOneRequiredWithoutItemsNestedInput
+    employee?: employeesUpdateOneRequiredWithoutPayrollSheetItemsNestedInput
+    paymentLogs?: payroll_payment_logsUpdateManyWithoutItemNestedInput
+  }
+
+  export type payroll_sheet_itemsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sheet_id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    base_salary?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_type?: StringFieldUpdateOperationsInput | string
+    worked_days?: IntFieldUpdateOperationsInput | number
+    total_work_days?: IntFieldUpdateOperationsInput | number
+    worked_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    total_work_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    accrued?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringFieldUpdateOperationsInput | string
+    debt_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    manual_adjustment?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    late_minutes?: IntFieldUpdateOperationsInput | number
+    overtime_minutes?: IntFieldUpdateOperationsInput | number
+    apply_late?: BoolFieldUpdateOperationsInput | boolean
+    apply_overtime?: BoolFieldUpdateOperationsInput | boolean
+    late_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    net?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    status?: StringFieldUpdateOperationsInput | string
+    paymentLogs?: payroll_payment_logsUncheckedUpdateManyWithoutItemNestedInput
+  }
+
+  export type payroll_sheet_itemsCreateManyInput = {
+    id?: number
+    sheet_id: number
+    employee_id: number
+    base_salary: Decimal | DecimalJsLike | number | string
+    salary_type: string
+    worked_days?: number
+    total_work_days?: number
+    worked_hours?: string | null
+    total_work_hours?: string | null
+    accrued: Decimal | DecimalJsLike | number | string
+    debt_balance?: Decimal | DecimalJsLike | number | string
+    debt_deduction?: Decimal | DecimalJsLike | number | string
+    debt_mode?: string
+    debt_comment?: string | null
+    manual_adjustment?: Decimal | DecimalJsLike | number | string
+    adjustment_comment?: string | null
+    late_minutes?: number
+    overtime_minutes?: number
+    apply_late?: boolean
+    apply_overtime?: boolean
+    late_amount?: Decimal | DecimalJsLike | number | string
+    overtime_amount?: Decimal | DecimalJsLike | number | string
+    advance_total?: Decimal | DecimalJsLike | number | string
+    net: Decimal | DecimalJsLike | number | string
+    salary_balance?: Decimal | DecimalJsLike | number | string
+    paid_amount?: Decimal | DecimalJsLike | number | string
+    status?: string
+  }
+
+  export type payroll_sheet_itemsUpdateManyMutationInput = {
+    base_salary?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_type?: StringFieldUpdateOperationsInput | string
+    worked_days?: IntFieldUpdateOperationsInput | number
+    total_work_days?: IntFieldUpdateOperationsInput | number
+    worked_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    total_work_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    accrued?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringFieldUpdateOperationsInput | string
+    debt_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    manual_adjustment?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    late_minutes?: IntFieldUpdateOperationsInput | number
+    overtime_minutes?: IntFieldUpdateOperationsInput | number
+    apply_late?: BoolFieldUpdateOperationsInput | boolean
+    apply_overtime?: BoolFieldUpdateOperationsInput | boolean
+    late_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    net?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    status?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type payroll_sheet_itemsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sheet_id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    base_salary?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_type?: StringFieldUpdateOperationsInput | string
+    worked_days?: IntFieldUpdateOperationsInput | number
+    total_work_days?: IntFieldUpdateOperationsInput | number
+    worked_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    total_work_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    accrued?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringFieldUpdateOperationsInput | string
+    debt_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    manual_adjustment?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    late_minutes?: IntFieldUpdateOperationsInput | number
+    overtime_minutes?: IntFieldUpdateOperationsInput | number
+    apply_late?: BoolFieldUpdateOperationsInput | boolean
+    apply_overtime?: BoolFieldUpdateOperationsInput | boolean
+    late_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    net?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    status?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type payroll_payment_logsCreateInput = {
+    amount: Decimal | DecimalJsLike | number | string
+    payment_date: Date | string
+    note?: string | null
+    added_at?: Date | string
+    item: payroll_sheet_itemsCreateNestedOneWithoutPaymentLogsInput
+  }
+
+  export type payroll_payment_logsUncheckedCreateInput = {
+    id?: number
+    item_id: number
+    amount: Decimal | DecimalJsLike | number | string
+    payment_date: Date | string
+    note?: string | null
+    added_at?: Date | string
+  }
+
+  export type payroll_payment_logsUpdateInput = {
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    payment_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    item?: payroll_sheet_itemsUpdateOneRequiredWithoutPaymentLogsNestedInput
+  }
+
+  export type payroll_payment_logsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    item_id?: IntFieldUpdateOperationsInput | number
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    payment_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type payroll_payment_logsCreateManyInput = {
+    id?: number
+    item_id: number
+    amount: Decimal | DecimalJsLike | number | string
+    payment_date: Date | string
+    note?: string | null
+    added_at?: Date | string
+  }
+
+  export type payroll_payment_logsUpdateManyMutationInput = {
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    payment_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type payroll_payment_logsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    item_id?: IntFieldUpdateOperationsInput | number
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    payment_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type salary_advancesCreateInput = {
+    amount: Decimal | DecimalJsLike | number | string
+    advance_date: Date | string
+    note?: string | null
+    added_at?: Date | string
+    employee: employeesCreateNestedOneWithoutSalaryAdvancesInput
+    givenBy: usersCreateNestedOneWithoutSalaryAdvancesGivenInput
+  }
+
+  export type salary_advancesUncheckedCreateInput = {
+    id?: number
+    employee_id: number
+    amount: Decimal | DecimalJsLike | number | string
+    advance_date: Date | string
+    note?: string | null
+    given_by: number
+    added_at?: Date | string
+  }
+
+  export type salary_advancesUpdateInput = {
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: employeesUpdateOneRequiredWithoutSalaryAdvancesNestedInput
+    givenBy?: usersUpdateOneRequiredWithoutSalaryAdvancesGivenNestedInput
+  }
+
+  export type salary_advancesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    given_by?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type salary_advancesCreateManyInput = {
+    id?: number
+    employee_id: number
+    amount: Decimal | DecimalJsLike | number | string
+    advance_date: Date | string
+    note?: string | null
+    given_by: number
+    added_at?: Date | string
+  }
+
+  export type salary_advancesUpdateManyMutationInput = {
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type salary_advancesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    given_by?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -36493,6 +42944,18 @@ export namespace Prisma {
     none?: branchesWhereInput
   }
 
+  export type Payroll_sheet_itemsListRelationFilter = {
+    every?: payroll_sheet_itemsWhereInput
+    some?: payroll_sheet_itemsWhereInput
+    none?: payroll_sheet_itemsWhereInput
+  }
+
+  export type Salary_advancesListRelationFilter = {
+    every?: salary_advancesWhereInput
+    some?: salary_advancesWhereInput
+    none?: salary_advancesWhereInput
+  }
+
   export type employee_schedule_historyOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -36514,6 +42977,14 @@ export namespace Prisma {
   }
 
   export type branchesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type payroll_sheet_itemsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type salary_advancesOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -37032,6 +43503,12 @@ export namespace Prisma {
     none?: holidaysWhereInput
   }
 
+  export type Payroll_sheetsListRelationFilter = {
+    every?: payroll_sheetsWhereInput
+    some?: payroll_sheetsWhereInput
+    none?: payroll_sheetsWhereInput
+  }
+
   export type user_menu_accessOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -37041,6 +43518,10 @@ export namespace Prisma {
   }
 
   export type holidaysOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type payroll_sheetsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -37782,6 +44263,300 @@ export namespace Prisma {
     camera_id?: SortOrder
   }
 
+  export type payroll_sheetsMonthYearCompoundUniqueInput = {
+    month: number
+    year: number
+  }
+
+  export type payroll_sheetsCountOrderByAggregateInput = {
+    id?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    status?: SortOrder
+    added_by?: SortOrder
+    added_at?: SortOrder
+    approved_by?: SortOrder
+    approved_at?: SortOrder
+  }
+
+  export type payroll_sheetsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    added_by?: SortOrder
+    approved_by?: SortOrder
+  }
+
+  export type payroll_sheetsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    status?: SortOrder
+    added_by?: SortOrder
+    added_at?: SortOrder
+    approved_by?: SortOrder
+    approved_at?: SortOrder
+  }
+
+  export type payroll_sheetsMinOrderByAggregateInput = {
+    id?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    status?: SortOrder
+    added_by?: SortOrder
+    added_at?: SortOrder
+    approved_by?: SortOrder
+    approved_at?: SortOrder
+  }
+
+  export type payroll_sheetsSumOrderByAggregateInput = {
+    id?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    added_by?: SortOrder
+    approved_by?: SortOrder
+  }
+
+  export type Payroll_sheetsScalarRelationFilter = {
+    is?: payroll_sheetsWhereInput
+    isNot?: payroll_sheetsWhereInput
+  }
+
+  export type Payroll_payment_logsListRelationFilter = {
+    every?: payroll_payment_logsWhereInput
+    some?: payroll_payment_logsWhereInput
+    none?: payroll_payment_logsWhereInput
+  }
+
+  export type payroll_payment_logsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type payroll_sheet_itemsSheet_idEmployee_idCompoundUniqueInput = {
+    sheet_id: number
+    employee_id: number
+  }
+
+  export type payroll_sheet_itemsCountOrderByAggregateInput = {
+    id?: SortOrder
+    sheet_id?: SortOrder
+    employee_id?: SortOrder
+    base_salary?: SortOrder
+    salary_type?: SortOrder
+    worked_days?: SortOrder
+    total_work_days?: SortOrder
+    worked_hours?: SortOrder
+    total_work_hours?: SortOrder
+    accrued?: SortOrder
+    debt_balance?: SortOrder
+    debt_deduction?: SortOrder
+    debt_mode?: SortOrder
+    debt_comment?: SortOrder
+    manual_adjustment?: SortOrder
+    adjustment_comment?: SortOrder
+    late_minutes?: SortOrder
+    overtime_minutes?: SortOrder
+    apply_late?: SortOrder
+    apply_overtime?: SortOrder
+    late_amount?: SortOrder
+    overtime_amount?: SortOrder
+    advance_total?: SortOrder
+    net?: SortOrder
+    salary_balance?: SortOrder
+    paid_amount?: SortOrder
+    status?: SortOrder
+  }
+
+  export type payroll_sheet_itemsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    sheet_id?: SortOrder
+    employee_id?: SortOrder
+    base_salary?: SortOrder
+    worked_days?: SortOrder
+    total_work_days?: SortOrder
+    accrued?: SortOrder
+    debt_balance?: SortOrder
+    debt_deduction?: SortOrder
+    manual_adjustment?: SortOrder
+    late_minutes?: SortOrder
+    overtime_minutes?: SortOrder
+    late_amount?: SortOrder
+    overtime_amount?: SortOrder
+    advance_total?: SortOrder
+    net?: SortOrder
+    salary_balance?: SortOrder
+    paid_amount?: SortOrder
+  }
+
+  export type payroll_sheet_itemsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    sheet_id?: SortOrder
+    employee_id?: SortOrder
+    base_salary?: SortOrder
+    salary_type?: SortOrder
+    worked_days?: SortOrder
+    total_work_days?: SortOrder
+    worked_hours?: SortOrder
+    total_work_hours?: SortOrder
+    accrued?: SortOrder
+    debt_balance?: SortOrder
+    debt_deduction?: SortOrder
+    debt_mode?: SortOrder
+    debt_comment?: SortOrder
+    manual_adjustment?: SortOrder
+    adjustment_comment?: SortOrder
+    late_minutes?: SortOrder
+    overtime_minutes?: SortOrder
+    apply_late?: SortOrder
+    apply_overtime?: SortOrder
+    late_amount?: SortOrder
+    overtime_amount?: SortOrder
+    advance_total?: SortOrder
+    net?: SortOrder
+    salary_balance?: SortOrder
+    paid_amount?: SortOrder
+    status?: SortOrder
+  }
+
+  export type payroll_sheet_itemsMinOrderByAggregateInput = {
+    id?: SortOrder
+    sheet_id?: SortOrder
+    employee_id?: SortOrder
+    base_salary?: SortOrder
+    salary_type?: SortOrder
+    worked_days?: SortOrder
+    total_work_days?: SortOrder
+    worked_hours?: SortOrder
+    total_work_hours?: SortOrder
+    accrued?: SortOrder
+    debt_balance?: SortOrder
+    debt_deduction?: SortOrder
+    debt_mode?: SortOrder
+    debt_comment?: SortOrder
+    manual_adjustment?: SortOrder
+    adjustment_comment?: SortOrder
+    late_minutes?: SortOrder
+    overtime_minutes?: SortOrder
+    apply_late?: SortOrder
+    apply_overtime?: SortOrder
+    late_amount?: SortOrder
+    overtime_amount?: SortOrder
+    advance_total?: SortOrder
+    net?: SortOrder
+    salary_balance?: SortOrder
+    paid_amount?: SortOrder
+    status?: SortOrder
+  }
+
+  export type payroll_sheet_itemsSumOrderByAggregateInput = {
+    id?: SortOrder
+    sheet_id?: SortOrder
+    employee_id?: SortOrder
+    base_salary?: SortOrder
+    worked_days?: SortOrder
+    total_work_days?: SortOrder
+    accrued?: SortOrder
+    debt_balance?: SortOrder
+    debt_deduction?: SortOrder
+    manual_adjustment?: SortOrder
+    late_minutes?: SortOrder
+    overtime_minutes?: SortOrder
+    late_amount?: SortOrder
+    overtime_amount?: SortOrder
+    advance_total?: SortOrder
+    net?: SortOrder
+    salary_balance?: SortOrder
+    paid_amount?: SortOrder
+  }
+
+  export type Payroll_sheet_itemsScalarRelationFilter = {
+    is?: payroll_sheet_itemsWhereInput
+    isNot?: payroll_sheet_itemsWhereInput
+  }
+
+  export type payroll_payment_logsCountOrderByAggregateInput = {
+    id?: SortOrder
+    item_id?: SortOrder
+    amount?: SortOrder
+    payment_date?: SortOrder
+    note?: SortOrder
+    added_at?: SortOrder
+  }
+
+  export type payroll_payment_logsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    item_id?: SortOrder
+    amount?: SortOrder
+  }
+
+  export type payroll_payment_logsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    item_id?: SortOrder
+    amount?: SortOrder
+    payment_date?: SortOrder
+    note?: SortOrder
+    added_at?: SortOrder
+  }
+
+  export type payroll_payment_logsMinOrderByAggregateInput = {
+    id?: SortOrder
+    item_id?: SortOrder
+    amount?: SortOrder
+    payment_date?: SortOrder
+    note?: SortOrder
+    added_at?: SortOrder
+  }
+
+  export type payroll_payment_logsSumOrderByAggregateInput = {
+    id?: SortOrder
+    item_id?: SortOrder
+    amount?: SortOrder
+  }
+
+  export type salary_advancesCountOrderByAggregateInput = {
+    id?: SortOrder
+    employee_id?: SortOrder
+    amount?: SortOrder
+    advance_date?: SortOrder
+    note?: SortOrder
+    given_by?: SortOrder
+    added_at?: SortOrder
+  }
+
+  export type salary_advancesAvgOrderByAggregateInput = {
+    id?: SortOrder
+    employee_id?: SortOrder
+    amount?: SortOrder
+    given_by?: SortOrder
+  }
+
+  export type salary_advancesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    employee_id?: SortOrder
+    amount?: SortOrder
+    advance_date?: SortOrder
+    note?: SortOrder
+    given_by?: SortOrder
+    added_at?: SortOrder
+  }
+
+  export type salary_advancesMinOrderByAggregateInput = {
+    id?: SortOrder
+    employee_id?: SortOrder
+    amount?: SortOrder
+    advance_date?: SortOrder
+    note?: SortOrder
+    given_by?: SortOrder
+    added_at?: SortOrder
+  }
+
+  export type salary_advancesSumOrderByAggregateInput = {
+    id?: SortOrder
+    employee_id?: SortOrder
+    amount?: SortOrder
+    given_by?: SortOrder
+  }
+
   export type employeesCreateNestedOneWithoutDirectedBranchesInput = {
     create?: XOR<employeesCreateWithoutDirectedBranchesInput, employeesUncheckedCreateWithoutDirectedBranchesInput>
     connectOrCreate?: employeesCreateOrConnectWithoutDirectedBranchesInput
@@ -38347,6 +45122,20 @@ export namespace Prisma {
     connect?: branchesWhereUniqueInput | branchesWhereUniqueInput[]
   }
 
+  export type payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput = {
+    create?: XOR<payroll_sheet_itemsCreateWithoutEmployeeInput, payroll_sheet_itemsUncheckedCreateWithoutEmployeeInput> | payroll_sheet_itemsCreateWithoutEmployeeInput[] | payroll_sheet_itemsUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: payroll_sheet_itemsCreateOrConnectWithoutEmployeeInput | payroll_sheet_itemsCreateOrConnectWithoutEmployeeInput[]
+    createMany?: payroll_sheet_itemsCreateManyEmployeeInputEnvelope
+    connect?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+  }
+
+  export type salary_advancesCreateNestedManyWithoutEmployeeInput = {
+    create?: XOR<salary_advancesCreateWithoutEmployeeInput, salary_advancesUncheckedCreateWithoutEmployeeInput> | salary_advancesCreateWithoutEmployeeInput[] | salary_advancesUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: salary_advancesCreateOrConnectWithoutEmployeeInput | salary_advancesCreateOrConnectWithoutEmployeeInput[]
+    createMany?: salary_advancesCreateManyEmployeeInputEnvelope
+    connect?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+  }
+
   export type employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput = {
     create?: XOR<employee_schedule_historyCreateWithoutEmployeeInput, employee_schedule_historyUncheckedCreateWithoutEmployeeInput> | employee_schedule_historyCreateWithoutEmployeeInput[] | employee_schedule_historyUncheckedCreateWithoutEmployeeInput[]
     connectOrCreate?: employee_schedule_historyCreateOrConnectWithoutEmployeeInput | employee_schedule_historyCreateOrConnectWithoutEmployeeInput[]
@@ -38406,6 +45195,20 @@ export namespace Prisma {
     connectOrCreate?: branchesCreateOrConnectWithoutDirectorInput | branchesCreateOrConnectWithoutDirectorInput[]
     createMany?: branchesCreateManyDirectorInputEnvelope
     connect?: branchesWhereUniqueInput | branchesWhereUniqueInput[]
+  }
+
+  export type payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput = {
+    create?: XOR<payroll_sheet_itemsCreateWithoutEmployeeInput, payroll_sheet_itemsUncheckedCreateWithoutEmployeeInput> | payroll_sheet_itemsCreateWithoutEmployeeInput[] | payroll_sheet_itemsUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: payroll_sheet_itemsCreateOrConnectWithoutEmployeeInput | payroll_sheet_itemsCreateOrConnectWithoutEmployeeInput[]
+    createMany?: payroll_sheet_itemsCreateManyEmployeeInputEnvelope
+    connect?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+  }
+
+  export type salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput = {
+    create?: XOR<salary_advancesCreateWithoutEmployeeInput, salary_advancesUncheckedCreateWithoutEmployeeInput> | salary_advancesCreateWithoutEmployeeInput[] | salary_advancesUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: salary_advancesCreateOrConnectWithoutEmployeeInput | salary_advancesCreateOrConnectWithoutEmployeeInput[]
+    createMany?: salary_advancesCreateManyEmployeeInputEnvelope
+    connect?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
   }
 
   export type NullableBoolFieldUpdateOperationsInput = {
@@ -38573,6 +45376,34 @@ export namespace Prisma {
     deleteMany?: branchesScalarWhereInput | branchesScalarWhereInput[]
   }
 
+  export type payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput = {
+    create?: XOR<payroll_sheet_itemsCreateWithoutEmployeeInput, payroll_sheet_itemsUncheckedCreateWithoutEmployeeInput> | payroll_sheet_itemsCreateWithoutEmployeeInput[] | payroll_sheet_itemsUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: payroll_sheet_itemsCreateOrConnectWithoutEmployeeInput | payroll_sheet_itemsCreateOrConnectWithoutEmployeeInput[]
+    upsert?: payroll_sheet_itemsUpsertWithWhereUniqueWithoutEmployeeInput | payroll_sheet_itemsUpsertWithWhereUniqueWithoutEmployeeInput[]
+    createMany?: payroll_sheet_itemsCreateManyEmployeeInputEnvelope
+    set?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    disconnect?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    delete?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    connect?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    update?: payroll_sheet_itemsUpdateWithWhereUniqueWithoutEmployeeInput | payroll_sheet_itemsUpdateWithWhereUniqueWithoutEmployeeInput[]
+    updateMany?: payroll_sheet_itemsUpdateManyWithWhereWithoutEmployeeInput | payroll_sheet_itemsUpdateManyWithWhereWithoutEmployeeInput[]
+    deleteMany?: payroll_sheet_itemsScalarWhereInput | payroll_sheet_itemsScalarWhereInput[]
+  }
+
+  export type salary_advancesUpdateManyWithoutEmployeeNestedInput = {
+    create?: XOR<salary_advancesCreateWithoutEmployeeInput, salary_advancesUncheckedCreateWithoutEmployeeInput> | salary_advancesCreateWithoutEmployeeInput[] | salary_advancesUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: salary_advancesCreateOrConnectWithoutEmployeeInput | salary_advancesCreateOrConnectWithoutEmployeeInput[]
+    upsert?: salary_advancesUpsertWithWhereUniqueWithoutEmployeeInput | salary_advancesUpsertWithWhereUniqueWithoutEmployeeInput[]
+    createMany?: salary_advancesCreateManyEmployeeInputEnvelope
+    set?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    disconnect?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    delete?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    connect?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    update?: salary_advancesUpdateWithWhereUniqueWithoutEmployeeInput | salary_advancesUpdateWithWhereUniqueWithoutEmployeeInput[]
+    updateMany?: salary_advancesUpdateManyWithWhereWithoutEmployeeInput | salary_advancesUpdateManyWithWhereWithoutEmployeeInput[]
+    deleteMany?: salary_advancesScalarWhereInput | salary_advancesScalarWhereInput[]
+  }
+
   export type employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput = {
     create?: XOR<employee_schedule_historyCreateWithoutEmployeeInput, employee_schedule_historyUncheckedCreateWithoutEmployeeInput> | employee_schedule_historyCreateWithoutEmployeeInput[] | employee_schedule_historyUncheckedCreateWithoutEmployeeInput[]
     connectOrCreate?: employee_schedule_historyCreateOrConnectWithoutEmployeeInput | employee_schedule_historyCreateOrConnectWithoutEmployeeInput[]
@@ -38692,6 +45523,34 @@ export namespace Prisma {
     update?: branchesUpdateWithWhereUniqueWithoutDirectorInput | branchesUpdateWithWhereUniqueWithoutDirectorInput[]
     updateMany?: branchesUpdateManyWithWhereWithoutDirectorInput | branchesUpdateManyWithWhereWithoutDirectorInput[]
     deleteMany?: branchesScalarWhereInput | branchesScalarWhereInput[]
+  }
+
+  export type payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput = {
+    create?: XOR<payroll_sheet_itemsCreateWithoutEmployeeInput, payroll_sheet_itemsUncheckedCreateWithoutEmployeeInput> | payroll_sheet_itemsCreateWithoutEmployeeInput[] | payroll_sheet_itemsUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: payroll_sheet_itemsCreateOrConnectWithoutEmployeeInput | payroll_sheet_itemsCreateOrConnectWithoutEmployeeInput[]
+    upsert?: payroll_sheet_itemsUpsertWithWhereUniqueWithoutEmployeeInput | payroll_sheet_itemsUpsertWithWhereUniqueWithoutEmployeeInput[]
+    createMany?: payroll_sheet_itemsCreateManyEmployeeInputEnvelope
+    set?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    disconnect?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    delete?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    connect?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    update?: payroll_sheet_itemsUpdateWithWhereUniqueWithoutEmployeeInput | payroll_sheet_itemsUpdateWithWhereUniqueWithoutEmployeeInput[]
+    updateMany?: payroll_sheet_itemsUpdateManyWithWhereWithoutEmployeeInput | payroll_sheet_itemsUpdateManyWithWhereWithoutEmployeeInput[]
+    deleteMany?: payroll_sheet_itemsScalarWhereInput | payroll_sheet_itemsScalarWhereInput[]
+  }
+
+  export type salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput = {
+    create?: XOR<salary_advancesCreateWithoutEmployeeInput, salary_advancesUncheckedCreateWithoutEmployeeInput> | salary_advancesCreateWithoutEmployeeInput[] | salary_advancesUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: salary_advancesCreateOrConnectWithoutEmployeeInput | salary_advancesCreateOrConnectWithoutEmployeeInput[]
+    upsert?: salary_advancesUpsertWithWhereUniqueWithoutEmployeeInput | salary_advancesUpsertWithWhereUniqueWithoutEmployeeInput[]
+    createMany?: salary_advancesCreateManyEmployeeInputEnvelope
+    set?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    disconnect?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    delete?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    connect?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    update?: salary_advancesUpdateWithWhereUniqueWithoutEmployeeInput | salary_advancesUpdateWithWhereUniqueWithoutEmployeeInput[]
+    updateMany?: salary_advancesUpdateManyWithWhereWithoutEmployeeInput | salary_advancesUpdateManyWithWhereWithoutEmployeeInput[]
+    deleteMany?: salary_advancesScalarWhereInput | salary_advancesScalarWhereInput[]
   }
 
   export type employeesCreateNestedOneWithoutFacePassesInput = {
@@ -38973,6 +45832,27 @@ export namespace Prisma {
     connect?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
   }
 
+  export type payroll_sheetsCreateNestedManyWithoutAddedByInput = {
+    create?: XOR<payroll_sheetsCreateWithoutAddedByInput, payroll_sheetsUncheckedCreateWithoutAddedByInput> | payroll_sheetsCreateWithoutAddedByInput[] | payroll_sheetsUncheckedCreateWithoutAddedByInput[]
+    connectOrCreate?: payroll_sheetsCreateOrConnectWithoutAddedByInput | payroll_sheetsCreateOrConnectWithoutAddedByInput[]
+    createMany?: payroll_sheetsCreateManyAddedByInputEnvelope
+    connect?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+  }
+
+  export type payroll_sheetsCreateNestedManyWithoutApprovedByInput = {
+    create?: XOR<payroll_sheetsCreateWithoutApprovedByInput, payroll_sheetsUncheckedCreateWithoutApprovedByInput> | payroll_sheetsCreateWithoutApprovedByInput[] | payroll_sheetsUncheckedCreateWithoutApprovedByInput[]
+    connectOrCreate?: payroll_sheetsCreateOrConnectWithoutApprovedByInput | payroll_sheetsCreateOrConnectWithoutApprovedByInput[]
+    createMany?: payroll_sheetsCreateManyApprovedByInputEnvelope
+    connect?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+  }
+
+  export type salary_advancesCreateNestedManyWithoutGivenByInput = {
+    create?: XOR<salary_advancesCreateWithoutGivenByInput, salary_advancesUncheckedCreateWithoutGivenByInput> | salary_advancesCreateWithoutGivenByInput[] | salary_advancesUncheckedCreateWithoutGivenByInput[]
+    connectOrCreate?: salary_advancesCreateOrConnectWithoutGivenByInput | salary_advancesCreateOrConnectWithoutGivenByInput[]
+    createMany?: salary_advancesCreateManyGivenByInputEnvelope
+    connect?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+  }
+
   export type user_menu_accessUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<user_menu_accessCreateWithoutUserInput, user_menu_accessUncheckedCreateWithoutUserInput> | user_menu_accessCreateWithoutUserInput[] | user_menu_accessUncheckedCreateWithoutUserInput[]
     connectOrCreate?: user_menu_accessCreateOrConnectWithoutUserInput | user_menu_accessCreateOrConnectWithoutUserInput[]
@@ -39020,6 +45900,27 @@ export namespace Prisma {
     connectOrCreate?: employee_salary_historyCreateOrConnectWithoutAddedByInput | employee_salary_historyCreateOrConnectWithoutAddedByInput[]
     createMany?: employee_salary_historyCreateManyAddedByInputEnvelope
     connect?: employee_salary_historyWhereUniqueInput | employee_salary_historyWhereUniqueInput[]
+  }
+
+  export type payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput = {
+    create?: XOR<payroll_sheetsCreateWithoutAddedByInput, payroll_sheetsUncheckedCreateWithoutAddedByInput> | payroll_sheetsCreateWithoutAddedByInput[] | payroll_sheetsUncheckedCreateWithoutAddedByInput[]
+    connectOrCreate?: payroll_sheetsCreateOrConnectWithoutAddedByInput | payroll_sheetsCreateOrConnectWithoutAddedByInput[]
+    createMany?: payroll_sheetsCreateManyAddedByInputEnvelope
+    connect?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+  }
+
+  export type payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput = {
+    create?: XOR<payroll_sheetsCreateWithoutApprovedByInput, payroll_sheetsUncheckedCreateWithoutApprovedByInput> | payroll_sheetsCreateWithoutApprovedByInput[] | payroll_sheetsUncheckedCreateWithoutApprovedByInput[]
+    connectOrCreate?: payroll_sheetsCreateOrConnectWithoutApprovedByInput | payroll_sheetsCreateOrConnectWithoutApprovedByInput[]
+    createMany?: payroll_sheetsCreateManyApprovedByInputEnvelope
+    connect?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+  }
+
+  export type salary_advancesUncheckedCreateNestedManyWithoutGivenByInput = {
+    create?: XOR<salary_advancesCreateWithoutGivenByInput, salary_advancesUncheckedCreateWithoutGivenByInput> | salary_advancesCreateWithoutGivenByInput[] | salary_advancesUncheckedCreateWithoutGivenByInput[]
+    connectOrCreate?: salary_advancesCreateOrConnectWithoutGivenByInput | salary_advancesCreateOrConnectWithoutGivenByInput[]
+    createMany?: salary_advancesCreateManyGivenByInputEnvelope
+    connect?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
   }
 
   export type usersUpdatebranch_accessInput = {
@@ -39145,6 +46046,48 @@ export namespace Prisma {
     deleteMany?: employee_salary_historyScalarWhereInput | employee_salary_historyScalarWhereInput[]
   }
 
+  export type payroll_sheetsUpdateManyWithoutAddedByNestedInput = {
+    create?: XOR<payroll_sheetsCreateWithoutAddedByInput, payroll_sheetsUncheckedCreateWithoutAddedByInput> | payroll_sheetsCreateWithoutAddedByInput[] | payroll_sheetsUncheckedCreateWithoutAddedByInput[]
+    connectOrCreate?: payroll_sheetsCreateOrConnectWithoutAddedByInput | payroll_sheetsCreateOrConnectWithoutAddedByInput[]
+    upsert?: payroll_sheetsUpsertWithWhereUniqueWithoutAddedByInput | payroll_sheetsUpsertWithWhereUniqueWithoutAddedByInput[]
+    createMany?: payroll_sheetsCreateManyAddedByInputEnvelope
+    set?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    disconnect?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    delete?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    connect?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    update?: payroll_sheetsUpdateWithWhereUniqueWithoutAddedByInput | payroll_sheetsUpdateWithWhereUniqueWithoutAddedByInput[]
+    updateMany?: payroll_sheetsUpdateManyWithWhereWithoutAddedByInput | payroll_sheetsUpdateManyWithWhereWithoutAddedByInput[]
+    deleteMany?: payroll_sheetsScalarWhereInput | payroll_sheetsScalarWhereInput[]
+  }
+
+  export type payroll_sheetsUpdateManyWithoutApprovedByNestedInput = {
+    create?: XOR<payroll_sheetsCreateWithoutApprovedByInput, payroll_sheetsUncheckedCreateWithoutApprovedByInput> | payroll_sheetsCreateWithoutApprovedByInput[] | payroll_sheetsUncheckedCreateWithoutApprovedByInput[]
+    connectOrCreate?: payroll_sheetsCreateOrConnectWithoutApprovedByInput | payroll_sheetsCreateOrConnectWithoutApprovedByInput[]
+    upsert?: payroll_sheetsUpsertWithWhereUniqueWithoutApprovedByInput | payroll_sheetsUpsertWithWhereUniqueWithoutApprovedByInput[]
+    createMany?: payroll_sheetsCreateManyApprovedByInputEnvelope
+    set?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    disconnect?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    delete?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    connect?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    update?: payroll_sheetsUpdateWithWhereUniqueWithoutApprovedByInput | payroll_sheetsUpdateWithWhereUniqueWithoutApprovedByInput[]
+    updateMany?: payroll_sheetsUpdateManyWithWhereWithoutApprovedByInput | payroll_sheetsUpdateManyWithWhereWithoutApprovedByInput[]
+    deleteMany?: payroll_sheetsScalarWhereInput | payroll_sheetsScalarWhereInput[]
+  }
+
+  export type salary_advancesUpdateManyWithoutGivenByNestedInput = {
+    create?: XOR<salary_advancesCreateWithoutGivenByInput, salary_advancesUncheckedCreateWithoutGivenByInput> | salary_advancesCreateWithoutGivenByInput[] | salary_advancesUncheckedCreateWithoutGivenByInput[]
+    connectOrCreate?: salary_advancesCreateOrConnectWithoutGivenByInput | salary_advancesCreateOrConnectWithoutGivenByInput[]
+    upsert?: salary_advancesUpsertWithWhereUniqueWithoutGivenByInput | salary_advancesUpsertWithWhereUniqueWithoutGivenByInput[]
+    createMany?: salary_advancesCreateManyGivenByInputEnvelope
+    set?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    disconnect?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    delete?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    connect?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    update?: salary_advancesUpdateWithWhereUniqueWithoutGivenByInput | salary_advancesUpdateWithWhereUniqueWithoutGivenByInput[]
+    updateMany?: salary_advancesUpdateManyWithWhereWithoutGivenByInput | salary_advancesUpdateManyWithWhereWithoutGivenByInput[]
+    deleteMany?: salary_advancesScalarWhereInput | salary_advancesScalarWhereInput[]
+  }
+
   export type user_menu_accessUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<user_menu_accessCreateWithoutUserInput, user_menu_accessUncheckedCreateWithoutUserInput> | user_menu_accessCreateWithoutUserInput[] | user_menu_accessUncheckedCreateWithoutUserInput[]
     connectOrCreate?: user_menu_accessCreateOrConnectWithoutUserInput | user_menu_accessCreateOrConnectWithoutUserInput[]
@@ -39241,6 +46184,48 @@ export namespace Prisma {
     update?: employee_salary_historyUpdateWithWhereUniqueWithoutAddedByInput | employee_salary_historyUpdateWithWhereUniqueWithoutAddedByInput[]
     updateMany?: employee_salary_historyUpdateManyWithWhereWithoutAddedByInput | employee_salary_historyUpdateManyWithWhereWithoutAddedByInput[]
     deleteMany?: employee_salary_historyScalarWhereInput | employee_salary_historyScalarWhereInput[]
+  }
+
+  export type payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput = {
+    create?: XOR<payroll_sheetsCreateWithoutAddedByInput, payroll_sheetsUncheckedCreateWithoutAddedByInput> | payroll_sheetsCreateWithoutAddedByInput[] | payroll_sheetsUncheckedCreateWithoutAddedByInput[]
+    connectOrCreate?: payroll_sheetsCreateOrConnectWithoutAddedByInput | payroll_sheetsCreateOrConnectWithoutAddedByInput[]
+    upsert?: payroll_sheetsUpsertWithWhereUniqueWithoutAddedByInput | payroll_sheetsUpsertWithWhereUniqueWithoutAddedByInput[]
+    createMany?: payroll_sheetsCreateManyAddedByInputEnvelope
+    set?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    disconnect?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    delete?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    connect?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    update?: payroll_sheetsUpdateWithWhereUniqueWithoutAddedByInput | payroll_sheetsUpdateWithWhereUniqueWithoutAddedByInput[]
+    updateMany?: payroll_sheetsUpdateManyWithWhereWithoutAddedByInput | payroll_sheetsUpdateManyWithWhereWithoutAddedByInput[]
+    deleteMany?: payroll_sheetsScalarWhereInput | payroll_sheetsScalarWhereInput[]
+  }
+
+  export type payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput = {
+    create?: XOR<payroll_sheetsCreateWithoutApprovedByInput, payroll_sheetsUncheckedCreateWithoutApprovedByInput> | payroll_sheetsCreateWithoutApprovedByInput[] | payroll_sheetsUncheckedCreateWithoutApprovedByInput[]
+    connectOrCreate?: payroll_sheetsCreateOrConnectWithoutApprovedByInput | payroll_sheetsCreateOrConnectWithoutApprovedByInput[]
+    upsert?: payroll_sheetsUpsertWithWhereUniqueWithoutApprovedByInput | payroll_sheetsUpsertWithWhereUniqueWithoutApprovedByInput[]
+    createMany?: payroll_sheetsCreateManyApprovedByInputEnvelope
+    set?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    disconnect?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    delete?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    connect?: payroll_sheetsWhereUniqueInput | payroll_sheetsWhereUniqueInput[]
+    update?: payroll_sheetsUpdateWithWhereUniqueWithoutApprovedByInput | payroll_sheetsUpdateWithWhereUniqueWithoutApprovedByInput[]
+    updateMany?: payroll_sheetsUpdateManyWithWhereWithoutApprovedByInput | payroll_sheetsUpdateManyWithWhereWithoutApprovedByInput[]
+    deleteMany?: payroll_sheetsScalarWhereInput | payroll_sheetsScalarWhereInput[]
+  }
+
+  export type salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput = {
+    create?: XOR<salary_advancesCreateWithoutGivenByInput, salary_advancesUncheckedCreateWithoutGivenByInput> | salary_advancesCreateWithoutGivenByInput[] | salary_advancesUncheckedCreateWithoutGivenByInput[]
+    connectOrCreate?: salary_advancesCreateOrConnectWithoutGivenByInput | salary_advancesCreateOrConnectWithoutGivenByInput[]
+    upsert?: salary_advancesUpsertWithWhereUniqueWithoutGivenByInput | salary_advancesUpsertWithWhereUniqueWithoutGivenByInput[]
+    createMany?: salary_advancesCreateManyGivenByInputEnvelope
+    set?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    disconnect?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    delete?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    connect?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+    update?: salary_advancesUpdateWithWhereUniqueWithoutGivenByInput | salary_advancesUpdateWithWhereUniqueWithoutGivenByInput[]
+    updateMany?: salary_advancesUpdateManyWithWhereWithoutGivenByInput | salary_advancesUpdateManyWithWhereWithoutGivenByInput[]
+    deleteMany?: salary_advancesScalarWhereInput | salary_advancesScalarWhereInput[]
   }
 
   export type menusCreateNestedOneWithoutChildrenInput = {
@@ -40008,6 +46993,190 @@ export namespace Prisma {
     update?: XOR<XOR<anpr_camerasUpdateToOneWithWhereWithoutVehiclePassesInput, anpr_camerasUpdateWithoutVehiclePassesInput>, anpr_camerasUncheckedUpdateWithoutVehiclePassesInput>
   }
 
+  export type payroll_sheet_itemsCreateNestedManyWithoutSheetInput = {
+    create?: XOR<payroll_sheet_itemsCreateWithoutSheetInput, payroll_sheet_itemsUncheckedCreateWithoutSheetInput> | payroll_sheet_itemsCreateWithoutSheetInput[] | payroll_sheet_itemsUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: payroll_sheet_itemsCreateOrConnectWithoutSheetInput | payroll_sheet_itemsCreateOrConnectWithoutSheetInput[]
+    createMany?: payroll_sheet_itemsCreateManySheetInputEnvelope
+    connect?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+  }
+
+  export type usersCreateNestedOneWithoutPayrollSheetsAddedInput = {
+    create?: XOR<usersCreateWithoutPayrollSheetsAddedInput, usersUncheckedCreateWithoutPayrollSheetsAddedInput>
+    connectOrCreate?: usersCreateOrConnectWithoutPayrollSheetsAddedInput
+    connect?: usersWhereUniqueInput
+  }
+
+  export type usersCreateNestedOneWithoutPayrollSheetsApprovedInput = {
+    create?: XOR<usersCreateWithoutPayrollSheetsApprovedInput, usersUncheckedCreateWithoutPayrollSheetsApprovedInput>
+    connectOrCreate?: usersCreateOrConnectWithoutPayrollSheetsApprovedInput
+    connect?: usersWhereUniqueInput
+  }
+
+  export type payroll_sheet_itemsUncheckedCreateNestedManyWithoutSheetInput = {
+    create?: XOR<payroll_sheet_itemsCreateWithoutSheetInput, payroll_sheet_itemsUncheckedCreateWithoutSheetInput> | payroll_sheet_itemsCreateWithoutSheetInput[] | payroll_sheet_itemsUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: payroll_sheet_itemsCreateOrConnectWithoutSheetInput | payroll_sheet_itemsCreateOrConnectWithoutSheetInput[]
+    createMany?: payroll_sheet_itemsCreateManySheetInputEnvelope
+    connect?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+  }
+
+  export type payroll_sheet_itemsUpdateManyWithoutSheetNestedInput = {
+    create?: XOR<payroll_sheet_itemsCreateWithoutSheetInput, payroll_sheet_itemsUncheckedCreateWithoutSheetInput> | payroll_sheet_itemsCreateWithoutSheetInput[] | payroll_sheet_itemsUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: payroll_sheet_itemsCreateOrConnectWithoutSheetInput | payroll_sheet_itemsCreateOrConnectWithoutSheetInput[]
+    upsert?: payroll_sheet_itemsUpsertWithWhereUniqueWithoutSheetInput | payroll_sheet_itemsUpsertWithWhereUniqueWithoutSheetInput[]
+    createMany?: payroll_sheet_itemsCreateManySheetInputEnvelope
+    set?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    disconnect?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    delete?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    connect?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    update?: payroll_sheet_itemsUpdateWithWhereUniqueWithoutSheetInput | payroll_sheet_itemsUpdateWithWhereUniqueWithoutSheetInput[]
+    updateMany?: payroll_sheet_itemsUpdateManyWithWhereWithoutSheetInput | payroll_sheet_itemsUpdateManyWithWhereWithoutSheetInput[]
+    deleteMany?: payroll_sheet_itemsScalarWhereInput | payroll_sheet_itemsScalarWhereInput[]
+  }
+
+  export type usersUpdateOneRequiredWithoutPayrollSheetsAddedNestedInput = {
+    create?: XOR<usersCreateWithoutPayrollSheetsAddedInput, usersUncheckedCreateWithoutPayrollSheetsAddedInput>
+    connectOrCreate?: usersCreateOrConnectWithoutPayrollSheetsAddedInput
+    upsert?: usersUpsertWithoutPayrollSheetsAddedInput
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutPayrollSheetsAddedInput, usersUpdateWithoutPayrollSheetsAddedInput>, usersUncheckedUpdateWithoutPayrollSheetsAddedInput>
+  }
+
+  export type usersUpdateOneWithoutPayrollSheetsApprovedNestedInput = {
+    create?: XOR<usersCreateWithoutPayrollSheetsApprovedInput, usersUncheckedCreateWithoutPayrollSheetsApprovedInput>
+    connectOrCreate?: usersCreateOrConnectWithoutPayrollSheetsApprovedInput
+    upsert?: usersUpsertWithoutPayrollSheetsApprovedInput
+    disconnect?: usersWhereInput | boolean
+    delete?: usersWhereInput | boolean
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutPayrollSheetsApprovedInput, usersUpdateWithoutPayrollSheetsApprovedInput>, usersUncheckedUpdateWithoutPayrollSheetsApprovedInput>
+  }
+
+  export type payroll_sheet_itemsUncheckedUpdateManyWithoutSheetNestedInput = {
+    create?: XOR<payroll_sheet_itemsCreateWithoutSheetInput, payroll_sheet_itemsUncheckedCreateWithoutSheetInput> | payroll_sheet_itemsCreateWithoutSheetInput[] | payroll_sheet_itemsUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: payroll_sheet_itemsCreateOrConnectWithoutSheetInput | payroll_sheet_itemsCreateOrConnectWithoutSheetInput[]
+    upsert?: payroll_sheet_itemsUpsertWithWhereUniqueWithoutSheetInput | payroll_sheet_itemsUpsertWithWhereUniqueWithoutSheetInput[]
+    createMany?: payroll_sheet_itemsCreateManySheetInputEnvelope
+    set?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    disconnect?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    delete?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    connect?: payroll_sheet_itemsWhereUniqueInput | payroll_sheet_itemsWhereUniqueInput[]
+    update?: payroll_sheet_itemsUpdateWithWhereUniqueWithoutSheetInput | payroll_sheet_itemsUpdateWithWhereUniqueWithoutSheetInput[]
+    updateMany?: payroll_sheet_itemsUpdateManyWithWhereWithoutSheetInput | payroll_sheet_itemsUpdateManyWithWhereWithoutSheetInput[]
+    deleteMany?: payroll_sheet_itemsScalarWhereInput | payroll_sheet_itemsScalarWhereInput[]
+  }
+
+  export type payroll_sheetsCreateNestedOneWithoutItemsInput = {
+    create?: XOR<payroll_sheetsCreateWithoutItemsInput, payroll_sheetsUncheckedCreateWithoutItemsInput>
+    connectOrCreate?: payroll_sheetsCreateOrConnectWithoutItemsInput
+    connect?: payroll_sheetsWhereUniqueInput
+  }
+
+  export type employeesCreateNestedOneWithoutPayrollSheetItemsInput = {
+    create?: XOR<employeesCreateWithoutPayrollSheetItemsInput, employeesUncheckedCreateWithoutPayrollSheetItemsInput>
+    connectOrCreate?: employeesCreateOrConnectWithoutPayrollSheetItemsInput
+    connect?: employeesWhereUniqueInput
+  }
+
+  export type payroll_payment_logsCreateNestedManyWithoutItemInput = {
+    create?: XOR<payroll_payment_logsCreateWithoutItemInput, payroll_payment_logsUncheckedCreateWithoutItemInput> | payroll_payment_logsCreateWithoutItemInput[] | payroll_payment_logsUncheckedCreateWithoutItemInput[]
+    connectOrCreate?: payroll_payment_logsCreateOrConnectWithoutItemInput | payroll_payment_logsCreateOrConnectWithoutItemInput[]
+    createMany?: payroll_payment_logsCreateManyItemInputEnvelope
+    connect?: payroll_payment_logsWhereUniqueInput | payroll_payment_logsWhereUniqueInput[]
+  }
+
+  export type payroll_payment_logsUncheckedCreateNestedManyWithoutItemInput = {
+    create?: XOR<payroll_payment_logsCreateWithoutItemInput, payroll_payment_logsUncheckedCreateWithoutItemInput> | payroll_payment_logsCreateWithoutItemInput[] | payroll_payment_logsUncheckedCreateWithoutItemInput[]
+    connectOrCreate?: payroll_payment_logsCreateOrConnectWithoutItemInput | payroll_payment_logsCreateOrConnectWithoutItemInput[]
+    createMany?: payroll_payment_logsCreateManyItemInputEnvelope
+    connect?: payroll_payment_logsWhereUniqueInput | payroll_payment_logsWhereUniqueInput[]
+  }
+
+  export type payroll_sheetsUpdateOneRequiredWithoutItemsNestedInput = {
+    create?: XOR<payroll_sheetsCreateWithoutItemsInput, payroll_sheetsUncheckedCreateWithoutItemsInput>
+    connectOrCreate?: payroll_sheetsCreateOrConnectWithoutItemsInput
+    upsert?: payroll_sheetsUpsertWithoutItemsInput
+    connect?: payroll_sheetsWhereUniqueInput
+    update?: XOR<XOR<payroll_sheetsUpdateToOneWithWhereWithoutItemsInput, payroll_sheetsUpdateWithoutItemsInput>, payroll_sheetsUncheckedUpdateWithoutItemsInput>
+  }
+
+  export type employeesUpdateOneRequiredWithoutPayrollSheetItemsNestedInput = {
+    create?: XOR<employeesCreateWithoutPayrollSheetItemsInput, employeesUncheckedCreateWithoutPayrollSheetItemsInput>
+    connectOrCreate?: employeesCreateOrConnectWithoutPayrollSheetItemsInput
+    upsert?: employeesUpsertWithoutPayrollSheetItemsInput
+    connect?: employeesWhereUniqueInput
+    update?: XOR<XOR<employeesUpdateToOneWithWhereWithoutPayrollSheetItemsInput, employeesUpdateWithoutPayrollSheetItemsInput>, employeesUncheckedUpdateWithoutPayrollSheetItemsInput>
+  }
+
+  export type payroll_payment_logsUpdateManyWithoutItemNestedInput = {
+    create?: XOR<payroll_payment_logsCreateWithoutItemInput, payroll_payment_logsUncheckedCreateWithoutItemInput> | payroll_payment_logsCreateWithoutItemInput[] | payroll_payment_logsUncheckedCreateWithoutItemInput[]
+    connectOrCreate?: payroll_payment_logsCreateOrConnectWithoutItemInput | payroll_payment_logsCreateOrConnectWithoutItemInput[]
+    upsert?: payroll_payment_logsUpsertWithWhereUniqueWithoutItemInput | payroll_payment_logsUpsertWithWhereUniqueWithoutItemInput[]
+    createMany?: payroll_payment_logsCreateManyItemInputEnvelope
+    set?: payroll_payment_logsWhereUniqueInput | payroll_payment_logsWhereUniqueInput[]
+    disconnect?: payroll_payment_logsWhereUniqueInput | payroll_payment_logsWhereUniqueInput[]
+    delete?: payroll_payment_logsWhereUniqueInput | payroll_payment_logsWhereUniqueInput[]
+    connect?: payroll_payment_logsWhereUniqueInput | payroll_payment_logsWhereUniqueInput[]
+    update?: payroll_payment_logsUpdateWithWhereUniqueWithoutItemInput | payroll_payment_logsUpdateWithWhereUniqueWithoutItemInput[]
+    updateMany?: payroll_payment_logsUpdateManyWithWhereWithoutItemInput | payroll_payment_logsUpdateManyWithWhereWithoutItemInput[]
+    deleteMany?: payroll_payment_logsScalarWhereInput | payroll_payment_logsScalarWhereInput[]
+  }
+
+  export type payroll_payment_logsUncheckedUpdateManyWithoutItemNestedInput = {
+    create?: XOR<payroll_payment_logsCreateWithoutItemInput, payroll_payment_logsUncheckedCreateWithoutItemInput> | payroll_payment_logsCreateWithoutItemInput[] | payroll_payment_logsUncheckedCreateWithoutItemInput[]
+    connectOrCreate?: payroll_payment_logsCreateOrConnectWithoutItemInput | payroll_payment_logsCreateOrConnectWithoutItemInput[]
+    upsert?: payroll_payment_logsUpsertWithWhereUniqueWithoutItemInput | payroll_payment_logsUpsertWithWhereUniqueWithoutItemInput[]
+    createMany?: payroll_payment_logsCreateManyItemInputEnvelope
+    set?: payroll_payment_logsWhereUniqueInput | payroll_payment_logsWhereUniqueInput[]
+    disconnect?: payroll_payment_logsWhereUniqueInput | payroll_payment_logsWhereUniqueInput[]
+    delete?: payroll_payment_logsWhereUniqueInput | payroll_payment_logsWhereUniqueInput[]
+    connect?: payroll_payment_logsWhereUniqueInput | payroll_payment_logsWhereUniqueInput[]
+    update?: payroll_payment_logsUpdateWithWhereUniqueWithoutItemInput | payroll_payment_logsUpdateWithWhereUniqueWithoutItemInput[]
+    updateMany?: payroll_payment_logsUpdateManyWithWhereWithoutItemInput | payroll_payment_logsUpdateManyWithWhereWithoutItemInput[]
+    deleteMany?: payroll_payment_logsScalarWhereInput | payroll_payment_logsScalarWhereInput[]
+  }
+
+  export type payroll_sheet_itemsCreateNestedOneWithoutPaymentLogsInput = {
+    create?: XOR<payroll_sheet_itemsCreateWithoutPaymentLogsInput, payroll_sheet_itemsUncheckedCreateWithoutPaymentLogsInput>
+    connectOrCreate?: payroll_sheet_itemsCreateOrConnectWithoutPaymentLogsInput
+    connect?: payroll_sheet_itemsWhereUniqueInput
+  }
+
+  export type payroll_sheet_itemsUpdateOneRequiredWithoutPaymentLogsNestedInput = {
+    create?: XOR<payroll_sheet_itemsCreateWithoutPaymentLogsInput, payroll_sheet_itemsUncheckedCreateWithoutPaymentLogsInput>
+    connectOrCreate?: payroll_sheet_itemsCreateOrConnectWithoutPaymentLogsInput
+    upsert?: payroll_sheet_itemsUpsertWithoutPaymentLogsInput
+    connect?: payroll_sheet_itemsWhereUniqueInput
+    update?: XOR<XOR<payroll_sheet_itemsUpdateToOneWithWhereWithoutPaymentLogsInput, payroll_sheet_itemsUpdateWithoutPaymentLogsInput>, payroll_sheet_itemsUncheckedUpdateWithoutPaymentLogsInput>
+  }
+
+  export type employeesCreateNestedOneWithoutSalaryAdvancesInput = {
+    create?: XOR<employeesCreateWithoutSalaryAdvancesInput, employeesUncheckedCreateWithoutSalaryAdvancesInput>
+    connectOrCreate?: employeesCreateOrConnectWithoutSalaryAdvancesInput
+    connect?: employeesWhereUniqueInput
+  }
+
+  export type usersCreateNestedOneWithoutSalaryAdvancesGivenInput = {
+    create?: XOR<usersCreateWithoutSalaryAdvancesGivenInput, usersUncheckedCreateWithoutSalaryAdvancesGivenInput>
+    connectOrCreate?: usersCreateOrConnectWithoutSalaryAdvancesGivenInput
+    connect?: usersWhereUniqueInput
+  }
+
+  export type employeesUpdateOneRequiredWithoutSalaryAdvancesNestedInput = {
+    create?: XOR<employeesCreateWithoutSalaryAdvancesInput, employeesUncheckedCreateWithoutSalaryAdvancesInput>
+    connectOrCreate?: employeesCreateOrConnectWithoutSalaryAdvancesInput
+    upsert?: employeesUpsertWithoutSalaryAdvancesInput
+    connect?: employeesWhereUniqueInput
+    update?: XOR<XOR<employeesUpdateToOneWithWhereWithoutSalaryAdvancesInput, employeesUpdateWithoutSalaryAdvancesInput>, employeesUncheckedUpdateWithoutSalaryAdvancesInput>
+  }
+
+  export type usersUpdateOneRequiredWithoutSalaryAdvancesGivenNestedInput = {
+    create?: XOR<usersCreateWithoutSalaryAdvancesGivenInput, usersUncheckedCreateWithoutSalaryAdvancesGivenInput>
+    connectOrCreate?: usersCreateOrConnectWithoutSalaryAdvancesGivenInput
+    upsert?: usersUpsertWithoutSalaryAdvancesGivenInput
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutSalaryAdvancesGivenInput, usersUpdateWithoutSalaryAdvancesGivenInput>, usersUncheckedUpdateWithoutSalaryAdvancesGivenInput>
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -40344,6 +47513,8 @@ export namespace Prisma {
     doors?: doorsCreateNestedManyWithoutEmployeesInput
     doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
+    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesUncheckedCreateWithoutDirectedBranchesInput = {
@@ -40378,6 +47549,8 @@ export namespace Prisma {
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
     doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesCreateOrConnectWithoutDirectedBranchesInput = {
@@ -40449,6 +47622,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesUncheckedCreateWithoutBranchInput = {
@@ -40483,6 +47658,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesCreateOrConnectWithoutBranchInput = {
@@ -40642,6 +47819,9 @@ export namespace Prisma {
     timeOff?: time_offCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
   }
 
   export type usersUncheckedCreateWithoutBranchesInput = {
@@ -40668,6 +47848,9 @@ export namespace Prisma {
     timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
   }
 
   export type usersCreateOrConnectWithoutBranchesInput = {
@@ -40717,6 +47900,8 @@ export namespace Prisma {
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
     doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateWithoutDirectedBranchesInput = {
@@ -40751,6 +47936,8 @@ export namespace Prisma {
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
     doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employment_ordersUpsertWithWhereUniqueWithoutBranchInput = {
@@ -40980,6 +48167,9 @@ export namespace Prisma {
     timeOff?: time_offUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutBranchesInput = {
@@ -41006,6 +48196,9 @@ export namespace Prisma {
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
   }
 
   export type employment_ordersCreateWithoutDepartmentInput = {
@@ -41072,6 +48265,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesUncheckedCreateWithoutDepartmentInput = {
@@ -41106,6 +48301,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesCreateOrConnectWithoutDepartmentInput = {
@@ -41361,6 +48558,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesUncheckedCreateWithoutEmploymentOrdersInput = {
@@ -41395,6 +48594,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesCreateOrConnectWithoutEmploymentOrdersInput = {
@@ -41548,6 +48749,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateWithoutEmploymentOrdersInput = {
@@ -41582,6 +48785,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
   }
 
   export type branchesCreateWithoutEmployeesInput = {
@@ -41951,6 +49156,9 @@ export namespace Prisma {
     timeOff?: time_offCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
   }
 
   export type usersUncheckedCreateWithoutEmployeeInput = {
@@ -41977,6 +49185,9 @@ export namespace Prisma {
     timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
   }
 
   export type usersCreateOrConnectWithoutEmployeeInput = {
@@ -42030,6 +49241,102 @@ export namespace Prisma {
 
   export type branchesCreateManyDirectorInputEnvelope = {
     data: branchesCreateManyDirectorInput | branchesCreateManyDirectorInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type payroll_sheet_itemsCreateWithoutEmployeeInput = {
+    base_salary: Decimal | DecimalJsLike | number | string
+    salary_type: string
+    worked_days?: number
+    total_work_days?: number
+    worked_hours?: string | null
+    total_work_hours?: string | null
+    accrued: Decimal | DecimalJsLike | number | string
+    debt_balance?: Decimal | DecimalJsLike | number | string
+    debt_deduction?: Decimal | DecimalJsLike | number | string
+    debt_mode?: string
+    debt_comment?: string | null
+    manual_adjustment?: Decimal | DecimalJsLike | number | string
+    adjustment_comment?: string | null
+    late_minutes?: number
+    overtime_minutes?: number
+    apply_late?: boolean
+    apply_overtime?: boolean
+    late_amount?: Decimal | DecimalJsLike | number | string
+    overtime_amount?: Decimal | DecimalJsLike | number | string
+    advance_total?: Decimal | DecimalJsLike | number | string
+    net: Decimal | DecimalJsLike | number | string
+    salary_balance?: Decimal | DecimalJsLike | number | string
+    paid_amount?: Decimal | DecimalJsLike | number | string
+    status?: string
+    sheet: payroll_sheetsCreateNestedOneWithoutItemsInput
+    paymentLogs?: payroll_payment_logsCreateNestedManyWithoutItemInput
+  }
+
+  export type payroll_sheet_itemsUncheckedCreateWithoutEmployeeInput = {
+    id?: number
+    sheet_id: number
+    base_salary: Decimal | DecimalJsLike | number | string
+    salary_type: string
+    worked_days?: number
+    total_work_days?: number
+    worked_hours?: string | null
+    total_work_hours?: string | null
+    accrued: Decimal | DecimalJsLike | number | string
+    debt_balance?: Decimal | DecimalJsLike | number | string
+    debt_deduction?: Decimal | DecimalJsLike | number | string
+    debt_mode?: string
+    debt_comment?: string | null
+    manual_adjustment?: Decimal | DecimalJsLike | number | string
+    adjustment_comment?: string | null
+    late_minutes?: number
+    overtime_minutes?: number
+    apply_late?: boolean
+    apply_overtime?: boolean
+    late_amount?: Decimal | DecimalJsLike | number | string
+    overtime_amount?: Decimal | DecimalJsLike | number | string
+    advance_total?: Decimal | DecimalJsLike | number | string
+    net: Decimal | DecimalJsLike | number | string
+    salary_balance?: Decimal | DecimalJsLike | number | string
+    paid_amount?: Decimal | DecimalJsLike | number | string
+    status?: string
+    paymentLogs?: payroll_payment_logsUncheckedCreateNestedManyWithoutItemInput
+  }
+
+  export type payroll_sheet_itemsCreateOrConnectWithoutEmployeeInput = {
+    where: payroll_sheet_itemsWhereUniqueInput
+    create: XOR<payroll_sheet_itemsCreateWithoutEmployeeInput, payroll_sheet_itemsUncheckedCreateWithoutEmployeeInput>
+  }
+
+  export type payroll_sheet_itemsCreateManyEmployeeInputEnvelope = {
+    data: payroll_sheet_itemsCreateManyEmployeeInput | payroll_sheet_itemsCreateManyEmployeeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type salary_advancesCreateWithoutEmployeeInput = {
+    amount: Decimal | DecimalJsLike | number | string
+    advance_date: Date | string
+    note?: string | null
+    added_at?: Date | string
+    givenBy: usersCreateNestedOneWithoutSalaryAdvancesGivenInput
+  }
+
+  export type salary_advancesUncheckedCreateWithoutEmployeeInput = {
+    id?: number
+    amount: Decimal | DecimalJsLike | number | string
+    advance_date: Date | string
+    note?: string | null
+    given_by: number
+    added_at?: Date | string
+  }
+
+  export type salary_advancesCreateOrConnectWithoutEmployeeInput = {
+    where: salary_advancesWhereUniqueInput
+    create: XOR<salary_advancesCreateWithoutEmployeeInput, salary_advancesUncheckedCreateWithoutEmployeeInput>
+  }
+
+  export type salary_advancesCreateManyEmployeeInputEnvelope = {
+    data: salary_advancesCreateManyEmployeeInput | salary_advancesCreateManyEmployeeInput[]
     skipDuplicates?: boolean
   }
 
@@ -42402,6 +49709,9 @@ export namespace Prisma {
     timeOff?: time_offUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutEmployeeInput = {
@@ -42428,6 +49738,9 @@ export namespace Prisma {
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
   }
 
   export type branchesUpsertWithWhereUniqueWithoutDirectorInput = {
@@ -42464,6 +49777,84 @@ export namespace Prisma {
     added_by?: IntFilter<"branches"> | number
   }
 
+  export type payroll_sheet_itemsUpsertWithWhereUniqueWithoutEmployeeInput = {
+    where: payroll_sheet_itemsWhereUniqueInput
+    update: XOR<payroll_sheet_itemsUpdateWithoutEmployeeInput, payroll_sheet_itemsUncheckedUpdateWithoutEmployeeInput>
+    create: XOR<payroll_sheet_itemsCreateWithoutEmployeeInput, payroll_sheet_itemsUncheckedCreateWithoutEmployeeInput>
+  }
+
+  export type payroll_sheet_itemsUpdateWithWhereUniqueWithoutEmployeeInput = {
+    where: payroll_sheet_itemsWhereUniqueInput
+    data: XOR<payroll_sheet_itemsUpdateWithoutEmployeeInput, payroll_sheet_itemsUncheckedUpdateWithoutEmployeeInput>
+  }
+
+  export type payroll_sheet_itemsUpdateManyWithWhereWithoutEmployeeInput = {
+    where: payroll_sheet_itemsScalarWhereInput
+    data: XOR<payroll_sheet_itemsUpdateManyMutationInput, payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeInput>
+  }
+
+  export type payroll_sheet_itemsScalarWhereInput = {
+    AND?: payroll_sheet_itemsScalarWhereInput | payroll_sheet_itemsScalarWhereInput[]
+    OR?: payroll_sheet_itemsScalarWhereInput[]
+    NOT?: payroll_sheet_itemsScalarWhereInput | payroll_sheet_itemsScalarWhereInput[]
+    id?: IntFilter<"payroll_sheet_items"> | number
+    sheet_id?: IntFilter<"payroll_sheet_items"> | number
+    employee_id?: IntFilter<"payroll_sheet_items"> | number
+    base_salary?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    salary_type?: StringFilter<"payroll_sheet_items"> | string
+    worked_days?: IntFilter<"payroll_sheet_items"> | number
+    total_work_days?: IntFilter<"payroll_sheet_items"> | number
+    worked_hours?: StringNullableFilter<"payroll_sheet_items"> | string | null
+    total_work_hours?: StringNullableFilter<"payroll_sheet_items"> | string | null
+    accrued?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringFilter<"payroll_sheet_items"> | string
+    debt_comment?: StringNullableFilter<"payroll_sheet_items"> | string | null
+    manual_adjustment?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: StringNullableFilter<"payroll_sheet_items"> | string | null
+    late_minutes?: IntFilter<"payroll_sheet_items"> | number
+    overtime_minutes?: IntFilter<"payroll_sheet_items"> | number
+    apply_late?: BoolFilter<"payroll_sheet_items"> | boolean
+    apply_overtime?: BoolFilter<"payroll_sheet_items"> | boolean
+    late_amount?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    net?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
+    status?: StringFilter<"payroll_sheet_items"> | string
+  }
+
+  export type salary_advancesUpsertWithWhereUniqueWithoutEmployeeInput = {
+    where: salary_advancesWhereUniqueInput
+    update: XOR<salary_advancesUpdateWithoutEmployeeInput, salary_advancesUncheckedUpdateWithoutEmployeeInput>
+    create: XOR<salary_advancesCreateWithoutEmployeeInput, salary_advancesUncheckedCreateWithoutEmployeeInput>
+  }
+
+  export type salary_advancesUpdateWithWhereUniqueWithoutEmployeeInput = {
+    where: salary_advancesWhereUniqueInput
+    data: XOR<salary_advancesUpdateWithoutEmployeeInput, salary_advancesUncheckedUpdateWithoutEmployeeInput>
+  }
+
+  export type salary_advancesUpdateManyWithWhereWithoutEmployeeInput = {
+    where: salary_advancesScalarWhereInput
+    data: XOR<salary_advancesUpdateManyMutationInput, salary_advancesUncheckedUpdateManyWithoutEmployeeInput>
+  }
+
+  export type salary_advancesScalarWhereInput = {
+    AND?: salary_advancesScalarWhereInput | salary_advancesScalarWhereInput[]
+    OR?: salary_advancesScalarWhereInput[]
+    NOT?: salary_advancesScalarWhereInput | salary_advancesScalarWhereInput[]
+    id?: IntFilter<"salary_advances"> | number
+    employee_id?: IntFilter<"salary_advances"> | number
+    amount?: DecimalFilter<"salary_advances"> | Decimal | DecimalJsLike | number | string
+    advance_date?: DateTimeFilter<"salary_advances"> | Date | string
+    note?: StringNullableFilter<"salary_advances"> | string | null
+    given_by?: IntFilter<"salary_advances"> | number
+    added_at?: DateTimeFilter<"salary_advances"> | Date | string
+  }
+
   export type employeesCreateWithoutFacePassesInput = {
     employee_number?: number | null
     last_name?: string | null
@@ -42495,6 +49886,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesUncheckedCreateWithoutFacePassesInput = {
@@ -42529,6 +49922,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesCreateOrConnectWithoutFacePassesInput = {
@@ -42642,6 +50037,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateWithoutFacePassesInput = {
@@ -42676,6 +50073,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
   }
 
   export type face_devicesUpsertWithoutFacePassesInput = {
@@ -42777,6 +50176,9 @@ export namespace Prisma {
     timeOff?: time_offCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
   }
 
   export type usersUncheckedCreateWithoutHolidaysInput = {
@@ -42803,6 +50205,9 @@ export namespace Prisma {
     timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
   }
 
   export type usersCreateOrConnectWithoutHolidaysInput = {
@@ -42844,6 +50249,9 @@ export namespace Prisma {
     timeOff?: time_offUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutHolidaysInput = {
@@ -42870,6 +50278,9 @@ export namespace Prisma {
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
   }
 
   export type employment_ordersCreateWithoutPositionInput = {
@@ -42936,6 +50347,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesUncheckedCreateWithoutPositionInput = {
@@ -42970,6 +50383,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesCreateOrConnectWithoutPositionInput = {
@@ -43037,6 +50452,9 @@ export namespace Prisma {
     timeOff?: time_offCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
   }
 
   export type usersUncheckedCreateWithoutSessionsInput = {
@@ -43063,6 +50481,9 @@ export namespace Prisma {
     timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
   }
 
   export type usersCreateOrConnectWithoutSessionsInput = {
@@ -43104,6 +50525,9 @@ export namespace Prisma {
     timeOff?: time_offUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutSessionsInput = {
@@ -43130,6 +50554,9 @@ export namespace Prisma {
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
   }
 
   export type usersCreateWithoutTimeOffInput = {
@@ -43155,6 +50582,9 @@ export namespace Prisma {
     branches?: branchesCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
   }
 
   export type usersUncheckedCreateWithoutTimeOffInput = {
@@ -43181,6 +50611,9 @@ export namespace Prisma {
     branches?: branchesUncheckedCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
   }
 
   export type usersCreateOrConnectWithoutTimeOffInput = {
@@ -43219,6 +50652,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesUncheckedCreateWithoutEmployeeTimeOffsInput = {
@@ -43253,6 +50688,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesCreateOrConnectWithoutEmployeeTimeOffsInput = {
@@ -43294,6 +50731,9 @@ export namespace Prisma {
     branches?: branchesUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutTimeOffInput = {
@@ -43320,6 +50760,9 @@ export namespace Prisma {
     branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
   }
 
   export type employeesUpsertWithoutEmployeeTimeOffsInput = {
@@ -43364,6 +50807,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateWithoutEmployeeTimeOffsInput = {
@@ -43398,6 +50843,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesCreateWithoutUserInput = {
@@ -43431,6 +50878,8 @@ export namespace Prisma {
     doors?: doorsCreateNestedManyWithoutEmployeesInput
     doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesUncheckedCreateWithoutUserInput = {
@@ -43465,6 +50914,8 @@ export namespace Prisma {
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
     doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesCreateOrConnectWithoutUserInput = {
@@ -43692,6 +51143,95 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type payroll_sheetsCreateWithoutAddedByInput = {
+    month: number
+    year: number
+    status?: string
+    added_at?: Date | string
+    approved_at?: Date | string | null
+    items?: payroll_sheet_itemsCreateNestedManyWithoutSheetInput
+    approvedBy?: usersCreateNestedOneWithoutPayrollSheetsApprovedInput
+  }
+
+  export type payroll_sheetsUncheckedCreateWithoutAddedByInput = {
+    id?: number
+    month: number
+    year: number
+    status?: string
+    added_at?: Date | string
+    approved_by?: number | null
+    approved_at?: Date | string | null
+    items?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutSheetInput
+  }
+
+  export type payroll_sheetsCreateOrConnectWithoutAddedByInput = {
+    where: payroll_sheetsWhereUniqueInput
+    create: XOR<payroll_sheetsCreateWithoutAddedByInput, payroll_sheetsUncheckedCreateWithoutAddedByInput>
+  }
+
+  export type payroll_sheetsCreateManyAddedByInputEnvelope = {
+    data: payroll_sheetsCreateManyAddedByInput | payroll_sheetsCreateManyAddedByInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type payroll_sheetsCreateWithoutApprovedByInput = {
+    month: number
+    year: number
+    status?: string
+    added_at?: Date | string
+    approved_at?: Date | string | null
+    items?: payroll_sheet_itemsCreateNestedManyWithoutSheetInput
+    addedBy: usersCreateNestedOneWithoutPayrollSheetsAddedInput
+  }
+
+  export type payroll_sheetsUncheckedCreateWithoutApprovedByInput = {
+    id?: number
+    month: number
+    year: number
+    status?: string
+    added_by: number
+    added_at?: Date | string
+    approved_at?: Date | string | null
+    items?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutSheetInput
+  }
+
+  export type payroll_sheetsCreateOrConnectWithoutApprovedByInput = {
+    where: payroll_sheetsWhereUniqueInput
+    create: XOR<payroll_sheetsCreateWithoutApprovedByInput, payroll_sheetsUncheckedCreateWithoutApprovedByInput>
+  }
+
+  export type payroll_sheetsCreateManyApprovedByInputEnvelope = {
+    data: payroll_sheetsCreateManyApprovedByInput | payroll_sheetsCreateManyApprovedByInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type salary_advancesCreateWithoutGivenByInput = {
+    amount: Decimal | DecimalJsLike | number | string
+    advance_date: Date | string
+    note?: string | null
+    added_at?: Date | string
+    employee: employeesCreateNestedOneWithoutSalaryAdvancesInput
+  }
+
+  export type salary_advancesUncheckedCreateWithoutGivenByInput = {
+    id?: number
+    employee_id: number
+    amount: Decimal | DecimalJsLike | number | string
+    advance_date: Date | string
+    note?: string | null
+    added_at?: Date | string
+  }
+
+  export type salary_advancesCreateOrConnectWithoutGivenByInput = {
+    where: salary_advancesWhereUniqueInput
+    create: XOR<salary_advancesCreateWithoutGivenByInput, salary_advancesUncheckedCreateWithoutGivenByInput>
+  }
+
+  export type salary_advancesCreateManyGivenByInputEnvelope = {
+    data: salary_advancesCreateManyGivenByInput | salary_advancesCreateManyGivenByInput[]
+    skipDuplicates?: boolean
+  }
+
   export type employeesUpsertWithoutUserInput = {
     update: XOR<employeesUpdateWithoutUserInput, employeesUncheckedUpdateWithoutUserInput>
     create: XOR<employeesCreateWithoutUserInput, employeesUncheckedCreateWithoutUserInput>
@@ -43734,6 +51274,8 @@ export namespace Prisma {
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
     doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateWithoutUserInput = {
@@ -43768,6 +51310,8 @@ export namespace Prisma {
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
     doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
   }
 
   export type user_menu_accessUpsertWithWhereUniqueWithoutUserInput = {
@@ -43918,6 +51462,68 @@ export namespace Prisma {
   export type employee_salary_historyUpdateManyWithWhereWithoutAddedByInput = {
     where: employee_salary_historyScalarWhereInput
     data: XOR<employee_salary_historyUpdateManyMutationInput, employee_salary_historyUncheckedUpdateManyWithoutAddedByInput>
+  }
+
+  export type payroll_sheetsUpsertWithWhereUniqueWithoutAddedByInput = {
+    where: payroll_sheetsWhereUniqueInput
+    update: XOR<payroll_sheetsUpdateWithoutAddedByInput, payroll_sheetsUncheckedUpdateWithoutAddedByInput>
+    create: XOR<payroll_sheetsCreateWithoutAddedByInput, payroll_sheetsUncheckedCreateWithoutAddedByInput>
+  }
+
+  export type payroll_sheetsUpdateWithWhereUniqueWithoutAddedByInput = {
+    where: payroll_sheetsWhereUniqueInput
+    data: XOR<payroll_sheetsUpdateWithoutAddedByInput, payroll_sheetsUncheckedUpdateWithoutAddedByInput>
+  }
+
+  export type payroll_sheetsUpdateManyWithWhereWithoutAddedByInput = {
+    where: payroll_sheetsScalarWhereInput
+    data: XOR<payroll_sheetsUpdateManyMutationInput, payroll_sheetsUncheckedUpdateManyWithoutAddedByInput>
+  }
+
+  export type payroll_sheetsScalarWhereInput = {
+    AND?: payroll_sheetsScalarWhereInput | payroll_sheetsScalarWhereInput[]
+    OR?: payroll_sheetsScalarWhereInput[]
+    NOT?: payroll_sheetsScalarWhereInput | payroll_sheetsScalarWhereInput[]
+    id?: IntFilter<"payroll_sheets"> | number
+    month?: IntFilter<"payroll_sheets"> | number
+    year?: IntFilter<"payroll_sheets"> | number
+    status?: StringFilter<"payroll_sheets"> | string
+    added_by?: IntFilter<"payroll_sheets"> | number
+    added_at?: DateTimeFilter<"payroll_sheets"> | Date | string
+    approved_by?: IntNullableFilter<"payroll_sheets"> | number | null
+    approved_at?: DateTimeNullableFilter<"payroll_sheets"> | Date | string | null
+  }
+
+  export type payroll_sheetsUpsertWithWhereUniqueWithoutApprovedByInput = {
+    where: payroll_sheetsWhereUniqueInput
+    update: XOR<payroll_sheetsUpdateWithoutApprovedByInput, payroll_sheetsUncheckedUpdateWithoutApprovedByInput>
+    create: XOR<payroll_sheetsCreateWithoutApprovedByInput, payroll_sheetsUncheckedCreateWithoutApprovedByInput>
+  }
+
+  export type payroll_sheetsUpdateWithWhereUniqueWithoutApprovedByInput = {
+    where: payroll_sheetsWhereUniqueInput
+    data: XOR<payroll_sheetsUpdateWithoutApprovedByInput, payroll_sheetsUncheckedUpdateWithoutApprovedByInput>
+  }
+
+  export type payroll_sheetsUpdateManyWithWhereWithoutApprovedByInput = {
+    where: payroll_sheetsScalarWhereInput
+    data: XOR<payroll_sheetsUpdateManyMutationInput, payroll_sheetsUncheckedUpdateManyWithoutApprovedByInput>
+  }
+
+  export type salary_advancesUpsertWithWhereUniqueWithoutGivenByInput = {
+    where: salary_advancesWhereUniqueInput
+    update: XOR<salary_advancesUpdateWithoutGivenByInput, salary_advancesUncheckedUpdateWithoutGivenByInput>
+    create: XOR<salary_advancesCreateWithoutGivenByInput, salary_advancesUncheckedCreateWithoutGivenByInput>
+  }
+
+  export type salary_advancesUpdateWithWhereUniqueWithoutGivenByInput = {
+    where: salary_advancesWhereUniqueInput
+    data: XOR<salary_advancesUpdateWithoutGivenByInput, salary_advancesUncheckedUpdateWithoutGivenByInput>
+  }
+
+  export type salary_advancesUpdateManyWithWhereWithoutGivenByInput = {
+    where: salary_advancesScalarWhereInput
+    data: XOR<salary_advancesUpdateManyMutationInput, salary_advancesUncheckedUpdateManyWithoutGivenByInput>
   }
 
   export type menusCreateWithoutChildrenInput = {
@@ -44090,6 +51696,9 @@ export namespace Prisma {
     timeOff?: time_offCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
   }
 
   export type usersUncheckedCreateWithoutMenuAccessInput = {
@@ -44116,6 +51725,9 @@ export namespace Prisma {
     timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
   }
 
   export type usersCreateOrConnectWithoutMenuAccessInput = {
@@ -44179,6 +51791,9 @@ export namespace Prisma {
     timeOff?: time_offUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutMenuAccessInput = {
@@ -44205,6 +51820,9 @@ export namespace Prisma {
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
   }
 
   export type menusUpsertWithoutAccessInput = {
@@ -44266,6 +51884,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesUncheckedCreateWithoutWorkScheduleInput = {
@@ -44300,6 +51920,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesCreateOrConnectWithoutWorkScheduleInput = {
@@ -44402,6 +52024,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesUncheckedCreateWithoutEmployeeScheduleHistoryInput = {
@@ -44436,6 +52060,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesCreateOrConnectWithoutEmployeeScheduleHistoryInput = {
@@ -44502,6 +52128,9 @@ export namespace Prisma {
     branches?: branchesCreateNestedManyWithoutAddedByInput
     timeOff?: time_offCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
   }
 
   export type usersUncheckedCreateWithoutEmployeeScheduleHistoryInput = {
@@ -44528,6 +52157,9 @@ export namespace Prisma {
     branches?: branchesUncheckedCreateNestedManyWithoutAddedByInput
     timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
     employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
   }
 
   export type usersCreateOrConnectWithoutEmployeeScheduleHistoryInput = {
@@ -44577,6 +52209,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateWithoutEmployeeScheduleHistoryInput = {
@@ -44611,6 +52245,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
   }
 
   export type work_schedulesUpsertWithoutEmployeeScheduleHistoryInput = {
@@ -44689,6 +52325,9 @@ export namespace Prisma {
     branches?: branchesUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutEmployeeScheduleHistoryInput = {
@@ -44715,6 +52354,9 @@ export namespace Prisma {
     branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
     employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
   }
 
   export type employeesCreateWithoutEmployeeSalaryHistoryInput = {
@@ -44748,6 +52390,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesUncheckedCreateWithoutEmployeeSalaryHistoryInput = {
@@ -44782,6 +52426,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesCreateOrConnectWithoutEmployeeSalaryHistoryInput = {
@@ -44812,6 +52458,9 @@ export namespace Prisma {
     branches?: branchesCreateNestedManyWithoutAddedByInput
     timeOff?: time_offCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
   }
 
   export type usersUncheckedCreateWithoutEmployeeSalaryHistoryInput = {
@@ -44838,6 +52487,9 @@ export namespace Prisma {
     branches?: branchesUncheckedCreateNestedManyWithoutAddedByInput
     timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
   }
 
   export type usersCreateOrConnectWithoutEmployeeSalaryHistoryInput = {
@@ -44887,6 +52539,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateWithoutEmployeeSalaryHistoryInput = {
@@ -44921,6 +52575,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
   }
 
   export type usersUpsertWithoutEmployeeSalaryHistoryInput = {
@@ -44957,6 +52613,9 @@ export namespace Prisma {
     branches?: branchesUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutEmployeeSalaryHistoryInput = {
@@ -44983,6 +52642,9 @@ export namespace Prisma {
     branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
     timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
   }
 
   export type branchesCreateWithoutDoorsInput = {
@@ -45060,6 +52722,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesUncheckedCreateWithoutDoorsInput = {
@@ -45094,6 +52758,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesCreateOrConnectWithoutDoorsInput = {
@@ -45490,6 +53156,8 @@ export namespace Prisma {
     doors?: doorsCreateNestedManyWithoutEmployeesInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesUncheckedCreateWithoutDoorTasksInput = {
@@ -45524,6 +53192,8 @@ export namespace Prisma {
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
+    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
   }
 
   export type employeesCreateOrConnectWithoutDoorTasksInput = {
@@ -45603,6 +53273,8 @@ export namespace Prisma {
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateWithoutDoorTasksInput = {
@@ -45637,6 +53309,8 @@ export namespace Prisma {
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
   }
 
   export type doorsUpsertWithoutDoorTasksInput = {
@@ -46220,6 +53894,1042 @@ export namespace Prisma {
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type payroll_sheet_itemsCreateWithoutSheetInput = {
+    base_salary: Decimal | DecimalJsLike | number | string
+    salary_type: string
+    worked_days?: number
+    total_work_days?: number
+    worked_hours?: string | null
+    total_work_hours?: string | null
+    accrued: Decimal | DecimalJsLike | number | string
+    debt_balance?: Decimal | DecimalJsLike | number | string
+    debt_deduction?: Decimal | DecimalJsLike | number | string
+    debt_mode?: string
+    debt_comment?: string | null
+    manual_adjustment?: Decimal | DecimalJsLike | number | string
+    adjustment_comment?: string | null
+    late_minutes?: number
+    overtime_minutes?: number
+    apply_late?: boolean
+    apply_overtime?: boolean
+    late_amount?: Decimal | DecimalJsLike | number | string
+    overtime_amount?: Decimal | DecimalJsLike | number | string
+    advance_total?: Decimal | DecimalJsLike | number | string
+    net: Decimal | DecimalJsLike | number | string
+    salary_balance?: Decimal | DecimalJsLike | number | string
+    paid_amount?: Decimal | DecimalJsLike | number | string
+    status?: string
+    employee: employeesCreateNestedOneWithoutPayrollSheetItemsInput
+    paymentLogs?: payroll_payment_logsCreateNestedManyWithoutItemInput
+  }
+
+  export type payroll_sheet_itemsUncheckedCreateWithoutSheetInput = {
+    id?: number
+    employee_id: number
+    base_salary: Decimal | DecimalJsLike | number | string
+    salary_type: string
+    worked_days?: number
+    total_work_days?: number
+    worked_hours?: string | null
+    total_work_hours?: string | null
+    accrued: Decimal | DecimalJsLike | number | string
+    debt_balance?: Decimal | DecimalJsLike | number | string
+    debt_deduction?: Decimal | DecimalJsLike | number | string
+    debt_mode?: string
+    debt_comment?: string | null
+    manual_adjustment?: Decimal | DecimalJsLike | number | string
+    adjustment_comment?: string | null
+    late_minutes?: number
+    overtime_minutes?: number
+    apply_late?: boolean
+    apply_overtime?: boolean
+    late_amount?: Decimal | DecimalJsLike | number | string
+    overtime_amount?: Decimal | DecimalJsLike | number | string
+    advance_total?: Decimal | DecimalJsLike | number | string
+    net: Decimal | DecimalJsLike | number | string
+    salary_balance?: Decimal | DecimalJsLike | number | string
+    paid_amount?: Decimal | DecimalJsLike | number | string
+    status?: string
+    paymentLogs?: payroll_payment_logsUncheckedCreateNestedManyWithoutItemInput
+  }
+
+  export type payroll_sheet_itemsCreateOrConnectWithoutSheetInput = {
+    where: payroll_sheet_itemsWhereUniqueInput
+    create: XOR<payroll_sheet_itemsCreateWithoutSheetInput, payroll_sheet_itemsUncheckedCreateWithoutSheetInput>
+  }
+
+  export type payroll_sheet_itemsCreateManySheetInputEnvelope = {
+    data: payroll_sheet_itemsCreateManySheetInput | payroll_sheet_itemsCreateManySheetInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type usersCreateWithoutPayrollSheetsAddedInput = {
+    username: string
+    password: string
+    telegram_id?: string | null
+    status?: boolean
+    access_level?: string | null
+    branch_access?: usersCreatebranch_accessInput | number[]
+    department_access?: usersCreatedepartment_accessInput | number[]
+    language?: string
+    theme?: string
+    sidebar?: string
+    view_mode?: string
+    personal_menus?: usersCreatepersonal_menusInput | string[]
+    active_branch_id?: number | null
+    ignore_gps_check?: boolean
+    added_at?: Date | string
+    employee?: employeesCreateNestedOneWithoutUserInput
+    menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
+    sessions?: sessionsCreateNestedManyWithoutUserInput
+    holidays?: holidaysCreateNestedManyWithoutAddedByInput
+    branches?: branchesCreateNestedManyWithoutAddedByInput
+    timeOff?: time_offCreateNestedManyWithoutAddedByInput
+    employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
+  }
+
+  export type usersUncheckedCreateWithoutPayrollSheetsAddedInput = {
+    id?: number
+    username: string
+    password: string
+    telegram_id?: string | null
+    employee_id?: number | null
+    status?: boolean
+    access_level?: string | null
+    branch_access?: usersCreatebranch_accessInput | number[]
+    department_access?: usersCreatedepartment_accessInput | number[]
+    language?: string
+    theme?: string
+    sidebar?: string
+    view_mode?: string
+    personal_menus?: usersCreatepersonal_menusInput | string[]
+    active_branch_id?: number | null
+    ignore_gps_check?: boolean
+    added_at?: Date | string
+    menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
+    sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
+    holidays?: holidaysUncheckedCreateNestedManyWithoutAddedByInput
+    branches?: branchesUncheckedCreateNestedManyWithoutAddedByInput
+    timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
+    employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
+  }
+
+  export type usersCreateOrConnectWithoutPayrollSheetsAddedInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutPayrollSheetsAddedInput, usersUncheckedCreateWithoutPayrollSheetsAddedInput>
+  }
+
+  export type usersCreateWithoutPayrollSheetsApprovedInput = {
+    username: string
+    password: string
+    telegram_id?: string | null
+    status?: boolean
+    access_level?: string | null
+    branch_access?: usersCreatebranch_accessInput | number[]
+    department_access?: usersCreatedepartment_accessInput | number[]
+    language?: string
+    theme?: string
+    sidebar?: string
+    view_mode?: string
+    personal_menus?: usersCreatepersonal_menusInput | string[]
+    active_branch_id?: number | null
+    ignore_gps_check?: boolean
+    added_at?: Date | string
+    employee?: employeesCreateNestedOneWithoutUserInput
+    menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
+    sessions?: sessionsCreateNestedManyWithoutUserInput
+    holidays?: holidaysCreateNestedManyWithoutAddedByInput
+    branches?: branchesCreateNestedManyWithoutAddedByInput
+    timeOff?: time_offCreateNestedManyWithoutAddedByInput
+    employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
+    salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
+  }
+
+  export type usersUncheckedCreateWithoutPayrollSheetsApprovedInput = {
+    id?: number
+    username: string
+    password: string
+    telegram_id?: string | null
+    employee_id?: number | null
+    status?: boolean
+    access_level?: string | null
+    branch_access?: usersCreatebranch_accessInput | number[]
+    department_access?: usersCreatedepartment_accessInput | number[]
+    language?: string
+    theme?: string
+    sidebar?: string
+    view_mode?: string
+    personal_menus?: usersCreatepersonal_menusInput | string[]
+    active_branch_id?: number | null
+    ignore_gps_check?: boolean
+    added_at?: Date | string
+    menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
+    sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
+    holidays?: holidaysUncheckedCreateNestedManyWithoutAddedByInput
+    branches?: branchesUncheckedCreateNestedManyWithoutAddedByInput
+    timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
+    employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
+    salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
+  }
+
+  export type usersCreateOrConnectWithoutPayrollSheetsApprovedInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutPayrollSheetsApprovedInput, usersUncheckedCreateWithoutPayrollSheetsApprovedInput>
+  }
+
+  export type payroll_sheet_itemsUpsertWithWhereUniqueWithoutSheetInput = {
+    where: payroll_sheet_itemsWhereUniqueInput
+    update: XOR<payroll_sheet_itemsUpdateWithoutSheetInput, payroll_sheet_itemsUncheckedUpdateWithoutSheetInput>
+    create: XOR<payroll_sheet_itemsCreateWithoutSheetInput, payroll_sheet_itemsUncheckedCreateWithoutSheetInput>
+  }
+
+  export type payroll_sheet_itemsUpdateWithWhereUniqueWithoutSheetInput = {
+    where: payroll_sheet_itemsWhereUniqueInput
+    data: XOR<payroll_sheet_itemsUpdateWithoutSheetInput, payroll_sheet_itemsUncheckedUpdateWithoutSheetInput>
+  }
+
+  export type payroll_sheet_itemsUpdateManyWithWhereWithoutSheetInput = {
+    where: payroll_sheet_itemsScalarWhereInput
+    data: XOR<payroll_sheet_itemsUpdateManyMutationInput, payroll_sheet_itemsUncheckedUpdateManyWithoutSheetInput>
+  }
+
+  export type usersUpsertWithoutPayrollSheetsAddedInput = {
+    update: XOR<usersUpdateWithoutPayrollSheetsAddedInput, usersUncheckedUpdateWithoutPayrollSheetsAddedInput>
+    create: XOR<usersCreateWithoutPayrollSheetsAddedInput, usersUncheckedCreateWithoutPayrollSheetsAddedInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutPayrollSheetsAddedInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutPayrollSheetsAddedInput, usersUncheckedUpdateWithoutPayrollSheetsAddedInput>
+  }
+
+  export type usersUpdateWithoutPayrollSheetsAddedInput = {
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    telegram_id?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    branch_access?: usersUpdatebranch_accessInput | number[]
+    department_access?: usersUpdatedepartment_accessInput | number[]
+    language?: StringFieldUpdateOperationsInput | string
+    theme?: StringFieldUpdateOperationsInput | string
+    sidebar?: StringFieldUpdateOperationsInput | string
+    view_mode?: StringFieldUpdateOperationsInput | string
+    personal_menus?: usersUpdatepersonal_menusInput | string[]
+    active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: employeesUpdateOneWithoutUserNestedInput
+    menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
+    sessions?: sessionsUpdateManyWithoutUserNestedInput
+    holidays?: holidaysUpdateManyWithoutAddedByNestedInput
+    branches?: branchesUpdateManyWithoutAddedByNestedInput
+    timeOff?: time_offUpdateManyWithoutAddedByNestedInput
+    employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutPayrollSheetsAddedInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    telegram_id?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    branch_access?: usersUpdatebranch_accessInput | number[]
+    department_access?: usersUpdatedepartment_accessInput | number[]
+    language?: StringFieldUpdateOperationsInput | string
+    theme?: StringFieldUpdateOperationsInput | string
+    sidebar?: StringFieldUpdateOperationsInput | string
+    view_mode?: StringFieldUpdateOperationsInput | string
+    personal_menus?: usersUpdatepersonal_menusInput | string[]
+    active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
+    holidays?: holidaysUncheckedUpdateManyWithoutAddedByNestedInput
+    branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
+    timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
+  }
+
+  export type usersUpsertWithoutPayrollSheetsApprovedInput = {
+    update: XOR<usersUpdateWithoutPayrollSheetsApprovedInput, usersUncheckedUpdateWithoutPayrollSheetsApprovedInput>
+    create: XOR<usersCreateWithoutPayrollSheetsApprovedInput, usersUncheckedCreateWithoutPayrollSheetsApprovedInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutPayrollSheetsApprovedInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutPayrollSheetsApprovedInput, usersUncheckedUpdateWithoutPayrollSheetsApprovedInput>
+  }
+
+  export type usersUpdateWithoutPayrollSheetsApprovedInput = {
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    telegram_id?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    branch_access?: usersUpdatebranch_accessInput | number[]
+    department_access?: usersUpdatedepartment_accessInput | number[]
+    language?: StringFieldUpdateOperationsInput | string
+    theme?: StringFieldUpdateOperationsInput | string
+    sidebar?: StringFieldUpdateOperationsInput | string
+    view_mode?: StringFieldUpdateOperationsInput | string
+    personal_menus?: usersUpdatepersonal_menusInput | string[]
+    active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: employeesUpdateOneWithoutUserNestedInput
+    menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
+    sessions?: sessionsUpdateManyWithoutUserNestedInput
+    holidays?: holidaysUpdateManyWithoutAddedByNestedInput
+    branches?: branchesUpdateManyWithoutAddedByNestedInput
+    timeOff?: time_offUpdateManyWithoutAddedByNestedInput
+    employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutPayrollSheetsApprovedInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    telegram_id?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    branch_access?: usersUpdatebranch_accessInput | number[]
+    department_access?: usersUpdatedepartment_accessInput | number[]
+    language?: StringFieldUpdateOperationsInput | string
+    theme?: StringFieldUpdateOperationsInput | string
+    sidebar?: StringFieldUpdateOperationsInput | string
+    view_mode?: StringFieldUpdateOperationsInput | string
+    personal_menus?: usersUpdatepersonal_menusInput | string[]
+    active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
+    holidays?: holidaysUncheckedUpdateManyWithoutAddedByNestedInput
+    branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
+    timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
+  }
+
+  export type payroll_sheetsCreateWithoutItemsInput = {
+    month: number
+    year: number
+    status?: string
+    added_at?: Date | string
+    approved_at?: Date | string | null
+    addedBy: usersCreateNestedOneWithoutPayrollSheetsAddedInput
+    approvedBy?: usersCreateNestedOneWithoutPayrollSheetsApprovedInput
+  }
+
+  export type payroll_sheetsUncheckedCreateWithoutItemsInput = {
+    id?: number
+    month: number
+    year: number
+    status?: string
+    added_by: number
+    added_at?: Date | string
+    approved_by?: number | null
+    approved_at?: Date | string | null
+  }
+
+  export type payroll_sheetsCreateOrConnectWithoutItemsInput = {
+    where: payroll_sheetsWhereUniqueInput
+    create: XOR<payroll_sheetsCreateWithoutItemsInput, payroll_sheetsUncheckedCreateWithoutItemsInput>
+  }
+
+  export type employeesCreateWithoutPayrollSheetItemsInput = {
+    employee_number?: number | null
+    last_name?: string | null
+    first_name?: string | null
+    middle_name?: string | null
+    date_of_birth?: Date | string | null
+    gender?: string | null
+    passport?: string | null
+    passport_expiry_date?: Date | string | null
+    pinfl?: string | null
+    education?: string | null
+    phone?: string | null
+    email?: string | null
+    address?: string | null
+    status?: boolean | null
+    photo?: string | null
+    education_specialty?: string | null
+    added_at?: Date | string
+    updated_at?: Date | string
+    branch?: branchesCreateNestedOneWithoutEmployeesInput
+    department?: departmentsCreateNestedOneWithoutEmployeesInput
+    position?: positionsCreateNestedOneWithoutEmployeesInput
+    workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
+    employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
+    employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
+    employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
+    facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
+    doors?: doorsCreateNestedManyWithoutEmployeesInput
+    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
+    user?: usersCreateNestedOneWithoutEmployeeInput
+    directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type employeesUncheckedCreateWithoutPayrollSheetItemsInput = {
+    id?: number
+    employee_number?: number | null
+    last_name?: string | null
+    first_name?: string | null
+    middle_name?: string | null
+    date_of_birth?: Date | string | null
+    gender?: string | null
+    passport?: string | null
+    passport_expiry_date?: Date | string | null
+    pinfl?: string | null
+    education?: string | null
+    phone?: string | null
+    email?: string | null
+    address?: string | null
+    status?: boolean | null
+    photo?: string | null
+    branch_id?: number | null
+    department_id?: number | null
+    position_id?: number | null
+    work_schedule_id?: number | null
+    education_specialty?: string | null
+    added_at?: Date | string
+    updated_at?: Date | string
+    employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
+    facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
+    doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
+    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
+    user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
+    directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type employeesCreateOrConnectWithoutPayrollSheetItemsInput = {
+    where: employeesWhereUniqueInput
+    create: XOR<employeesCreateWithoutPayrollSheetItemsInput, employeesUncheckedCreateWithoutPayrollSheetItemsInput>
+  }
+
+  export type payroll_payment_logsCreateWithoutItemInput = {
+    amount: Decimal | DecimalJsLike | number | string
+    payment_date: Date | string
+    note?: string | null
+    added_at?: Date | string
+  }
+
+  export type payroll_payment_logsUncheckedCreateWithoutItemInput = {
+    id?: number
+    amount: Decimal | DecimalJsLike | number | string
+    payment_date: Date | string
+    note?: string | null
+    added_at?: Date | string
+  }
+
+  export type payroll_payment_logsCreateOrConnectWithoutItemInput = {
+    where: payroll_payment_logsWhereUniqueInput
+    create: XOR<payroll_payment_logsCreateWithoutItemInput, payroll_payment_logsUncheckedCreateWithoutItemInput>
+  }
+
+  export type payroll_payment_logsCreateManyItemInputEnvelope = {
+    data: payroll_payment_logsCreateManyItemInput | payroll_payment_logsCreateManyItemInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type payroll_sheetsUpsertWithoutItemsInput = {
+    update: XOR<payroll_sheetsUpdateWithoutItemsInput, payroll_sheetsUncheckedUpdateWithoutItemsInput>
+    create: XOR<payroll_sheetsCreateWithoutItemsInput, payroll_sheetsUncheckedCreateWithoutItemsInput>
+    where?: payroll_sheetsWhereInput
+  }
+
+  export type payroll_sheetsUpdateToOneWithWhereWithoutItemsInput = {
+    where?: payroll_sheetsWhereInput
+    data: XOR<payroll_sheetsUpdateWithoutItemsInput, payroll_sheetsUncheckedUpdateWithoutItemsInput>
+  }
+
+  export type payroll_sheetsUpdateWithoutItemsInput = {
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    addedBy?: usersUpdateOneRequiredWithoutPayrollSheetsAddedNestedInput
+    approvedBy?: usersUpdateOneWithoutPayrollSheetsApprovedNestedInput
+  }
+
+  export type payroll_sheetsUncheckedUpdateWithoutItemsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    added_by?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    approved_by?: NullableIntFieldUpdateOperationsInput | number | null
+    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type employeesUpsertWithoutPayrollSheetItemsInput = {
+    update: XOR<employeesUpdateWithoutPayrollSheetItemsInput, employeesUncheckedUpdateWithoutPayrollSheetItemsInput>
+    create: XOR<employeesCreateWithoutPayrollSheetItemsInput, employeesUncheckedCreateWithoutPayrollSheetItemsInput>
+    where?: employeesWhereInput
+  }
+
+  export type employeesUpdateToOneWithWhereWithoutPayrollSheetItemsInput = {
+    where?: employeesWhereInput
+    data: XOR<employeesUpdateWithoutPayrollSheetItemsInput, employeesUncheckedUpdateWithoutPayrollSheetItemsInput>
+  }
+
+  export type employeesUpdateWithoutPayrollSheetItemsInput = {
+    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    middle_name?: NullableStringFieldUpdateOperationsInput | string | null
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    passport?: NullableStringFieldUpdateOperationsInput | string | null
+    passport_expiry_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pinfl?: NullableStringFieldUpdateOperationsInput | string | null
+    education?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    photo?: NullableStringFieldUpdateOperationsInput | string | null
+    education_specialty?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    branch?: branchesUpdateOneWithoutEmployeesNestedInput
+    department?: departmentsUpdateOneWithoutEmployeesNestedInput
+    position?: positionsUpdateOneWithoutEmployeesNestedInput
+    workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
+    employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
+    employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
+    employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
+    facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
+    doors?: doorsUpdateManyWithoutEmployeesNestedInput
+    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
+    user?: usersUpdateOneWithoutEmployeeNestedInput
+    directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
+  }
+
+  export type employeesUncheckedUpdateWithoutPayrollSheetItemsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    middle_name?: NullableStringFieldUpdateOperationsInput | string | null
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    passport?: NullableStringFieldUpdateOperationsInput | string | null
+    passport_expiry_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pinfl?: NullableStringFieldUpdateOperationsInput | string | null
+    education?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    photo?: NullableStringFieldUpdateOperationsInput | string | null
+    branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    position_id?: NullableIntFieldUpdateOperationsInput | number | null
+    work_schedule_id?: NullableIntFieldUpdateOperationsInput | number | null
+    education_specialty?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
+    facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
+    doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
+    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
+    user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
+    directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
+  }
+
+  export type payroll_payment_logsUpsertWithWhereUniqueWithoutItemInput = {
+    where: payroll_payment_logsWhereUniqueInput
+    update: XOR<payroll_payment_logsUpdateWithoutItemInput, payroll_payment_logsUncheckedUpdateWithoutItemInput>
+    create: XOR<payroll_payment_logsCreateWithoutItemInput, payroll_payment_logsUncheckedCreateWithoutItemInput>
+  }
+
+  export type payroll_payment_logsUpdateWithWhereUniqueWithoutItemInput = {
+    where: payroll_payment_logsWhereUniqueInput
+    data: XOR<payroll_payment_logsUpdateWithoutItemInput, payroll_payment_logsUncheckedUpdateWithoutItemInput>
+  }
+
+  export type payroll_payment_logsUpdateManyWithWhereWithoutItemInput = {
+    where: payroll_payment_logsScalarWhereInput
+    data: XOR<payroll_payment_logsUpdateManyMutationInput, payroll_payment_logsUncheckedUpdateManyWithoutItemInput>
+  }
+
+  export type payroll_payment_logsScalarWhereInput = {
+    AND?: payroll_payment_logsScalarWhereInput | payroll_payment_logsScalarWhereInput[]
+    OR?: payroll_payment_logsScalarWhereInput[]
+    NOT?: payroll_payment_logsScalarWhereInput | payroll_payment_logsScalarWhereInput[]
+    id?: IntFilter<"payroll_payment_logs"> | number
+    item_id?: IntFilter<"payroll_payment_logs"> | number
+    amount?: DecimalFilter<"payroll_payment_logs"> | Decimal | DecimalJsLike | number | string
+    payment_date?: DateTimeFilter<"payroll_payment_logs"> | Date | string
+    note?: StringNullableFilter<"payroll_payment_logs"> | string | null
+    added_at?: DateTimeFilter<"payroll_payment_logs"> | Date | string
+  }
+
+  export type payroll_sheet_itemsCreateWithoutPaymentLogsInput = {
+    base_salary: Decimal | DecimalJsLike | number | string
+    salary_type: string
+    worked_days?: number
+    total_work_days?: number
+    worked_hours?: string | null
+    total_work_hours?: string | null
+    accrued: Decimal | DecimalJsLike | number | string
+    debt_balance?: Decimal | DecimalJsLike | number | string
+    debt_deduction?: Decimal | DecimalJsLike | number | string
+    debt_mode?: string
+    debt_comment?: string | null
+    manual_adjustment?: Decimal | DecimalJsLike | number | string
+    adjustment_comment?: string | null
+    late_minutes?: number
+    overtime_minutes?: number
+    apply_late?: boolean
+    apply_overtime?: boolean
+    late_amount?: Decimal | DecimalJsLike | number | string
+    overtime_amount?: Decimal | DecimalJsLike | number | string
+    advance_total?: Decimal | DecimalJsLike | number | string
+    net: Decimal | DecimalJsLike | number | string
+    salary_balance?: Decimal | DecimalJsLike | number | string
+    paid_amount?: Decimal | DecimalJsLike | number | string
+    status?: string
+    sheet: payroll_sheetsCreateNestedOneWithoutItemsInput
+    employee: employeesCreateNestedOneWithoutPayrollSheetItemsInput
+  }
+
+  export type payroll_sheet_itemsUncheckedCreateWithoutPaymentLogsInput = {
+    id?: number
+    sheet_id: number
+    employee_id: number
+    base_salary: Decimal | DecimalJsLike | number | string
+    salary_type: string
+    worked_days?: number
+    total_work_days?: number
+    worked_hours?: string | null
+    total_work_hours?: string | null
+    accrued: Decimal | DecimalJsLike | number | string
+    debt_balance?: Decimal | DecimalJsLike | number | string
+    debt_deduction?: Decimal | DecimalJsLike | number | string
+    debt_mode?: string
+    debt_comment?: string | null
+    manual_adjustment?: Decimal | DecimalJsLike | number | string
+    adjustment_comment?: string | null
+    late_minutes?: number
+    overtime_minutes?: number
+    apply_late?: boolean
+    apply_overtime?: boolean
+    late_amount?: Decimal | DecimalJsLike | number | string
+    overtime_amount?: Decimal | DecimalJsLike | number | string
+    advance_total?: Decimal | DecimalJsLike | number | string
+    net: Decimal | DecimalJsLike | number | string
+    salary_balance?: Decimal | DecimalJsLike | number | string
+    paid_amount?: Decimal | DecimalJsLike | number | string
+    status?: string
+  }
+
+  export type payroll_sheet_itemsCreateOrConnectWithoutPaymentLogsInput = {
+    where: payroll_sheet_itemsWhereUniqueInput
+    create: XOR<payroll_sheet_itemsCreateWithoutPaymentLogsInput, payroll_sheet_itemsUncheckedCreateWithoutPaymentLogsInput>
+  }
+
+  export type payroll_sheet_itemsUpsertWithoutPaymentLogsInput = {
+    update: XOR<payroll_sheet_itemsUpdateWithoutPaymentLogsInput, payroll_sheet_itemsUncheckedUpdateWithoutPaymentLogsInput>
+    create: XOR<payroll_sheet_itemsCreateWithoutPaymentLogsInput, payroll_sheet_itemsUncheckedCreateWithoutPaymentLogsInput>
+    where?: payroll_sheet_itemsWhereInput
+  }
+
+  export type payroll_sheet_itemsUpdateToOneWithWhereWithoutPaymentLogsInput = {
+    where?: payroll_sheet_itemsWhereInput
+    data: XOR<payroll_sheet_itemsUpdateWithoutPaymentLogsInput, payroll_sheet_itemsUncheckedUpdateWithoutPaymentLogsInput>
+  }
+
+  export type payroll_sheet_itemsUpdateWithoutPaymentLogsInput = {
+    base_salary?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_type?: StringFieldUpdateOperationsInput | string
+    worked_days?: IntFieldUpdateOperationsInput | number
+    total_work_days?: IntFieldUpdateOperationsInput | number
+    worked_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    total_work_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    accrued?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringFieldUpdateOperationsInput | string
+    debt_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    manual_adjustment?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    late_minutes?: IntFieldUpdateOperationsInput | number
+    overtime_minutes?: IntFieldUpdateOperationsInput | number
+    apply_late?: BoolFieldUpdateOperationsInput | boolean
+    apply_overtime?: BoolFieldUpdateOperationsInput | boolean
+    late_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    net?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    status?: StringFieldUpdateOperationsInput | string
+    sheet?: payroll_sheetsUpdateOneRequiredWithoutItemsNestedInput
+    employee?: employeesUpdateOneRequiredWithoutPayrollSheetItemsNestedInput
+  }
+
+  export type payroll_sheet_itemsUncheckedUpdateWithoutPaymentLogsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sheet_id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    base_salary?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_type?: StringFieldUpdateOperationsInput | string
+    worked_days?: IntFieldUpdateOperationsInput | number
+    total_work_days?: IntFieldUpdateOperationsInput | number
+    worked_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    total_work_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    accrued?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringFieldUpdateOperationsInput | string
+    debt_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    manual_adjustment?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    late_minutes?: IntFieldUpdateOperationsInput | number
+    overtime_minutes?: IntFieldUpdateOperationsInput | number
+    apply_late?: BoolFieldUpdateOperationsInput | boolean
+    apply_overtime?: BoolFieldUpdateOperationsInput | boolean
+    late_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    net?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    status?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type employeesCreateWithoutSalaryAdvancesInput = {
+    employee_number?: number | null
+    last_name?: string | null
+    first_name?: string | null
+    middle_name?: string | null
+    date_of_birth?: Date | string | null
+    gender?: string | null
+    passport?: string | null
+    passport_expiry_date?: Date | string | null
+    pinfl?: string | null
+    education?: string | null
+    phone?: string | null
+    email?: string | null
+    address?: string | null
+    status?: boolean | null
+    photo?: string | null
+    education_specialty?: string | null
+    added_at?: Date | string
+    updated_at?: Date | string
+    branch?: branchesCreateNestedOneWithoutEmployeesInput
+    department?: departmentsCreateNestedOneWithoutEmployeesInput
+    position?: positionsCreateNestedOneWithoutEmployeesInput
+    workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
+    employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
+    employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
+    employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
+    facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
+    doors?: doorsCreateNestedManyWithoutEmployeesInput
+    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
+    user?: usersCreateNestedOneWithoutEmployeeInput
+    directedBranches?: branchesCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type employeesUncheckedCreateWithoutSalaryAdvancesInput = {
+    id?: number
+    employee_number?: number | null
+    last_name?: string | null
+    first_name?: string | null
+    middle_name?: string | null
+    date_of_birth?: Date | string | null
+    gender?: string | null
+    passport?: string | null
+    passport_expiry_date?: Date | string | null
+    pinfl?: string | null
+    education?: string | null
+    phone?: string | null
+    email?: string | null
+    address?: string | null
+    status?: boolean | null
+    photo?: string | null
+    branch_id?: number | null
+    department_id?: number | null
+    position_id?: number | null
+    work_schedule_id?: number | null
+    education_specialty?: string | null
+    added_at?: Date | string
+    updated_at?: Date | string
+    employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
+    employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
+    employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
+    facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
+    doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
+    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
+    user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
+    directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type employeesCreateOrConnectWithoutSalaryAdvancesInput = {
+    where: employeesWhereUniqueInput
+    create: XOR<employeesCreateWithoutSalaryAdvancesInput, employeesUncheckedCreateWithoutSalaryAdvancesInput>
+  }
+
+  export type usersCreateWithoutSalaryAdvancesGivenInput = {
+    username: string
+    password: string
+    telegram_id?: string | null
+    status?: boolean
+    access_level?: string | null
+    branch_access?: usersCreatebranch_accessInput | number[]
+    department_access?: usersCreatedepartment_accessInput | number[]
+    language?: string
+    theme?: string
+    sidebar?: string
+    view_mode?: string
+    personal_menus?: usersCreatepersonal_menusInput | string[]
+    active_branch_id?: number | null
+    ignore_gps_check?: boolean
+    added_at?: Date | string
+    employee?: employeesCreateNestedOneWithoutUserInput
+    menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
+    sessions?: sessionsCreateNestedManyWithoutUserInput
+    holidays?: holidaysCreateNestedManyWithoutAddedByInput
+    branches?: branchesCreateNestedManyWithoutAddedByInput
+    timeOff?: time_offCreateNestedManyWithoutAddedByInput
+    employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
+  }
+
+  export type usersUncheckedCreateWithoutSalaryAdvancesGivenInput = {
+    id?: number
+    username: string
+    password: string
+    telegram_id?: string | null
+    employee_id?: number | null
+    status?: boolean
+    access_level?: string | null
+    branch_access?: usersCreatebranch_accessInput | number[]
+    department_access?: usersCreatedepartment_accessInput | number[]
+    language?: string
+    theme?: string
+    sidebar?: string
+    view_mode?: string
+    personal_menus?: usersCreatepersonal_menusInput | string[]
+    active_branch_id?: number | null
+    ignore_gps_check?: boolean
+    added_at?: Date | string
+    menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
+    sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
+    holidays?: holidaysUncheckedCreateNestedManyWithoutAddedByInput
+    branches?: branchesUncheckedCreateNestedManyWithoutAddedByInput
+    timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
+    employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
+  }
+
+  export type usersCreateOrConnectWithoutSalaryAdvancesGivenInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutSalaryAdvancesGivenInput, usersUncheckedCreateWithoutSalaryAdvancesGivenInput>
+  }
+
+  export type employeesUpsertWithoutSalaryAdvancesInput = {
+    update: XOR<employeesUpdateWithoutSalaryAdvancesInput, employeesUncheckedUpdateWithoutSalaryAdvancesInput>
+    create: XOR<employeesCreateWithoutSalaryAdvancesInput, employeesUncheckedCreateWithoutSalaryAdvancesInput>
+    where?: employeesWhereInput
+  }
+
+  export type employeesUpdateToOneWithWhereWithoutSalaryAdvancesInput = {
+    where?: employeesWhereInput
+    data: XOR<employeesUpdateWithoutSalaryAdvancesInput, employeesUncheckedUpdateWithoutSalaryAdvancesInput>
+  }
+
+  export type employeesUpdateWithoutSalaryAdvancesInput = {
+    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    middle_name?: NullableStringFieldUpdateOperationsInput | string | null
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    passport?: NullableStringFieldUpdateOperationsInput | string | null
+    passport_expiry_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pinfl?: NullableStringFieldUpdateOperationsInput | string | null
+    education?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    photo?: NullableStringFieldUpdateOperationsInput | string | null
+    education_specialty?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    branch?: branchesUpdateOneWithoutEmployeesNestedInput
+    department?: departmentsUpdateOneWithoutEmployeesNestedInput
+    position?: positionsUpdateOneWithoutEmployeesNestedInput
+    workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
+    employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
+    employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
+    employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
+    facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
+    doors?: doorsUpdateManyWithoutEmployeesNestedInput
+    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
+    user?: usersUpdateOneWithoutEmployeeNestedInput
+    directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
+  }
+
+  export type employeesUncheckedUpdateWithoutSalaryAdvancesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    middle_name?: NullableStringFieldUpdateOperationsInput | string | null
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    passport?: NullableStringFieldUpdateOperationsInput | string | null
+    passport_expiry_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pinfl?: NullableStringFieldUpdateOperationsInput | string | null
+    education?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    photo?: NullableStringFieldUpdateOperationsInput | string | null
+    branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    position_id?: NullableIntFieldUpdateOperationsInput | number | null
+    work_schedule_id?: NullableIntFieldUpdateOperationsInput | number | null
+    education_specialty?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
+    employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
+    employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
+    facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
+    doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
+    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
+    user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
+    directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
+  }
+
+  export type usersUpsertWithoutSalaryAdvancesGivenInput = {
+    update: XOR<usersUpdateWithoutSalaryAdvancesGivenInput, usersUncheckedUpdateWithoutSalaryAdvancesGivenInput>
+    create: XOR<usersCreateWithoutSalaryAdvancesGivenInput, usersUncheckedCreateWithoutSalaryAdvancesGivenInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutSalaryAdvancesGivenInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutSalaryAdvancesGivenInput, usersUncheckedUpdateWithoutSalaryAdvancesGivenInput>
+  }
+
+  export type usersUpdateWithoutSalaryAdvancesGivenInput = {
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    telegram_id?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    branch_access?: usersUpdatebranch_accessInput | number[]
+    department_access?: usersUpdatedepartment_accessInput | number[]
+    language?: StringFieldUpdateOperationsInput | string
+    theme?: StringFieldUpdateOperationsInput | string
+    sidebar?: StringFieldUpdateOperationsInput | string
+    view_mode?: StringFieldUpdateOperationsInput | string
+    personal_menus?: usersUpdatepersonal_menusInput | string[]
+    active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: employeesUpdateOneWithoutUserNestedInput
+    menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
+    sessions?: sessionsUpdateManyWithoutUserNestedInput
+    holidays?: holidaysUpdateManyWithoutAddedByNestedInput
+    branches?: branchesUpdateManyWithoutAddedByNestedInput
+    timeOff?: time_offUpdateManyWithoutAddedByNestedInput
+    employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutSalaryAdvancesGivenInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    telegram_id?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    branch_access?: usersUpdatebranch_accessInput | number[]
+    department_access?: usersUpdatedepartment_accessInput | number[]
+    language?: StringFieldUpdateOperationsInput | string
+    theme?: StringFieldUpdateOperationsInput | string
+    sidebar?: StringFieldUpdateOperationsInput | string
+    view_mode?: StringFieldUpdateOperationsInput | string
+    personal_menus?: usersUpdatepersonal_menusInput | string[]
+    active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
+    holidays?: holidaysUncheckedUpdateManyWithoutAddedByNestedInput
+    branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
+    timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
+  }
+
   export type employment_ordersCreateManyBranchInput = {
     id?: number
     employee_id?: number | null
@@ -46359,6 +55069,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateWithoutBranchInput = {
@@ -46393,6 +55105,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateManyWithoutBranchInput = {
@@ -46643,6 +55357,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateWithoutDepartmentInput = {
@@ -46677,6 +55393,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateManyWithoutDepartmentInput = {
@@ -46785,6 +55503,44 @@ export namespace Prisma {
     mfo?: string | null
     added_at?: Date | string
     added_by: number
+  }
+
+  export type payroll_sheet_itemsCreateManyEmployeeInput = {
+    id?: number
+    sheet_id: number
+    base_salary: Decimal | DecimalJsLike | number | string
+    salary_type: string
+    worked_days?: number
+    total_work_days?: number
+    worked_hours?: string | null
+    total_work_hours?: string | null
+    accrued: Decimal | DecimalJsLike | number | string
+    debt_balance?: Decimal | DecimalJsLike | number | string
+    debt_deduction?: Decimal | DecimalJsLike | number | string
+    debt_mode?: string
+    debt_comment?: string | null
+    manual_adjustment?: Decimal | DecimalJsLike | number | string
+    adjustment_comment?: string | null
+    late_minutes?: number
+    overtime_minutes?: number
+    apply_late?: boolean
+    apply_overtime?: boolean
+    late_amount?: Decimal | DecimalJsLike | number | string
+    overtime_amount?: Decimal | DecimalJsLike | number | string
+    advance_total?: Decimal | DecimalJsLike | number | string
+    net: Decimal | DecimalJsLike | number | string
+    salary_balance?: Decimal | DecimalJsLike | number | string
+    paid_amount?: Decimal | DecimalJsLike | number | string
+    status?: string
+  }
+
+  export type salary_advancesCreateManyEmployeeInput = {
+    id?: number
+    amount: Decimal | DecimalJsLike | number | string
+    advance_date: Date | string
+    note?: string | null
+    given_by: number
+    added_at?: Date | string
   }
 
   export type employee_schedule_historyUpdateWithoutEmployeeInput = {
@@ -47076,6 +55832,120 @@ export namespace Prisma {
     added_by?: IntFieldUpdateOperationsInput | number
   }
 
+  export type payroll_sheet_itemsUpdateWithoutEmployeeInput = {
+    base_salary?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_type?: StringFieldUpdateOperationsInput | string
+    worked_days?: IntFieldUpdateOperationsInput | number
+    total_work_days?: IntFieldUpdateOperationsInput | number
+    worked_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    total_work_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    accrued?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringFieldUpdateOperationsInput | string
+    debt_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    manual_adjustment?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    late_minutes?: IntFieldUpdateOperationsInput | number
+    overtime_minutes?: IntFieldUpdateOperationsInput | number
+    apply_late?: BoolFieldUpdateOperationsInput | boolean
+    apply_overtime?: BoolFieldUpdateOperationsInput | boolean
+    late_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    net?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    status?: StringFieldUpdateOperationsInput | string
+    sheet?: payroll_sheetsUpdateOneRequiredWithoutItemsNestedInput
+    paymentLogs?: payroll_payment_logsUpdateManyWithoutItemNestedInput
+  }
+
+  export type payroll_sheet_itemsUncheckedUpdateWithoutEmployeeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sheet_id?: IntFieldUpdateOperationsInput | number
+    base_salary?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_type?: StringFieldUpdateOperationsInput | string
+    worked_days?: IntFieldUpdateOperationsInput | number
+    total_work_days?: IntFieldUpdateOperationsInput | number
+    worked_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    total_work_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    accrued?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringFieldUpdateOperationsInput | string
+    debt_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    manual_adjustment?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    late_minutes?: IntFieldUpdateOperationsInput | number
+    overtime_minutes?: IntFieldUpdateOperationsInput | number
+    apply_late?: BoolFieldUpdateOperationsInput | boolean
+    apply_overtime?: BoolFieldUpdateOperationsInput | boolean
+    late_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    net?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    status?: StringFieldUpdateOperationsInput | string
+    paymentLogs?: payroll_payment_logsUncheckedUpdateManyWithoutItemNestedInput
+  }
+
+  export type payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sheet_id?: IntFieldUpdateOperationsInput | number
+    base_salary?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_type?: StringFieldUpdateOperationsInput | string
+    worked_days?: IntFieldUpdateOperationsInput | number
+    total_work_days?: IntFieldUpdateOperationsInput | number
+    worked_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    total_work_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    accrued?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringFieldUpdateOperationsInput | string
+    debt_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    manual_adjustment?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    late_minutes?: IntFieldUpdateOperationsInput | number
+    overtime_minutes?: IntFieldUpdateOperationsInput | number
+    apply_late?: BoolFieldUpdateOperationsInput | boolean
+    apply_overtime?: BoolFieldUpdateOperationsInput | boolean
+    late_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    net?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    status?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type salary_advancesUpdateWithoutEmployeeInput = {
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    givenBy?: usersUpdateOneRequiredWithoutSalaryAdvancesGivenNestedInput
+  }
+
+  export type salary_advancesUncheckedUpdateWithoutEmployeeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    given_by?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type salary_advancesUncheckedUpdateManyWithoutEmployeeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    given_by?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type employment_ordersCreateManyPositionInput = {
     id?: number
     employee_id?: number | null
@@ -47179,6 +56049,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateWithoutPositionInput = {
@@ -47213,6 +56085,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateManyWithoutPositionInput = {
@@ -47308,6 +56182,35 @@ export namespace Prisma {
     amount: Decimal | DecimalJsLike | number | string
     date_from: Date | string
     date_to?: Date | string | null
+    note?: string | null
+    added_at?: Date | string
+  }
+
+  export type payroll_sheetsCreateManyAddedByInput = {
+    id?: number
+    month: number
+    year: number
+    status?: string
+    added_at?: Date | string
+    approved_by?: number | null
+    approved_at?: Date | string | null
+  }
+
+  export type payroll_sheetsCreateManyApprovedByInput = {
+    id?: number
+    month: number
+    year: number
+    status?: string
+    added_by: number
+    added_at?: Date | string
+    approved_at?: Date | string | null
+  }
+
+  export type salary_advancesCreateManyGivenByInput = {
+    id?: number
+    employee_id: number
+    amount: Decimal | DecimalJsLike | number | string
+    advance_date: Date | string
     note?: string | null
     added_at?: Date | string
   }
@@ -47534,6 +56437,94 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type payroll_sheetsUpdateWithoutAddedByInput = {
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    items?: payroll_sheet_itemsUpdateManyWithoutSheetNestedInput
+    approvedBy?: usersUpdateOneWithoutPayrollSheetsApprovedNestedInput
+  }
+
+  export type payroll_sheetsUncheckedUpdateWithoutAddedByInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    approved_by?: NullableIntFieldUpdateOperationsInput | number | null
+    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    items?: payroll_sheet_itemsUncheckedUpdateManyWithoutSheetNestedInput
+  }
+
+  export type payroll_sheetsUncheckedUpdateManyWithoutAddedByInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    approved_by?: NullableIntFieldUpdateOperationsInput | number | null
+    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type payroll_sheetsUpdateWithoutApprovedByInput = {
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    items?: payroll_sheet_itemsUpdateManyWithoutSheetNestedInput
+    addedBy?: usersUpdateOneRequiredWithoutPayrollSheetsAddedNestedInput
+  }
+
+  export type payroll_sheetsUncheckedUpdateWithoutApprovedByInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    added_by?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    items?: payroll_sheet_itemsUncheckedUpdateManyWithoutSheetNestedInput
+  }
+
+  export type payroll_sheetsUncheckedUpdateManyWithoutApprovedByInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    added_by?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type salary_advancesUpdateWithoutGivenByInput = {
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: employeesUpdateOneRequiredWithoutSalaryAdvancesNestedInput
+  }
+
+  export type salary_advancesUncheckedUpdateWithoutGivenByInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type salary_advancesUncheckedUpdateManyWithoutGivenByInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type menusCreateManyParentInput = {
     id?: number
     name: string
@@ -47665,6 +56656,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateWithoutWorkScheduleInput = {
@@ -47699,6 +56692,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateManyWithoutWorkScheduleInput = {
@@ -47822,6 +56817,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateWithoutDoorsInput = {
@@ -47856,6 +56853,8 @@ export namespace Prisma {
     doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
+    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
+    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
   }
 
   export type employeesUncheckedUpdateManyWithoutDoorsInput = {
@@ -48196,6 +57195,154 @@ export namespace Prisma {
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type payroll_sheet_itemsCreateManySheetInput = {
+    id?: number
+    employee_id: number
+    base_salary: Decimal | DecimalJsLike | number | string
+    salary_type: string
+    worked_days?: number
+    total_work_days?: number
+    worked_hours?: string | null
+    total_work_hours?: string | null
+    accrued: Decimal | DecimalJsLike | number | string
+    debt_balance?: Decimal | DecimalJsLike | number | string
+    debt_deduction?: Decimal | DecimalJsLike | number | string
+    debt_mode?: string
+    debt_comment?: string | null
+    manual_adjustment?: Decimal | DecimalJsLike | number | string
+    adjustment_comment?: string | null
+    late_minutes?: number
+    overtime_minutes?: number
+    apply_late?: boolean
+    apply_overtime?: boolean
+    late_amount?: Decimal | DecimalJsLike | number | string
+    overtime_amount?: Decimal | DecimalJsLike | number | string
+    advance_total?: Decimal | DecimalJsLike | number | string
+    net: Decimal | DecimalJsLike | number | string
+    salary_balance?: Decimal | DecimalJsLike | number | string
+    paid_amount?: Decimal | DecimalJsLike | number | string
+    status?: string
+  }
+
+  export type payroll_sheet_itemsUpdateWithoutSheetInput = {
+    base_salary?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_type?: StringFieldUpdateOperationsInput | string
+    worked_days?: IntFieldUpdateOperationsInput | number
+    total_work_days?: IntFieldUpdateOperationsInput | number
+    worked_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    total_work_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    accrued?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringFieldUpdateOperationsInput | string
+    debt_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    manual_adjustment?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    late_minutes?: IntFieldUpdateOperationsInput | number
+    overtime_minutes?: IntFieldUpdateOperationsInput | number
+    apply_late?: BoolFieldUpdateOperationsInput | boolean
+    apply_overtime?: BoolFieldUpdateOperationsInput | boolean
+    late_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    net?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    status?: StringFieldUpdateOperationsInput | string
+    employee?: employeesUpdateOneRequiredWithoutPayrollSheetItemsNestedInput
+    paymentLogs?: payroll_payment_logsUpdateManyWithoutItemNestedInput
+  }
+
+  export type payroll_sheet_itemsUncheckedUpdateWithoutSheetInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    base_salary?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_type?: StringFieldUpdateOperationsInput | string
+    worked_days?: IntFieldUpdateOperationsInput | number
+    total_work_days?: IntFieldUpdateOperationsInput | number
+    worked_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    total_work_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    accrued?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringFieldUpdateOperationsInput | string
+    debt_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    manual_adjustment?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    late_minutes?: IntFieldUpdateOperationsInput | number
+    overtime_minutes?: IntFieldUpdateOperationsInput | number
+    apply_late?: BoolFieldUpdateOperationsInput | boolean
+    apply_overtime?: BoolFieldUpdateOperationsInput | boolean
+    late_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    net?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    status?: StringFieldUpdateOperationsInput | string
+    paymentLogs?: payroll_payment_logsUncheckedUpdateManyWithoutItemNestedInput
+  }
+
+  export type payroll_sheet_itemsUncheckedUpdateManyWithoutSheetInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    base_salary?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_type?: StringFieldUpdateOperationsInput | string
+    worked_days?: IntFieldUpdateOperationsInput | number
+    total_work_days?: IntFieldUpdateOperationsInput | number
+    worked_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    total_work_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    accrued?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_deduction?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    debt_mode?: StringFieldUpdateOperationsInput | string
+    debt_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    manual_adjustment?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    adjustment_comment?: NullableStringFieldUpdateOperationsInput | string | null
+    late_minutes?: IntFieldUpdateOperationsInput | number
+    overtime_minutes?: IntFieldUpdateOperationsInput | number
+    apply_late?: BoolFieldUpdateOperationsInput | boolean
+    apply_overtime?: BoolFieldUpdateOperationsInput | boolean
+    late_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    overtime_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    advance_total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    net?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    status?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type payroll_payment_logsCreateManyItemInput = {
+    id?: number
+    amount: Decimal | DecimalJsLike | number | string
+    payment_date: Date | string
+    note?: string | null
+    added_at?: Date | string
+  }
+
+  export type payroll_payment_logsUpdateWithoutItemInput = {
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    payment_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type payroll_payment_logsUncheckedUpdateWithoutItemInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    payment_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type payroll_payment_logsUncheckedUpdateManyWithoutItemInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    payment_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 
