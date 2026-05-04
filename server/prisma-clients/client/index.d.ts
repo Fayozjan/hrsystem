@@ -7732,7 +7732,6 @@ export namespace Prisma {
 
   export type EmployeesAvgAggregateOutputType = {
     id: number | null
-    employee_number: number | null
     branch_id: number | null
     department_id: number | null
     position_id: number | null
@@ -7741,7 +7740,6 @@ export namespace Prisma {
 
   export type EmployeesSumAggregateOutputType = {
     id: number | null
-    employee_number: number | null
     branch_id: number | null
     department_id: number | null
     position_id: number | null
@@ -7750,7 +7748,7 @@ export namespace Prisma {
 
   export type EmployeesMinAggregateOutputType = {
     id: number | null
-    employee_number: number | null
+    employee_number: string | null
     last_name: string | null
     first_name: string | null
     middle_name: string | null
@@ -7776,7 +7774,7 @@ export namespace Prisma {
 
   export type EmployeesMaxAggregateOutputType = {
     id: number | null
-    employee_number: number | null
+    employee_number: string | null
     last_name: string | null
     first_name: string | null
     middle_name: string | null
@@ -7830,7 +7828,6 @@ export namespace Prisma {
 
   export type EmployeesAvgAggregateInputType = {
     id?: true
-    employee_number?: true
     branch_id?: true
     department_id?: true
     position_id?: true
@@ -7839,7 +7836,6 @@ export namespace Prisma {
 
   export type EmployeesSumAggregateInputType = {
     id?: true
-    employee_number?: true
     branch_id?: true
     department_id?: true
     position_id?: true
@@ -8013,7 +8009,7 @@ export namespace Prisma {
 
   export type EmployeesGroupByOutputType = {
     id: number
-    employee_number: number | null
+    employee_number: string | null
     last_name: string | null
     first_name: string | null
     middle_name: string | null
@@ -8237,7 +8233,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      employee_number: number | null
+      employee_number: string | null
       last_name: string | null
       first_name: string | null
       middle_name: string | null
@@ -8698,7 +8694,7 @@ export namespace Prisma {
    */
   interface employeesFieldRefs {
     readonly id: FieldRef<"employees", 'Int'>
-    readonly employee_number: FieldRef<"employees", 'Int'>
+    readonly employee_number: FieldRef<"employees", 'String'>
     readonly last_name: FieldRef<"employees", 'String'>
     readonly first_name: FieldRef<"employees", 'String'>
     readonly middle_name: FieldRef<"employees", 'String'>
@@ -17476,6 +17472,7 @@ export namespace Prisma {
     personal_menus: number
     active_branch_id: number
     ignore_gps_check: number
+    settings: number
     added_at: number
     _all: number
   }
@@ -17548,6 +17545,7 @@ export namespace Prisma {
     personal_menus?: true
     active_branch_id?: true
     ignore_gps_check?: true
+    settings?: true
     added_at?: true
     _all?: true
   }
@@ -17655,6 +17653,7 @@ export namespace Prisma {
     personal_menus: string[]
     active_branch_id: number | null
     ignore_gps_check: boolean
+    settings: JsonValue | null
     added_at: Date
     _count: UsersCountAggregateOutputType | null
     _avg: UsersAvgAggregateOutputType | null
@@ -17694,6 +17693,7 @@ export namespace Prisma {
     personal_menus?: boolean
     active_branch_id?: boolean
     ignore_gps_check?: boolean
+    settings?: boolean
     added_at?: boolean
     employee?: boolean | users$employeeArgs<ExtArgs>
     menuAccess?: boolean | users$menuAccessArgs<ExtArgs>
@@ -17726,6 +17726,7 @@ export namespace Prisma {
     personal_menus?: boolean
     active_branch_id?: boolean
     ignore_gps_check?: boolean
+    settings?: boolean
     added_at?: boolean
     employee?: boolean | users$employeeArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
@@ -17747,6 +17748,7 @@ export namespace Prisma {
     personal_menus?: boolean
     active_branch_id?: boolean
     ignore_gps_check?: boolean
+    settings?: boolean
     added_at?: boolean
     employee?: boolean | users$employeeArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
@@ -17768,10 +17770,11 @@ export namespace Prisma {
     personal_menus?: boolean
     active_branch_id?: boolean
     ignore_gps_check?: boolean
+    settings?: boolean
     added_at?: boolean
   }
 
-  export type usersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "password" | "telegram_id" | "employee_id" | "status" | "access_level" | "branch_access" | "department_access" | "language" | "theme" | "sidebar" | "view_mode" | "personal_menus" | "active_branch_id" | "ignore_gps_check" | "added_at", ExtArgs["result"]["users"]>
+  export type usersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "password" | "telegram_id" | "employee_id" | "status" | "access_level" | "branch_access" | "department_access" | "language" | "theme" | "sidebar" | "view_mode" | "personal_menus" | "active_branch_id" | "ignore_gps_check" | "settings" | "added_at", ExtArgs["result"]["users"]>
   export type usersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     employee?: boolean | users$employeeArgs<ExtArgs>
     menuAccess?: boolean | users$menuAccessArgs<ExtArgs>
@@ -17825,6 +17828,7 @@ export namespace Prisma {
       personal_menus: string[]
       active_branch_id: number | null
       ignore_gps_check: boolean
+      settings: Prisma.JsonValue | null
       added_at: Date
     }, ExtArgs["result"]["users"]>
     composites: {}
@@ -18276,6 +18280,7 @@ export namespace Prisma {
     readonly personal_menus: FieldRef<"users", 'String[]'>
     readonly active_branch_id: FieldRef<"users", 'Int'>
     readonly ignore_gps_check: FieldRef<"users", 'Boolean'>
+    readonly settings: FieldRef<"users", 'Json'>
     readonly added_at: FieldRef<"users", 'DateTime'>
   }
     
@@ -21302,6 +21307,7 @@ export namespace Prisma {
     late_tolerance_minutes: number | null
     early_leave_tolerance_minutes: number | null
     late_leave_tolerance_minutes: number | null
+    time_calc_method: string | null
   }
 
   export type Work_schedulesMaxAggregateOutputType = {
@@ -21315,6 +21321,7 @@ export namespace Prisma {
     late_tolerance_minutes: number | null
     early_leave_tolerance_minutes: number | null
     late_leave_tolerance_minutes: number | null
+    time_calc_method: string | null
   }
 
   export type Work_schedulesCountAggregateOutputType = {
@@ -21330,6 +21337,7 @@ export namespace Prisma {
     late_tolerance_minutes: number
     early_leave_tolerance_minutes: number
     late_leave_tolerance_minutes: number
+    time_calc_method: number
     _all: number
   }
 
@@ -21363,6 +21371,7 @@ export namespace Prisma {
     late_tolerance_minutes?: true
     early_leave_tolerance_minutes?: true
     late_leave_tolerance_minutes?: true
+    time_calc_method?: true
   }
 
   export type Work_schedulesMaxAggregateInputType = {
@@ -21376,6 +21385,7 @@ export namespace Prisma {
     late_tolerance_minutes?: true
     early_leave_tolerance_minutes?: true
     late_leave_tolerance_minutes?: true
+    time_calc_method?: true
   }
 
   export type Work_schedulesCountAggregateInputType = {
@@ -21391,6 +21401,7 @@ export namespace Prisma {
     late_tolerance_minutes?: true
     early_leave_tolerance_minutes?: true
     late_leave_tolerance_minutes?: true
+    time_calc_method?: true
     _all?: true
   }
 
@@ -21493,6 +21504,7 @@ export namespace Prisma {
     late_tolerance_minutes: number | null
     early_leave_tolerance_minutes: number | null
     late_leave_tolerance_minutes: number | null
+    time_calc_method: string | null
     _count: Work_schedulesCountAggregateOutputType | null
     _avg: Work_schedulesAvgAggregateOutputType | null
     _sum: Work_schedulesSumAggregateOutputType | null
@@ -21527,6 +21539,7 @@ export namespace Prisma {
     late_tolerance_minutes?: boolean
     early_leave_tolerance_minutes?: boolean
     late_leave_tolerance_minutes?: boolean
+    time_calc_method?: boolean
     employees?: boolean | work_schedules$employeesArgs<ExtArgs>
     employeeScheduleHistory?: boolean | work_schedules$employeeScheduleHistoryArgs<ExtArgs>
     _count?: boolean | Work_schedulesCountOutputTypeDefaultArgs<ExtArgs>
@@ -21545,6 +21558,7 @@ export namespace Prisma {
     late_tolerance_minutes?: boolean
     early_leave_tolerance_minutes?: boolean
     late_leave_tolerance_minutes?: boolean
+    time_calc_method?: boolean
   }, ExtArgs["result"]["work_schedules"]>
 
   export type work_schedulesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -21560,6 +21574,7 @@ export namespace Prisma {
     late_tolerance_minutes?: boolean
     early_leave_tolerance_minutes?: boolean
     late_leave_tolerance_minutes?: boolean
+    time_calc_method?: boolean
   }, ExtArgs["result"]["work_schedules"]>
 
   export type work_schedulesSelectScalar = {
@@ -21575,9 +21590,10 @@ export namespace Prisma {
     late_tolerance_minutes?: boolean
     early_leave_tolerance_minutes?: boolean
     late_leave_tolerance_minutes?: boolean
+    time_calc_method?: boolean
   }
 
-  export type work_schedulesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "type" | "weekly_days" | "weekly_hours" | "work_days" | "shifts" | "added_at" | "status" | "late_tolerance_minutes" | "early_leave_tolerance_minutes" | "late_leave_tolerance_minutes", ExtArgs["result"]["work_schedules"]>
+  export type work_schedulesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "type" | "weekly_days" | "weekly_hours" | "work_days" | "shifts" | "added_at" | "status" | "late_tolerance_minutes" | "early_leave_tolerance_minutes" | "late_leave_tolerance_minutes" | "time_calc_method", ExtArgs["result"]["work_schedules"]>
   export type work_schedulesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     employees?: boolean | work_schedules$employeesArgs<ExtArgs>
     employeeScheduleHistory?: boolean | work_schedules$employeeScheduleHistoryArgs<ExtArgs>
@@ -21605,6 +21621,7 @@ export namespace Prisma {
       late_tolerance_minutes: number | null
       early_leave_tolerance_minutes: number | null
       late_leave_tolerance_minutes: number | null
+      time_calc_method: string | null
     }, ExtArgs["result"]["work_schedules"]>
     composites: {}
   }
@@ -22042,6 +22059,7 @@ export namespace Prisma {
     readonly late_tolerance_minutes: FieldRef<"work_schedules", 'Int'>
     readonly early_leave_tolerance_minutes: FieldRef<"work_schedules", 'Int'>
     readonly late_leave_tolerance_minutes: FieldRef<"work_schedules", 'Int'>
+    readonly time_calc_method: FieldRef<"work_schedules", 'String'>
   }
     
 
@@ -33366,6 +33384,7 @@ export namespace Prisma {
     salary_balance: Decimal | null
     paid_amount: Decimal | null
     status: string | null
+    payout_status: string | null
   }
 
   export type Payroll_sheet_itemsMaxAggregateOutputType = {
@@ -33396,6 +33415,7 @@ export namespace Prisma {
     salary_balance: Decimal | null
     paid_amount: Decimal | null
     status: string | null
+    payout_status: string | null
   }
 
   export type Payroll_sheet_itemsCountAggregateOutputType = {
@@ -33426,6 +33446,7 @@ export namespace Prisma {
     salary_balance: number
     paid_amount: number
     status: number
+    payout_status: number
     _all: number
   }
 
@@ -33500,6 +33521,7 @@ export namespace Prisma {
     salary_balance?: true
     paid_amount?: true
     status?: true
+    payout_status?: true
   }
 
   export type Payroll_sheet_itemsMaxAggregateInputType = {
@@ -33530,6 +33552,7 @@ export namespace Prisma {
     salary_balance?: true
     paid_amount?: true
     status?: true
+    payout_status?: true
   }
 
   export type Payroll_sheet_itemsCountAggregateInputType = {
@@ -33560,6 +33583,7 @@ export namespace Prisma {
     salary_balance?: true
     paid_amount?: true
     status?: true
+    payout_status?: true
     _all?: true
   }
 
@@ -33677,6 +33701,7 @@ export namespace Prisma {
     salary_balance: Decimal
     paid_amount: Decimal
     status: string
+    payout_status: string
     _count: Payroll_sheet_itemsCountAggregateOutputType | null
     _avg: Payroll_sheet_itemsAvgAggregateOutputType | null
     _sum: Payroll_sheet_itemsSumAggregateOutputType | null
@@ -33726,6 +33751,7 @@ export namespace Prisma {
     salary_balance?: boolean
     paid_amount?: boolean
     status?: boolean
+    payout_status?: boolean
     sheet?: boolean | payroll_sheetsDefaultArgs<ExtArgs>
     employee?: boolean | employeesDefaultArgs<ExtArgs>
     paymentLogs?: boolean | payroll_sheet_items$paymentLogsArgs<ExtArgs>
@@ -33760,6 +33786,7 @@ export namespace Prisma {
     salary_balance?: boolean
     paid_amount?: boolean
     status?: boolean
+    payout_status?: boolean
     sheet?: boolean | payroll_sheetsDefaultArgs<ExtArgs>
     employee?: boolean | employeesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["payroll_sheet_items"]>
@@ -33792,6 +33819,7 @@ export namespace Prisma {
     salary_balance?: boolean
     paid_amount?: boolean
     status?: boolean
+    payout_status?: boolean
     sheet?: boolean | payroll_sheetsDefaultArgs<ExtArgs>
     employee?: boolean | employeesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["payroll_sheet_items"]>
@@ -33824,9 +33852,10 @@ export namespace Prisma {
     salary_balance?: boolean
     paid_amount?: boolean
     status?: boolean
+    payout_status?: boolean
   }
 
-  export type payroll_sheet_itemsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sheet_id" | "employee_id" | "base_salary" | "salary_type" | "worked_days" | "total_work_days" | "worked_hours" | "total_work_hours" | "accrued" | "debt_balance" | "debt_deduction" | "debt_mode" | "debt_comment" | "manual_adjustment" | "adjustment_comment" | "late_minutes" | "overtime_minutes" | "apply_late" | "apply_overtime" | "late_amount" | "overtime_amount" | "advance_total" | "net" | "salary_balance" | "paid_amount" | "status", ExtArgs["result"]["payroll_sheet_items"]>
+  export type payroll_sheet_itemsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sheet_id" | "employee_id" | "base_salary" | "salary_type" | "worked_days" | "total_work_days" | "worked_hours" | "total_work_hours" | "accrued" | "debt_balance" | "debt_deduction" | "debt_mode" | "debt_comment" | "manual_adjustment" | "adjustment_comment" | "late_minutes" | "overtime_minutes" | "apply_late" | "apply_overtime" | "late_amount" | "overtime_amount" | "advance_total" | "net" | "salary_balance" | "paid_amount" | "status" | "payout_status", ExtArgs["result"]["payroll_sheet_items"]>
   export type payroll_sheet_itemsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sheet?: boolean | payroll_sheetsDefaultArgs<ExtArgs>
     employee?: boolean | employeesDefaultArgs<ExtArgs>
@@ -33877,6 +33906,7 @@ export namespace Prisma {
       salary_balance: Prisma.Decimal
       paid_amount: Prisma.Decimal
       status: string
+      payout_status: string
     }, ExtArgs["result"]["payroll_sheet_items"]>
     composites: {}
   }
@@ -34330,6 +34360,7 @@ export namespace Prisma {
     readonly salary_balance: FieldRef<"payroll_sheet_items", 'Decimal'>
     readonly paid_amount: FieldRef<"payroll_sheet_items", 'Decimal'>
     readonly status: FieldRef<"payroll_sheet_items", 'String'>
+    readonly payout_status: FieldRef<"payroll_sheet_items", 'String'>
   }
     
 
@@ -37221,6 +37252,7 @@ export namespace Prisma {
     personal_menus: 'personal_menus',
     active_branch_id: 'active_branch_id',
     ignore_gps_check: 'ignore_gps_check',
+    settings: 'settings',
     added_at: 'added_at'
   };
 
@@ -37263,7 +37295,8 @@ export namespace Prisma {
     status: 'status',
     late_tolerance_minutes: 'late_tolerance_minutes',
     early_leave_tolerance_minutes: 'early_leave_tolerance_minutes',
-    late_leave_tolerance_minutes: 'late_leave_tolerance_minutes'
+    late_leave_tolerance_minutes: 'late_leave_tolerance_minutes',
+    time_calc_method: 'time_calc_method'
   };
 
   export type Work_schedulesScalarFieldEnum = (typeof Work_schedulesScalarFieldEnum)[keyof typeof Work_schedulesScalarFieldEnum]
@@ -37430,7 +37463,8 @@ export namespace Prisma {
     net: 'net',
     salary_balance: 'salary_balance',
     paid_amount: 'paid_amount',
-    status: 'status'
+    status: 'status',
+    payout_status: 'payout_status'
   };
 
   export type Payroll_sheet_itemsScalarFieldEnum = (typeof Payroll_sheet_itemsScalarFieldEnum)[keyof typeof Payroll_sheet_itemsScalarFieldEnum]
@@ -37873,7 +37907,7 @@ export namespace Prisma {
     OR?: employeesWhereInput[]
     NOT?: employeesWhereInput | employeesWhereInput[]
     id?: IntFilter<"employees"> | number
-    employee_number?: IntNullableFilter<"employees"> | number | null
+    employee_number?: StringNullableFilter<"employees"> | string | null
     last_name?: StringNullableFilter<"employees"> | string | null
     first_name?: StringNullableFilter<"employees"> | string | null
     middle_name?: StringNullableFilter<"employees"> | string | null
@@ -37955,7 +37989,7 @@ export namespace Prisma {
 
   export type employeesWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    employee_number?: number
+    employee_number?: string
     pinfl?: string
     AND?: employeesWhereInput | employeesWhereInput[]
     OR?: employeesWhereInput[]
@@ -38033,7 +38067,7 @@ export namespace Prisma {
     OR?: employeesScalarWhereWithAggregatesInput[]
     NOT?: employeesScalarWhereWithAggregatesInput | employeesScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"employees"> | number
-    employee_number?: IntNullableWithAggregatesFilter<"employees"> | number | null
+    employee_number?: StringNullableWithAggregatesFilter<"employees"> | string | null
     last_name?: StringNullableWithAggregatesFilter<"employees"> | string | null
     first_name?: StringNullableWithAggregatesFilter<"employees"> | string | null
     middle_name?: StringNullableWithAggregatesFilter<"employees"> | string | null
@@ -38582,6 +38616,7 @@ export namespace Prisma {
     personal_menus?: StringNullableListFilter<"users">
     active_branch_id?: IntNullableFilter<"users"> | number | null
     ignore_gps_check?: BoolFilter<"users"> | boolean
+    settings?: JsonNullableFilter<"users">
     added_at?: DateTimeFilter<"users"> | Date | string
     employee?: XOR<EmployeesNullableScalarRelationFilter, employeesWhereInput> | null
     menuAccess?: User_menu_accessListRelationFilter
@@ -38613,6 +38648,7 @@ export namespace Prisma {
     personal_menus?: SortOrder
     active_branch_id?: SortOrderInput | SortOrder
     ignore_gps_check?: SortOrder
+    settings?: SortOrderInput | SortOrder
     added_at?: SortOrder
     employee?: employeesOrderByWithRelationInput
     menuAccess?: user_menu_accessOrderByRelationAggregateInput
@@ -38647,6 +38683,7 @@ export namespace Prisma {
     personal_menus?: StringNullableListFilter<"users">
     active_branch_id?: IntNullableFilter<"users"> | number | null
     ignore_gps_check?: BoolFilter<"users"> | boolean
+    settings?: JsonNullableFilter<"users">
     added_at?: DateTimeFilter<"users"> | Date | string
     employee?: XOR<EmployeesNullableScalarRelationFilter, employeesWhereInput> | null
     menuAccess?: User_menu_accessListRelationFilter
@@ -38678,6 +38715,7 @@ export namespace Prisma {
     personal_menus?: SortOrder
     active_branch_id?: SortOrderInput | SortOrder
     ignore_gps_check?: SortOrder
+    settings?: SortOrderInput | SortOrder
     added_at?: SortOrder
     _count?: usersCountOrderByAggregateInput
     _avg?: usersAvgOrderByAggregateInput
@@ -38706,6 +38744,7 @@ export namespace Prisma {
     personal_menus?: StringNullableListFilter<"users">
     active_branch_id?: IntNullableWithAggregatesFilter<"users"> | number | null
     ignore_gps_check?: BoolWithAggregatesFilter<"users"> | boolean
+    settings?: JsonNullableWithAggregatesFilter<"users">
     added_at?: DateTimeWithAggregatesFilter<"users"> | Date | string
   }
 
@@ -38859,6 +38898,7 @@ export namespace Prisma {
     late_tolerance_minutes?: IntNullableFilter<"work_schedules"> | number | null
     early_leave_tolerance_minutes?: IntNullableFilter<"work_schedules"> | number | null
     late_leave_tolerance_minutes?: IntNullableFilter<"work_schedules"> | number | null
+    time_calc_method?: StringNullableFilter<"work_schedules"> | string | null
     employees?: EmployeesListRelationFilter
     employeeScheduleHistory?: Employee_schedule_historyListRelationFilter
   }
@@ -38876,6 +38916,7 @@ export namespace Prisma {
     late_tolerance_minutes?: SortOrderInput | SortOrder
     early_leave_tolerance_minutes?: SortOrderInput | SortOrder
     late_leave_tolerance_minutes?: SortOrderInput | SortOrder
+    time_calc_method?: SortOrderInput | SortOrder
     employees?: employeesOrderByRelationAggregateInput
     employeeScheduleHistory?: employee_schedule_historyOrderByRelationAggregateInput
   }
@@ -38896,6 +38937,7 @@ export namespace Prisma {
     late_tolerance_minutes?: IntNullableFilter<"work_schedules"> | number | null
     early_leave_tolerance_minutes?: IntNullableFilter<"work_schedules"> | number | null
     late_leave_tolerance_minutes?: IntNullableFilter<"work_schedules"> | number | null
+    time_calc_method?: StringNullableFilter<"work_schedules"> | string | null
     employees?: EmployeesListRelationFilter
     employeeScheduleHistory?: Employee_schedule_historyListRelationFilter
   }, "id">
@@ -38913,6 +38955,7 @@ export namespace Prisma {
     late_tolerance_minutes?: SortOrderInput | SortOrder
     early_leave_tolerance_minutes?: SortOrderInput | SortOrder
     late_leave_tolerance_minutes?: SortOrderInput | SortOrder
+    time_calc_method?: SortOrderInput | SortOrder
     _count?: work_schedulesCountOrderByAggregateInput
     _avg?: work_schedulesAvgOrderByAggregateInput
     _max?: work_schedulesMaxOrderByAggregateInput
@@ -38936,6 +38979,7 @@ export namespace Prisma {
     late_tolerance_minutes?: IntNullableWithAggregatesFilter<"work_schedules"> | number | null
     early_leave_tolerance_minutes?: IntNullableWithAggregatesFilter<"work_schedules"> | number | null
     late_leave_tolerance_minutes?: IntNullableWithAggregatesFilter<"work_schedules"> | number | null
+    time_calc_method?: StringNullableWithAggregatesFilter<"work_schedules"> | string | null
   }
 
   export type employee_schedule_historyWhereInput = {
@@ -39706,6 +39750,7 @@ export namespace Prisma {
     salary_balance?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
     status?: StringFilter<"payroll_sheet_items"> | string
+    payout_status?: StringFilter<"payroll_sheet_items"> | string
     sheet?: XOR<Payroll_sheetsScalarRelationFilter, payroll_sheetsWhereInput>
     employee?: XOR<EmployeesScalarRelationFilter, employeesWhereInput>
     paymentLogs?: Payroll_payment_logsListRelationFilter
@@ -39739,6 +39784,7 @@ export namespace Prisma {
     salary_balance?: SortOrder
     paid_amount?: SortOrder
     status?: SortOrder
+    payout_status?: SortOrder
     sheet?: payroll_sheetsOrderByWithRelationInput
     employee?: employeesOrderByWithRelationInput
     paymentLogs?: payroll_payment_logsOrderByRelationAggregateInput
@@ -39776,6 +39822,7 @@ export namespace Prisma {
     salary_balance?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
     status?: StringFilter<"payroll_sheet_items"> | string
+    payout_status?: StringFilter<"payroll_sheet_items"> | string
     sheet?: XOR<Payroll_sheetsScalarRelationFilter, payroll_sheetsWhereInput>
     employee?: XOR<EmployeesScalarRelationFilter, employeesWhereInput>
     paymentLogs?: Payroll_payment_logsListRelationFilter
@@ -39809,6 +39856,7 @@ export namespace Prisma {
     salary_balance?: SortOrder
     paid_amount?: SortOrder
     status?: SortOrder
+    payout_status?: SortOrder
     _count?: payroll_sheet_itemsCountOrderByAggregateInput
     _avg?: payroll_sheet_itemsAvgOrderByAggregateInput
     _max?: payroll_sheet_itemsMaxOrderByAggregateInput
@@ -39847,6 +39895,7 @@ export namespace Prisma {
     salary_balance?: DecimalWithAggregatesFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalWithAggregatesFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
     status?: StringWithAggregatesFilter<"payroll_sheet_items"> | string
+    payout_status?: StringWithAggregatesFilter<"payroll_sheet_items"> | string
   }
 
   export type payroll_payment_logsWhereInput = {
@@ -40250,7 +40299,7 @@ export namespace Prisma {
   }
 
   export type employeesCreateInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -40287,7 +40336,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -40323,7 +40372,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40360,7 +40409,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40397,7 +40446,7 @@ export namespace Prisma {
 
   export type employeesCreateManyInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -40422,7 +40471,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateManyMutationInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40444,7 +40493,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40998,6 +41047,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -41029,6 +41079,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -41057,6 +41108,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -41088,6 +41140,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
@@ -41118,6 +41171,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
   }
 
@@ -41136,6 +41190,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -41156,6 +41211,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -41296,6 +41352,7 @@ export namespace Prisma {
     late_tolerance_minutes?: number | null
     early_leave_tolerance_minutes?: number | null
     late_leave_tolerance_minutes?: number | null
+    time_calc_method?: string | null
     employees?: employeesCreateNestedManyWithoutWorkScheduleInput
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutWorkScheduleInput
   }
@@ -41313,6 +41370,7 @@ export namespace Prisma {
     late_tolerance_minutes?: number | null
     early_leave_tolerance_minutes?: number | null
     late_leave_tolerance_minutes?: number | null
+    time_calc_method?: string | null
     employees?: employeesUncheckedCreateNestedManyWithoutWorkScheduleInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutWorkScheduleInput
   }
@@ -41329,6 +41387,7 @@ export namespace Prisma {
     late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    time_calc_method?: NullableStringFieldUpdateOperationsInput | string | null
     employees?: employeesUpdateManyWithoutWorkScheduleNestedInput
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutWorkScheduleNestedInput
   }
@@ -41346,6 +41405,7 @@ export namespace Prisma {
     late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    time_calc_method?: NullableStringFieldUpdateOperationsInput | string | null
     employees?: employeesUncheckedUpdateManyWithoutWorkScheduleNestedInput
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutWorkScheduleNestedInput
   }
@@ -41363,6 +41423,7 @@ export namespace Prisma {
     late_tolerance_minutes?: number | null
     early_leave_tolerance_minutes?: number | null
     late_leave_tolerance_minutes?: number | null
+    time_calc_method?: string | null
   }
 
   export type work_schedulesUpdateManyMutationInput = {
@@ -41377,6 +41438,7 @@ export namespace Prisma {
     late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    time_calc_method?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type work_schedulesUncheckedUpdateManyInput = {
@@ -41392,6 +41454,7 @@ export namespace Prisma {
     late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    time_calc_method?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type employee_schedule_historyCreateInput = {
@@ -42161,6 +42224,7 @@ export namespace Prisma {
     salary_balance?: Decimal | DecimalJsLike | number | string
     paid_amount?: Decimal | DecimalJsLike | number | string
     status?: string
+    payout_status?: string
     sheet: payroll_sheetsCreateNestedOneWithoutItemsInput
     employee: employeesCreateNestedOneWithoutPayrollSheetItemsInput
     paymentLogs?: payroll_payment_logsCreateNestedManyWithoutItemInput
@@ -42194,6 +42258,7 @@ export namespace Prisma {
     salary_balance?: Decimal | DecimalJsLike | number | string
     paid_amount?: Decimal | DecimalJsLike | number | string
     status?: string
+    payout_status?: string
     paymentLogs?: payroll_payment_logsUncheckedCreateNestedManyWithoutItemInput
   }
 
@@ -42222,6 +42287,7 @@ export namespace Prisma {
     salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: StringFieldUpdateOperationsInput | string
+    payout_status?: StringFieldUpdateOperationsInput | string
     sheet?: payroll_sheetsUpdateOneRequiredWithoutItemsNestedInput
     employee?: employeesUpdateOneRequiredWithoutPayrollSheetItemsNestedInput
     paymentLogs?: payroll_payment_logsUpdateManyWithoutItemNestedInput
@@ -42255,6 +42321,7 @@ export namespace Prisma {
     salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: StringFieldUpdateOperationsInput | string
+    payout_status?: StringFieldUpdateOperationsInput | string
     paymentLogs?: payroll_payment_logsUncheckedUpdateManyWithoutItemNestedInput
   }
 
@@ -42286,6 +42353,7 @@ export namespace Prisma {
     salary_balance?: Decimal | DecimalJsLike | number | string
     paid_amount?: Decimal | DecimalJsLike | number | string
     status?: string
+    payout_status?: string
   }
 
   export type payroll_sheet_itemsUpdateManyMutationInput = {
@@ -42313,6 +42381,7 @@ export namespace Prisma {
     salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: StringFieldUpdateOperationsInput | string
+    payout_status?: StringFieldUpdateOperationsInput | string
   }
 
   export type payroll_sheet_itemsUncheckedUpdateManyInput = {
@@ -42343,6 +42412,7 @@ export namespace Prisma {
     salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: StringFieldUpdateOperationsInput | string
+    payout_status?: StringFieldUpdateOperationsInput | string
   }
 
   export type payroll_payment_logsCreateInput = {
@@ -43016,7 +43086,6 @@ export namespace Prisma {
 
   export type employeesAvgOrderByAggregateInput = {
     id?: SortOrder
-    employee_number?: SortOrder
     branch_id?: SortOrder
     department_id?: SortOrder
     position_id?: SortOrder
@@ -43077,7 +43146,6 @@ export namespace Prisma {
 
   export type employeesSumOrderByAggregateInput = {
     id?: SortOrder
-    employee_number?: SortOrder
     branch_id?: SortOrder
     department_id?: SortOrder
     position_id?: SortOrder
@@ -43484,6 +43552,29 @@ export namespace Prisma {
     day?: SortOrder
     user_id?: SortOrder
   }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
 
   export type User_menu_accessListRelationFilter = {
     every?: user_menu_accessWhereInput
@@ -43542,6 +43633,7 @@ export namespace Prisma {
     personal_menus?: SortOrder
     active_branch_id?: SortOrder
     ignore_gps_check?: SortOrder
+    settings?: SortOrder
     added_at?: SortOrder
   }
 
@@ -43593,6 +43685,32 @@ export namespace Prisma {
     branch_access?: SortOrder
     department_access?: SortOrder
     active_branch_id?: SortOrder
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
   export type MenusNullableScalarRelationFilter = {
@@ -43697,29 +43815,6 @@ export namespace Prisma {
     user_id?: SortOrder
     menu_id?: SortOrder
   }
-  export type JsonNullableFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonNullableFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonNullableFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
 
   export type work_schedulesCountOrderByAggregateInput = {
     id?: SortOrder
@@ -43734,6 +43829,7 @@ export namespace Prisma {
     late_tolerance_minutes?: SortOrder
     early_leave_tolerance_minutes?: SortOrder
     late_leave_tolerance_minutes?: SortOrder
+    time_calc_method?: SortOrder
   }
 
   export type work_schedulesAvgOrderByAggregateInput = {
@@ -43756,6 +43852,7 @@ export namespace Prisma {
     late_tolerance_minutes?: SortOrder
     early_leave_tolerance_minutes?: SortOrder
     late_leave_tolerance_minutes?: SortOrder
+    time_calc_method?: SortOrder
   }
 
   export type work_schedulesMinOrderByAggregateInput = {
@@ -43769,6 +43866,7 @@ export namespace Prisma {
     late_tolerance_minutes?: SortOrder
     early_leave_tolerance_minutes?: SortOrder
     late_leave_tolerance_minutes?: SortOrder
+    time_calc_method?: SortOrder
   }
 
   export type work_schedulesSumOrderByAggregateInput = {
@@ -43778,32 +43876,6 @@ export namespace Prisma {
     late_tolerance_minutes?: SortOrder
     early_leave_tolerance_minutes?: SortOrder
     late_leave_tolerance_minutes?: SortOrder
-  }
-  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedJsonNullableFilter<$PrismaModel>
-    _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
   export type Work_schedulesScalarRelationFilter = {
@@ -44365,6 +44437,7 @@ export namespace Prisma {
     salary_balance?: SortOrder
     paid_amount?: SortOrder
     status?: SortOrder
+    payout_status?: SortOrder
   }
 
   export type payroll_sheet_itemsAvgOrderByAggregateInput = {
@@ -44416,6 +44489,7 @@ export namespace Prisma {
     salary_balance?: SortOrder
     paid_amount?: SortOrder
     status?: SortOrder
+    payout_status?: SortOrder
   }
 
   export type payroll_sheet_itemsMinOrderByAggregateInput = {
@@ -44446,6 +44520,7 @@ export namespace Prisma {
     salary_balance?: SortOrder
     paid_amount?: SortOrder
     status?: SortOrder
+    payout_status?: SortOrder
   }
 
   export type payroll_sheet_itemsSumOrderByAggregateInput = {
@@ -47483,7 +47558,7 @@ export namespace Prisma {
   }
 
   export type employeesCreateWithoutDirectedBranchesInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -47519,7 +47594,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateWithoutDirectedBranchesInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -47592,7 +47667,7 @@ export namespace Prisma {
   }
 
   export type employeesCreateWithoutBranchInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -47628,7 +47703,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateWithoutBranchInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -47811,6 +47886,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -47841,6 +47917,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -47870,7 +47947,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateWithoutDirectedBranchesInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -47906,7 +47983,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateWithoutDirectedBranchesInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -47993,7 +48070,7 @@ export namespace Prisma {
     OR?: employeesScalarWhereInput[]
     NOT?: employeesScalarWhereInput | employeesScalarWhereInput[]
     id?: IntFilter<"employees"> | number
-    employee_number?: IntNullableFilter<"employees"> | number | null
+    employee_number?: StringNullableFilter<"employees"> | string | null
     last_name?: StringNullableFilter<"employees"> | string | null
     first_name?: StringNullableFilter<"employees"> | string | null
     middle_name?: StringNullableFilter<"employees"> | string | null
@@ -48159,6 +48236,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -48189,6 +48267,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
@@ -48235,7 +48314,7 @@ export namespace Prisma {
   }
 
   export type employeesCreateWithoutDepartmentInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -48271,7 +48350,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateWithoutDepartmentInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -48528,7 +48607,7 @@ export namespace Prisma {
   }
 
   export type employeesCreateWithoutEmploymentOrdersInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -48564,7 +48643,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateWithoutEmploymentOrdersInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -48719,7 +48798,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateWithoutEmploymentOrdersInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48755,7 +48834,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateWithoutEmploymentOrdersInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48887,6 +48966,7 @@ export namespace Prisma {
     late_tolerance_minutes?: number | null
     early_leave_tolerance_minutes?: number | null
     late_leave_tolerance_minutes?: number | null
+    time_calc_method?: string | null
     employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutWorkScheduleInput
   }
 
@@ -48903,6 +48983,7 @@ export namespace Prisma {
     late_tolerance_minutes?: number | null
     early_leave_tolerance_minutes?: number | null
     late_leave_tolerance_minutes?: number | null
+    time_calc_method?: string | null
     employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutWorkScheduleInput
   }
 
@@ -49148,6 +49229,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
     sessions?: sessionsCreateNestedManyWithoutUserInput
@@ -49177,6 +49259,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -49269,6 +49352,7 @@ export namespace Prisma {
     salary_balance?: Decimal | DecimalJsLike | number | string
     paid_amount?: Decimal | DecimalJsLike | number | string
     status?: string
+    payout_status?: string
     sheet: payroll_sheetsCreateNestedOneWithoutItemsInput
     paymentLogs?: payroll_payment_logsCreateNestedManyWithoutItemInput
   }
@@ -49300,6 +49384,7 @@ export namespace Prisma {
     salary_balance?: Decimal | DecimalJsLike | number | string
     paid_amount?: Decimal | DecimalJsLike | number | string
     status?: string
+    payout_status?: string
     paymentLogs?: payroll_payment_logsUncheckedCreateNestedManyWithoutItemInput
   }
 
@@ -49467,6 +49552,7 @@ export namespace Prisma {
     late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    time_calc_method?: NullableStringFieldUpdateOperationsInput | string | null
     employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutWorkScheduleNestedInput
   }
 
@@ -49483,6 +49569,7 @@ export namespace Prisma {
     late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    time_calc_method?: NullableStringFieldUpdateOperationsInput | string | null
     employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutWorkScheduleNestedInput
   }
 
@@ -49701,6 +49788,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
     sessions?: sessionsUpdateManyWithoutUserNestedInput
@@ -49730,6 +49818,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
@@ -49824,6 +49913,7 @@ export namespace Prisma {
     salary_balance?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalFilter<"payroll_sheet_items"> | Decimal | DecimalJsLike | number | string
     status?: StringFilter<"payroll_sheet_items"> | string
+    payout_status?: StringFilter<"payroll_sheet_items"> | string
   }
 
   export type salary_advancesUpsertWithWhereUniqueWithoutEmployeeInput = {
@@ -49856,7 +49946,7 @@ export namespace Prisma {
   }
 
   export type employeesCreateWithoutFacePassesInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -49892,7 +49982,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateWithoutFacePassesInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -50007,7 +50097,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateWithoutFacePassesInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50043,7 +50133,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateWithoutFacePassesInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50168,6 +50258,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -50198,6 +50289,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -50241,6 +50333,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -50271,6 +50364,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
@@ -50317,7 +50411,7 @@ export namespace Prisma {
   }
 
   export type employeesCreateWithoutPositionInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -50353,7 +50447,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateWithoutPositionInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -50444,6 +50538,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -50474,6 +50569,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     holidays?: holidaysUncheckedCreateNestedManyWithoutAddedByInput
@@ -50517,6 +50613,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -50547,6 +50644,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     holidays?: holidaysUncheckedUpdateManyWithoutAddedByNestedInput
@@ -50574,6 +50672,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -50604,6 +50703,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -50622,7 +50722,7 @@ export namespace Prisma {
   }
 
   export type employeesCreateWithoutEmployeeTimeOffsInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -50658,7 +50758,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateWithoutEmployeeTimeOffsInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -50723,6 +50823,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -50753,6 +50854,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
@@ -50777,7 +50879,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateWithoutEmployeeTimeOffsInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50813,7 +50915,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateWithoutEmployeeTimeOffsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50848,7 +50950,7 @@ export namespace Prisma {
   }
 
   export type employeesCreateWithoutUserInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -50884,7 +50986,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateWithoutUserInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -51244,7 +51346,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateWithoutUserInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -51280,7 +51382,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -51688,6 +51790,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     sessions?: sessionsCreateNestedManyWithoutUserInput
@@ -51718,6 +51821,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
     holidays?: holidaysUncheckedCreateNestedManyWithoutAddedByInput
@@ -51783,6 +51887,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     sessions?: sessionsUpdateManyWithoutUserNestedInput
@@ -51813,6 +51918,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
     holidays?: holidaysUncheckedUpdateManyWithoutAddedByNestedInput
@@ -51854,7 +51960,7 @@ export namespace Prisma {
   }
 
   export type employeesCreateWithoutWorkScheduleInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -51890,7 +51996,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateWithoutWorkScheduleInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -51994,7 +52100,7 @@ export namespace Prisma {
   }
 
   export type employeesCreateWithoutEmployeeScheduleHistoryInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -52030,7 +52136,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateWithoutEmployeeScheduleHistoryInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -52081,6 +52187,7 @@ export namespace Prisma {
     late_tolerance_minutes?: number | null
     early_leave_tolerance_minutes?: number | null
     late_leave_tolerance_minutes?: number | null
+    time_calc_method?: string | null
     employees?: employeesCreateNestedManyWithoutWorkScheduleInput
   }
 
@@ -52097,6 +52204,7 @@ export namespace Prisma {
     late_tolerance_minutes?: number | null
     early_leave_tolerance_minutes?: number | null
     late_leave_tolerance_minutes?: number | null
+    time_calc_method?: string | null
     employees?: employeesUncheckedCreateNestedManyWithoutWorkScheduleInput
   }
 
@@ -52120,6 +52228,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -52150,6 +52259,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -52179,7 +52289,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateWithoutEmployeeScheduleHistoryInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52215,7 +52325,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateWithoutEmployeeScheduleHistoryInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52272,6 +52382,7 @@ export namespace Prisma {
     late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    time_calc_method?: NullableStringFieldUpdateOperationsInput | string | null
     employees?: employeesUpdateManyWithoutWorkScheduleNestedInput
   }
 
@@ -52288,6 +52399,7 @@ export namespace Prisma {
     late_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     early_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
     late_leave_tolerance_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    time_calc_method?: NullableStringFieldUpdateOperationsInput | string | null
     employees?: employeesUncheckedUpdateManyWithoutWorkScheduleNestedInput
   }
 
@@ -52317,6 +52429,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -52347,6 +52460,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
@@ -52360,7 +52474,7 @@ export namespace Prisma {
   }
 
   export type employeesCreateWithoutEmployeeSalaryHistoryInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -52396,7 +52510,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateWithoutEmployeeSalaryHistoryInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -52450,6 +52564,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -52480,6 +52595,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -52509,7 +52625,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateWithoutEmployeeSalaryHistoryInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52545,7 +52661,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateWithoutEmployeeSalaryHistoryInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52605,6 +52721,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -52635,6 +52752,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
@@ -52692,7 +52810,7 @@ export namespace Prisma {
   }
 
   export type employeesCreateWithoutDoorsInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -52728,7 +52846,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateWithoutDoorsInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -53126,7 +53244,7 @@ export namespace Prisma {
   }
 
   export type employeesCreateWithoutDoorTasksInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -53162,7 +53280,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateWithoutDoorTasksInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -53243,7 +53361,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateWithoutDoorTasksInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -53279,7 +53397,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateWithoutDoorTasksInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -53919,6 +54037,7 @@ export namespace Prisma {
     salary_balance?: Decimal | DecimalJsLike | number | string
     paid_amount?: Decimal | DecimalJsLike | number | string
     status?: string
+    payout_status?: string
     employee: employeesCreateNestedOneWithoutPayrollSheetItemsInput
     paymentLogs?: payroll_payment_logsCreateNestedManyWithoutItemInput
   }
@@ -53950,6 +54069,7 @@ export namespace Prisma {
     salary_balance?: Decimal | DecimalJsLike | number | string
     paid_amount?: Decimal | DecimalJsLike | number | string
     status?: string
+    payout_status?: string
     paymentLogs?: payroll_payment_logsUncheckedCreateNestedManyWithoutItemInput
   }
 
@@ -53978,6 +54098,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -54008,6 +54129,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -54040,6 +54162,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -54070,6 +54193,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -54129,6 +54253,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -54159,6 +54284,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
@@ -54197,6 +54323,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -54227,6 +54354,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
@@ -54266,7 +54394,7 @@ export namespace Prisma {
   }
 
   export type employeesCreateWithoutPayrollSheetItemsInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -54302,7 +54430,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateWithoutPayrollSheetItemsInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -54410,7 +54538,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateWithoutPayrollSheetItemsInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -54446,7 +54574,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateWithoutPayrollSheetItemsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -54533,6 +54661,7 @@ export namespace Prisma {
     salary_balance?: Decimal | DecimalJsLike | number | string
     paid_amount?: Decimal | DecimalJsLike | number | string
     status?: string
+    payout_status?: string
     sheet: payroll_sheetsCreateNestedOneWithoutItemsInput
     employee: employeesCreateNestedOneWithoutPayrollSheetItemsInput
   }
@@ -54565,6 +54694,7 @@ export namespace Prisma {
     salary_balance?: Decimal | DecimalJsLike | number | string
     paid_amount?: Decimal | DecimalJsLike | number | string
     status?: string
+    payout_status?: string
   }
 
   export type payroll_sheet_itemsCreateOrConnectWithoutPaymentLogsInput = {
@@ -54608,6 +54738,7 @@ export namespace Prisma {
     salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: StringFieldUpdateOperationsInput | string
+    payout_status?: StringFieldUpdateOperationsInput | string
     sheet?: payroll_sheetsUpdateOneRequiredWithoutItemsNestedInput
     employee?: employeesUpdateOneRequiredWithoutPayrollSheetItemsNestedInput
   }
@@ -54640,10 +54771,11 @@ export namespace Prisma {
     salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: StringFieldUpdateOperationsInput | string
+    payout_status?: StringFieldUpdateOperationsInput | string
   }
 
   export type employeesCreateWithoutSalaryAdvancesInput = {
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -54679,7 +54811,7 @@ export namespace Prisma {
 
   export type employeesUncheckedCreateWithoutSalaryAdvancesInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -54733,6 +54865,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     employee?: employeesCreateNestedOneWithoutUserInput
     menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
@@ -54763,6 +54896,7 @@ export namespace Prisma {
     personal_menus?: usersCreatepersonal_menusInput | string[]
     active_branch_id?: number | null
     ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: Date | string
     menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
     sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
@@ -54792,7 +54926,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateWithoutSalaryAdvancesInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -54828,7 +54962,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateWithoutSalaryAdvancesInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -54888,6 +55022,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employee?: employeesUpdateOneWithoutUserNestedInput
     menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
@@ -54918,6 +55053,7 @@ export namespace Prisma {
     personal_menus?: usersUpdatepersonal_menusInput | string[]
     active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
     ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
     sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
@@ -54944,7 +55080,7 @@ export namespace Prisma {
 
   export type employeesCreateManyBranchInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -55039,7 +55175,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateWithoutBranchInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -55075,7 +55211,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateWithoutBranchInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -55111,7 +55247,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateManyWithoutBranchInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -55268,7 +55404,7 @@ export namespace Prisma {
 
   export type employeesCreateManyDepartmentInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -55327,7 +55463,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateWithoutDepartmentInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -55363,7 +55499,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateWithoutDepartmentInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -55399,7 +55535,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateManyWithoutDepartmentInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -55532,6 +55668,7 @@ export namespace Prisma {
     salary_balance?: Decimal | DecimalJsLike | number | string
     paid_amount?: Decimal | DecimalJsLike | number | string
     status?: string
+    payout_status?: string
   }
 
   export type salary_advancesCreateManyEmployeeInput = {
@@ -55857,6 +55994,7 @@ export namespace Prisma {
     salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: StringFieldUpdateOperationsInput | string
+    payout_status?: StringFieldUpdateOperationsInput | string
     sheet?: payroll_sheetsUpdateOneRequiredWithoutItemsNestedInput
     paymentLogs?: payroll_payment_logsUpdateManyWithoutItemNestedInput
   }
@@ -55888,6 +56026,7 @@ export namespace Prisma {
     salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: StringFieldUpdateOperationsInput | string
+    payout_status?: StringFieldUpdateOperationsInput | string
     paymentLogs?: payroll_payment_logsUncheckedUpdateManyWithoutItemNestedInput
   }
 
@@ -55918,6 +56057,7 @@ export namespace Prisma {
     salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: StringFieldUpdateOperationsInput | string
+    payout_status?: StringFieldUpdateOperationsInput | string
   }
 
   export type salary_advancesUpdateWithoutEmployeeInput = {
@@ -55960,7 +56100,7 @@ export namespace Prisma {
 
   export type employeesCreateManyPositionInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -56019,7 +56159,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateWithoutPositionInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56055,7 +56195,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateWithoutPositionInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56091,7 +56231,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateManyWithoutPositionInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56593,7 +56733,7 @@ export namespace Prisma {
 
   export type employeesCreateManyWorkScheduleInput = {
     id?: number
-    employee_number?: number | null
+    employee_number?: string | null
     last_name?: string | null
     first_name?: string | null
     middle_name?: string | null
@@ -56626,7 +56766,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateWithoutWorkScheduleInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56662,7 +56802,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateWithoutWorkScheduleInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56698,7 +56838,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateManyWithoutWorkScheduleInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56787,7 +56927,7 @@ export namespace Prisma {
   }
 
   export type employeesUpdateWithoutDoorsInput = {
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56823,7 +56963,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateWithoutDoorsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56859,7 +56999,7 @@ export namespace Prisma {
 
   export type employeesUncheckedUpdateManyWithoutDoorsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
     middle_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -57224,6 +57364,7 @@ export namespace Prisma {
     salary_balance?: Decimal | DecimalJsLike | number | string
     paid_amount?: Decimal | DecimalJsLike | number | string
     status?: string
+    payout_status?: string
   }
 
   export type payroll_sheet_itemsUpdateWithoutSheetInput = {
@@ -57251,6 +57392,7 @@ export namespace Prisma {
     salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: StringFieldUpdateOperationsInput | string
+    payout_status?: StringFieldUpdateOperationsInput | string
     employee?: employeesUpdateOneRequiredWithoutPayrollSheetItemsNestedInput
     paymentLogs?: payroll_payment_logsUpdateManyWithoutItemNestedInput
   }
@@ -57282,6 +57424,7 @@ export namespace Prisma {
     salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: StringFieldUpdateOperationsInput | string
+    payout_status?: StringFieldUpdateOperationsInput | string
     paymentLogs?: payroll_payment_logsUncheckedUpdateManyWithoutItemNestedInput
   }
 
@@ -57312,6 +57455,7 @@ export namespace Prisma {
     salary_balance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     paid_amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: StringFieldUpdateOperationsInput | string
+    payout_status?: StringFieldUpdateOperationsInput | string
   }
 
   export type payroll_payment_logsCreateManyItemInput = {

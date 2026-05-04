@@ -275,6 +275,7 @@ exports.Prisma.UsersScalarFieldEnum = {
   personal_menus: 'personal_menus',
   active_branch_id: 'active_branch_id',
   ignore_gps_check: 'ignore_gps_check',
+  settings: 'settings',
   added_at: 'added_at'
 };
 
@@ -308,7 +309,8 @@ exports.Prisma.Work_schedulesScalarFieldEnum = {
   status: 'status',
   late_tolerance_minutes: 'late_tolerance_minutes',
   early_leave_tolerance_minutes: 'early_leave_tolerance_minutes',
-  late_leave_tolerance_minutes: 'late_leave_tolerance_minutes'
+  late_leave_tolerance_minutes: 'late_leave_tolerance_minutes',
+  time_calc_method: 'time_calc_method'
 };
 
 exports.Prisma.Employee_schedule_historyScalarFieldEnum = {
@@ -445,7 +447,8 @@ exports.Prisma.Payroll_sheet_itemsScalarFieldEnum = {
   net: 'net',
   salary_balance: 'salary_balance',
   paid_amount: 'paid_amount',
-  status: 'status'
+  status: 'status',
+  payout_status: 'payout_status'
 };
 
 exports.Prisma.Payroll_payment_logsScalarFieldEnum = {
