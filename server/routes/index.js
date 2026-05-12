@@ -27,6 +27,7 @@ import menusRoutes from "../modules/menus/menus.routes.js";
 import authRoutes from "../modules/auth/auth.routes.js";
 import dashboardRoutes from "../modules/dashboard/dashboard.routes.js";
 import payrollRoutes from "../modules/payroll/payroll.routes.js";
+import staffingPositionRoutes from "../modules/staffingPosition/staffingPosition.routes.js";
 
 const router = Router();
 
@@ -59,5 +60,6 @@ router.use("/employee-door-tasks", employeeDoorTasks);
 router.use("/menus", menusRoutes);
 router.use("/dashboard", dashboardRoutes);
 router.use("/payroll", payrollRoutes);
+router.use("/staffing-positions", staffingPositionRoutes);
 
 export default router;

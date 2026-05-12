@@ -73,6 +73,21 @@ export const DepartmentsController = {
     }
   },
 
+  getStaffingOverview: async (req, res) => {
+    try {
+      const { branch_id, department_id } = req.query;
+      const result = await DepartmentsService.getStaffingOverview({
+        userId: req.user.id,
+        branch_id: branch_id ? Number(branch_id) : null,
+        department_id: department_id ? Number(department_id) : null,
+      });
+      res.json({ success: true, data: result.data || result });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: err.message || "Ошибка при получении штатного расписания" });
+    }
+  },
+
   deleteDepartment: async (req, res) => {
     try {
       const deleted = await DepartmentsService.deleteDepartment(req.params.id);

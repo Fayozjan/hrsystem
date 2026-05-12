@@ -10,7 +10,7 @@
     justify-content: center;
     align-items: center;
     height: 30px;
-    background-color: white;
+    background-color: var(--card-bg);
     border: 1px solid rgba(162, 161, 168, 0.4);
     border-radius: 4px;
     padding: 0 8px;
@@ -35,7 +35,7 @@
   .pageCounts {
     font-weight: 600;
     font-size: var(--font-small);
-    color: grey;
+    color: var(--text-secondary);
   }
 
   .pageControls {
@@ -44,7 +44,7 @@
     gap: 10px;
 
     .currentPage {
-      background: #fff;
+      background: var(--card-bg);
       border: 1px solid rgba(162, 161, 168, 0.35);
       border-radius: 4px;
       font-size: var(--font-small);
@@ -58,12 +58,12 @@
       box-sizing: border-box;
 
       span:first-child {
-        color: #000;
+        color: var(--text-color);
         font-weight: 700;
       }
 
       span:last-child {
-        color: #666;
+        color: var(--text-secondary);
       }
     }
 
@@ -77,7 +77,7 @@
         align-items: center;
         height: 28px;
         padding: 0 8px;
-        background-color: white;
+        background-color: var(--card-bg);
         border: 1px solid rgba(162, 161, 168, 0.4);
         border-radius: 4px;
         box-sizing: border-box;

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Sun, Moon } from "lucide-react";
 import { useAlertStore } from "../stores/alertStore";
 import { useAuthStore } from "../stores/authStore";
 
@@ -29,6 +30,19 @@ const AuthPage = () => {
   const [currentLang, setCurrentLang] = useState(
     localStorage.getItem("language") || i18n.language,
   );
+  const [isDark, setIsDark] = useState(
+    () => (localStorage.getItem("theme") || "light") === "dark",
+  );
+
+  useEffect(() => {
+    const html = document.documentElement;
+    if (isDark) {
+      html.classList.add("dark");
+    } else {
+      html.classList.remove("dark");
+    }
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }, [isDark]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,7 +59,7 @@ const AuthPage = () => {
     e.preventDefault();
     const lang = localStorage.getItem("language") || i18n.language;
 
-    const result = await loginUser({ ...form, language: lang });
+    const result = await loginUser({ ...form, language: lang, theme: isDark ? "dark" : "light" });
 
     if (result.success) {
       navigate("/home");
@@ -61,7 +75,16 @@ const AuthPage = () => {
         <span>OnBase</span>
       </div>
 
-      <div className={styles.lang_switcher}>
+      <div className={styles.top_right}>
+        <button
+          className={styles.theme_toggle}
+          onClick={() => setIsDark((prev) => !prev)}
+          type="button"
+        >
+          {isDark ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
+
+        <div className={styles.lang_switcher}>
         <button
           onClick={() => handleLanguageChange("ru")}
           className={currentLang === "ru" ? styles.active : ""}
@@ -86,6 +109,7 @@ const AuthPage = () => {
         >
           ENG
         </button>
+      </div>
       </div>
 
       <div className={styles.login_card}>

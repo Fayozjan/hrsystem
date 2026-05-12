@@ -6,6 +6,7 @@ import DownloadButton from "./DownloadButton";
 import AttendanceTableByEmployee from "./AttendanceTableByEmployee";
 import Portal from "./Portal";
 import { Switcher } from "./Switcher";
+import { Icons } from "../icons/icons";
 
 import styles from "./AttendanceTable.module.scss";
 
@@ -536,22 +537,7 @@ const AttendanceTable = ({ rowData = [], viewMode }) => {
               className={`${styles.toggleBtn} ${openBranches[branch.name] ? styles.toggleBtnOpen : ""}`}
             >
               <span>{openBranches[branch.name] ? t("hide") : t("show")}</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                className={styles.toggleIcon}
-              >
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2.5"
-                  d="m6 9l6 6l6-6"
-                />
-              </svg>
+              <span className={styles.toggleIcon}>{Icons.chevronDown}</span>
             </button>
           </td>
         </tr>
@@ -582,17 +568,7 @@ const AttendanceTable = ({ rowData = [], viewMode }) => {
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <div className={styles.searchInput}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="19"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="#000000"
-              d="M15.096 5.904a6.5 6.5 0 1 0-9.192 9.192a6.5 6.5 0 0 0 9.192-9.192ZM4.49 4.49a8.5 8.5 0 0 1 12.686 11.272l5.345 5.345l-1.414 1.414l-5.345-5.345A8.501 8.501 0 0 1 4.49 4.49Z"
-            />
-          </svg>
+          {Icons.search}
           <input
             type="text"
             placeholder={t("search")}
@@ -600,23 +576,7 @@ const AttendanceTable = ({ rowData = [], viewMode }) => {
             onChange={(e) => setSearch(e.target.value)}
           />
           {search && (
-            <svg
-              className={styles.clearBtn}
-              onClick={() => setSearch("")}
-              xmlns="http://www.w3.org/2000/svg"
-              width="19"
-              height="18"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="none"
-                stroke="#000000"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <span className={styles.clearBtn} onClick={() => setSearch("")} style={{ display: "flex", cursor: "pointer" }}>{Icons.clear}</span>
           )}
         </div>
 

@@ -1,4 +1,4 @@
-.tableContainer {
+﻿.tableContainer {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
@@ -15,7 +15,7 @@
   thead {
     position: sticky;
     top: 0;
-    background: white;
+    background: var(--card-bg);
     z-index: 10;
   }
 
@@ -29,14 +29,14 @@
 
   th {
     font-weight: 600;
-    color: #475569;
+    color: var(--text-secondary);
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
   }
 
   tbody tr:hover td {
-    background: #f8fafc;
+    background: var(--bg-light);
   }
 }
 
@@ -61,11 +61,11 @@
 
 .numCol {
   width: 36px;
-  color: #94a3b8;
+  color: var(--placeholder-color);
   font-size: 11px;
 }
 .numColTd {
-  color: #94a3b8;
+  color: var(--placeholder-color);
   font-size: 11px;
   text-align: center;
 }
@@ -80,16 +80,16 @@
 }
 .empName {
   font-weight: 600;
-  color: #1e293b;
+  color: var(--text-color);
 }
 .empSub {
   font-size: 11px;
-  color: #94a3b8;
+  color: var(--placeholder-color);
 }
 
 .numCell {
   font-variant-numeric: tabular-nums;
-  color: #1e293b;
+  color: var(--text-color);
 }
 
 .salaryBalVal {
@@ -202,10 +202,10 @@
   display: inline-flex;
   align-items: center;
   padding: 3px 6px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-subtle);
   border-radius: 5px;
-  background: white;
-  color: #94a3b8;
+  background: var(--card-bg);
+  color: var(--placeholder-color);
   cursor: pointer;
   font-family: inherit;
   transition: all 0.12s;
@@ -218,7 +218,7 @@
 
 .noData {
   text-align: center;
-  color: #94a3b8;
+  color: var(--placeholder-color);
   padding: 60px;
   font-style: italic;
 }
@@ -228,8 +228,8 @@
 .popover {
   position: absolute;
   z-index: 1000;
-  background: white;
-  border: 1px solid #e2e8f0;
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
   border-radius: 10px;
   padding: 14px;
   width: 290px;
@@ -239,7 +239,7 @@
 .popoverTitle {
   font-weight: 700;
   font-size: 13px;
-  color: #1e293b;
+  color: var(--text-color);
   margin-bottom: 10px;
   padding-bottom: 8px;
   border-bottom: 1px solid #f1f5f9;
@@ -254,12 +254,12 @@
 }
 
 .popoverRowLabel {
-  color: #64748b;
+  color: var(--text-secondary);
 }
 .popoverRowValue {
   font-weight: 600;
   font-variant-numeric: tabular-nums;
-  color: #1e293b;
+  color: var(--text-color);
 }
 
 // ── Quick % buttons ───────────────────────────────────────────────────────────
@@ -273,10 +273,10 @@
 .quickBtn {
   flex: 1;
   padding: 4px 0;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-subtle);
   border-radius: 5px;
-  background: #f8fafc;
-  color: #475569;
+  background: var(--bg-light);
+  color: var(--text-secondary);
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
@@ -313,7 +313,7 @@
 
 .inputSep {
   font-size: 13px;
-  color: #94a3b8;
+  color: var(--placeholder-color);
   padding-bottom: 6px;
   flex-shrink: 0;
 }
@@ -321,7 +321,7 @@
 .inputLabel {
   font-size: 10px;
   font-weight: 600;
-  color: #94a3b8;
+  color: var(--placeholder-color);
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
@@ -330,7 +330,7 @@
   width: 100%;
   height: 32px;
   padding: 0 8px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-subtle);
   border-radius: 6px;
   font-size: var(--font-small);
   font-family: inherit;
@@ -355,7 +355,7 @@
 .popoverSectionLabel {
   font-size: 10px;
   font-weight: 700;
-  color: #94a3b8;
+  color: var(--placeholder-color);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin: 10px 0 6px;
@@ -372,7 +372,7 @@
 .paymentHistoryTitle {
   font-size: 10px;
   font-weight: 700;
-  color: #94a3b8;
+  color: var(--placeholder-color);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 6px;
@@ -380,7 +380,7 @@
 
 .paymentHistoryLoading {
   font-size: 12px;
-  color: #94a3b8;
+  color: var(--placeholder-color);
   text-align: center;
   padding: 8px 0;
 }
@@ -399,7 +399,7 @@
 }
 
 .paymentLogDate {
-  color: #64748b;
+  color: var(--text-secondary);
   min-width: 72px;
 }
 .paymentLogAmount {
@@ -411,7 +411,7 @@
 }
 .paymentLogNote {
   font-size: 11px;
-  color: #94a3b8;
+  color: var(--placeholder-color);
   flex: 1;
   white-space: nowrap;
   overflow: hidden;
@@ -430,11 +430,17 @@
   cursor: pointer;
   transition: all 0.12s;
 
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+
   &:hover:not(:disabled) {
     border-color: #ef4444;
     color: #ef4444;
     background: #fef2f2;
   }
+
   &:disabled {
     opacity: 0.4;
     cursor: not-allowed;
@@ -452,15 +458,15 @@
 
 .cancelBtn {
   padding: 5px 12px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-subtle);
   border-radius: 6px;
-  background: white;
-  color: #64748b;
+  background: var(--card-bg);
+  color: var(--text-secondary);
   font-size: var(--font-small);
   font-family: inherit;
   cursor: pointer;
   &:hover {
-    background: #f1f5f9;
+    background: var(--bg-light);
   }
 }
 

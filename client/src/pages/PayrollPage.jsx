@@ -13,6 +13,7 @@ import {
 
 import { payrollApi } from "../api/payroll";
 import { useAlertStore } from "../stores/alertStore";
+import { useAuthStore } from "../stores/authStore";
 
 import Loading from "../components/Loading";
 import Pagination from "../components/Pagination";
@@ -21,6 +22,7 @@ import SalarySort from "../components/SalarySort";
 import PayrollTable from "../components/PayrollTable";
 import { Icons } from "../icons/icons";
 
+import Search from "../components/Search";
 import styles from "./PayrollPage.module.scss";
 
 const fmt = (n) =>
@@ -79,6 +81,7 @@ const StatWidget = ({ icon: Icon, color, label, value, sub, progress }) => (
 const PayrollPage = () => {
   const { t } = useTranslation();
   const { showAlert } = useAlertStore();
+  const { viewMode, activeBranchId } = useAuthStore((s) => s.userSettings) || {};
 
   const [month, setMonth] = useState(getCurrentMonth());
   const [formData, setFormData] = useState(initialFilters);
@@ -106,7 +109,7 @@ const PayrollPage = () => {
         page,
         pageSize: size,
         search: filters.search,
-        branch_id: filters.branch_id,
+        branch_id: viewMode === "branch" && activeBranchId ? activeBranchId : filters.branch_id,
         department_id: filters.department_id,
         position_id: filters.position_id,
         salary_type: filters.salary_type,
@@ -139,11 +142,17 @@ const PayrollPage = () => {
     fetchSheet(month, reset, 1, pageSize);
   }, [month]);
 
+  useEffect(() => {
+    if (viewMode === "branch") {
+      fetchSheet(month, formData, 1, pageSize);
+    }
+  }, [activeBranchId]);
+
   // ── Filter / sort / page handlers ────────────────────────────────────────────
 
-  const handleSearch = () => {
+  const handleSearch = (data = formData) => {
     setSelectedIds([]);
-    fetchSheet(month, formData, 1, pageSize);
+    fetchSheet(month, data, 1, pageSize);
   };
 
   const handleFormSubmit = (e) => {
@@ -420,30 +429,7 @@ const PayrollPage = () => {
               className={styles.monthInput}
             />
 
-            <div className={styles.searchInput}>
-              <span onClick={handleSearch}>{Icons.search}</span>
-              <input
-                type="text"
-                placeholder={t("search")}
-                value={formData.search}
-                onChange={(e) =>
-                  setFormData((prev) => ({ ...prev, search: e.target.value }))
-                }
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") handleSearch();
-                }}
-              />
-              {formData.search && (
-                <span
-                  className={styles.clearBtn}
-                  onClick={() =>
-                    setFormData((prev) => ({ ...prev, search: "" }))
-                  }
-                >
-                  {Icons.clear}
-                </span>
-              )}
-            </div>
+            <Search formData={formData} setFormData={setFormData} onSearch={handleSearch} />
 
             <PayrollFilter
               formData={formData}

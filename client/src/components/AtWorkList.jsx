@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 
 import styles from "./AtWorkList.module.scss";
 import { useTranslation } from "react-i18next";
+import { Icons } from "../icons/icons";
 
 const AtWorkTable = ({ data, onClose }) => {
   const { t } = useTranslation();
@@ -35,36 +36,7 @@ const AtWorkTable = ({ data, onClose }) => {
   return (
     <div className={styles.overlay}>
       <div className={styles.table_body} ref={modalRef}>
-        <svg
-          className={styles.closeButton}
-          onClick={onClose}
-          viewBox="0 0 256 256"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect fill="none" height="256" width="256" />
-          <line
-            fill="none"
-            stroke="#000"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="24"
-            x1="200"
-            x2="56"
-            y1="56"
-            y2="200"
-          />
-          <line
-            fill="none"
-            stroke="#000"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="24"
-            x1="200"
-            x2="56"
-            y1="200"
-            y2="56"
-          />
-        </svg>
+        <span className={styles.closeButton} onClick={onClose} style={{ display: "flex", cursor: "pointer" }}>{Icons.clear}</span>
         <h1>{t("leftWorkList")}</h1>
         <div className={styles.tableContainer}>
           <table className={styles.employee_table}>

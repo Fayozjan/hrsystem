@@ -58,6 +58,14 @@ export const AuthModel = {
     });
   },
 
+  updateUserTheme: async (userId, theme) => {
+    const prisma = prismaContext.get();
+    return prisma.users.update({
+      where: { id: userId },
+      data: { theme },
+    });
+  },
+
   createSession: async ({ userId, refreshToken, ip, userAgent }) => {
     const prisma = prismaContext.get();
     return prisma.sessions.create({

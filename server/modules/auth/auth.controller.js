@@ -26,11 +26,12 @@ const setTokens = (res, accessToken, refreshToken) => {
 export const AuthController = {
   login: async (req, res) => {
     try {
-      const { username, password, language } = req.body;
+      const { username, password, language, theme } = req.body;
       const { accessToken, refreshToken, user } = await AuthService.login(
         username,
         password,
         language,
+        theme,
       );
 
       setTokens(res, accessToken, refreshToken);

@@ -9,7 +9,7 @@
 
   .main {
     padding: 2px;
-    background-color: white;
+    background-color: var(--card-bg);
     display: flex;
     flex-direction: column;
     border-radius: 4px;
@@ -26,8 +26,8 @@
 
     .statWidget {
       position: relative;
-      background: white;
-      border: 1px solid #e2e8f0;
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
       border-radius: 8px;
       padding: 8px 11px;
       display: flex;
@@ -68,7 +68,7 @@
 
     .statWidgetLabel {
       font-size: 12px;
-      color: #64748b;
+      color: var(--text-secondary);
       font-weight: 500;
       white-space: nowrap;
       overflow: hidden;
@@ -85,12 +85,12 @@
     .statWidgetSub {
       font-size: 12px;
       font-weight: 500;
-      color: #94a3b8;
+      color: var(--placeholder-color);
     }
 
     .statWidgetProgressTrack {
       height: 3px;
-      background: #f1f5f9;
+      background: var(--bg-light);
       border-radius: 2px;
       overflow: hidden;
     }
@@ -142,40 +142,29 @@
       transition: width 0.4s ease;
     }
 
-    .typeSegmentLabels {
-      display: flex;
-      gap: 2px;
-      margin-top: 3px;
+    .typeLabelsRow {
+      position: relative;
+      height: 15px;
     }
 
-    .typeSegmentLabel {
-      display: flex;
-      justify-content: center;
-      gap: 5px;
-      min-width: 0;
-      overflow: hidden;
-    }
-
-    .typeSegmentName {
-      font-size: 10px;
-      font-weight: 500;
-      color: #64748b;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .typeSegmentCount {
-      font-size: 12px;
+    .typeLabelCount {
+      position: absolute;
+      transform: translateX(-50%);
+      font-size: 11px;
       font-weight: 700;
       font-variant-numeric: tabular-nums;
-      line-height: 1.1;
+      white-space: nowrap;
+      line-height: 15px;
     }
 
-    .typeSegmentPct {
+    .typeLabelPct {
+      position: absolute;
+      transform: translateX(-50%);
       font-size: 10px;
       font-weight: 500;
-      color: #94a3b8;
+      white-space: nowrap;
+      line-height: 15px;
+      opacity: 0.75;
     }
 
     .mainHeader {
@@ -254,7 +243,7 @@
           border: 1px solid rgba(162, 161, 168, 0.4);
           cursor: pointer;
           box-sizing: border-box;
-          background-color: white;
+          background-color: var(--card-bg);
 
           svg {
             width: 18px;
@@ -299,7 +288,7 @@
 }
 
 .bdModal {
-  background: white;
+  background: var(--card-bg);
   border-radius: 14px;
   width: 700px;
   max-width: 96vw;
@@ -348,7 +337,7 @@
 .bdModalHeaderTitle {
   font-size: 15px;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--text-color);
 }
 
 .bdModalHeaderSub {
@@ -368,14 +357,14 @@
   background: rgba(100, 116, 139, 0.1);
   border: none;
   cursor: pointer;
-  color: #64748b;
+  color: var(--text-secondary);
   transition:
     background 0.15s,
     color 0.15s;
 
   &:hover {
     background: rgba(100, 116, 139, 0.2);
-    color: #1e293b;
+    color: var(--text-color);
   }
 }
 
@@ -387,10 +376,10 @@
     width: 5px;
   }
   &::-webkit-scrollbar-track {
-    background: #f8fafc;
+    background: var(--bg-light);
   }
   &::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
+    background: var(--scroll-color);
     border-radius: 3px;
   }
 }
@@ -401,7 +390,7 @@
   font-size: 13px;
 
   thead tr {
-    background: #f8fafc;
+    background: var(--bg-light);
     position: sticky;
     top: 0;
     z-index: 1;
@@ -411,10 +400,10 @@
       text-align: left;
       font-size: 11px;
       font-weight: 600;
-      color: #94a3b8;
+      color: var(--placeholder-color);
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid var(--border-subtle);
       white-space: nowrap;
 
       &:first-child {
@@ -430,14 +419,14 @@
   }
 
   tbody tr {
-    border-bottom: 1px solid #f1f5f9;
+    border-bottom: 1px solid var(--bg-light);
     transition: background 0.12s;
 
     &:last-child {
       border-bottom: none;
     }
     &:hover {
-      background: #f8fafc;
+      background: var(--bg-light);
     }
   }
 
@@ -460,7 +449,7 @@
   padding-left: 16px !important;
   font-size: 11px;
   font-weight: 600;
-  color: #cbd5e1;
+  color: var(--border-color);
   font-variant-numeric: tabular-nums;
 }
 
@@ -471,22 +460,52 @@
 }
 
 .empCell {
-  padding-left: 8px;
+  padding-left: 6px;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
   text-align: left;
   min-width: 150px;
+}
 
-  img {
-    flex-shrink: 0;
-    width: 35px;
-    min-width: 30px;
-    height: 35px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-sizing: border-box;
+.empAvatar {
+  flex-shrink: 0;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  &.inactive {
+    border-color: #ef4444;
+  }
+}
+
+.empPhoto {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.empInitials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--border-subtle);
+  border-radius: 50%;
+
+  &.inactiveInitials {
+    background: #fca5a5;
+    color: #7f1d1d;
   }
 }
 
@@ -498,12 +517,18 @@
 
 .empName {
   font-weight: 600;
-  color: #1e293b;
+  color: var(--text-color);
+}
+
+.empId {
+  font-weight: 400;
+  color: var(--placeholder-color);
+  font-size: 11px;
 }
 
 .empSub {
   font-size: 11px;
-  color: #94a3b8;
+  color: var(--placeholder-color);
 }
 
 .bdInitials {
@@ -523,7 +548,7 @@
 
 .bdName {
   font-weight: 600;
-  color: #1e293b;
+  color: var(--text-color);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -542,7 +567,7 @@
 
 .bdColPos {
   font-size: 12px;
-  color: #64748b;
+  color: var(--text-secondary);
   max-width: 140px;
   white-space: nowrap;
   overflow: hidden;

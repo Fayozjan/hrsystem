@@ -1,3 +1,5 @@
+import path from "path";
+import fs from "fs";
 import { prismaContext } from "../../utils/prismaContext.js";
 
 import { EmployeeModel } from "./employees.model.js";
@@ -7,6 +9,14 @@ import { buildEmployeeAccess, removeUndefined } from "./employee.helpers.js";
 import { EmploymentOrdersModel } from "../employmentOrders/employmentOrders.model.js";
 import { EmployeeWorkScheduleHistoryModel } from "../employeeScheduleHistory/employeeScheduleHistory.model.js";
 import { EmploymentOrdersService } from "../employmentOrders/employmentOrders.service.js";
+
+function getEmployeeNumericPriority(emp, s) {
+  if (String(emp.id) === s) return 1;
+  if (String(emp.employee_number || "") === s) return 2;
+  if ((emp.pinfl || "").includes(s)) return 3;
+  if ((emp.passport || "").toLowerCase().includes(s.toLowerCase())) return 4;
+  return 5;
+}
 
 export const EmployeeService = {
   create: async (userId, rawData, file) => {
@@ -137,6 +147,26 @@ export const EmployeeService = {
         );
     }
 
+    if (file && photoPath) {
+      const clientFolder = path.dirname(photoPath);
+      const newFileName = `${newEmployee.id}.jpg`;
+      const newPhotoPath = `${clientFolder}/${newFileName}`;
+      const oldFilePath = file.path;
+      const newFilePath = path.join(path.dirname(file.path), newFileName);
+
+      try {
+        await fs.promises.rename(oldFilePath, newFilePath);
+        const prisma = prismaContext.get();
+        await prisma.employees.update({
+          where: { id: newEmployee.id },
+          data: { photo: newPhotoPath },
+        });
+        newEmployee.photo = newPhotoPath;
+      } catch (err) {
+        console.error("Ошибка при переименовании фото сотрудника:", err);
+      }
+    }
+
     return newEmployee;
   },
 
@@ -178,6 +208,8 @@ export const EmployeeService = {
       }
     }
 
+    const isNumericSearch = search && /^\d+$/.test(search.trim());
+
     if (search && search?.trim() !== "") {
       const s = search.trim();
 
@@ -198,10 +230,11 @@ export const EmployeeService = {
         exactNumericFilters = [{ id: numericValue }];
       }
 
-      // 3. Строковые фильтры (ПИНФЛ и Паспорт — всегда строки)
+      // 3. Строковые фильтры (ПИНФЛ, Паспорт, номер табеля — всегда строки)
       const stringFilters = [
         { pinfl: { contains: s } },
         { passport: { contains: s, mode: "insensitive" } },
+        { employee_number: { contains: s } },
       ];
 
       // 4. Разбор ФИО
@@ -232,13 +265,22 @@ export const EmployeeService = {
     const size = Math.max(parseInt(pageSize) || 50, 1);
     const skip = (currentPage - 1) * size;
 
-    const { data, total } = await EmployeeModel.getAll(
+    const { data: rawData, total } = await EmployeeModel.getAll(
       where,
-      skip,
-      size,
+      isNumericSearch ? 0 : skip,
+      isNumericSearch ? 100000 : size,
       sort_by,
       sort_order,
     );
+
+    let data = rawData;
+    if (isNumericSearch && rawData.length > 0) {
+      const s = search.trim();
+      data = [...rawData].sort(
+        (a, b) => getEmployeeNumericPriority(a, s) - getEmployeeNumericPriority(b, s),
+      );
+      data = data.slice(skip, skip + size);
+    }
 
     return {
       data,
@@ -476,6 +518,9 @@ export const EmployeeService = {
     const wantsClearSchedule =
       raw.work_schedule_id !== undefined && raw.work_schedule_id === "";
 
+    // Сохраняем намерение очистить фото ДО удаления пустых строк
+    const wantsClearPhoto = raw.photo !== undefined && raw.photo === "";
+
     // -------------------------------------------------
     // 1️⃣ НОРМАЛИЗАЦИЯ
     // -------------------------------------------------
@@ -615,7 +660,9 @@ export const EmployeeService = {
     // -------------------------------------------------
 
     if (file) {
-      data.photo = file?.filename;
+      data.photo = file.filename;
+    } else if (wantsClearPhoto) {
+      data.photo = null;
     }
 
     // -------------------------------------------------
@@ -650,9 +697,13 @@ export const EmployeeService = {
       (newDoorIds.length !== oldDoorIds.length ||
         !newDoorIds.every((id) => oldDoorIds.includes(id)));
 
-    if (photoChanged || doorsChanged) {
+    const removedDoorIds = newDoorIds
+      ? oldDoorIds.filter((id) => !newDoorIds.includes(id))
+      : [];
+
+    if (doorsChanged) {
       Promise.resolve()
-        .then(() => FaceDevicesService.syncEmployee(id))
+        .then(() => FaceDevicesService.syncEmployee(id, { removedDoorIds }))
         .catch((err) =>
           console.error("Ошибка синхронизации с FaceDevice:", err),
         );

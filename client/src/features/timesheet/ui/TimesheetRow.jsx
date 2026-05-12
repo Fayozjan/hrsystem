@@ -1,5 +1,6 @@
 import React from "react";
 import TimesheetCell from "./TimesheetCell";
+import EmployeeCell from "../../../components/EmployeeCell";
 import styles from "./Timesheet.module.scss";
 import { formatMinutesToHours } from "../../../utils/date";
 import { useTranslation } from "react-i18next";
@@ -36,44 +37,14 @@ const TimesheetRow = React.memo(
           {(currentPage - 1) * pageSize + index + 1}
         </td>
         <td className={`${styles.stickyName} ${styles.infoCellClickable}`}>
-          <div className={styles.empCell}>
-            {(() => {
-              const isInactive = employee?.status === false;
-              const statusClass = isInactive ? styles.inactive : "";
-              const initials = (employee?.employeeFullName || "")
-                .split(" ")
-                .filter(Boolean)
-                .slice(0, 2)
-                .map((w) => w[0])
-                .join("")
-                .toUpperCase();
-              return (
-                <div className={`${styles.empAvatar} ${statusClass}`}>
-                  {employee?.employeePhoto ? (
-                    <img
-                      src={`/api/employees/image/${employee.employeePhoto}`}
-                      alt="employee"
-                      className={styles.empPhoto}
-                    />
-                  ) : (
-                    <div className={`${styles.empInitials} ${statusClass}`}>
-                      {initials}
-                    </div>
-                  )}
-                </div>
-              );
-            })()}
-            <div className={styles.empInfo}>
-              <span className={styles.empName}>
-                {employee?.employeeFullName}
-              </span>
-              <span className={styles.empSub}>
-                {[employee?.branchName, employee?.departmentName]
-                  .filter(Boolean)
-                  .join(" / ")}
-              </span>
-            </div>
-          </div>
+          <EmployeeCell
+            photo={employee?.employeePhoto}
+            fullName={employee?.employeeFullName}
+            id={id}
+            branch={employee?.branchName}
+            department={employee?.departmentName}
+            active={employee?.status !== false}
+          />
         </td>
         {visibleColumns.position && (
           <td className={`${styles.optionalCol} ${styles.infoCellClickable}`}>

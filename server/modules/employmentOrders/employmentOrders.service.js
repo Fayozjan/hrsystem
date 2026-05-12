@@ -88,7 +88,7 @@ export const EmploymentOrdersService = {
 
     const where = buildEmploymentOrderAccess(user);
 
-    const { search, type, status } = filters;
+    const { search, type, status, branch_id } = filters;
 
     if (search) {
       where.OR = [
@@ -107,6 +107,10 @@ export const EmploymentOrdersService = {
 
     if (status !== undefined && status !== "") {
       where.status = status === "true";
+    }
+
+    if (branch_id) {
+      where.branch_id = Number(branch_id);
     }
 
     const data = await EmploymentOrdersModel.findAll({

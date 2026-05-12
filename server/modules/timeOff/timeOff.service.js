@@ -2,6 +2,15 @@ import { TimeOffModel } from "./timeOff.model.js";
 import { UserModel } from "../users/users.model.js";
 import { buildTimeOffEmployeeAccess } from "./timeOff.helpers.js";
 
+function getTimeOffNumericPriority(record, s) {
+  const emp = record.employee || {};
+  if (String(emp.id) === s) return 1;
+  if (String(emp.employee_number || "") === s) return 2;
+  if ((emp.pinfl || "").includes(s)) return 3;
+  if ((emp.passport || "").toLowerCase().includes(s.toLowerCase())) return 4;
+  return 5;
+}
+
 const getFullName = (person) => {
   if (!person) return null;
   return [person.last_name, person.first_name, person.middle_name, person.id]
@@ -132,6 +141,7 @@ export const TimeOffService = {
                   { id: num },
                   { pinfl: searchStr },
                   { employee_number: searchStr },
+                  { passport: { contains: searchStr, mode: "insensitive" } },
                 ],
               },
             },
@@ -152,14 +162,20 @@ export const TimeOffService = {
     const currentPage = Math.max(parseInt(page, 10) || 1, 1);
     const size = Math.max(parseInt(pageSize, 10) || 50, 1);
     const skip = (currentPage - 1) * size;
+    const isNumericSearch = search && /^\d+$/.test(search.toString().trim());
 
     const { records, total } = await TimeOffModel.get({
       where,
-      skip,
-      take: size,
+      skip: isNumericSearch ? 0 : skip,
+      take: isNumericSearch ? 100000 : size,
     });
 
-    const formattedData = formatRecords(records);
+    if (isNumericSearch && records.length > 0) {
+      const s = search.toString().trim();
+      records.sort((a, b) => getTimeOffNumericPriority(a, s) - getTimeOffNumericPriority(b, s));
+    }
+
+    const formattedData = formatRecords(isNumericSearch ? records.slice(skip, skip + size) : records);
 
     return {
       data: formattedData,

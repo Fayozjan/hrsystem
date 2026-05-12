@@ -13,6 +13,15 @@ import { buildFacePassEmployeeAccess } from "./facePasses.helpers.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+function getFacePassNumericPriority(record, s) {
+  const emp = record.employee || {};
+  if (String(record.employee_id) === s) return 1;
+  if (String(emp.employee_number || "") === s) return 2;
+  if ((emp.pinfl || "").includes(s)) return 3;
+  if ((emp.passport || "").toLowerCase().includes(s.toLowerCase())) return 4;
+  return 5;
+}
+
 export async function saveUploadedPhoto(
   imageBuffer,
   dateTime,
@@ -106,7 +115,7 @@ export const FacePassesService = {
 
       photoPath = await saveUploadedPhoto(
         imageBuffer,
-        event.dateTime,
+        payload.dateTime,
         event.employeeNoString,
         event.serialNo,
         tenant,
@@ -119,11 +128,24 @@ export const FacePassesService = {
     if (!event.employeeNoString)
       throw new Error("employeeNoString отсутствует");
 
+    const employeeId = Number(event.employeeNoString);
+    if (
+      !Number.isInteger(employeeId) ||
+      employeeId > 2147483647 ||
+      employeeId < 1
+    ) {
+      console.log(
+        "employeeNoString out of INT4 range, skipping:",
+        event.employeeNoString,
+      );
+      return { success: true, notFound: true };
+    }
+
     // --- формируем данные ---
     const data = {
       date: payload.dateTime,
       identifier: `${event.employeeNoString}-${event.serialNo}`,
-      employee_id: Number(event.employeeNoString),
+      employee_id: employeeId,
       door_id: doorId,
       face_devices_id: faceDeviceId,
       direction,
@@ -354,14 +376,30 @@ export const FacePassesService = {
     if (position_id) employeeWhere.position_id = Number(position_id);
     if (Object.keys(employeeWhere).length) where.employee = employeeWhere;
     if (search) {
-      where.OR = [
-        { employee_id: isNaN(Number(search)) ? undefined : Number(search) },
-        { employee: { first_name: { contains: search, mode: "insensitive" } } },
-        { employee: { last_name: { contains: search, mode: "insensitive" } } },
-        {
-          employee: { middle_name: { contains: search, mode: "insensitive" } },
-        },
-      ];
+      const s = search.toString().trim();
+      const isNumericSearch = /^\d+$/.test(s);
+      const numericValue = isNumericSearch ? Number(s) : NaN;
+      const isValidInt4 =
+        isNumericSearch &&
+        Number.isInteger(numericValue) &&
+        numericValue >= -2147483648 &&
+        numericValue <= 2147483647;
+
+      const orConditions = [];
+      if (isValidInt4) orConditions.push({ employee_id: numericValue });
+      orConditions.push(
+        { employee: { first_name: { contains: s, mode: "insensitive" } } },
+        { employee: { last_name: { contains: s, mode: "insensitive" } } },
+        { employee: { middle_name: { contains: s, mode: "insensitive" } } },
+      );
+      if (isNumericSearch) {
+        orConditions.push(
+          { employee: { employee_number: { contains: s } } },
+          { employee: { pinfl: { contains: s } } },
+          { employee: { passport: { contains: s, mode: "insensitive" } } },
+        );
+      }
+      where.OR = orConditions;
     }
 
     // Остальные фильтры
@@ -379,15 +417,21 @@ export const FacePassesService = {
     const currentPage = Math.max(parseInt(page) || 1, 1);
     const size = Math.max(parseInt(pageSize) || 50, 1);
     const skip = (currentPage - 1) * size;
+    const isNumericSearch = search && /^\d+$/.test(search.toString().trim());
 
     const { records, total } = await FacePassesModel.find({
       where,
-      skip,
-      take: size,
+      skip: isNumericSearch ? 0 : skip,
+      take: isNumericSearch ? 100000 : size,
     });
 
+    if (isNumericSearch && records.length > 0) {
+      const s = search.toString().trim();
+      records.sort((a, b) => getFacePassNumericPriority(a, s) - getFacePassNumericPriority(b, s));
+    }
+
     return {
-      data: records,
+      data: isNumericSearch ? records.slice(skip, skip + size) : records,
       pagination: {
         totalItems: total,
         currentPage,

@@ -119,6 +119,7 @@ const ProfileSettings = ({ onClose }) => {
             <label>{t("theme")}</label>
             <select value={theme} onChange={(e) => setTheme(e.target.value)}>
               <option value="light">{t("themeLight")}</option>
+              <option value="dark">{t("themeDark")}</option>
             </select>
           </div>
 

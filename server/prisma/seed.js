@@ -84,6 +84,7 @@ export default async function seed() {
       { name: "payroll", path: "/payroll" },
       { name: "salary-payouts", path: "/salary-payouts" },
       { name: "salary-advances", path: "/salary-advances" },
+      { name: "staffing", path: "/staffing" },
     ];
 
     for (const [i, item] of financeChildren.entries()) {

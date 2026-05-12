@@ -23,14 +23,14 @@ model branches {
   added_at DateTime @default(now()) @db.Timestamptz(6)
   added_by Int
 
-  director         employees?          @relation("BranchDirector", fields: [director_id], references: [id])
-  employmentOrders employment_orders[]
-  employees        employees[]
-  gates            gates[]
-  vehiclePasses    vehicle_passes[]
-  departments      departments[]
-  doors            doors[]
-  addedBy          users               @relation(fields: [added_by], references: [id])
+  director           employees?             @relation("BranchDirector", fields: [director_id], references: [id])
+  employmentOrders   employment_orders[]
+  employees          employees[]
+  gates              gates[]
+  vehiclePasses      vehicle_passes[]
+  departments        departments[]
+  doors              doors[]
+  addedBy            users                  @relation(fields: [added_by], references: [id])
 }
 
 model departments {
@@ -40,9 +40,9 @@ model departments {
   branch_id Int
   added_at  DateTime @default(now()) @db.Timestamptz(6)
 
-  employmentOrders employment_orders[]
-  employees        employees[]
-  branch           branches            @relation(fields: [branch_id], references: [id])
+  employmentOrders   employment_orders[]
+  employees          employees[]
+  branch             branches               @relation(fields: [branch_id], references: [id])
 }
 
 model employment_orders {
@@ -98,7 +98,6 @@ model employees {
   employeeTimeOffs        time_off[]                  @relation("employeeTimeOffs")
   facePasses              face_passes[]
   doors                   doors[]
-  doorTasks               employee_door_tasks[]
   user                    users?
   directedBranches        branches[]                  @relation("BranchDirector")
   payrollSheetItems       payroll_sheet_items[]
@@ -146,8 +145,8 @@ model positions {
   status   Boolean  @default(true)
   added_at DateTime @default(now()) @db.Timestamptz(6)
 
-  employmentOrders employment_orders[]
-  employees        employees[]
+  employmentOrders   employment_orders[]
+  employees          employees[]
 }
 
 model sessions {
@@ -332,11 +331,10 @@ model doors {
   longitude Float?
   added_at  DateTime @default(now()) @db.Timestamptz(6)
 
-  branch      branches?             @relation(fields: [branch_id], references: [id], onDelete: SetNull)
+  branch      branches?      @relation(fields: [branch_id], references: [id], onDelete: SetNull)
   employees   employees[]
   faceDevices face_devices[]
   facePasses  face_passes[]
-  doorTasks   employee_door_tasks[]
 }
 
 model face_devices {
@@ -355,23 +353,6 @@ model face_devices {
 
   door       doors         @relation(fields: [door_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   facePasses face_passes[]
-}
-
-model employee_door_tasks {
-  id          Int       @id @default(autoincrement())
-  employee_id Int
-  door_id     Int
-  action      String    @db.VarChar(50) // "add", "update", "delete"
-  status      String    @default("pending") @db.VarChar(50)
-  retry_count Int       @default(0)
-  error       String?
-  created_at  DateTime  @default(now()) @db.Timestamptz(6)
-  updated_at  DateTime? @db.Timestamptz(6)
-
-  employee employees @relation(fields: [employee_id], references: [id])
-  door     doors     @relation(fields: [door_id], references: [id])
-
-  @@index([status, created_at])
 }
 
 model gates {
@@ -510,3 +491,4 @@ model salary_advances {
   @@index([employee_id])
   @@index([advance_date])
 }
+

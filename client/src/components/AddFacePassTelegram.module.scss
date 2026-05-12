@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: #121212;
+  background: var(--tg-bg);
 }
 
 .scrollContent {
@@ -32,20 +32,20 @@
     letter-spacing: 0.2px;
 
     &.directionEntry {
-      background: rgba(74, 222, 128, 0.15);
-      color: #4ade80;
-      border: 1.5px solid rgba(74, 222, 128, 0.35);
+      background: var(--tg-dir-in-bg);
+      color: var(--tg-dir-in-color);
+      border: 1.5px solid var(--tg-badge-green-border);
     }
 
     &.directionExit {
-      background: rgba(248, 113, 113, 0.15);
-      color: #f87171;
-      border: 1.5px solid rgba(248, 113, 113, 0.35);
+      background: var(--tg-dir-out-bg);
+      color: var(--tg-dir-out-color);
+      border: 1.5px solid var(--tg-badge-red-border);
     }
   }
 }
 
-// ─── Камера ───
+// ─── Камера (остаётся тёмной — это viewport камеры) ───
 .cameraSection {
   display: flex;
   flex-direction: column;
@@ -98,9 +98,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition:
-        transform 0.15s,
-        background 0.15s;
+      transition: transform 0.15s, background 0.15s;
 
       &:active {
         transform: scale(0.88);
@@ -119,7 +117,7 @@
     width: 68px;
     height: 68px;
     border-radius: 50%;
-    border: 4px solid #454545;
+    border: 4px solid var(--border-color);
     border-style: double;
     background: rgba(230, 230, 230, 0.9);
     &:active {
@@ -130,24 +128,26 @@
 
 // ─── Форма ───
 .formSection {
-  background: #1c1c1e;
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 12px;
+  border: 0.5px solid var(--tg-separator);
+
   .inputGroup {
     label {
-      color: #8e8e93;
+      color: var(--text-secondary);
       font-size: 13px;
       display: block;
       margin-bottom: 4px;
     }
     .locationValue {
-      color: #fff;
+      color: var(--text-color);
       font-size: 15px;
       margin: 0;
       font-family: monospace;
     }
     .locationStatus {
-      color: #8e8e93;
+      color: var(--text-secondary);
       font-size: 14px;
       margin: 0;
     }
@@ -159,7 +159,7 @@
     .retryLocationBtn {
       background: none;
       border: none;
-      color: #007aff;
+      color: var(--third-color, #007aff);
       padding: 0;
       font-size: 14px;
     }
@@ -170,7 +170,8 @@
 .footer {
   padding: 12px 16px;
   padding-bottom: calc(env(safe-area-inset-bottom) + 12px);
-  background: rgba(28, 28, 30, 0.8);
+  background: var(--card-bg);
+  border-top: 0.5px solid var(--tg-separator);
   backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
@@ -182,14 +183,14 @@
   align-items: center;
   gap: 8px;
   font-size: 12px;
-  color: #9e9ea0;
+  color: var(--text-secondary);
 }
 
 .locationSpinner {
   width: 14px;
   height: 14px;
-  border: 2px solid rgba(158, 158, 160, 0.3);
-  border-top-color: #9e9ea0;
+  border: 2px solid var(--tg-separator);
+  border-top-color: var(--text-secondary);
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
   flex-shrink: 0;
@@ -225,7 +226,7 @@
   height: 50px;
   border-radius: 12px;
   border: none;
-  background: #007aff;
+  background: var(--third-color, #007aff);
   color: #fff;
   font-size: 16px;
   font-weight: 600;

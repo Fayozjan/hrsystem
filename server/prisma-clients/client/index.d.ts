@@ -109,11 +109,6 @@ export type doors = $Result.DefaultSelection<Prisma.$doorsPayload>
  */
 export type face_devices = $Result.DefaultSelection<Prisma.$face_devicesPayload>
 /**
- * Model employee_door_tasks
- * 
- */
-export type employee_door_tasks = $Result.DefaultSelection<Prisma.$employee_door_tasksPayload>
-/**
  * Model gates
  * 
  */
@@ -148,6 +143,21 @@ export type payroll_payment_logs = $Result.DefaultSelection<Prisma.$payroll_paym
  * 
  */
 export type salary_advances = $Result.DefaultSelection<Prisma.$salary_advancesPayload>
+/**
+ * Model staffing_position
+ * 
+ */
+export type staffing_position = $Result.DefaultSelection<Prisma.$staffing_positionPayload>
+/**
+ * Model staffing_table
+ * 
+ */
+export type staffing_table = $Result.DefaultSelection<Prisma.$staffing_tablePayload>
+/**
+ * Model staffing_table_items
+ * 
+ */
+export type staffing_table_items = $Result.DefaultSelection<Prisma.$staffing_table_itemsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -458,16 +468,6 @@ export class PrismaClient<
   get face_devices(): Prisma.face_devicesDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.employee_door_tasks`: Exposes CRUD operations for the **employee_door_tasks** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Employee_door_tasks
-    * const employee_door_tasks = await prisma.employee_door_tasks.findMany()
-    * ```
-    */
-  get employee_door_tasks(): Prisma.employee_door_tasksDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.gates`: Exposes CRUD operations for the **gates** model.
     * Example usage:
     * ```ts
@@ -536,6 +536,36 @@ export class PrismaClient<
     * ```
     */
   get salary_advances(): Prisma.salary_advancesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.staffing_position`: Exposes CRUD operations for the **staffing_position** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Staffing_positions
+    * const staffing_positions = await prisma.staffing_position.findMany()
+    * ```
+    */
+  get staffing_position(): Prisma.staffing_positionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.staffing_table`: Exposes CRUD operations for the **staffing_table** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Staffing_tables
+    * const staffing_tables = await prisma.staffing_table.findMany()
+    * ```
+    */
+  get staffing_table(): Prisma.staffing_tableDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.staffing_table_items`: Exposes CRUD operations for the **staffing_table_items** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Staffing_table_items
+    * const staffing_table_items = await prisma.staffing_table_items.findMany()
+    * ```
+    */
+  get staffing_table_items(): Prisma.staffing_table_itemsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -995,14 +1025,16 @@ export namespace Prisma {
     employee_salary_history: 'employee_salary_history',
     doors: 'doors',
     face_devices: 'face_devices',
-    employee_door_tasks: 'employee_door_tasks',
     gates: 'gates',
     anpr_cameras: 'anpr_cameras',
     vehicle_passes: 'vehicle_passes',
     payroll_sheets: 'payroll_sheets',
     payroll_sheet_items: 'payroll_sheet_items',
     payroll_payment_logs: 'payroll_payment_logs',
-    salary_advances: 'salary_advances'
+    salary_advances: 'salary_advances',
+    staffing_position: 'staffing_position',
+    staffing_table: 'staffing_table',
+    staffing_table_items: 'staffing_table_items'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1021,7 +1053,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "branches" | "departments" | "employment_orders" | "employees" | "face_passes" | "holidays" | "positions" | "sessions" | "telegram_bots" | "time_off" | "timesheet" | "users" | "menus" | "user_menu_access" | "work_schedules" | "employee_schedule_history" | "employee_salary_history" | "doors" | "face_devices" | "employee_door_tasks" | "gates" | "anpr_cameras" | "vehicle_passes" | "payroll_sheets" | "payroll_sheet_items" | "payroll_payment_logs" | "salary_advances"
+      modelProps: "branches" | "departments" | "employment_orders" | "employees" | "face_passes" | "holidays" | "positions" | "sessions" | "telegram_bots" | "time_off" | "timesheet" | "users" | "menus" | "user_menu_access" | "work_schedules" | "employee_schedule_history" | "employee_salary_history" | "doors" | "face_devices" | "gates" | "anpr_cameras" | "vehicle_passes" | "payroll_sheets" | "payroll_sheet_items" | "payroll_payment_logs" | "salary_advances" | "staffing_position" | "staffing_table" | "staffing_table_items"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2431,80 +2463,6 @@ export namespace Prisma {
           }
         }
       }
-      employee_door_tasks: {
-        payload: Prisma.$employee_door_tasksPayload<ExtArgs>
-        fields: Prisma.employee_door_tasksFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.employee_door_tasksFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.employee_door_tasksFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>
-          }
-          findFirst: {
-            args: Prisma.employee_door_tasksFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.employee_door_tasksFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>
-          }
-          findMany: {
-            args: Prisma.employee_door_tasksFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>[]
-          }
-          create: {
-            args: Prisma.employee_door_tasksCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>
-          }
-          createMany: {
-            args: Prisma.employee_door_tasksCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.employee_door_tasksCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>[]
-          }
-          delete: {
-            args: Prisma.employee_door_tasksDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>
-          }
-          update: {
-            args: Prisma.employee_door_tasksUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>
-          }
-          deleteMany: {
-            args: Prisma.employee_door_tasksDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.employee_door_tasksUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.employee_door_tasksUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>[]
-          }
-          upsert: {
-            args: Prisma.employee_door_tasksUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>
-          }
-          aggregate: {
-            args: Prisma.Employee_door_tasksAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateEmployee_door_tasks>
-          }
-          groupBy: {
-            args: Prisma.employee_door_tasksGroupByArgs<ExtArgs>
-            result: $Utils.Optional<Employee_door_tasksGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.employee_door_tasksCountArgs<ExtArgs>
-            result: $Utils.Optional<Employee_door_tasksCountAggregateOutputType> | number
-          }
-        }
-      }
       gates: {
         payload: Prisma.$gatesPayload<ExtArgs>
         fields: Prisma.gatesFieldRefs
@@ -3023,6 +2981,228 @@ export namespace Prisma {
           }
         }
       }
+      staffing_position: {
+        payload: Prisma.$staffing_positionPayload<ExtArgs>
+        fields: Prisma.staffing_positionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.staffing_positionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_positionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.staffing_positionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_positionPayload>
+          }
+          findFirst: {
+            args: Prisma.staffing_positionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_positionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.staffing_positionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_positionPayload>
+          }
+          findMany: {
+            args: Prisma.staffing_positionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_positionPayload>[]
+          }
+          create: {
+            args: Prisma.staffing_positionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_positionPayload>
+          }
+          createMany: {
+            args: Prisma.staffing_positionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.staffing_positionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_positionPayload>[]
+          }
+          delete: {
+            args: Prisma.staffing_positionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_positionPayload>
+          }
+          update: {
+            args: Prisma.staffing_positionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_positionPayload>
+          }
+          deleteMany: {
+            args: Prisma.staffing_positionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.staffing_positionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.staffing_positionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_positionPayload>[]
+          }
+          upsert: {
+            args: Prisma.staffing_positionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_positionPayload>
+          }
+          aggregate: {
+            args: Prisma.Staffing_positionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateStaffing_position>
+          }
+          groupBy: {
+            args: Prisma.staffing_positionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Staffing_positionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.staffing_positionCountArgs<ExtArgs>
+            result: $Utils.Optional<Staffing_positionCountAggregateOutputType> | number
+          }
+        }
+      }
+      staffing_table: {
+        payload: Prisma.$staffing_tablePayload<ExtArgs>
+        fields: Prisma.staffing_tableFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.staffing_tableFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_tablePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.staffing_tableFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_tablePayload>
+          }
+          findFirst: {
+            args: Prisma.staffing_tableFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_tablePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.staffing_tableFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_tablePayload>
+          }
+          findMany: {
+            args: Prisma.staffing_tableFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_tablePayload>[]
+          }
+          create: {
+            args: Prisma.staffing_tableCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_tablePayload>
+          }
+          createMany: {
+            args: Prisma.staffing_tableCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.staffing_tableCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_tablePayload>[]
+          }
+          delete: {
+            args: Prisma.staffing_tableDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_tablePayload>
+          }
+          update: {
+            args: Prisma.staffing_tableUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_tablePayload>
+          }
+          deleteMany: {
+            args: Prisma.staffing_tableDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.staffing_tableUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.staffing_tableUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_tablePayload>[]
+          }
+          upsert: {
+            args: Prisma.staffing_tableUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_tablePayload>
+          }
+          aggregate: {
+            args: Prisma.Staffing_tableAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateStaffing_table>
+          }
+          groupBy: {
+            args: Prisma.staffing_tableGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Staffing_tableGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.staffing_tableCountArgs<ExtArgs>
+            result: $Utils.Optional<Staffing_tableCountAggregateOutputType> | number
+          }
+        }
+      }
+      staffing_table_items: {
+        payload: Prisma.$staffing_table_itemsPayload<ExtArgs>
+        fields: Prisma.staffing_table_itemsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.staffing_table_itemsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_table_itemsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.staffing_table_itemsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_table_itemsPayload>
+          }
+          findFirst: {
+            args: Prisma.staffing_table_itemsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_table_itemsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.staffing_table_itemsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_table_itemsPayload>
+          }
+          findMany: {
+            args: Prisma.staffing_table_itemsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_table_itemsPayload>[]
+          }
+          create: {
+            args: Prisma.staffing_table_itemsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_table_itemsPayload>
+          }
+          createMany: {
+            args: Prisma.staffing_table_itemsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.staffing_table_itemsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_table_itemsPayload>[]
+          }
+          delete: {
+            args: Prisma.staffing_table_itemsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_table_itemsPayload>
+          }
+          update: {
+            args: Prisma.staffing_table_itemsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_table_itemsPayload>
+          }
+          deleteMany: {
+            args: Prisma.staffing_table_itemsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.staffing_table_itemsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.staffing_table_itemsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_table_itemsPayload>[]
+          }
+          upsert: {
+            args: Prisma.staffing_table_itemsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$staffing_table_itemsPayload>
+          }
+          aggregate: {
+            args: Prisma.Staffing_table_itemsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateStaffing_table_items>
+          }
+          groupBy: {
+            args: Prisma.staffing_table_itemsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Staffing_table_itemsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.staffing_table_itemsCountArgs<ExtArgs>
+            result: $Utils.Optional<Staffing_table_itemsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -3134,7 +3314,6 @@ export namespace Prisma {
     employee_salary_history?: employee_salary_historyOmit
     doors?: doorsOmit
     face_devices?: face_devicesOmit
-    employee_door_tasks?: employee_door_tasksOmit
     gates?: gatesOmit
     anpr_cameras?: anpr_camerasOmit
     vehicle_passes?: vehicle_passesOmit
@@ -3142,6 +3321,9 @@ export namespace Prisma {
     payroll_sheet_items?: payroll_sheet_itemsOmit
     payroll_payment_logs?: payroll_payment_logsOmit
     salary_advances?: salary_advancesOmit
+    staffing_position?: staffing_positionOmit
+    staffing_table?: staffing_tableOmit
+    staffing_table_items?: staffing_table_itemsOmit
   }
 
   /* Types for Logging */
@@ -3228,6 +3410,7 @@ export namespace Prisma {
     vehiclePasses: number
     departments: number
     doors: number
+    staffingTableItems: number
   }
 
   export type BranchesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3237,6 +3420,7 @@ export namespace Prisma {
     vehiclePasses?: boolean | BranchesCountOutputTypeCountVehiclePassesArgs
     departments?: boolean | BranchesCountOutputTypeCountDepartmentsArgs
     doors?: boolean | BranchesCountOutputTypeCountDoorsArgs
+    staffingTableItems?: boolean | BranchesCountOutputTypeCountStaffingTableItemsArgs
   }
 
   // Custom InputTypes
@@ -3292,6 +3476,13 @@ export namespace Prisma {
     where?: doorsWhereInput
   }
 
+  /**
+   * BranchesCountOutputType without action
+   */
+  export type BranchesCountOutputTypeCountStaffingTableItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: staffing_table_itemsWhereInput
+  }
+
 
   /**
    * Count Type DepartmentsCountOutputType
@@ -3300,11 +3491,15 @@ export namespace Prisma {
   export type DepartmentsCountOutputType = {
     employmentOrders: number
     employees: number
+    staffingTableItems: number
+    staffingPositions: number
   }
 
   export type DepartmentsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     employmentOrders?: boolean | DepartmentsCountOutputTypeCountEmploymentOrdersArgs
     employees?: boolean | DepartmentsCountOutputTypeCountEmployeesArgs
+    staffingTableItems?: boolean | DepartmentsCountOutputTypeCountStaffingTableItemsArgs
+    staffingPositions?: boolean | DepartmentsCountOutputTypeCountStaffingPositionsArgs
   }
 
   // Custom InputTypes
@@ -3332,6 +3527,20 @@ export namespace Prisma {
     where?: employeesWhereInput
   }
 
+  /**
+   * DepartmentsCountOutputType without action
+   */
+  export type DepartmentsCountOutputTypeCountStaffingTableItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: staffing_table_itemsWhereInput
+  }
+
+  /**
+   * DepartmentsCountOutputType without action
+   */
+  export type DepartmentsCountOutputTypeCountStaffingPositionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: staffing_positionWhereInput
+  }
+
 
   /**
    * Count Type EmployeesCountOutputType
@@ -3344,7 +3553,6 @@ export namespace Prisma {
     employeeTimeOffs: number
     facePasses: number
     doors: number
-    doorTasks: number
     directedBranches: number
     payrollSheetItems: number
     salaryAdvances: number
@@ -3357,7 +3565,6 @@ export namespace Prisma {
     employeeTimeOffs?: boolean | EmployeesCountOutputTypeCountEmployeeTimeOffsArgs
     facePasses?: boolean | EmployeesCountOutputTypeCountFacePassesArgs
     doors?: boolean | EmployeesCountOutputTypeCountDoorsArgs
-    doorTasks?: boolean | EmployeesCountOutputTypeCountDoorTasksArgs
     directedBranches?: boolean | EmployeesCountOutputTypeCountDirectedBranchesArgs
     payrollSheetItems?: boolean | EmployeesCountOutputTypeCountPayrollSheetItemsArgs
     salaryAdvances?: boolean | EmployeesCountOutputTypeCountSalaryAdvancesArgs
@@ -3419,13 +3626,6 @@ export namespace Prisma {
   /**
    * EmployeesCountOutputType without action
    */
-  export type EmployeesCountOutputTypeCountDoorTasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: employee_door_tasksWhereInput
-  }
-
-  /**
-   * EmployeesCountOutputType without action
-   */
   export type EmployeesCountOutputTypeCountDirectedBranchesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: branchesWhereInput
   }
@@ -3452,11 +3652,15 @@ export namespace Prisma {
   export type PositionsCountOutputType = {
     employmentOrders: number
     employees: number
+    staffingTableItems: number
+    staffingPositions: number
   }
 
   export type PositionsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     employmentOrders?: boolean | PositionsCountOutputTypeCountEmploymentOrdersArgs
     employees?: boolean | PositionsCountOutputTypeCountEmployeesArgs
+    staffingTableItems?: boolean | PositionsCountOutputTypeCountStaffingTableItemsArgs
+    staffingPositions?: boolean | PositionsCountOutputTypeCountStaffingPositionsArgs
   }
 
   // Custom InputTypes
@@ -3484,6 +3688,20 @@ export namespace Prisma {
     where?: employeesWhereInput
   }
 
+  /**
+   * PositionsCountOutputType without action
+   */
+  export type PositionsCountOutputTypeCountStaffingTableItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: staffing_table_itemsWhereInput
+  }
+
+  /**
+   * PositionsCountOutputType without action
+   */
+  export type PositionsCountOutputTypeCountStaffingPositionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: staffing_positionWhereInput
+  }
+
 
   /**
    * Count Type UsersCountOutputType
@@ -3500,6 +3718,7 @@ export namespace Prisma {
     payrollSheetsAdded: number
     payrollSheetsApproved: number
     salaryAdvancesGiven: number
+    staffingTables: number
   }
 
   export type UsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3513,6 +3732,7 @@ export namespace Prisma {
     payrollSheetsAdded?: boolean | UsersCountOutputTypeCountPayrollSheetsAddedArgs
     payrollSheetsApproved?: boolean | UsersCountOutputTypeCountPayrollSheetsApprovedArgs
     salaryAdvancesGiven?: boolean | UsersCountOutputTypeCountSalaryAdvancesGivenArgs
+    staffingTables?: boolean | UsersCountOutputTypeCountStaffingTablesArgs
   }
 
   // Custom InputTypes
@@ -3594,6 +3814,13 @@ export namespace Prisma {
    */
   export type UsersCountOutputTypeCountSalaryAdvancesGivenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: salary_advancesWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountStaffingTablesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: staffing_tableWhereInput
   }
 
 
@@ -3685,14 +3912,12 @@ export namespace Prisma {
     employees: number
     faceDevices: number
     facePasses: number
-    doorTasks: number
   }
 
   export type DoorsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     employees?: boolean | DoorsCountOutputTypeCountEmployeesArgs
     faceDevices?: boolean | DoorsCountOutputTypeCountFaceDevicesArgs
     facePasses?: boolean | DoorsCountOutputTypeCountFacePassesArgs
-    doorTasks?: boolean | DoorsCountOutputTypeCountDoorTasksArgs
   }
 
   // Custom InputTypes
@@ -3725,13 +3950,6 @@ export namespace Prisma {
    */
   export type DoorsCountOutputTypeCountFacePassesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: face_passesWhereInput
-  }
-
-  /**
-   * DoorsCountOutputType without action
-   */
-  export type DoorsCountOutputTypeCountDoorTasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: employee_door_tasksWhereInput
   }
 
 
@@ -3896,6 +4114,37 @@ export namespace Prisma {
    */
   export type Payroll_sheet_itemsCountOutputTypeCountPaymentLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: payroll_payment_logsWhereInput
+  }
+
+
+  /**
+   * Count Type Staffing_tableCountOutputType
+   */
+
+  export type Staffing_tableCountOutputType = {
+    items: number
+  }
+
+  export type Staffing_tableCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    items?: boolean | Staffing_tableCountOutputTypeCountItemsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Staffing_tableCountOutputType without action
+   */
+  export type Staffing_tableCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Staffing_tableCountOutputType
+     */
+    select?: Staffing_tableCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Staffing_tableCountOutputType without action
+   */
+  export type Staffing_tableCountOutputTypeCountItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: staffing_table_itemsWhereInput
   }
 
 
@@ -4173,6 +4422,7 @@ export namespace Prisma {
     departments?: boolean | branches$departmentsArgs<ExtArgs>
     doors?: boolean | branches$doorsArgs<ExtArgs>
     addedBy?: boolean | usersDefaultArgs<ExtArgs>
+    staffingTableItems?: boolean | branches$staffingTableItemsArgs<ExtArgs>
     _count?: boolean | BranchesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["branches"]>
 
@@ -4235,6 +4485,7 @@ export namespace Prisma {
     departments?: boolean | branches$departmentsArgs<ExtArgs>
     doors?: boolean | branches$doorsArgs<ExtArgs>
     addedBy?: boolean | usersDefaultArgs<ExtArgs>
+    staffingTableItems?: boolean | branches$staffingTableItemsArgs<ExtArgs>
     _count?: boolean | BranchesCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type branchesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4257,6 +4508,7 @@ export namespace Prisma {
       departments: Prisma.$departmentsPayload<ExtArgs>[]
       doors: Prisma.$doorsPayload<ExtArgs>[]
       addedBy: Prisma.$usersPayload<ExtArgs>
+      staffingTableItems: Prisma.$staffing_table_itemsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4673,6 +4925,7 @@ export namespace Prisma {
     departments<T extends branches$departmentsArgs<ExtArgs> = {}>(args?: Subset<T, branches$departmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$departmentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     doors<T extends branches$doorsArgs<ExtArgs> = {}>(args?: Subset<T, branches$doorsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$doorsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     addedBy<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    staffingTableItems<T extends branches$staffingTableItemsArgs<ExtArgs> = {}>(args?: Subset<T, branches$staffingTableItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_table_itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5273,6 +5526,30 @@ export namespace Prisma {
   }
 
   /**
+   * branches.staffingTableItems
+   */
+  export type branches$staffingTableItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsInclude<ExtArgs> | null
+    where?: staffing_table_itemsWhereInput
+    orderBy?: staffing_table_itemsOrderByWithRelationInput | staffing_table_itemsOrderByWithRelationInput[]
+    cursor?: staffing_table_itemsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Staffing_table_itemsScalarFieldEnum | Staffing_table_itemsScalarFieldEnum[]
+  }
+
+  /**
    * branches without action
    */
   export type branchesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5496,6 +5773,8 @@ export namespace Prisma {
     employmentOrders?: boolean | departments$employmentOrdersArgs<ExtArgs>
     employees?: boolean | departments$employeesArgs<ExtArgs>
     branch?: boolean | branchesDefaultArgs<ExtArgs>
+    staffingTableItems?: boolean | departments$staffingTableItemsArgs<ExtArgs>
+    staffingPositions?: boolean | departments$staffingPositionsArgs<ExtArgs>
     _count?: boolean | DepartmentsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["departments"]>
 
@@ -5530,6 +5809,8 @@ export namespace Prisma {
     employmentOrders?: boolean | departments$employmentOrdersArgs<ExtArgs>
     employees?: boolean | departments$employeesArgs<ExtArgs>
     branch?: boolean | branchesDefaultArgs<ExtArgs>
+    staffingTableItems?: boolean | departments$staffingTableItemsArgs<ExtArgs>
+    staffingPositions?: boolean | departments$staffingPositionsArgs<ExtArgs>
     _count?: boolean | DepartmentsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type departmentsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5545,6 +5826,8 @@ export namespace Prisma {
       employmentOrders: Prisma.$employment_ordersPayload<ExtArgs>[]
       employees: Prisma.$employeesPayload<ExtArgs>[]
       branch: Prisma.$branchesPayload<ExtArgs>
+      staffingTableItems: Prisma.$staffing_table_itemsPayload<ExtArgs>[]
+      staffingPositions: Prisma.$staffing_positionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -5949,6 +6232,8 @@ export namespace Prisma {
     employmentOrders<T extends departments$employmentOrdersArgs<ExtArgs> = {}>(args?: Subset<T, departments$employmentOrdersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employment_ordersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     employees<T extends departments$employeesArgs<ExtArgs> = {}>(args?: Subset<T, departments$employeesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employeesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     branch<T extends branchesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, branchesDefaultArgs<ExtArgs>>): Prisma__branchesClient<$Result.GetResult<Prisma.$branchesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    staffingTableItems<T extends departments$staffingTableItemsArgs<ExtArgs> = {}>(args?: Subset<T, departments$staffingTableItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_table_itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    staffingPositions<T extends departments$staffingPositionsArgs<ExtArgs> = {}>(args?: Subset<T, departments$staffingPositionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_positionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6424,6 +6709,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: EmployeesScalarFieldEnum | EmployeesScalarFieldEnum[]
+  }
+
+  /**
+   * departments.staffingTableItems
+   */
+  export type departments$staffingTableItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsInclude<ExtArgs> | null
+    where?: staffing_table_itemsWhereInput
+    orderBy?: staffing_table_itemsOrderByWithRelationInput | staffing_table_itemsOrderByWithRelationInput[]
+    cursor?: staffing_table_itemsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Staffing_table_itemsScalarFieldEnum | Staffing_table_itemsScalarFieldEnum[]
+  }
+
+  /**
+   * departments.staffingPositions
+   */
+  export type departments$staffingPositionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_position
+     */
+    select?: staffing_positionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_position
+     */
+    omit?: staffing_positionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_positionInclude<ExtArgs> | null
+    where?: staffing_positionWhereInput
+    orderBy?: staffing_positionOrderByWithRelationInput | staffing_positionOrderByWithRelationInput[]
+    cursor?: staffing_positionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Staffing_positionScalarFieldEnum | Staffing_positionScalarFieldEnum[]
   }
 
   /**
@@ -8086,7 +8419,6 @@ export namespace Prisma {
     employeeTimeOffs?: boolean | employees$employeeTimeOffsArgs<ExtArgs>
     facePasses?: boolean | employees$facePassesArgs<ExtArgs>
     doors?: boolean | employees$doorsArgs<ExtArgs>
-    doorTasks?: boolean | employees$doorTasksArgs<ExtArgs>
     user?: boolean | employees$userArgs<ExtArgs>
     directedBranches?: boolean | employees$directedBranchesArgs<ExtArgs>
     payrollSheetItems?: boolean | employees$payrollSheetItemsArgs<ExtArgs>
@@ -8192,7 +8524,6 @@ export namespace Prisma {
     employeeTimeOffs?: boolean | employees$employeeTimeOffsArgs<ExtArgs>
     facePasses?: boolean | employees$facePassesArgs<ExtArgs>
     doors?: boolean | employees$doorsArgs<ExtArgs>
-    doorTasks?: boolean | employees$doorTasksArgs<ExtArgs>
     user?: boolean | employees$userArgs<ExtArgs>
     directedBranches?: boolean | employees$directedBranchesArgs<ExtArgs>
     payrollSheetItems?: boolean | employees$payrollSheetItemsArgs<ExtArgs>
@@ -8225,7 +8556,6 @@ export namespace Prisma {
       employeeTimeOffs: Prisma.$time_offPayload<ExtArgs>[]
       facePasses: Prisma.$face_passesPayload<ExtArgs>[]
       doors: Prisma.$doorsPayload<ExtArgs>[]
-      doorTasks: Prisma.$employee_door_tasksPayload<ExtArgs>[]
       user: Prisma.$usersPayload<ExtArgs> | null
       directedBranches: Prisma.$branchesPayload<ExtArgs>[]
       payrollSheetItems: Prisma.$payroll_sheet_itemsPayload<ExtArgs>[]
@@ -8659,7 +8989,6 @@ export namespace Prisma {
     employeeTimeOffs<T extends employees$employeeTimeOffsArgs<ExtArgs> = {}>(args?: Subset<T, employees$employeeTimeOffsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$time_offPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     facePasses<T extends employees$facePassesArgs<ExtArgs> = {}>(args?: Subset<T, employees$facePassesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$face_passesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     doors<T extends employees$doorsArgs<ExtArgs> = {}>(args?: Subset<T, employees$doorsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$doorsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    doorTasks<T extends employees$doorTasksArgs<ExtArgs> = {}>(args?: Subset<T, employees$doorTasksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     user<T extends employees$userArgs<ExtArgs> = {}>(args?: Subset<T, employees$userArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     directedBranches<T extends employees$directedBranchesArgs<ExtArgs> = {}>(args?: Subset<T, employees$directedBranchesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$branchesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     payrollSheetItems<T extends employees$payrollSheetItemsArgs<ExtArgs> = {}>(args?: Subset<T, employees$payrollSheetItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_sheet_itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -9329,30 +9658,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: DoorsScalarFieldEnum | DoorsScalarFieldEnum[]
-  }
-
-  /**
-   * employees.doorTasks
-   */
-  export type employees$doorTasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the employee_door_tasks
-     */
-    select?: employee_door_tasksSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the employee_door_tasks
-     */
-    omit?: employee_door_tasksOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: employee_door_tasksInclude<ExtArgs> | null
-    where?: employee_door_tasksWhereInput
-    orderBy?: employee_door_tasksOrderByWithRelationInput | employee_door_tasksOrderByWithRelationInput[]
-    cursor?: employee_door_tasksWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: Employee_door_tasksScalarFieldEnum | Employee_door_tasksScalarFieldEnum[]
   }
 
   /**
@@ -12023,6 +12328,8 @@ export namespace Prisma {
     added_at?: boolean
     employmentOrders?: boolean | positions$employmentOrdersArgs<ExtArgs>
     employees?: boolean | positions$employeesArgs<ExtArgs>
+    staffingTableItems?: boolean | positions$staffingTableItemsArgs<ExtArgs>
+    staffingPositions?: boolean | positions$staffingPositionsArgs<ExtArgs>
     _count?: boolean | PositionsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["positions"]>
 
@@ -12051,6 +12358,8 @@ export namespace Prisma {
   export type positionsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     employmentOrders?: boolean | positions$employmentOrdersArgs<ExtArgs>
     employees?: boolean | positions$employeesArgs<ExtArgs>
+    staffingTableItems?: boolean | positions$staffingTableItemsArgs<ExtArgs>
+    staffingPositions?: boolean | positions$staffingPositionsArgs<ExtArgs>
     _count?: boolean | PositionsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type positionsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -12061,6 +12370,8 @@ export namespace Prisma {
     objects: {
       employmentOrders: Prisma.$employment_ordersPayload<ExtArgs>[]
       employees: Prisma.$employeesPayload<ExtArgs>[]
+      staffingTableItems: Prisma.$staffing_table_itemsPayload<ExtArgs>[]
+      staffingPositions: Prisma.$staffing_positionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -12463,6 +12774,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     employmentOrders<T extends positions$employmentOrdersArgs<ExtArgs> = {}>(args?: Subset<T, positions$employmentOrdersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employment_ordersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     employees<T extends positions$employeesArgs<ExtArgs> = {}>(args?: Subset<T, positions$employeesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employeesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    staffingTableItems<T extends positions$staffingTableItemsArgs<ExtArgs> = {}>(args?: Subset<T, positions$staffingTableItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_table_itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    staffingPositions<T extends positions$staffingPositionsArgs<ExtArgs> = {}>(args?: Subset<T, positions$staffingPositionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_positionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12929,6 +13242,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: EmployeesScalarFieldEnum | EmployeesScalarFieldEnum[]
+  }
+
+  /**
+   * positions.staffingTableItems
+   */
+  export type positions$staffingTableItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsInclude<ExtArgs> | null
+    where?: staffing_table_itemsWhereInput
+    orderBy?: staffing_table_itemsOrderByWithRelationInput | staffing_table_itemsOrderByWithRelationInput[]
+    cursor?: staffing_table_itemsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Staffing_table_itemsScalarFieldEnum | Staffing_table_itemsScalarFieldEnum[]
+  }
+
+  /**
+   * positions.staffingPositions
+   */
+  export type positions$staffingPositionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_position
+     */
+    select?: staffing_positionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_position
+     */
+    omit?: staffing_positionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_positionInclude<ExtArgs> | null
+    where?: staffing_positionWhereInput
+    orderBy?: staffing_positionOrderByWithRelationInput | staffing_positionOrderByWithRelationInput[]
+    cursor?: staffing_positionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Staffing_positionScalarFieldEnum | Staffing_positionScalarFieldEnum[]
   }
 
   /**
@@ -17706,6 +18067,7 @@ export namespace Prisma {
     payrollSheetsAdded?: boolean | users$payrollSheetsAddedArgs<ExtArgs>
     payrollSheetsApproved?: boolean | users$payrollSheetsApprovedArgs<ExtArgs>
     salaryAdvancesGiven?: boolean | users$salaryAdvancesGivenArgs<ExtArgs>
+    staffingTables?: boolean | users$staffingTablesArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
 
@@ -17787,6 +18149,7 @@ export namespace Prisma {
     payrollSheetsAdded?: boolean | users$payrollSheetsAddedArgs<ExtArgs>
     payrollSheetsApproved?: boolean | users$payrollSheetsApprovedArgs<ExtArgs>
     salaryAdvancesGiven?: boolean | users$salaryAdvancesGivenArgs<ExtArgs>
+    staffingTables?: boolean | users$staffingTablesArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type usersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -17810,6 +18173,7 @@ export namespace Prisma {
       payrollSheetsAdded: Prisma.$payroll_sheetsPayload<ExtArgs>[]
       payrollSheetsApproved: Prisma.$payroll_sheetsPayload<ExtArgs>[]
       salaryAdvancesGiven: Prisma.$salary_advancesPayload<ExtArgs>[]
+      staffingTables: Prisma.$staffing_tablePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -18235,6 +18599,7 @@ export namespace Prisma {
     payrollSheetsAdded<T extends users$payrollSheetsAddedArgs<ExtArgs> = {}>(args?: Subset<T, users$payrollSheetsAddedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     payrollSheetsApproved<T extends users$payrollSheetsApprovedArgs<ExtArgs> = {}>(args?: Subset<T, users$payrollSheetsApprovedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payroll_sheetsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     salaryAdvancesGiven<T extends users$salaryAdvancesGivenArgs<ExtArgs> = {}>(args?: Subset<T, users$salaryAdvancesGivenArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$salary_advancesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    staffingTables<T extends users$staffingTablesArgs<ExtArgs> = {}>(args?: Subset<T, users$staffingTablesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_tablePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -18934,6 +19299,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Salary_advancesScalarFieldEnum | Salary_advancesScalarFieldEnum[]
+  }
+
+  /**
+   * users.staffingTables
+   */
+  export type users$staffingTablesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table
+     */
+    select?: staffing_tableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table
+     */
+    omit?: staffing_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_tableInclude<ExtArgs> | null
+    where?: staffing_tableWhereInput
+    orderBy?: staffing_tableOrderByWithRelationInput | staffing_tableOrderByWithRelationInput[]
+    cursor?: staffing_tableWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Staffing_tableScalarFieldEnum | Staffing_tableScalarFieldEnum[]
   }
 
   /**
@@ -25054,7 +25443,6 @@ export namespace Prisma {
     employees?: boolean | doors$employeesArgs<ExtArgs>
     faceDevices?: boolean | doors$faceDevicesArgs<ExtArgs>
     facePasses?: boolean | doors$facePassesArgs<ExtArgs>
-    doorTasks?: boolean | doors$doorTasksArgs<ExtArgs>
     _count?: boolean | DoorsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["doors"]>
 
@@ -25096,7 +25484,6 @@ export namespace Prisma {
     employees?: boolean | doors$employeesArgs<ExtArgs>
     faceDevices?: boolean | doors$faceDevicesArgs<ExtArgs>
     facePasses?: boolean | doors$facePassesArgs<ExtArgs>
-    doorTasks?: boolean | doors$doorTasksArgs<ExtArgs>
     _count?: boolean | DoorsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type doorsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -25113,7 +25500,6 @@ export namespace Prisma {
       employees: Prisma.$employeesPayload<ExtArgs>[]
       faceDevices: Prisma.$face_devicesPayload<ExtArgs>[]
       facePasses: Prisma.$face_passesPayload<ExtArgs>[]
-      doorTasks: Prisma.$employee_door_tasksPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -25521,7 +25907,6 @@ export namespace Prisma {
     employees<T extends doors$employeesArgs<ExtArgs> = {}>(args?: Subset<T, doors$employeesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employeesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     faceDevices<T extends doors$faceDevicesArgs<ExtArgs> = {}>(args?: Subset<T, doors$faceDevicesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$face_devicesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     facePasses<T extends doors$facePassesArgs<ExtArgs> = {}>(args?: Subset<T, doors$facePassesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$face_passesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    doorTasks<T extends doors$doorTasksArgs<ExtArgs> = {}>(args?: Subset<T, doors$doorTasksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -26042,30 +26427,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Face_passesScalarFieldEnum | Face_passesScalarFieldEnum[]
-  }
-
-  /**
-   * doors.doorTasks
-   */
-  export type doors$doorTasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the employee_door_tasks
-     */
-    select?: employee_door_tasksSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the employee_door_tasks
-     */
-    omit?: employee_door_tasksOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: employee_door_tasksInclude<ExtArgs> | null
-    where?: employee_door_tasksWhereInput
-    orderBy?: employee_door_tasksOrderByWithRelationInput | employee_door_tasksOrderByWithRelationInput[]
-    cursor?: employee_door_tasksWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: Employee_door_tasksScalarFieldEnum | Employee_door_tasksScalarFieldEnum[]
   }
 
   /**
@@ -27305,1170 +27666,6 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: face_devicesInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model employee_door_tasks
-   */
-
-  export type AggregateEmployee_door_tasks = {
-    _count: Employee_door_tasksCountAggregateOutputType | null
-    _avg: Employee_door_tasksAvgAggregateOutputType | null
-    _sum: Employee_door_tasksSumAggregateOutputType | null
-    _min: Employee_door_tasksMinAggregateOutputType | null
-    _max: Employee_door_tasksMaxAggregateOutputType | null
-  }
-
-  export type Employee_door_tasksAvgAggregateOutputType = {
-    id: number | null
-    employee_id: number | null
-    door_id: number | null
-    retry_count: number | null
-  }
-
-  export type Employee_door_tasksSumAggregateOutputType = {
-    id: number | null
-    employee_id: number | null
-    door_id: number | null
-    retry_count: number | null
-  }
-
-  export type Employee_door_tasksMinAggregateOutputType = {
-    id: number | null
-    employee_id: number | null
-    door_id: number | null
-    action: string | null
-    status: string | null
-    retry_count: number | null
-    error: string | null
-    created_at: Date | null
-    updated_at: Date | null
-  }
-
-  export type Employee_door_tasksMaxAggregateOutputType = {
-    id: number | null
-    employee_id: number | null
-    door_id: number | null
-    action: string | null
-    status: string | null
-    retry_count: number | null
-    error: string | null
-    created_at: Date | null
-    updated_at: Date | null
-  }
-
-  export type Employee_door_tasksCountAggregateOutputType = {
-    id: number
-    employee_id: number
-    door_id: number
-    action: number
-    status: number
-    retry_count: number
-    error: number
-    created_at: number
-    updated_at: number
-    _all: number
-  }
-
-
-  export type Employee_door_tasksAvgAggregateInputType = {
-    id?: true
-    employee_id?: true
-    door_id?: true
-    retry_count?: true
-  }
-
-  export type Employee_door_tasksSumAggregateInputType = {
-    id?: true
-    employee_id?: true
-    door_id?: true
-    retry_count?: true
-  }
-
-  export type Employee_door_tasksMinAggregateInputType = {
-    id?: true
-    employee_id?: true
-    door_id?: true
-    action?: true
-    status?: true
-    retry_count?: true
-    error?: true
-    created_at?: true
-    updated_at?: true
-  }
-
-  export type Employee_door_tasksMaxAggregateInputType = {
-    id?: true
-    employee_id?: true
-    door_id?: true
-    action?: true
-    status?: true
-    retry_count?: true
-    error?: true
-    created_at?: true
-    updated_at?: true
-  }
-
-  export type Employee_door_tasksCountAggregateInputType = {
-    id?: true
-    employee_id?: true
-    door_id?: true
-    action?: true
-    status?: true
-    retry_count?: true
-    error?: true
-    created_at?: true
-    updated_at?: true
-    _all?: true
-  }
-
-  export type Employee_door_tasksAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which employee_door_tasks to aggregate.
-     */
-    where?: employee_door_tasksWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of employee_door_tasks to fetch.
-     */
-    orderBy?: employee_door_tasksOrderByWithRelationInput | employee_door_tasksOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: employee_door_tasksWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` employee_door_tasks from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` employee_door_tasks.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned employee_door_tasks
-    **/
-    _count?: true | Employee_door_tasksCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: Employee_door_tasksAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Employee_door_tasksSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: Employee_door_tasksMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: Employee_door_tasksMaxAggregateInputType
-  }
-
-  export type GetEmployee_door_tasksAggregateType<T extends Employee_door_tasksAggregateArgs> = {
-        [P in keyof T & keyof AggregateEmployee_door_tasks]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateEmployee_door_tasks[P]>
-      : GetScalarType<T[P], AggregateEmployee_door_tasks[P]>
-  }
-
-
-
-
-  export type employee_door_tasksGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: employee_door_tasksWhereInput
-    orderBy?: employee_door_tasksOrderByWithAggregationInput | employee_door_tasksOrderByWithAggregationInput[]
-    by: Employee_door_tasksScalarFieldEnum[] | Employee_door_tasksScalarFieldEnum
-    having?: employee_door_tasksScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: Employee_door_tasksCountAggregateInputType | true
-    _avg?: Employee_door_tasksAvgAggregateInputType
-    _sum?: Employee_door_tasksSumAggregateInputType
-    _min?: Employee_door_tasksMinAggregateInputType
-    _max?: Employee_door_tasksMaxAggregateInputType
-  }
-
-  export type Employee_door_tasksGroupByOutputType = {
-    id: number
-    employee_id: number
-    door_id: number
-    action: string
-    status: string
-    retry_count: number
-    error: string | null
-    created_at: Date
-    updated_at: Date | null
-    _count: Employee_door_tasksCountAggregateOutputType | null
-    _avg: Employee_door_tasksAvgAggregateOutputType | null
-    _sum: Employee_door_tasksSumAggregateOutputType | null
-    _min: Employee_door_tasksMinAggregateOutputType | null
-    _max: Employee_door_tasksMaxAggregateOutputType | null
-  }
-
-  type GetEmployee_door_tasksGroupByPayload<T extends employee_door_tasksGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<Employee_door_tasksGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof Employee_door_tasksGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], Employee_door_tasksGroupByOutputType[P]>
-            : GetScalarType<T[P], Employee_door_tasksGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type employee_door_tasksSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    employee_id?: boolean
-    door_id?: boolean
-    action?: boolean
-    status?: boolean
-    retry_count?: boolean
-    error?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-    employee?: boolean | employeesDefaultArgs<ExtArgs>
-    door?: boolean | doorsDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["employee_door_tasks"]>
-
-  export type employee_door_tasksSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    employee_id?: boolean
-    door_id?: boolean
-    action?: boolean
-    status?: boolean
-    retry_count?: boolean
-    error?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-    employee?: boolean | employeesDefaultArgs<ExtArgs>
-    door?: boolean | doorsDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["employee_door_tasks"]>
-
-  export type employee_door_tasksSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    employee_id?: boolean
-    door_id?: boolean
-    action?: boolean
-    status?: boolean
-    retry_count?: boolean
-    error?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-    employee?: boolean | employeesDefaultArgs<ExtArgs>
-    door?: boolean | doorsDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["employee_door_tasks"]>
-
-  export type employee_door_tasksSelectScalar = {
-    id?: boolean
-    employee_id?: boolean
-    door_id?: boolean
-    action?: boolean
-    status?: boolean
-    retry_count?: boolean
-    error?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-  }
-
-  export type employee_door_tasksOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "employee_id" | "door_id" | "action" | "status" | "retry_count" | "error" | "created_at" | "updated_at", ExtArgs["result"]["employee_door_tasks"]>
-  export type employee_door_tasksInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    employee?: boolean | employeesDefaultArgs<ExtArgs>
-    door?: boolean | doorsDefaultArgs<ExtArgs>
-  }
-  export type employee_door_tasksIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    employee?: boolean | employeesDefaultArgs<ExtArgs>
-    door?: boolean | doorsDefaultArgs<ExtArgs>
-  }
-  export type employee_door_tasksIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    employee?: boolean | employeesDefaultArgs<ExtArgs>
-    door?: boolean | doorsDefaultArgs<ExtArgs>
-  }
-
-  export type $employee_door_tasksPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "employee_door_tasks"
-    objects: {
-      employee: Prisma.$employeesPayload<ExtArgs>
-      door: Prisma.$doorsPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      employee_id: number
-      door_id: number
-      action: string
-      status: string
-      retry_count: number
-      error: string | null
-      created_at: Date
-      updated_at: Date | null
-    }, ExtArgs["result"]["employee_door_tasks"]>
-    composites: {}
-  }
-
-  type employee_door_tasksGetPayload<S extends boolean | null | undefined | employee_door_tasksDefaultArgs> = $Result.GetResult<Prisma.$employee_door_tasksPayload, S>
-
-  type employee_door_tasksCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<employee_door_tasksFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: Employee_door_tasksCountAggregateInputType | true
-    }
-
-  export interface employee_door_tasksDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['employee_door_tasks'], meta: { name: 'employee_door_tasks' } }
-    /**
-     * Find zero or one Employee_door_tasks that matches the filter.
-     * @param {employee_door_tasksFindUniqueArgs} args - Arguments to find a Employee_door_tasks
-     * @example
-     * // Get one Employee_door_tasks
-     * const employee_door_tasks = await prisma.employee_door_tasks.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends employee_door_tasksFindUniqueArgs>(args: SelectSubset<T, employee_door_tasksFindUniqueArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Employee_door_tasks that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {employee_door_tasksFindUniqueOrThrowArgs} args - Arguments to find a Employee_door_tasks
-     * @example
-     * // Get one Employee_door_tasks
-     * const employee_door_tasks = await prisma.employee_door_tasks.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends employee_door_tasksFindUniqueOrThrowArgs>(args: SelectSubset<T, employee_door_tasksFindUniqueOrThrowArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Employee_door_tasks that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {employee_door_tasksFindFirstArgs} args - Arguments to find a Employee_door_tasks
-     * @example
-     * // Get one Employee_door_tasks
-     * const employee_door_tasks = await prisma.employee_door_tasks.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends employee_door_tasksFindFirstArgs>(args?: SelectSubset<T, employee_door_tasksFindFirstArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Employee_door_tasks that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {employee_door_tasksFindFirstOrThrowArgs} args - Arguments to find a Employee_door_tasks
-     * @example
-     * // Get one Employee_door_tasks
-     * const employee_door_tasks = await prisma.employee_door_tasks.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends employee_door_tasksFindFirstOrThrowArgs>(args?: SelectSubset<T, employee_door_tasksFindFirstOrThrowArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Employee_door_tasks that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {employee_door_tasksFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Employee_door_tasks
-     * const employee_door_tasks = await prisma.employee_door_tasks.findMany()
-     * 
-     * // Get first 10 Employee_door_tasks
-     * const employee_door_tasks = await prisma.employee_door_tasks.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const employee_door_tasksWithIdOnly = await prisma.employee_door_tasks.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends employee_door_tasksFindManyArgs>(args?: SelectSubset<T, employee_door_tasksFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Employee_door_tasks.
-     * @param {employee_door_tasksCreateArgs} args - Arguments to create a Employee_door_tasks.
-     * @example
-     * // Create one Employee_door_tasks
-     * const Employee_door_tasks = await prisma.employee_door_tasks.create({
-     *   data: {
-     *     // ... data to create a Employee_door_tasks
-     *   }
-     * })
-     * 
-     */
-    create<T extends employee_door_tasksCreateArgs>(args: SelectSubset<T, employee_door_tasksCreateArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Employee_door_tasks.
-     * @param {employee_door_tasksCreateManyArgs} args - Arguments to create many Employee_door_tasks.
-     * @example
-     * // Create many Employee_door_tasks
-     * const employee_door_tasks = await prisma.employee_door_tasks.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends employee_door_tasksCreateManyArgs>(args?: SelectSubset<T, employee_door_tasksCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Employee_door_tasks and returns the data saved in the database.
-     * @param {employee_door_tasksCreateManyAndReturnArgs} args - Arguments to create many Employee_door_tasks.
-     * @example
-     * // Create many Employee_door_tasks
-     * const employee_door_tasks = await prisma.employee_door_tasks.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Employee_door_tasks and only return the `id`
-     * const employee_door_tasksWithIdOnly = await prisma.employee_door_tasks.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends employee_door_tasksCreateManyAndReturnArgs>(args?: SelectSubset<T, employee_door_tasksCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Employee_door_tasks.
-     * @param {employee_door_tasksDeleteArgs} args - Arguments to delete one Employee_door_tasks.
-     * @example
-     * // Delete one Employee_door_tasks
-     * const Employee_door_tasks = await prisma.employee_door_tasks.delete({
-     *   where: {
-     *     // ... filter to delete one Employee_door_tasks
-     *   }
-     * })
-     * 
-     */
-    delete<T extends employee_door_tasksDeleteArgs>(args: SelectSubset<T, employee_door_tasksDeleteArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Employee_door_tasks.
-     * @param {employee_door_tasksUpdateArgs} args - Arguments to update one Employee_door_tasks.
-     * @example
-     * // Update one Employee_door_tasks
-     * const employee_door_tasks = await prisma.employee_door_tasks.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends employee_door_tasksUpdateArgs>(args: SelectSubset<T, employee_door_tasksUpdateArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Employee_door_tasks.
-     * @param {employee_door_tasksDeleteManyArgs} args - Arguments to filter Employee_door_tasks to delete.
-     * @example
-     * // Delete a few Employee_door_tasks
-     * const { count } = await prisma.employee_door_tasks.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends employee_door_tasksDeleteManyArgs>(args?: SelectSubset<T, employee_door_tasksDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Employee_door_tasks.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {employee_door_tasksUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Employee_door_tasks
-     * const employee_door_tasks = await prisma.employee_door_tasks.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends employee_door_tasksUpdateManyArgs>(args: SelectSubset<T, employee_door_tasksUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Employee_door_tasks and returns the data updated in the database.
-     * @param {employee_door_tasksUpdateManyAndReturnArgs} args - Arguments to update many Employee_door_tasks.
-     * @example
-     * // Update many Employee_door_tasks
-     * const employee_door_tasks = await prisma.employee_door_tasks.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Employee_door_tasks and only return the `id`
-     * const employee_door_tasksWithIdOnly = await prisma.employee_door_tasks.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends employee_door_tasksUpdateManyAndReturnArgs>(args: SelectSubset<T, employee_door_tasksUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Employee_door_tasks.
-     * @param {employee_door_tasksUpsertArgs} args - Arguments to update or create a Employee_door_tasks.
-     * @example
-     * // Update or create a Employee_door_tasks
-     * const employee_door_tasks = await prisma.employee_door_tasks.upsert({
-     *   create: {
-     *     // ... data to create a Employee_door_tasks
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Employee_door_tasks we want to update
-     *   }
-     * })
-     */
-    upsert<T extends employee_door_tasksUpsertArgs>(args: SelectSubset<T, employee_door_tasksUpsertArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Employee_door_tasks.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {employee_door_tasksCountArgs} args - Arguments to filter Employee_door_tasks to count.
-     * @example
-     * // Count the number of Employee_door_tasks
-     * const count = await prisma.employee_door_tasks.count({
-     *   where: {
-     *     // ... the filter for the Employee_door_tasks we want to count
-     *   }
-     * })
-    **/
-    count<T extends employee_door_tasksCountArgs>(
-      args?: Subset<T, employee_door_tasksCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], Employee_door_tasksCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Employee_door_tasks.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {Employee_door_tasksAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends Employee_door_tasksAggregateArgs>(args: Subset<T, Employee_door_tasksAggregateArgs>): Prisma.PrismaPromise<GetEmployee_door_tasksAggregateType<T>>
-
-    /**
-     * Group by Employee_door_tasks.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {employee_door_tasksGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends employee_door_tasksGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: employee_door_tasksGroupByArgs['orderBy'] }
-        : { orderBy?: employee_door_tasksGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, employee_door_tasksGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmployee_door_tasksGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the employee_door_tasks model
-   */
-  readonly fields: employee_door_tasksFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for employee_door_tasks.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__employee_door_tasksClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    employee<T extends employeesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, employeesDefaultArgs<ExtArgs>>): Prisma__employeesClient<$Result.GetResult<Prisma.$employeesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    door<T extends doorsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, doorsDefaultArgs<ExtArgs>>): Prisma__doorsClient<$Result.GetResult<Prisma.$doorsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the employee_door_tasks model
-   */
-  interface employee_door_tasksFieldRefs {
-    readonly id: FieldRef<"employee_door_tasks", 'Int'>
-    readonly employee_id: FieldRef<"employee_door_tasks", 'Int'>
-    readonly door_id: FieldRef<"employee_door_tasks", 'Int'>
-    readonly action: FieldRef<"employee_door_tasks", 'String'>
-    readonly status: FieldRef<"employee_door_tasks", 'String'>
-    readonly retry_count: FieldRef<"employee_door_tasks", 'Int'>
-    readonly error: FieldRef<"employee_door_tasks", 'String'>
-    readonly created_at: FieldRef<"employee_door_tasks", 'DateTime'>
-    readonly updated_at: FieldRef<"employee_door_tasks", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * employee_door_tasks findUnique
-   */
-  export type employee_door_tasksFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the employee_door_tasks
-     */
-    select?: employee_door_tasksSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the employee_door_tasks
-     */
-    omit?: employee_door_tasksOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: employee_door_tasksInclude<ExtArgs> | null
-    /**
-     * Filter, which employee_door_tasks to fetch.
-     */
-    where: employee_door_tasksWhereUniqueInput
-  }
-
-  /**
-   * employee_door_tasks findUniqueOrThrow
-   */
-  export type employee_door_tasksFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the employee_door_tasks
-     */
-    select?: employee_door_tasksSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the employee_door_tasks
-     */
-    omit?: employee_door_tasksOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: employee_door_tasksInclude<ExtArgs> | null
-    /**
-     * Filter, which employee_door_tasks to fetch.
-     */
-    where: employee_door_tasksWhereUniqueInput
-  }
-
-  /**
-   * employee_door_tasks findFirst
-   */
-  export type employee_door_tasksFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the employee_door_tasks
-     */
-    select?: employee_door_tasksSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the employee_door_tasks
-     */
-    omit?: employee_door_tasksOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: employee_door_tasksInclude<ExtArgs> | null
-    /**
-     * Filter, which employee_door_tasks to fetch.
-     */
-    where?: employee_door_tasksWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of employee_door_tasks to fetch.
-     */
-    orderBy?: employee_door_tasksOrderByWithRelationInput | employee_door_tasksOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for employee_door_tasks.
-     */
-    cursor?: employee_door_tasksWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` employee_door_tasks from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` employee_door_tasks.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of employee_door_tasks.
-     */
-    distinct?: Employee_door_tasksScalarFieldEnum | Employee_door_tasksScalarFieldEnum[]
-  }
-
-  /**
-   * employee_door_tasks findFirstOrThrow
-   */
-  export type employee_door_tasksFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the employee_door_tasks
-     */
-    select?: employee_door_tasksSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the employee_door_tasks
-     */
-    omit?: employee_door_tasksOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: employee_door_tasksInclude<ExtArgs> | null
-    /**
-     * Filter, which employee_door_tasks to fetch.
-     */
-    where?: employee_door_tasksWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of employee_door_tasks to fetch.
-     */
-    orderBy?: employee_door_tasksOrderByWithRelationInput | employee_door_tasksOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for employee_door_tasks.
-     */
-    cursor?: employee_door_tasksWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` employee_door_tasks from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` employee_door_tasks.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of employee_door_tasks.
-     */
-    distinct?: Employee_door_tasksScalarFieldEnum | Employee_door_tasksScalarFieldEnum[]
-  }
-
-  /**
-   * employee_door_tasks findMany
-   */
-  export type employee_door_tasksFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the employee_door_tasks
-     */
-    select?: employee_door_tasksSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the employee_door_tasks
-     */
-    omit?: employee_door_tasksOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: employee_door_tasksInclude<ExtArgs> | null
-    /**
-     * Filter, which employee_door_tasks to fetch.
-     */
-    where?: employee_door_tasksWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of employee_door_tasks to fetch.
-     */
-    orderBy?: employee_door_tasksOrderByWithRelationInput | employee_door_tasksOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing employee_door_tasks.
-     */
-    cursor?: employee_door_tasksWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` employee_door_tasks from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` employee_door_tasks.
-     */
-    skip?: number
-    distinct?: Employee_door_tasksScalarFieldEnum | Employee_door_tasksScalarFieldEnum[]
-  }
-
-  /**
-   * employee_door_tasks create
-   */
-  export type employee_door_tasksCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the employee_door_tasks
-     */
-    select?: employee_door_tasksSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the employee_door_tasks
-     */
-    omit?: employee_door_tasksOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: employee_door_tasksInclude<ExtArgs> | null
-    /**
-     * The data needed to create a employee_door_tasks.
-     */
-    data: XOR<employee_door_tasksCreateInput, employee_door_tasksUncheckedCreateInput>
-  }
-
-  /**
-   * employee_door_tasks createMany
-   */
-  export type employee_door_tasksCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many employee_door_tasks.
-     */
-    data: employee_door_tasksCreateManyInput | employee_door_tasksCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * employee_door_tasks createManyAndReturn
-   */
-  export type employee_door_tasksCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the employee_door_tasks
-     */
-    select?: employee_door_tasksSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the employee_door_tasks
-     */
-    omit?: employee_door_tasksOmit<ExtArgs> | null
-    /**
-     * The data used to create many employee_door_tasks.
-     */
-    data: employee_door_tasksCreateManyInput | employee_door_tasksCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: employee_door_tasksIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * employee_door_tasks update
-   */
-  export type employee_door_tasksUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the employee_door_tasks
-     */
-    select?: employee_door_tasksSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the employee_door_tasks
-     */
-    omit?: employee_door_tasksOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: employee_door_tasksInclude<ExtArgs> | null
-    /**
-     * The data needed to update a employee_door_tasks.
-     */
-    data: XOR<employee_door_tasksUpdateInput, employee_door_tasksUncheckedUpdateInput>
-    /**
-     * Choose, which employee_door_tasks to update.
-     */
-    where: employee_door_tasksWhereUniqueInput
-  }
-
-  /**
-   * employee_door_tasks updateMany
-   */
-  export type employee_door_tasksUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update employee_door_tasks.
-     */
-    data: XOR<employee_door_tasksUpdateManyMutationInput, employee_door_tasksUncheckedUpdateManyInput>
-    /**
-     * Filter which employee_door_tasks to update
-     */
-    where?: employee_door_tasksWhereInput
-    /**
-     * Limit how many employee_door_tasks to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * employee_door_tasks updateManyAndReturn
-   */
-  export type employee_door_tasksUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the employee_door_tasks
-     */
-    select?: employee_door_tasksSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the employee_door_tasks
-     */
-    omit?: employee_door_tasksOmit<ExtArgs> | null
-    /**
-     * The data used to update employee_door_tasks.
-     */
-    data: XOR<employee_door_tasksUpdateManyMutationInput, employee_door_tasksUncheckedUpdateManyInput>
-    /**
-     * Filter which employee_door_tasks to update
-     */
-    where?: employee_door_tasksWhereInput
-    /**
-     * Limit how many employee_door_tasks to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: employee_door_tasksIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * employee_door_tasks upsert
-   */
-  export type employee_door_tasksUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the employee_door_tasks
-     */
-    select?: employee_door_tasksSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the employee_door_tasks
-     */
-    omit?: employee_door_tasksOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: employee_door_tasksInclude<ExtArgs> | null
-    /**
-     * The filter to search for the employee_door_tasks to update in case it exists.
-     */
-    where: employee_door_tasksWhereUniqueInput
-    /**
-     * In case the employee_door_tasks found by the `where` argument doesn't exist, create a new employee_door_tasks with this data.
-     */
-    create: XOR<employee_door_tasksCreateInput, employee_door_tasksUncheckedCreateInput>
-    /**
-     * In case the employee_door_tasks was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<employee_door_tasksUpdateInput, employee_door_tasksUncheckedUpdateInput>
-  }
-
-  /**
-   * employee_door_tasks delete
-   */
-  export type employee_door_tasksDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the employee_door_tasks
-     */
-    select?: employee_door_tasksSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the employee_door_tasks
-     */
-    omit?: employee_door_tasksOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: employee_door_tasksInclude<ExtArgs> | null
-    /**
-     * Filter which employee_door_tasks to delete.
-     */
-    where: employee_door_tasksWhereUniqueInput
-  }
-
-  /**
-   * employee_door_tasks deleteMany
-   */
-  export type employee_door_tasksDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which employee_door_tasks to delete
-     */
-    where?: employee_door_tasksWhereInput
-    /**
-     * Limit how many employee_door_tasks to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * employee_door_tasks without action
-   */
-  export type employee_door_tasksDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the employee_door_tasks
-     */
-    select?: employee_door_tasksSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the employee_door_tasks
-     */
-    omit?: employee_door_tasksOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: employee_door_tasksInclude<ExtArgs> | null
   }
 
 
@@ -37051,6 +36248,3468 @@ export namespace Prisma {
 
 
   /**
+   * Model staffing_position
+   */
+
+  export type AggregateStaffing_position = {
+    _count: Staffing_positionCountAggregateOutputType | null
+    _avg: Staffing_positionAvgAggregateOutputType | null
+    _sum: Staffing_positionSumAggregateOutputType | null
+    _min: Staffing_positionMinAggregateOutputType | null
+    _max: Staffing_positionMaxAggregateOutputType | null
+  }
+
+  export type Staffing_positionAvgAggregateOutputType = {
+    id: number | null
+    department_id: number | null
+    position_id: number | null
+    headcount: number | null
+  }
+
+  export type Staffing_positionSumAggregateOutputType = {
+    id: number | null
+    department_id: number | null
+    position_id: number | null
+    headcount: number | null
+  }
+
+  export type Staffing_positionMinAggregateOutputType = {
+    id: number | null
+    department_id: number | null
+    position_id: number | null
+    headcount: number | null
+    added_at: Date | null
+  }
+
+  export type Staffing_positionMaxAggregateOutputType = {
+    id: number | null
+    department_id: number | null
+    position_id: number | null
+    headcount: number | null
+    added_at: Date | null
+  }
+
+  export type Staffing_positionCountAggregateOutputType = {
+    id: number
+    department_id: number
+    position_id: number
+    headcount: number
+    added_at: number
+    _all: number
+  }
+
+
+  export type Staffing_positionAvgAggregateInputType = {
+    id?: true
+    department_id?: true
+    position_id?: true
+    headcount?: true
+  }
+
+  export type Staffing_positionSumAggregateInputType = {
+    id?: true
+    department_id?: true
+    position_id?: true
+    headcount?: true
+  }
+
+  export type Staffing_positionMinAggregateInputType = {
+    id?: true
+    department_id?: true
+    position_id?: true
+    headcount?: true
+    added_at?: true
+  }
+
+  export type Staffing_positionMaxAggregateInputType = {
+    id?: true
+    department_id?: true
+    position_id?: true
+    headcount?: true
+    added_at?: true
+  }
+
+  export type Staffing_positionCountAggregateInputType = {
+    id?: true
+    department_id?: true
+    position_id?: true
+    headcount?: true
+    added_at?: true
+    _all?: true
+  }
+
+  export type Staffing_positionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which staffing_position to aggregate.
+     */
+    where?: staffing_positionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of staffing_positions to fetch.
+     */
+    orderBy?: staffing_positionOrderByWithRelationInput | staffing_positionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: staffing_positionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` staffing_positions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` staffing_positions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned staffing_positions
+    **/
+    _count?: true | Staffing_positionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Staffing_positionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Staffing_positionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Staffing_positionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Staffing_positionMaxAggregateInputType
+  }
+
+  export type GetStaffing_positionAggregateType<T extends Staffing_positionAggregateArgs> = {
+        [P in keyof T & keyof AggregateStaffing_position]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateStaffing_position[P]>
+      : GetScalarType<T[P], AggregateStaffing_position[P]>
+  }
+
+
+
+
+  export type staffing_positionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: staffing_positionWhereInput
+    orderBy?: staffing_positionOrderByWithAggregationInput | staffing_positionOrderByWithAggregationInput[]
+    by: Staffing_positionScalarFieldEnum[] | Staffing_positionScalarFieldEnum
+    having?: staffing_positionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Staffing_positionCountAggregateInputType | true
+    _avg?: Staffing_positionAvgAggregateInputType
+    _sum?: Staffing_positionSumAggregateInputType
+    _min?: Staffing_positionMinAggregateInputType
+    _max?: Staffing_positionMaxAggregateInputType
+  }
+
+  export type Staffing_positionGroupByOutputType = {
+    id: number
+    department_id: number
+    position_id: number
+    headcount: number
+    added_at: Date
+    _count: Staffing_positionCountAggregateOutputType | null
+    _avg: Staffing_positionAvgAggregateOutputType | null
+    _sum: Staffing_positionSumAggregateOutputType | null
+    _min: Staffing_positionMinAggregateOutputType | null
+    _max: Staffing_positionMaxAggregateOutputType | null
+  }
+
+  type GetStaffing_positionGroupByPayload<T extends staffing_positionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Staffing_positionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Staffing_positionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Staffing_positionGroupByOutputType[P]>
+            : GetScalarType<T[P], Staffing_positionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type staffing_positionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    department_id?: boolean
+    position_id?: boolean
+    headcount?: boolean
+    added_at?: boolean
+    department?: boolean | departmentsDefaultArgs<ExtArgs>
+    position?: boolean | positionsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["staffing_position"]>
+
+  export type staffing_positionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    department_id?: boolean
+    position_id?: boolean
+    headcount?: boolean
+    added_at?: boolean
+    department?: boolean | departmentsDefaultArgs<ExtArgs>
+    position?: boolean | positionsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["staffing_position"]>
+
+  export type staffing_positionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    department_id?: boolean
+    position_id?: boolean
+    headcount?: boolean
+    added_at?: boolean
+    department?: boolean | departmentsDefaultArgs<ExtArgs>
+    position?: boolean | positionsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["staffing_position"]>
+
+  export type staffing_positionSelectScalar = {
+    id?: boolean
+    department_id?: boolean
+    position_id?: boolean
+    headcount?: boolean
+    added_at?: boolean
+  }
+
+  export type staffing_positionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "department_id" | "position_id" | "headcount" | "added_at", ExtArgs["result"]["staffing_position"]>
+  export type staffing_positionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    department?: boolean | departmentsDefaultArgs<ExtArgs>
+    position?: boolean | positionsDefaultArgs<ExtArgs>
+  }
+  export type staffing_positionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    department?: boolean | departmentsDefaultArgs<ExtArgs>
+    position?: boolean | positionsDefaultArgs<ExtArgs>
+  }
+  export type staffing_positionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    department?: boolean | departmentsDefaultArgs<ExtArgs>
+    position?: boolean | positionsDefaultArgs<ExtArgs>
+  }
+
+  export type $staffing_positionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "staffing_position"
+    objects: {
+      department: Prisma.$departmentsPayload<ExtArgs>
+      position: Prisma.$positionsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      department_id: number
+      position_id: number
+      headcount: number
+      added_at: Date
+    }, ExtArgs["result"]["staffing_position"]>
+    composites: {}
+  }
+
+  type staffing_positionGetPayload<S extends boolean | null | undefined | staffing_positionDefaultArgs> = $Result.GetResult<Prisma.$staffing_positionPayload, S>
+
+  type staffing_positionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<staffing_positionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Staffing_positionCountAggregateInputType | true
+    }
+
+  export interface staffing_positionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['staffing_position'], meta: { name: 'staffing_position' } }
+    /**
+     * Find zero or one Staffing_position that matches the filter.
+     * @param {staffing_positionFindUniqueArgs} args - Arguments to find a Staffing_position
+     * @example
+     * // Get one Staffing_position
+     * const staffing_position = await prisma.staffing_position.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends staffing_positionFindUniqueArgs>(args: SelectSubset<T, staffing_positionFindUniqueArgs<ExtArgs>>): Prisma__staffing_positionClient<$Result.GetResult<Prisma.$staffing_positionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Staffing_position that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {staffing_positionFindUniqueOrThrowArgs} args - Arguments to find a Staffing_position
+     * @example
+     * // Get one Staffing_position
+     * const staffing_position = await prisma.staffing_position.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends staffing_positionFindUniqueOrThrowArgs>(args: SelectSubset<T, staffing_positionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__staffing_positionClient<$Result.GetResult<Prisma.$staffing_positionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Staffing_position that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_positionFindFirstArgs} args - Arguments to find a Staffing_position
+     * @example
+     * // Get one Staffing_position
+     * const staffing_position = await prisma.staffing_position.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends staffing_positionFindFirstArgs>(args?: SelectSubset<T, staffing_positionFindFirstArgs<ExtArgs>>): Prisma__staffing_positionClient<$Result.GetResult<Prisma.$staffing_positionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Staffing_position that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_positionFindFirstOrThrowArgs} args - Arguments to find a Staffing_position
+     * @example
+     * // Get one Staffing_position
+     * const staffing_position = await prisma.staffing_position.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends staffing_positionFindFirstOrThrowArgs>(args?: SelectSubset<T, staffing_positionFindFirstOrThrowArgs<ExtArgs>>): Prisma__staffing_positionClient<$Result.GetResult<Prisma.$staffing_positionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Staffing_positions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_positionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Staffing_positions
+     * const staffing_positions = await prisma.staffing_position.findMany()
+     * 
+     * // Get first 10 Staffing_positions
+     * const staffing_positions = await prisma.staffing_position.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const staffing_positionWithIdOnly = await prisma.staffing_position.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends staffing_positionFindManyArgs>(args?: SelectSubset<T, staffing_positionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_positionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Staffing_position.
+     * @param {staffing_positionCreateArgs} args - Arguments to create a Staffing_position.
+     * @example
+     * // Create one Staffing_position
+     * const Staffing_position = await prisma.staffing_position.create({
+     *   data: {
+     *     // ... data to create a Staffing_position
+     *   }
+     * })
+     * 
+     */
+    create<T extends staffing_positionCreateArgs>(args: SelectSubset<T, staffing_positionCreateArgs<ExtArgs>>): Prisma__staffing_positionClient<$Result.GetResult<Prisma.$staffing_positionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Staffing_positions.
+     * @param {staffing_positionCreateManyArgs} args - Arguments to create many Staffing_positions.
+     * @example
+     * // Create many Staffing_positions
+     * const staffing_position = await prisma.staffing_position.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends staffing_positionCreateManyArgs>(args?: SelectSubset<T, staffing_positionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Staffing_positions and returns the data saved in the database.
+     * @param {staffing_positionCreateManyAndReturnArgs} args - Arguments to create many Staffing_positions.
+     * @example
+     * // Create many Staffing_positions
+     * const staffing_position = await prisma.staffing_position.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Staffing_positions and only return the `id`
+     * const staffing_positionWithIdOnly = await prisma.staffing_position.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends staffing_positionCreateManyAndReturnArgs>(args?: SelectSubset<T, staffing_positionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_positionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Staffing_position.
+     * @param {staffing_positionDeleteArgs} args - Arguments to delete one Staffing_position.
+     * @example
+     * // Delete one Staffing_position
+     * const Staffing_position = await prisma.staffing_position.delete({
+     *   where: {
+     *     // ... filter to delete one Staffing_position
+     *   }
+     * })
+     * 
+     */
+    delete<T extends staffing_positionDeleteArgs>(args: SelectSubset<T, staffing_positionDeleteArgs<ExtArgs>>): Prisma__staffing_positionClient<$Result.GetResult<Prisma.$staffing_positionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Staffing_position.
+     * @param {staffing_positionUpdateArgs} args - Arguments to update one Staffing_position.
+     * @example
+     * // Update one Staffing_position
+     * const staffing_position = await prisma.staffing_position.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends staffing_positionUpdateArgs>(args: SelectSubset<T, staffing_positionUpdateArgs<ExtArgs>>): Prisma__staffing_positionClient<$Result.GetResult<Prisma.$staffing_positionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Staffing_positions.
+     * @param {staffing_positionDeleteManyArgs} args - Arguments to filter Staffing_positions to delete.
+     * @example
+     * // Delete a few Staffing_positions
+     * const { count } = await prisma.staffing_position.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends staffing_positionDeleteManyArgs>(args?: SelectSubset<T, staffing_positionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Staffing_positions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_positionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Staffing_positions
+     * const staffing_position = await prisma.staffing_position.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends staffing_positionUpdateManyArgs>(args: SelectSubset<T, staffing_positionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Staffing_positions and returns the data updated in the database.
+     * @param {staffing_positionUpdateManyAndReturnArgs} args - Arguments to update many Staffing_positions.
+     * @example
+     * // Update many Staffing_positions
+     * const staffing_position = await prisma.staffing_position.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Staffing_positions and only return the `id`
+     * const staffing_positionWithIdOnly = await prisma.staffing_position.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends staffing_positionUpdateManyAndReturnArgs>(args: SelectSubset<T, staffing_positionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_positionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Staffing_position.
+     * @param {staffing_positionUpsertArgs} args - Arguments to update or create a Staffing_position.
+     * @example
+     * // Update or create a Staffing_position
+     * const staffing_position = await prisma.staffing_position.upsert({
+     *   create: {
+     *     // ... data to create a Staffing_position
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Staffing_position we want to update
+     *   }
+     * })
+     */
+    upsert<T extends staffing_positionUpsertArgs>(args: SelectSubset<T, staffing_positionUpsertArgs<ExtArgs>>): Prisma__staffing_positionClient<$Result.GetResult<Prisma.$staffing_positionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Staffing_positions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_positionCountArgs} args - Arguments to filter Staffing_positions to count.
+     * @example
+     * // Count the number of Staffing_positions
+     * const count = await prisma.staffing_position.count({
+     *   where: {
+     *     // ... the filter for the Staffing_positions we want to count
+     *   }
+     * })
+    **/
+    count<T extends staffing_positionCountArgs>(
+      args?: Subset<T, staffing_positionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Staffing_positionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Staffing_position.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Staffing_positionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Staffing_positionAggregateArgs>(args: Subset<T, Staffing_positionAggregateArgs>): Prisma.PrismaPromise<GetStaffing_positionAggregateType<T>>
+
+    /**
+     * Group by Staffing_position.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_positionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends staffing_positionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: staffing_positionGroupByArgs['orderBy'] }
+        : { orderBy?: staffing_positionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, staffing_positionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStaffing_positionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the staffing_position model
+   */
+  readonly fields: staffing_positionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for staffing_position.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__staffing_positionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    department<T extends departmentsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, departmentsDefaultArgs<ExtArgs>>): Prisma__departmentsClient<$Result.GetResult<Prisma.$departmentsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    position<T extends positionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, positionsDefaultArgs<ExtArgs>>): Prisma__positionsClient<$Result.GetResult<Prisma.$positionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the staffing_position model
+   */
+  interface staffing_positionFieldRefs {
+    readonly id: FieldRef<"staffing_position", 'Int'>
+    readonly department_id: FieldRef<"staffing_position", 'Int'>
+    readonly position_id: FieldRef<"staffing_position", 'Int'>
+    readonly headcount: FieldRef<"staffing_position", 'Int'>
+    readonly added_at: FieldRef<"staffing_position", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * staffing_position findUnique
+   */
+  export type staffing_positionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_position
+     */
+    select?: staffing_positionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_position
+     */
+    omit?: staffing_positionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_positionInclude<ExtArgs> | null
+    /**
+     * Filter, which staffing_position to fetch.
+     */
+    where: staffing_positionWhereUniqueInput
+  }
+
+  /**
+   * staffing_position findUniqueOrThrow
+   */
+  export type staffing_positionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_position
+     */
+    select?: staffing_positionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_position
+     */
+    omit?: staffing_positionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_positionInclude<ExtArgs> | null
+    /**
+     * Filter, which staffing_position to fetch.
+     */
+    where: staffing_positionWhereUniqueInput
+  }
+
+  /**
+   * staffing_position findFirst
+   */
+  export type staffing_positionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_position
+     */
+    select?: staffing_positionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_position
+     */
+    omit?: staffing_positionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_positionInclude<ExtArgs> | null
+    /**
+     * Filter, which staffing_position to fetch.
+     */
+    where?: staffing_positionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of staffing_positions to fetch.
+     */
+    orderBy?: staffing_positionOrderByWithRelationInput | staffing_positionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for staffing_positions.
+     */
+    cursor?: staffing_positionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` staffing_positions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` staffing_positions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of staffing_positions.
+     */
+    distinct?: Staffing_positionScalarFieldEnum | Staffing_positionScalarFieldEnum[]
+  }
+
+  /**
+   * staffing_position findFirstOrThrow
+   */
+  export type staffing_positionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_position
+     */
+    select?: staffing_positionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_position
+     */
+    omit?: staffing_positionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_positionInclude<ExtArgs> | null
+    /**
+     * Filter, which staffing_position to fetch.
+     */
+    where?: staffing_positionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of staffing_positions to fetch.
+     */
+    orderBy?: staffing_positionOrderByWithRelationInput | staffing_positionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for staffing_positions.
+     */
+    cursor?: staffing_positionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` staffing_positions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` staffing_positions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of staffing_positions.
+     */
+    distinct?: Staffing_positionScalarFieldEnum | Staffing_positionScalarFieldEnum[]
+  }
+
+  /**
+   * staffing_position findMany
+   */
+  export type staffing_positionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_position
+     */
+    select?: staffing_positionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_position
+     */
+    omit?: staffing_positionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_positionInclude<ExtArgs> | null
+    /**
+     * Filter, which staffing_positions to fetch.
+     */
+    where?: staffing_positionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of staffing_positions to fetch.
+     */
+    orderBy?: staffing_positionOrderByWithRelationInput | staffing_positionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing staffing_positions.
+     */
+    cursor?: staffing_positionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` staffing_positions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` staffing_positions.
+     */
+    skip?: number
+    distinct?: Staffing_positionScalarFieldEnum | Staffing_positionScalarFieldEnum[]
+  }
+
+  /**
+   * staffing_position create
+   */
+  export type staffing_positionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_position
+     */
+    select?: staffing_positionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_position
+     */
+    omit?: staffing_positionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_positionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a staffing_position.
+     */
+    data: XOR<staffing_positionCreateInput, staffing_positionUncheckedCreateInput>
+  }
+
+  /**
+   * staffing_position createMany
+   */
+  export type staffing_positionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many staffing_positions.
+     */
+    data: staffing_positionCreateManyInput | staffing_positionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * staffing_position createManyAndReturn
+   */
+  export type staffing_positionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_position
+     */
+    select?: staffing_positionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_position
+     */
+    omit?: staffing_positionOmit<ExtArgs> | null
+    /**
+     * The data used to create many staffing_positions.
+     */
+    data: staffing_positionCreateManyInput | staffing_positionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_positionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * staffing_position update
+   */
+  export type staffing_positionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_position
+     */
+    select?: staffing_positionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_position
+     */
+    omit?: staffing_positionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_positionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a staffing_position.
+     */
+    data: XOR<staffing_positionUpdateInput, staffing_positionUncheckedUpdateInput>
+    /**
+     * Choose, which staffing_position to update.
+     */
+    where: staffing_positionWhereUniqueInput
+  }
+
+  /**
+   * staffing_position updateMany
+   */
+  export type staffing_positionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update staffing_positions.
+     */
+    data: XOR<staffing_positionUpdateManyMutationInput, staffing_positionUncheckedUpdateManyInput>
+    /**
+     * Filter which staffing_positions to update
+     */
+    where?: staffing_positionWhereInput
+    /**
+     * Limit how many staffing_positions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * staffing_position updateManyAndReturn
+   */
+  export type staffing_positionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_position
+     */
+    select?: staffing_positionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_position
+     */
+    omit?: staffing_positionOmit<ExtArgs> | null
+    /**
+     * The data used to update staffing_positions.
+     */
+    data: XOR<staffing_positionUpdateManyMutationInput, staffing_positionUncheckedUpdateManyInput>
+    /**
+     * Filter which staffing_positions to update
+     */
+    where?: staffing_positionWhereInput
+    /**
+     * Limit how many staffing_positions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_positionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * staffing_position upsert
+   */
+  export type staffing_positionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_position
+     */
+    select?: staffing_positionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_position
+     */
+    omit?: staffing_positionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_positionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the staffing_position to update in case it exists.
+     */
+    where: staffing_positionWhereUniqueInput
+    /**
+     * In case the staffing_position found by the `where` argument doesn't exist, create a new staffing_position with this data.
+     */
+    create: XOR<staffing_positionCreateInput, staffing_positionUncheckedCreateInput>
+    /**
+     * In case the staffing_position was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<staffing_positionUpdateInput, staffing_positionUncheckedUpdateInput>
+  }
+
+  /**
+   * staffing_position delete
+   */
+  export type staffing_positionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_position
+     */
+    select?: staffing_positionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_position
+     */
+    omit?: staffing_positionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_positionInclude<ExtArgs> | null
+    /**
+     * Filter which staffing_position to delete.
+     */
+    where: staffing_positionWhereUniqueInput
+  }
+
+  /**
+   * staffing_position deleteMany
+   */
+  export type staffing_positionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which staffing_positions to delete
+     */
+    where?: staffing_positionWhereInput
+    /**
+     * Limit how many staffing_positions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * staffing_position without action
+   */
+  export type staffing_positionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_position
+     */
+    select?: staffing_positionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_position
+     */
+    omit?: staffing_positionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_positionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model staffing_table
+   */
+
+  export type AggregateStaffing_table = {
+    _count: Staffing_tableCountAggregateOutputType | null
+    _avg: Staffing_tableAvgAggregateOutputType | null
+    _sum: Staffing_tableSumAggregateOutputType | null
+    _min: Staffing_tableMinAggregateOutputType | null
+    _max: Staffing_tableMaxAggregateOutputType | null
+  }
+
+  export type Staffing_tableAvgAggregateOutputType = {
+    id: number | null
+    added_by: number | null
+  }
+
+  export type Staffing_tableSumAggregateOutputType = {
+    id: number | null
+    added_by: number | null
+  }
+
+  export type Staffing_tableMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    date_from: Date | null
+    date_to: Date | null
+    status: boolean | null
+    added_by: number | null
+    added_at: Date | null
+  }
+
+  export type Staffing_tableMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    date_from: Date | null
+    date_to: Date | null
+    status: boolean | null
+    added_by: number | null
+    added_at: Date | null
+  }
+
+  export type Staffing_tableCountAggregateOutputType = {
+    id: number
+    name: number
+    date_from: number
+    date_to: number
+    status: number
+    added_by: number
+    added_at: number
+    _all: number
+  }
+
+
+  export type Staffing_tableAvgAggregateInputType = {
+    id?: true
+    added_by?: true
+  }
+
+  export type Staffing_tableSumAggregateInputType = {
+    id?: true
+    added_by?: true
+  }
+
+  export type Staffing_tableMinAggregateInputType = {
+    id?: true
+    name?: true
+    date_from?: true
+    date_to?: true
+    status?: true
+    added_by?: true
+    added_at?: true
+  }
+
+  export type Staffing_tableMaxAggregateInputType = {
+    id?: true
+    name?: true
+    date_from?: true
+    date_to?: true
+    status?: true
+    added_by?: true
+    added_at?: true
+  }
+
+  export type Staffing_tableCountAggregateInputType = {
+    id?: true
+    name?: true
+    date_from?: true
+    date_to?: true
+    status?: true
+    added_by?: true
+    added_at?: true
+    _all?: true
+  }
+
+  export type Staffing_tableAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which staffing_table to aggregate.
+     */
+    where?: staffing_tableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of staffing_tables to fetch.
+     */
+    orderBy?: staffing_tableOrderByWithRelationInput | staffing_tableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: staffing_tableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` staffing_tables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` staffing_tables.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned staffing_tables
+    **/
+    _count?: true | Staffing_tableCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Staffing_tableAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Staffing_tableSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Staffing_tableMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Staffing_tableMaxAggregateInputType
+  }
+
+  export type GetStaffing_tableAggregateType<T extends Staffing_tableAggregateArgs> = {
+        [P in keyof T & keyof AggregateStaffing_table]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateStaffing_table[P]>
+      : GetScalarType<T[P], AggregateStaffing_table[P]>
+  }
+
+
+
+
+  export type staffing_tableGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: staffing_tableWhereInput
+    orderBy?: staffing_tableOrderByWithAggregationInput | staffing_tableOrderByWithAggregationInput[]
+    by: Staffing_tableScalarFieldEnum[] | Staffing_tableScalarFieldEnum
+    having?: staffing_tableScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Staffing_tableCountAggregateInputType | true
+    _avg?: Staffing_tableAvgAggregateInputType
+    _sum?: Staffing_tableSumAggregateInputType
+    _min?: Staffing_tableMinAggregateInputType
+    _max?: Staffing_tableMaxAggregateInputType
+  }
+
+  export type Staffing_tableGroupByOutputType = {
+    id: number
+    name: string
+    date_from: Date
+    date_to: Date | null
+    status: boolean
+    added_by: number
+    added_at: Date
+    _count: Staffing_tableCountAggregateOutputType | null
+    _avg: Staffing_tableAvgAggregateOutputType | null
+    _sum: Staffing_tableSumAggregateOutputType | null
+    _min: Staffing_tableMinAggregateOutputType | null
+    _max: Staffing_tableMaxAggregateOutputType | null
+  }
+
+  type GetStaffing_tableGroupByPayload<T extends staffing_tableGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Staffing_tableGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Staffing_tableGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Staffing_tableGroupByOutputType[P]>
+            : GetScalarType<T[P], Staffing_tableGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type staffing_tableSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    date_from?: boolean
+    date_to?: boolean
+    status?: boolean
+    added_by?: boolean
+    added_at?: boolean
+    items?: boolean | staffing_table$itemsArgs<ExtArgs>
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+    _count?: boolean | Staffing_tableCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["staffing_table"]>
+
+  export type staffing_tableSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    date_from?: boolean
+    date_to?: boolean
+    status?: boolean
+    added_by?: boolean
+    added_at?: boolean
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["staffing_table"]>
+
+  export type staffing_tableSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    date_from?: boolean
+    date_to?: boolean
+    status?: boolean
+    added_by?: boolean
+    added_at?: boolean
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["staffing_table"]>
+
+  export type staffing_tableSelectScalar = {
+    id?: boolean
+    name?: boolean
+    date_from?: boolean
+    date_to?: boolean
+    status?: boolean
+    added_by?: boolean
+    added_at?: boolean
+  }
+
+  export type staffing_tableOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "date_from" | "date_to" | "status" | "added_by" | "added_at", ExtArgs["result"]["staffing_table"]>
+  export type staffing_tableInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    items?: boolean | staffing_table$itemsArgs<ExtArgs>
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+    _count?: boolean | Staffing_tableCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type staffing_tableIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+  }
+  export type staffing_tableIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    addedBy?: boolean | usersDefaultArgs<ExtArgs>
+  }
+
+  export type $staffing_tablePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "staffing_table"
+    objects: {
+      items: Prisma.$staffing_table_itemsPayload<ExtArgs>[]
+      addedBy: Prisma.$usersPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      date_from: Date
+      date_to: Date | null
+      status: boolean
+      added_by: number
+      added_at: Date
+    }, ExtArgs["result"]["staffing_table"]>
+    composites: {}
+  }
+
+  type staffing_tableGetPayload<S extends boolean | null | undefined | staffing_tableDefaultArgs> = $Result.GetResult<Prisma.$staffing_tablePayload, S>
+
+  type staffing_tableCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<staffing_tableFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Staffing_tableCountAggregateInputType | true
+    }
+
+  export interface staffing_tableDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['staffing_table'], meta: { name: 'staffing_table' } }
+    /**
+     * Find zero or one Staffing_table that matches the filter.
+     * @param {staffing_tableFindUniqueArgs} args - Arguments to find a Staffing_table
+     * @example
+     * // Get one Staffing_table
+     * const staffing_table = await prisma.staffing_table.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends staffing_tableFindUniqueArgs>(args: SelectSubset<T, staffing_tableFindUniqueArgs<ExtArgs>>): Prisma__staffing_tableClient<$Result.GetResult<Prisma.$staffing_tablePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Staffing_table that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {staffing_tableFindUniqueOrThrowArgs} args - Arguments to find a Staffing_table
+     * @example
+     * // Get one Staffing_table
+     * const staffing_table = await prisma.staffing_table.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends staffing_tableFindUniqueOrThrowArgs>(args: SelectSubset<T, staffing_tableFindUniqueOrThrowArgs<ExtArgs>>): Prisma__staffing_tableClient<$Result.GetResult<Prisma.$staffing_tablePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Staffing_table that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_tableFindFirstArgs} args - Arguments to find a Staffing_table
+     * @example
+     * // Get one Staffing_table
+     * const staffing_table = await prisma.staffing_table.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends staffing_tableFindFirstArgs>(args?: SelectSubset<T, staffing_tableFindFirstArgs<ExtArgs>>): Prisma__staffing_tableClient<$Result.GetResult<Prisma.$staffing_tablePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Staffing_table that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_tableFindFirstOrThrowArgs} args - Arguments to find a Staffing_table
+     * @example
+     * // Get one Staffing_table
+     * const staffing_table = await prisma.staffing_table.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends staffing_tableFindFirstOrThrowArgs>(args?: SelectSubset<T, staffing_tableFindFirstOrThrowArgs<ExtArgs>>): Prisma__staffing_tableClient<$Result.GetResult<Prisma.$staffing_tablePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Staffing_tables that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_tableFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Staffing_tables
+     * const staffing_tables = await prisma.staffing_table.findMany()
+     * 
+     * // Get first 10 Staffing_tables
+     * const staffing_tables = await prisma.staffing_table.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const staffing_tableWithIdOnly = await prisma.staffing_table.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends staffing_tableFindManyArgs>(args?: SelectSubset<T, staffing_tableFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_tablePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Staffing_table.
+     * @param {staffing_tableCreateArgs} args - Arguments to create a Staffing_table.
+     * @example
+     * // Create one Staffing_table
+     * const Staffing_table = await prisma.staffing_table.create({
+     *   data: {
+     *     // ... data to create a Staffing_table
+     *   }
+     * })
+     * 
+     */
+    create<T extends staffing_tableCreateArgs>(args: SelectSubset<T, staffing_tableCreateArgs<ExtArgs>>): Prisma__staffing_tableClient<$Result.GetResult<Prisma.$staffing_tablePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Staffing_tables.
+     * @param {staffing_tableCreateManyArgs} args - Arguments to create many Staffing_tables.
+     * @example
+     * // Create many Staffing_tables
+     * const staffing_table = await prisma.staffing_table.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends staffing_tableCreateManyArgs>(args?: SelectSubset<T, staffing_tableCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Staffing_tables and returns the data saved in the database.
+     * @param {staffing_tableCreateManyAndReturnArgs} args - Arguments to create many Staffing_tables.
+     * @example
+     * // Create many Staffing_tables
+     * const staffing_table = await prisma.staffing_table.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Staffing_tables and only return the `id`
+     * const staffing_tableWithIdOnly = await prisma.staffing_table.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends staffing_tableCreateManyAndReturnArgs>(args?: SelectSubset<T, staffing_tableCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_tablePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Staffing_table.
+     * @param {staffing_tableDeleteArgs} args - Arguments to delete one Staffing_table.
+     * @example
+     * // Delete one Staffing_table
+     * const Staffing_table = await prisma.staffing_table.delete({
+     *   where: {
+     *     // ... filter to delete one Staffing_table
+     *   }
+     * })
+     * 
+     */
+    delete<T extends staffing_tableDeleteArgs>(args: SelectSubset<T, staffing_tableDeleteArgs<ExtArgs>>): Prisma__staffing_tableClient<$Result.GetResult<Prisma.$staffing_tablePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Staffing_table.
+     * @param {staffing_tableUpdateArgs} args - Arguments to update one Staffing_table.
+     * @example
+     * // Update one Staffing_table
+     * const staffing_table = await prisma.staffing_table.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends staffing_tableUpdateArgs>(args: SelectSubset<T, staffing_tableUpdateArgs<ExtArgs>>): Prisma__staffing_tableClient<$Result.GetResult<Prisma.$staffing_tablePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Staffing_tables.
+     * @param {staffing_tableDeleteManyArgs} args - Arguments to filter Staffing_tables to delete.
+     * @example
+     * // Delete a few Staffing_tables
+     * const { count } = await prisma.staffing_table.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends staffing_tableDeleteManyArgs>(args?: SelectSubset<T, staffing_tableDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Staffing_tables.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_tableUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Staffing_tables
+     * const staffing_table = await prisma.staffing_table.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends staffing_tableUpdateManyArgs>(args: SelectSubset<T, staffing_tableUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Staffing_tables and returns the data updated in the database.
+     * @param {staffing_tableUpdateManyAndReturnArgs} args - Arguments to update many Staffing_tables.
+     * @example
+     * // Update many Staffing_tables
+     * const staffing_table = await prisma.staffing_table.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Staffing_tables and only return the `id`
+     * const staffing_tableWithIdOnly = await prisma.staffing_table.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends staffing_tableUpdateManyAndReturnArgs>(args: SelectSubset<T, staffing_tableUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_tablePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Staffing_table.
+     * @param {staffing_tableUpsertArgs} args - Arguments to update or create a Staffing_table.
+     * @example
+     * // Update or create a Staffing_table
+     * const staffing_table = await prisma.staffing_table.upsert({
+     *   create: {
+     *     // ... data to create a Staffing_table
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Staffing_table we want to update
+     *   }
+     * })
+     */
+    upsert<T extends staffing_tableUpsertArgs>(args: SelectSubset<T, staffing_tableUpsertArgs<ExtArgs>>): Prisma__staffing_tableClient<$Result.GetResult<Prisma.$staffing_tablePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Staffing_tables.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_tableCountArgs} args - Arguments to filter Staffing_tables to count.
+     * @example
+     * // Count the number of Staffing_tables
+     * const count = await prisma.staffing_table.count({
+     *   where: {
+     *     // ... the filter for the Staffing_tables we want to count
+     *   }
+     * })
+    **/
+    count<T extends staffing_tableCountArgs>(
+      args?: Subset<T, staffing_tableCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Staffing_tableCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Staffing_table.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Staffing_tableAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Staffing_tableAggregateArgs>(args: Subset<T, Staffing_tableAggregateArgs>): Prisma.PrismaPromise<GetStaffing_tableAggregateType<T>>
+
+    /**
+     * Group by Staffing_table.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_tableGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends staffing_tableGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: staffing_tableGroupByArgs['orderBy'] }
+        : { orderBy?: staffing_tableGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, staffing_tableGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStaffing_tableGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the staffing_table model
+   */
+  readonly fields: staffing_tableFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for staffing_table.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__staffing_tableClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    items<T extends staffing_table$itemsArgs<ExtArgs> = {}>(args?: Subset<T, staffing_table$itemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_table_itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    addedBy<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the staffing_table model
+   */
+  interface staffing_tableFieldRefs {
+    readonly id: FieldRef<"staffing_table", 'Int'>
+    readonly name: FieldRef<"staffing_table", 'String'>
+    readonly date_from: FieldRef<"staffing_table", 'DateTime'>
+    readonly date_to: FieldRef<"staffing_table", 'DateTime'>
+    readonly status: FieldRef<"staffing_table", 'Boolean'>
+    readonly added_by: FieldRef<"staffing_table", 'Int'>
+    readonly added_at: FieldRef<"staffing_table", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * staffing_table findUnique
+   */
+  export type staffing_tableFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table
+     */
+    select?: staffing_tableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table
+     */
+    omit?: staffing_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_tableInclude<ExtArgs> | null
+    /**
+     * Filter, which staffing_table to fetch.
+     */
+    where: staffing_tableWhereUniqueInput
+  }
+
+  /**
+   * staffing_table findUniqueOrThrow
+   */
+  export type staffing_tableFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table
+     */
+    select?: staffing_tableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table
+     */
+    omit?: staffing_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_tableInclude<ExtArgs> | null
+    /**
+     * Filter, which staffing_table to fetch.
+     */
+    where: staffing_tableWhereUniqueInput
+  }
+
+  /**
+   * staffing_table findFirst
+   */
+  export type staffing_tableFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table
+     */
+    select?: staffing_tableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table
+     */
+    omit?: staffing_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_tableInclude<ExtArgs> | null
+    /**
+     * Filter, which staffing_table to fetch.
+     */
+    where?: staffing_tableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of staffing_tables to fetch.
+     */
+    orderBy?: staffing_tableOrderByWithRelationInput | staffing_tableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for staffing_tables.
+     */
+    cursor?: staffing_tableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` staffing_tables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` staffing_tables.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of staffing_tables.
+     */
+    distinct?: Staffing_tableScalarFieldEnum | Staffing_tableScalarFieldEnum[]
+  }
+
+  /**
+   * staffing_table findFirstOrThrow
+   */
+  export type staffing_tableFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table
+     */
+    select?: staffing_tableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table
+     */
+    omit?: staffing_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_tableInclude<ExtArgs> | null
+    /**
+     * Filter, which staffing_table to fetch.
+     */
+    where?: staffing_tableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of staffing_tables to fetch.
+     */
+    orderBy?: staffing_tableOrderByWithRelationInput | staffing_tableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for staffing_tables.
+     */
+    cursor?: staffing_tableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` staffing_tables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` staffing_tables.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of staffing_tables.
+     */
+    distinct?: Staffing_tableScalarFieldEnum | Staffing_tableScalarFieldEnum[]
+  }
+
+  /**
+   * staffing_table findMany
+   */
+  export type staffing_tableFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table
+     */
+    select?: staffing_tableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table
+     */
+    omit?: staffing_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_tableInclude<ExtArgs> | null
+    /**
+     * Filter, which staffing_tables to fetch.
+     */
+    where?: staffing_tableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of staffing_tables to fetch.
+     */
+    orderBy?: staffing_tableOrderByWithRelationInput | staffing_tableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing staffing_tables.
+     */
+    cursor?: staffing_tableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` staffing_tables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` staffing_tables.
+     */
+    skip?: number
+    distinct?: Staffing_tableScalarFieldEnum | Staffing_tableScalarFieldEnum[]
+  }
+
+  /**
+   * staffing_table create
+   */
+  export type staffing_tableCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table
+     */
+    select?: staffing_tableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table
+     */
+    omit?: staffing_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_tableInclude<ExtArgs> | null
+    /**
+     * The data needed to create a staffing_table.
+     */
+    data: XOR<staffing_tableCreateInput, staffing_tableUncheckedCreateInput>
+  }
+
+  /**
+   * staffing_table createMany
+   */
+  export type staffing_tableCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many staffing_tables.
+     */
+    data: staffing_tableCreateManyInput | staffing_tableCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * staffing_table createManyAndReturn
+   */
+  export type staffing_tableCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table
+     */
+    select?: staffing_tableSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table
+     */
+    omit?: staffing_tableOmit<ExtArgs> | null
+    /**
+     * The data used to create many staffing_tables.
+     */
+    data: staffing_tableCreateManyInput | staffing_tableCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_tableIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * staffing_table update
+   */
+  export type staffing_tableUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table
+     */
+    select?: staffing_tableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table
+     */
+    omit?: staffing_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_tableInclude<ExtArgs> | null
+    /**
+     * The data needed to update a staffing_table.
+     */
+    data: XOR<staffing_tableUpdateInput, staffing_tableUncheckedUpdateInput>
+    /**
+     * Choose, which staffing_table to update.
+     */
+    where: staffing_tableWhereUniqueInput
+  }
+
+  /**
+   * staffing_table updateMany
+   */
+  export type staffing_tableUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update staffing_tables.
+     */
+    data: XOR<staffing_tableUpdateManyMutationInput, staffing_tableUncheckedUpdateManyInput>
+    /**
+     * Filter which staffing_tables to update
+     */
+    where?: staffing_tableWhereInput
+    /**
+     * Limit how many staffing_tables to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * staffing_table updateManyAndReturn
+   */
+  export type staffing_tableUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table
+     */
+    select?: staffing_tableSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table
+     */
+    omit?: staffing_tableOmit<ExtArgs> | null
+    /**
+     * The data used to update staffing_tables.
+     */
+    data: XOR<staffing_tableUpdateManyMutationInput, staffing_tableUncheckedUpdateManyInput>
+    /**
+     * Filter which staffing_tables to update
+     */
+    where?: staffing_tableWhereInput
+    /**
+     * Limit how many staffing_tables to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_tableIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * staffing_table upsert
+   */
+  export type staffing_tableUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table
+     */
+    select?: staffing_tableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table
+     */
+    omit?: staffing_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_tableInclude<ExtArgs> | null
+    /**
+     * The filter to search for the staffing_table to update in case it exists.
+     */
+    where: staffing_tableWhereUniqueInput
+    /**
+     * In case the staffing_table found by the `where` argument doesn't exist, create a new staffing_table with this data.
+     */
+    create: XOR<staffing_tableCreateInput, staffing_tableUncheckedCreateInput>
+    /**
+     * In case the staffing_table was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<staffing_tableUpdateInput, staffing_tableUncheckedUpdateInput>
+  }
+
+  /**
+   * staffing_table delete
+   */
+  export type staffing_tableDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table
+     */
+    select?: staffing_tableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table
+     */
+    omit?: staffing_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_tableInclude<ExtArgs> | null
+    /**
+     * Filter which staffing_table to delete.
+     */
+    where: staffing_tableWhereUniqueInput
+  }
+
+  /**
+   * staffing_table deleteMany
+   */
+  export type staffing_tableDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which staffing_tables to delete
+     */
+    where?: staffing_tableWhereInput
+    /**
+     * Limit how many staffing_tables to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * staffing_table.items
+   */
+  export type staffing_table$itemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsInclude<ExtArgs> | null
+    where?: staffing_table_itemsWhereInput
+    orderBy?: staffing_table_itemsOrderByWithRelationInput | staffing_table_itemsOrderByWithRelationInput[]
+    cursor?: staffing_table_itemsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Staffing_table_itemsScalarFieldEnum | Staffing_table_itemsScalarFieldEnum[]
+  }
+
+  /**
+   * staffing_table without action
+   */
+  export type staffing_tableDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table
+     */
+    select?: staffing_tableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table
+     */
+    omit?: staffing_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_tableInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model staffing_table_items
+   */
+
+  export type AggregateStaffing_table_items = {
+    _count: Staffing_table_itemsCountAggregateOutputType | null
+    _avg: Staffing_table_itemsAvgAggregateOutputType | null
+    _sum: Staffing_table_itemsSumAggregateOutputType | null
+    _min: Staffing_table_itemsMinAggregateOutputType | null
+    _max: Staffing_table_itemsMaxAggregateOutputType | null
+  }
+
+  export type Staffing_table_itemsAvgAggregateOutputType = {
+    id: number | null
+    staffing_table_id: number | null
+    branch_id: number | null
+    department_id: number | null
+    position_id: number | null
+    headcount: number | null
+    salary_amount: Decimal | null
+  }
+
+  export type Staffing_table_itemsSumAggregateOutputType = {
+    id: number | null
+    staffing_table_id: number | null
+    branch_id: number | null
+    department_id: number | null
+    position_id: number | null
+    headcount: number | null
+    salary_amount: Decimal | null
+  }
+
+  export type Staffing_table_itemsMinAggregateOutputType = {
+    id: number | null
+    staffing_table_id: number | null
+    branch_id: number | null
+    department_id: number | null
+    position_id: number | null
+    headcount: number | null
+    salary_type: string | null
+    salary_amount: Decimal | null
+  }
+
+  export type Staffing_table_itemsMaxAggregateOutputType = {
+    id: number | null
+    staffing_table_id: number | null
+    branch_id: number | null
+    department_id: number | null
+    position_id: number | null
+    headcount: number | null
+    salary_type: string | null
+    salary_amount: Decimal | null
+  }
+
+  export type Staffing_table_itemsCountAggregateOutputType = {
+    id: number
+    staffing_table_id: number
+    branch_id: number
+    department_id: number
+    position_id: number
+    headcount: number
+    salary_type: number
+    salary_amount: number
+    _all: number
+  }
+
+
+  export type Staffing_table_itemsAvgAggregateInputType = {
+    id?: true
+    staffing_table_id?: true
+    branch_id?: true
+    department_id?: true
+    position_id?: true
+    headcount?: true
+    salary_amount?: true
+  }
+
+  export type Staffing_table_itemsSumAggregateInputType = {
+    id?: true
+    staffing_table_id?: true
+    branch_id?: true
+    department_id?: true
+    position_id?: true
+    headcount?: true
+    salary_amount?: true
+  }
+
+  export type Staffing_table_itemsMinAggregateInputType = {
+    id?: true
+    staffing_table_id?: true
+    branch_id?: true
+    department_id?: true
+    position_id?: true
+    headcount?: true
+    salary_type?: true
+    salary_amount?: true
+  }
+
+  export type Staffing_table_itemsMaxAggregateInputType = {
+    id?: true
+    staffing_table_id?: true
+    branch_id?: true
+    department_id?: true
+    position_id?: true
+    headcount?: true
+    salary_type?: true
+    salary_amount?: true
+  }
+
+  export type Staffing_table_itemsCountAggregateInputType = {
+    id?: true
+    staffing_table_id?: true
+    branch_id?: true
+    department_id?: true
+    position_id?: true
+    headcount?: true
+    salary_type?: true
+    salary_amount?: true
+    _all?: true
+  }
+
+  export type Staffing_table_itemsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which staffing_table_items to aggregate.
+     */
+    where?: staffing_table_itemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of staffing_table_items to fetch.
+     */
+    orderBy?: staffing_table_itemsOrderByWithRelationInput | staffing_table_itemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: staffing_table_itemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` staffing_table_items from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` staffing_table_items.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned staffing_table_items
+    **/
+    _count?: true | Staffing_table_itemsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Staffing_table_itemsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Staffing_table_itemsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Staffing_table_itemsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Staffing_table_itemsMaxAggregateInputType
+  }
+
+  export type GetStaffing_table_itemsAggregateType<T extends Staffing_table_itemsAggregateArgs> = {
+        [P in keyof T & keyof AggregateStaffing_table_items]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateStaffing_table_items[P]>
+      : GetScalarType<T[P], AggregateStaffing_table_items[P]>
+  }
+
+
+
+
+  export type staffing_table_itemsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: staffing_table_itemsWhereInput
+    orderBy?: staffing_table_itemsOrderByWithAggregationInput | staffing_table_itemsOrderByWithAggregationInput[]
+    by: Staffing_table_itemsScalarFieldEnum[] | Staffing_table_itemsScalarFieldEnum
+    having?: staffing_table_itemsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Staffing_table_itemsCountAggregateInputType | true
+    _avg?: Staffing_table_itemsAvgAggregateInputType
+    _sum?: Staffing_table_itemsSumAggregateInputType
+    _min?: Staffing_table_itemsMinAggregateInputType
+    _max?: Staffing_table_itemsMaxAggregateInputType
+  }
+
+  export type Staffing_table_itemsGroupByOutputType = {
+    id: number
+    staffing_table_id: number
+    branch_id: number
+    department_id: number | null
+    position_id: number
+    headcount: number
+    salary_type: string | null
+    salary_amount: Decimal | null
+    _count: Staffing_table_itemsCountAggregateOutputType | null
+    _avg: Staffing_table_itemsAvgAggregateOutputType | null
+    _sum: Staffing_table_itemsSumAggregateOutputType | null
+    _min: Staffing_table_itemsMinAggregateOutputType | null
+    _max: Staffing_table_itemsMaxAggregateOutputType | null
+  }
+
+  type GetStaffing_table_itemsGroupByPayload<T extends staffing_table_itemsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Staffing_table_itemsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Staffing_table_itemsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Staffing_table_itemsGroupByOutputType[P]>
+            : GetScalarType<T[P], Staffing_table_itemsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type staffing_table_itemsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    staffing_table_id?: boolean
+    branch_id?: boolean
+    department_id?: boolean
+    position_id?: boolean
+    headcount?: boolean
+    salary_type?: boolean
+    salary_amount?: boolean
+    staffingTable?: boolean | staffing_tableDefaultArgs<ExtArgs>
+    branch?: boolean | branchesDefaultArgs<ExtArgs>
+    department?: boolean | staffing_table_items$departmentArgs<ExtArgs>
+    position?: boolean | positionsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["staffing_table_items"]>
+
+  export type staffing_table_itemsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    staffing_table_id?: boolean
+    branch_id?: boolean
+    department_id?: boolean
+    position_id?: boolean
+    headcount?: boolean
+    salary_type?: boolean
+    salary_amount?: boolean
+    staffingTable?: boolean | staffing_tableDefaultArgs<ExtArgs>
+    branch?: boolean | branchesDefaultArgs<ExtArgs>
+    department?: boolean | staffing_table_items$departmentArgs<ExtArgs>
+    position?: boolean | positionsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["staffing_table_items"]>
+
+  export type staffing_table_itemsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    staffing_table_id?: boolean
+    branch_id?: boolean
+    department_id?: boolean
+    position_id?: boolean
+    headcount?: boolean
+    salary_type?: boolean
+    salary_amount?: boolean
+    staffingTable?: boolean | staffing_tableDefaultArgs<ExtArgs>
+    branch?: boolean | branchesDefaultArgs<ExtArgs>
+    department?: boolean | staffing_table_items$departmentArgs<ExtArgs>
+    position?: boolean | positionsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["staffing_table_items"]>
+
+  export type staffing_table_itemsSelectScalar = {
+    id?: boolean
+    staffing_table_id?: boolean
+    branch_id?: boolean
+    department_id?: boolean
+    position_id?: boolean
+    headcount?: boolean
+    salary_type?: boolean
+    salary_amount?: boolean
+  }
+
+  export type staffing_table_itemsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "staffing_table_id" | "branch_id" | "department_id" | "position_id" | "headcount" | "salary_type" | "salary_amount", ExtArgs["result"]["staffing_table_items"]>
+  export type staffing_table_itemsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    staffingTable?: boolean | staffing_tableDefaultArgs<ExtArgs>
+    branch?: boolean | branchesDefaultArgs<ExtArgs>
+    department?: boolean | staffing_table_items$departmentArgs<ExtArgs>
+    position?: boolean | positionsDefaultArgs<ExtArgs>
+  }
+  export type staffing_table_itemsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    staffingTable?: boolean | staffing_tableDefaultArgs<ExtArgs>
+    branch?: boolean | branchesDefaultArgs<ExtArgs>
+    department?: boolean | staffing_table_items$departmentArgs<ExtArgs>
+    position?: boolean | positionsDefaultArgs<ExtArgs>
+  }
+  export type staffing_table_itemsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    staffingTable?: boolean | staffing_tableDefaultArgs<ExtArgs>
+    branch?: boolean | branchesDefaultArgs<ExtArgs>
+    department?: boolean | staffing_table_items$departmentArgs<ExtArgs>
+    position?: boolean | positionsDefaultArgs<ExtArgs>
+  }
+
+  export type $staffing_table_itemsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "staffing_table_items"
+    objects: {
+      staffingTable: Prisma.$staffing_tablePayload<ExtArgs>
+      branch: Prisma.$branchesPayload<ExtArgs>
+      department: Prisma.$departmentsPayload<ExtArgs> | null
+      position: Prisma.$positionsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      staffing_table_id: number
+      branch_id: number
+      department_id: number | null
+      position_id: number
+      headcount: number
+      salary_type: string | null
+      salary_amount: Prisma.Decimal | null
+    }, ExtArgs["result"]["staffing_table_items"]>
+    composites: {}
+  }
+
+  type staffing_table_itemsGetPayload<S extends boolean | null | undefined | staffing_table_itemsDefaultArgs> = $Result.GetResult<Prisma.$staffing_table_itemsPayload, S>
+
+  type staffing_table_itemsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<staffing_table_itemsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Staffing_table_itemsCountAggregateInputType | true
+    }
+
+  export interface staffing_table_itemsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['staffing_table_items'], meta: { name: 'staffing_table_items' } }
+    /**
+     * Find zero or one Staffing_table_items that matches the filter.
+     * @param {staffing_table_itemsFindUniqueArgs} args - Arguments to find a Staffing_table_items
+     * @example
+     * // Get one Staffing_table_items
+     * const staffing_table_items = await prisma.staffing_table_items.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends staffing_table_itemsFindUniqueArgs>(args: SelectSubset<T, staffing_table_itemsFindUniqueArgs<ExtArgs>>): Prisma__staffing_table_itemsClient<$Result.GetResult<Prisma.$staffing_table_itemsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Staffing_table_items that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {staffing_table_itemsFindUniqueOrThrowArgs} args - Arguments to find a Staffing_table_items
+     * @example
+     * // Get one Staffing_table_items
+     * const staffing_table_items = await prisma.staffing_table_items.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends staffing_table_itemsFindUniqueOrThrowArgs>(args: SelectSubset<T, staffing_table_itemsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__staffing_table_itemsClient<$Result.GetResult<Prisma.$staffing_table_itemsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Staffing_table_items that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_table_itemsFindFirstArgs} args - Arguments to find a Staffing_table_items
+     * @example
+     * // Get one Staffing_table_items
+     * const staffing_table_items = await prisma.staffing_table_items.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends staffing_table_itemsFindFirstArgs>(args?: SelectSubset<T, staffing_table_itemsFindFirstArgs<ExtArgs>>): Prisma__staffing_table_itemsClient<$Result.GetResult<Prisma.$staffing_table_itemsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Staffing_table_items that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_table_itemsFindFirstOrThrowArgs} args - Arguments to find a Staffing_table_items
+     * @example
+     * // Get one Staffing_table_items
+     * const staffing_table_items = await prisma.staffing_table_items.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends staffing_table_itemsFindFirstOrThrowArgs>(args?: SelectSubset<T, staffing_table_itemsFindFirstOrThrowArgs<ExtArgs>>): Prisma__staffing_table_itemsClient<$Result.GetResult<Prisma.$staffing_table_itemsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Staffing_table_items that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_table_itemsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Staffing_table_items
+     * const staffing_table_items = await prisma.staffing_table_items.findMany()
+     * 
+     * // Get first 10 Staffing_table_items
+     * const staffing_table_items = await prisma.staffing_table_items.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const staffing_table_itemsWithIdOnly = await prisma.staffing_table_items.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends staffing_table_itemsFindManyArgs>(args?: SelectSubset<T, staffing_table_itemsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_table_itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Staffing_table_items.
+     * @param {staffing_table_itemsCreateArgs} args - Arguments to create a Staffing_table_items.
+     * @example
+     * // Create one Staffing_table_items
+     * const Staffing_table_items = await prisma.staffing_table_items.create({
+     *   data: {
+     *     // ... data to create a Staffing_table_items
+     *   }
+     * })
+     * 
+     */
+    create<T extends staffing_table_itemsCreateArgs>(args: SelectSubset<T, staffing_table_itemsCreateArgs<ExtArgs>>): Prisma__staffing_table_itemsClient<$Result.GetResult<Prisma.$staffing_table_itemsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Staffing_table_items.
+     * @param {staffing_table_itemsCreateManyArgs} args - Arguments to create many Staffing_table_items.
+     * @example
+     * // Create many Staffing_table_items
+     * const staffing_table_items = await prisma.staffing_table_items.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends staffing_table_itemsCreateManyArgs>(args?: SelectSubset<T, staffing_table_itemsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Staffing_table_items and returns the data saved in the database.
+     * @param {staffing_table_itemsCreateManyAndReturnArgs} args - Arguments to create many Staffing_table_items.
+     * @example
+     * // Create many Staffing_table_items
+     * const staffing_table_items = await prisma.staffing_table_items.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Staffing_table_items and only return the `id`
+     * const staffing_table_itemsWithIdOnly = await prisma.staffing_table_items.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends staffing_table_itemsCreateManyAndReturnArgs>(args?: SelectSubset<T, staffing_table_itemsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_table_itemsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Staffing_table_items.
+     * @param {staffing_table_itemsDeleteArgs} args - Arguments to delete one Staffing_table_items.
+     * @example
+     * // Delete one Staffing_table_items
+     * const Staffing_table_items = await prisma.staffing_table_items.delete({
+     *   where: {
+     *     // ... filter to delete one Staffing_table_items
+     *   }
+     * })
+     * 
+     */
+    delete<T extends staffing_table_itemsDeleteArgs>(args: SelectSubset<T, staffing_table_itemsDeleteArgs<ExtArgs>>): Prisma__staffing_table_itemsClient<$Result.GetResult<Prisma.$staffing_table_itemsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Staffing_table_items.
+     * @param {staffing_table_itemsUpdateArgs} args - Arguments to update one Staffing_table_items.
+     * @example
+     * // Update one Staffing_table_items
+     * const staffing_table_items = await prisma.staffing_table_items.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends staffing_table_itemsUpdateArgs>(args: SelectSubset<T, staffing_table_itemsUpdateArgs<ExtArgs>>): Prisma__staffing_table_itemsClient<$Result.GetResult<Prisma.$staffing_table_itemsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Staffing_table_items.
+     * @param {staffing_table_itemsDeleteManyArgs} args - Arguments to filter Staffing_table_items to delete.
+     * @example
+     * // Delete a few Staffing_table_items
+     * const { count } = await prisma.staffing_table_items.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends staffing_table_itemsDeleteManyArgs>(args?: SelectSubset<T, staffing_table_itemsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Staffing_table_items.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_table_itemsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Staffing_table_items
+     * const staffing_table_items = await prisma.staffing_table_items.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends staffing_table_itemsUpdateManyArgs>(args: SelectSubset<T, staffing_table_itemsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Staffing_table_items and returns the data updated in the database.
+     * @param {staffing_table_itemsUpdateManyAndReturnArgs} args - Arguments to update many Staffing_table_items.
+     * @example
+     * // Update many Staffing_table_items
+     * const staffing_table_items = await prisma.staffing_table_items.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Staffing_table_items and only return the `id`
+     * const staffing_table_itemsWithIdOnly = await prisma.staffing_table_items.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends staffing_table_itemsUpdateManyAndReturnArgs>(args: SelectSubset<T, staffing_table_itemsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$staffing_table_itemsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Staffing_table_items.
+     * @param {staffing_table_itemsUpsertArgs} args - Arguments to update or create a Staffing_table_items.
+     * @example
+     * // Update or create a Staffing_table_items
+     * const staffing_table_items = await prisma.staffing_table_items.upsert({
+     *   create: {
+     *     // ... data to create a Staffing_table_items
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Staffing_table_items we want to update
+     *   }
+     * })
+     */
+    upsert<T extends staffing_table_itemsUpsertArgs>(args: SelectSubset<T, staffing_table_itemsUpsertArgs<ExtArgs>>): Prisma__staffing_table_itemsClient<$Result.GetResult<Prisma.$staffing_table_itemsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Staffing_table_items.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_table_itemsCountArgs} args - Arguments to filter Staffing_table_items to count.
+     * @example
+     * // Count the number of Staffing_table_items
+     * const count = await prisma.staffing_table_items.count({
+     *   where: {
+     *     // ... the filter for the Staffing_table_items we want to count
+     *   }
+     * })
+    **/
+    count<T extends staffing_table_itemsCountArgs>(
+      args?: Subset<T, staffing_table_itemsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Staffing_table_itemsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Staffing_table_items.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Staffing_table_itemsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Staffing_table_itemsAggregateArgs>(args: Subset<T, Staffing_table_itemsAggregateArgs>): Prisma.PrismaPromise<GetStaffing_table_itemsAggregateType<T>>
+
+    /**
+     * Group by Staffing_table_items.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {staffing_table_itemsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends staffing_table_itemsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: staffing_table_itemsGroupByArgs['orderBy'] }
+        : { orderBy?: staffing_table_itemsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, staffing_table_itemsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStaffing_table_itemsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the staffing_table_items model
+   */
+  readonly fields: staffing_table_itemsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for staffing_table_items.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__staffing_table_itemsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    staffingTable<T extends staffing_tableDefaultArgs<ExtArgs> = {}>(args?: Subset<T, staffing_tableDefaultArgs<ExtArgs>>): Prisma__staffing_tableClient<$Result.GetResult<Prisma.$staffing_tablePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    branch<T extends branchesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, branchesDefaultArgs<ExtArgs>>): Prisma__branchesClient<$Result.GetResult<Prisma.$branchesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    department<T extends staffing_table_items$departmentArgs<ExtArgs> = {}>(args?: Subset<T, staffing_table_items$departmentArgs<ExtArgs>>): Prisma__departmentsClient<$Result.GetResult<Prisma.$departmentsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    position<T extends positionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, positionsDefaultArgs<ExtArgs>>): Prisma__positionsClient<$Result.GetResult<Prisma.$positionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the staffing_table_items model
+   */
+  interface staffing_table_itemsFieldRefs {
+    readonly id: FieldRef<"staffing_table_items", 'Int'>
+    readonly staffing_table_id: FieldRef<"staffing_table_items", 'Int'>
+    readonly branch_id: FieldRef<"staffing_table_items", 'Int'>
+    readonly department_id: FieldRef<"staffing_table_items", 'Int'>
+    readonly position_id: FieldRef<"staffing_table_items", 'Int'>
+    readonly headcount: FieldRef<"staffing_table_items", 'Int'>
+    readonly salary_type: FieldRef<"staffing_table_items", 'String'>
+    readonly salary_amount: FieldRef<"staffing_table_items", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * staffing_table_items findUnique
+   */
+  export type staffing_table_itemsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsInclude<ExtArgs> | null
+    /**
+     * Filter, which staffing_table_items to fetch.
+     */
+    where: staffing_table_itemsWhereUniqueInput
+  }
+
+  /**
+   * staffing_table_items findUniqueOrThrow
+   */
+  export type staffing_table_itemsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsInclude<ExtArgs> | null
+    /**
+     * Filter, which staffing_table_items to fetch.
+     */
+    where: staffing_table_itemsWhereUniqueInput
+  }
+
+  /**
+   * staffing_table_items findFirst
+   */
+  export type staffing_table_itemsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsInclude<ExtArgs> | null
+    /**
+     * Filter, which staffing_table_items to fetch.
+     */
+    where?: staffing_table_itemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of staffing_table_items to fetch.
+     */
+    orderBy?: staffing_table_itemsOrderByWithRelationInput | staffing_table_itemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for staffing_table_items.
+     */
+    cursor?: staffing_table_itemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` staffing_table_items from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` staffing_table_items.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of staffing_table_items.
+     */
+    distinct?: Staffing_table_itemsScalarFieldEnum | Staffing_table_itemsScalarFieldEnum[]
+  }
+
+  /**
+   * staffing_table_items findFirstOrThrow
+   */
+  export type staffing_table_itemsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsInclude<ExtArgs> | null
+    /**
+     * Filter, which staffing_table_items to fetch.
+     */
+    where?: staffing_table_itemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of staffing_table_items to fetch.
+     */
+    orderBy?: staffing_table_itemsOrderByWithRelationInput | staffing_table_itemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for staffing_table_items.
+     */
+    cursor?: staffing_table_itemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` staffing_table_items from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` staffing_table_items.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of staffing_table_items.
+     */
+    distinct?: Staffing_table_itemsScalarFieldEnum | Staffing_table_itemsScalarFieldEnum[]
+  }
+
+  /**
+   * staffing_table_items findMany
+   */
+  export type staffing_table_itemsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsInclude<ExtArgs> | null
+    /**
+     * Filter, which staffing_table_items to fetch.
+     */
+    where?: staffing_table_itemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of staffing_table_items to fetch.
+     */
+    orderBy?: staffing_table_itemsOrderByWithRelationInput | staffing_table_itemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing staffing_table_items.
+     */
+    cursor?: staffing_table_itemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` staffing_table_items from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` staffing_table_items.
+     */
+    skip?: number
+    distinct?: Staffing_table_itemsScalarFieldEnum | Staffing_table_itemsScalarFieldEnum[]
+  }
+
+  /**
+   * staffing_table_items create
+   */
+  export type staffing_table_itemsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a staffing_table_items.
+     */
+    data: XOR<staffing_table_itemsCreateInput, staffing_table_itemsUncheckedCreateInput>
+  }
+
+  /**
+   * staffing_table_items createMany
+   */
+  export type staffing_table_itemsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many staffing_table_items.
+     */
+    data: staffing_table_itemsCreateManyInput | staffing_table_itemsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * staffing_table_items createManyAndReturn
+   */
+  export type staffing_table_itemsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * The data used to create many staffing_table_items.
+     */
+    data: staffing_table_itemsCreateManyInput | staffing_table_itemsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * staffing_table_items update
+   */
+  export type staffing_table_itemsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a staffing_table_items.
+     */
+    data: XOR<staffing_table_itemsUpdateInput, staffing_table_itemsUncheckedUpdateInput>
+    /**
+     * Choose, which staffing_table_items to update.
+     */
+    where: staffing_table_itemsWhereUniqueInput
+  }
+
+  /**
+   * staffing_table_items updateMany
+   */
+  export type staffing_table_itemsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update staffing_table_items.
+     */
+    data: XOR<staffing_table_itemsUpdateManyMutationInput, staffing_table_itemsUncheckedUpdateManyInput>
+    /**
+     * Filter which staffing_table_items to update
+     */
+    where?: staffing_table_itemsWhereInput
+    /**
+     * Limit how many staffing_table_items to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * staffing_table_items updateManyAndReturn
+   */
+  export type staffing_table_itemsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * The data used to update staffing_table_items.
+     */
+    data: XOR<staffing_table_itemsUpdateManyMutationInput, staffing_table_itemsUncheckedUpdateManyInput>
+    /**
+     * Filter which staffing_table_items to update
+     */
+    where?: staffing_table_itemsWhereInput
+    /**
+     * Limit how many staffing_table_items to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * staffing_table_items upsert
+   */
+  export type staffing_table_itemsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the staffing_table_items to update in case it exists.
+     */
+    where: staffing_table_itemsWhereUniqueInput
+    /**
+     * In case the staffing_table_items found by the `where` argument doesn't exist, create a new staffing_table_items with this data.
+     */
+    create: XOR<staffing_table_itemsCreateInput, staffing_table_itemsUncheckedCreateInput>
+    /**
+     * In case the staffing_table_items was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<staffing_table_itemsUpdateInput, staffing_table_itemsUncheckedUpdateInput>
+  }
+
+  /**
+   * staffing_table_items delete
+   */
+  export type staffing_table_itemsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsInclude<ExtArgs> | null
+    /**
+     * Filter which staffing_table_items to delete.
+     */
+    where: staffing_table_itemsWhereUniqueInput
+  }
+
+  /**
+   * staffing_table_items deleteMany
+   */
+  export type staffing_table_itemsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which staffing_table_items to delete
+     */
+    where?: staffing_table_itemsWhereInput
+    /**
+     * Limit how many staffing_table_items to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * staffing_table_items.department
+   */
+  export type staffing_table_items$departmentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the departments
+     */
+    select?: departmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the departments
+     */
+    omit?: departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: departmentsInclude<ExtArgs> | null
+    where?: departmentsWhereInput
+  }
+
+  /**
+   * staffing_table_items without action
+   */
+  export type staffing_table_itemsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the staffing_table_items
+     */
+    select?: staffing_table_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the staffing_table_items
+     */
+    omit?: staffing_table_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: staffing_table_itemsInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -37361,21 +40020,6 @@ export namespace Prisma {
   export type Face_devicesScalarFieldEnum = (typeof Face_devicesScalarFieldEnum)[keyof typeof Face_devicesScalarFieldEnum]
 
 
-  export const Employee_door_tasksScalarFieldEnum: {
-    id: 'id',
-    employee_id: 'employee_id',
-    door_id: 'door_id',
-    action: 'action',
-    status: 'status',
-    retry_count: 'retry_count',
-    error: 'error',
-    created_at: 'created_at',
-    updated_at: 'updated_at'
-  };
-
-  export type Employee_door_tasksScalarFieldEnum = (typeof Employee_door_tasksScalarFieldEnum)[keyof typeof Employee_door_tasksScalarFieldEnum]
-
-
   export const GatesScalarFieldEnum: {
     id: 'id',
     name: 'name',
@@ -37493,6 +40137,44 @@ export namespace Prisma {
   };
 
   export type Salary_advancesScalarFieldEnum = (typeof Salary_advancesScalarFieldEnum)[keyof typeof Salary_advancesScalarFieldEnum]
+
+
+  export const Staffing_positionScalarFieldEnum: {
+    id: 'id',
+    department_id: 'department_id',
+    position_id: 'position_id',
+    headcount: 'headcount',
+    added_at: 'added_at'
+  };
+
+  export type Staffing_positionScalarFieldEnum = (typeof Staffing_positionScalarFieldEnum)[keyof typeof Staffing_positionScalarFieldEnum]
+
+
+  export const Staffing_tableScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    date_from: 'date_from',
+    date_to: 'date_to',
+    status: 'status',
+    added_by: 'added_by',
+    added_at: 'added_at'
+  };
+
+  export type Staffing_tableScalarFieldEnum = (typeof Staffing_tableScalarFieldEnum)[keyof typeof Staffing_tableScalarFieldEnum]
+
+
+  export const Staffing_table_itemsScalarFieldEnum: {
+    id: 'id',
+    staffing_table_id: 'staffing_table_id',
+    branch_id: 'branch_id',
+    department_id: 'department_id',
+    position_id: 'position_id',
+    headcount: 'headcount',
+    salary_type: 'salary_type',
+    salary_amount: 'salary_amount'
+  };
+
+  export type Staffing_table_itemsScalarFieldEnum = (typeof Staffing_table_itemsScalarFieldEnum)[keyof typeof Staffing_table_itemsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -37659,6 +40341,7 @@ export namespace Prisma {
     departments?: DepartmentsListRelationFilter
     doors?: DoorsListRelationFilter
     addedBy?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    staffingTableItems?: Staffing_table_itemsListRelationFilter
   }
 
   export type branchesOrderByWithRelationInput = {
@@ -37682,6 +40365,7 @@ export namespace Prisma {
     departments?: departmentsOrderByRelationAggregateInput
     doors?: doorsOrderByRelationAggregateInput
     addedBy?: usersOrderByWithRelationInput
+    staffingTableItems?: staffing_table_itemsOrderByRelationAggregateInput
   }
 
   export type branchesWhereUniqueInput = Prisma.AtLeast<{
@@ -37708,6 +40392,7 @@ export namespace Prisma {
     departments?: DepartmentsListRelationFilter
     doors?: DoorsListRelationFilter
     addedBy?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    staffingTableItems?: Staffing_table_itemsListRelationFilter
   }, "id" | "name">
 
   export type branchesOrderByWithAggregationInput = {
@@ -37760,6 +40445,8 @@ export namespace Prisma {
     employmentOrders?: Employment_ordersListRelationFilter
     employees?: EmployeesListRelationFilter
     branch?: XOR<BranchesScalarRelationFilter, branchesWhereInput>
+    staffingTableItems?: Staffing_table_itemsListRelationFilter
+    staffingPositions?: Staffing_positionListRelationFilter
   }
 
   export type departmentsOrderByWithRelationInput = {
@@ -37771,6 +40458,8 @@ export namespace Prisma {
     employmentOrders?: employment_ordersOrderByRelationAggregateInput
     employees?: employeesOrderByRelationAggregateInput
     branch?: branchesOrderByWithRelationInput
+    staffingTableItems?: staffing_table_itemsOrderByRelationAggregateInput
+    staffingPositions?: staffing_positionOrderByRelationAggregateInput
   }
 
   export type departmentsWhereUniqueInput = Prisma.AtLeast<{
@@ -37785,6 +40474,8 @@ export namespace Prisma {
     employmentOrders?: Employment_ordersListRelationFilter
     employees?: EmployeesListRelationFilter
     branch?: XOR<BranchesScalarRelationFilter, branchesWhereInput>
+    staffingTableItems?: Staffing_table_itemsListRelationFilter
+    staffingPositions?: Staffing_positionListRelationFilter
   }, "id">
 
   export type departmentsOrderByWithAggregationInput = {
@@ -37939,7 +40630,6 @@ export namespace Prisma {
     employeeTimeOffs?: Time_offListRelationFilter
     facePasses?: Face_passesListRelationFilter
     doors?: DoorsListRelationFilter
-    doorTasks?: Employee_door_tasksListRelationFilter
     user?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
     directedBranches?: BranchesListRelationFilter
     payrollSheetItems?: Payroll_sheet_itemsListRelationFilter
@@ -37980,7 +40670,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offOrderByRelationAggregateInput
     facePasses?: face_passesOrderByRelationAggregateInput
     doors?: doorsOrderByRelationAggregateInput
-    doorTasks?: employee_door_tasksOrderByRelationAggregateInput
     user?: usersOrderByWithRelationInput
     directedBranches?: branchesOrderByRelationAggregateInput
     payrollSheetItems?: payroll_sheet_itemsOrderByRelationAggregateInput
@@ -38024,7 +40713,6 @@ export namespace Prisma {
     employeeTimeOffs?: Time_offListRelationFilter
     facePasses?: Face_passesListRelationFilter
     doors?: DoorsListRelationFilter
-    doorTasks?: Employee_door_tasksListRelationFilter
     user?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
     directedBranches?: BranchesListRelationFilter
     payrollSheetItems?: Payroll_sheet_itemsListRelationFilter
@@ -38261,6 +40949,8 @@ export namespace Prisma {
     added_at?: DateTimeFilter<"positions"> | Date | string
     employmentOrders?: Employment_ordersListRelationFilter
     employees?: EmployeesListRelationFilter
+    staffingTableItems?: Staffing_table_itemsListRelationFilter
+    staffingPositions?: Staffing_positionListRelationFilter
   }
 
   export type positionsOrderByWithRelationInput = {
@@ -38270,6 +40960,8 @@ export namespace Prisma {
     added_at?: SortOrder
     employmentOrders?: employment_ordersOrderByRelationAggregateInput
     employees?: employeesOrderByRelationAggregateInput
+    staffingTableItems?: staffing_table_itemsOrderByRelationAggregateInput
+    staffingPositions?: staffing_positionOrderByRelationAggregateInput
   }
 
   export type positionsWhereUniqueInput = Prisma.AtLeast<{
@@ -38282,6 +40974,8 @@ export namespace Prisma {
     added_at?: DateTimeFilter<"positions"> | Date | string
     employmentOrders?: Employment_ordersListRelationFilter
     employees?: EmployeesListRelationFilter
+    staffingTableItems?: Staffing_table_itemsListRelationFilter
+    staffingPositions?: Staffing_positionListRelationFilter
   }, "id" | "name">
 
   export type positionsOrderByWithAggregationInput = {
@@ -38629,6 +41323,7 @@ export namespace Prisma {
     payrollSheetsAdded?: Payroll_sheetsListRelationFilter
     payrollSheetsApproved?: Payroll_sheetsListRelationFilter
     salaryAdvancesGiven?: Salary_advancesListRelationFilter
+    staffingTables?: Staffing_tableListRelationFilter
   }
 
   export type usersOrderByWithRelationInput = {
@@ -38661,6 +41356,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsOrderByRelationAggregateInput
     payrollSheetsApproved?: payroll_sheetsOrderByRelationAggregateInput
     salaryAdvancesGiven?: salary_advancesOrderByRelationAggregateInput
+    staffingTables?: staffing_tableOrderByRelationAggregateInput
   }
 
   export type usersWhereUniqueInput = Prisma.AtLeast<{
@@ -38696,6 +41392,7 @@ export namespace Prisma {
     payrollSheetsAdded?: Payroll_sheetsListRelationFilter
     payrollSheetsApproved?: Payroll_sheetsListRelationFilter
     salaryAdvancesGiven?: Salary_advancesListRelationFilter
+    staffingTables?: Staffing_tableListRelationFilter
   }, "id" | "username" | "telegram_id" | "employee_id">
 
   export type usersOrderByWithAggregationInput = {
@@ -39150,7 +41847,6 @@ export namespace Prisma {
     employees?: EmployeesListRelationFilter
     faceDevices?: Face_devicesListRelationFilter
     facePasses?: Face_passesListRelationFilter
-    doorTasks?: Employee_door_tasksListRelationFilter
   }
 
   export type doorsOrderByWithRelationInput = {
@@ -39165,7 +41861,6 @@ export namespace Prisma {
     employees?: employeesOrderByRelationAggregateInput
     faceDevices?: face_devicesOrderByRelationAggregateInput
     facePasses?: face_passesOrderByRelationAggregateInput
-    doorTasks?: employee_door_tasksOrderByRelationAggregateInput
   }
 
   export type doorsWhereUniqueInput = Prisma.AtLeast<{
@@ -39183,7 +41878,6 @@ export namespace Prisma {
     employees?: EmployeesListRelationFilter
     faceDevices?: Face_devicesListRelationFilter
     facePasses?: Face_passesListRelationFilter
-    doorTasks?: Employee_door_tasksListRelationFilter
   }, "id" | "name">
 
   export type doorsOrderByWithAggregationInput = {
@@ -39307,86 +42001,6 @@ export namespace Prisma {
     is_local?: BoolWithAggregatesFilter<"face_devices"> | boolean
     added_at?: DateTimeWithAggregatesFilter<"face_devices"> | Date | string
     updated_at?: DateTimeWithAggregatesFilter<"face_devices"> | Date | string
-  }
-
-  export type employee_door_tasksWhereInput = {
-    AND?: employee_door_tasksWhereInput | employee_door_tasksWhereInput[]
-    OR?: employee_door_tasksWhereInput[]
-    NOT?: employee_door_tasksWhereInput | employee_door_tasksWhereInput[]
-    id?: IntFilter<"employee_door_tasks"> | number
-    employee_id?: IntFilter<"employee_door_tasks"> | number
-    door_id?: IntFilter<"employee_door_tasks"> | number
-    action?: StringFilter<"employee_door_tasks"> | string
-    status?: StringFilter<"employee_door_tasks"> | string
-    retry_count?: IntFilter<"employee_door_tasks"> | number
-    error?: StringNullableFilter<"employee_door_tasks"> | string | null
-    created_at?: DateTimeFilter<"employee_door_tasks"> | Date | string
-    updated_at?: DateTimeNullableFilter<"employee_door_tasks"> | Date | string | null
-    employee?: XOR<EmployeesScalarRelationFilter, employeesWhereInput>
-    door?: XOR<DoorsScalarRelationFilter, doorsWhereInput>
-  }
-
-  export type employee_door_tasksOrderByWithRelationInput = {
-    id?: SortOrder
-    employee_id?: SortOrder
-    door_id?: SortOrder
-    action?: SortOrder
-    status?: SortOrder
-    retry_count?: SortOrder
-    error?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrderInput | SortOrder
-    employee?: employeesOrderByWithRelationInput
-    door?: doorsOrderByWithRelationInput
-  }
-
-  export type employee_door_tasksWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: employee_door_tasksWhereInput | employee_door_tasksWhereInput[]
-    OR?: employee_door_tasksWhereInput[]
-    NOT?: employee_door_tasksWhereInput | employee_door_tasksWhereInput[]
-    employee_id?: IntFilter<"employee_door_tasks"> | number
-    door_id?: IntFilter<"employee_door_tasks"> | number
-    action?: StringFilter<"employee_door_tasks"> | string
-    status?: StringFilter<"employee_door_tasks"> | string
-    retry_count?: IntFilter<"employee_door_tasks"> | number
-    error?: StringNullableFilter<"employee_door_tasks"> | string | null
-    created_at?: DateTimeFilter<"employee_door_tasks"> | Date | string
-    updated_at?: DateTimeNullableFilter<"employee_door_tasks"> | Date | string | null
-    employee?: XOR<EmployeesScalarRelationFilter, employeesWhereInput>
-    door?: XOR<DoorsScalarRelationFilter, doorsWhereInput>
-  }, "id">
-
-  export type employee_door_tasksOrderByWithAggregationInput = {
-    id?: SortOrder
-    employee_id?: SortOrder
-    door_id?: SortOrder
-    action?: SortOrder
-    status?: SortOrder
-    retry_count?: SortOrder
-    error?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrderInput | SortOrder
-    _count?: employee_door_tasksCountOrderByAggregateInput
-    _avg?: employee_door_tasksAvgOrderByAggregateInput
-    _max?: employee_door_tasksMaxOrderByAggregateInput
-    _min?: employee_door_tasksMinOrderByAggregateInput
-    _sum?: employee_door_tasksSumOrderByAggregateInput
-  }
-
-  export type employee_door_tasksScalarWhereWithAggregatesInput = {
-    AND?: employee_door_tasksScalarWhereWithAggregatesInput | employee_door_tasksScalarWhereWithAggregatesInput[]
-    OR?: employee_door_tasksScalarWhereWithAggregatesInput[]
-    NOT?: employee_door_tasksScalarWhereWithAggregatesInput | employee_door_tasksScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"employee_door_tasks"> | number
-    employee_id?: IntWithAggregatesFilter<"employee_door_tasks"> | number
-    door_id?: IntWithAggregatesFilter<"employee_door_tasks"> | number
-    action?: StringWithAggregatesFilter<"employee_door_tasks"> | string
-    status?: StringWithAggregatesFilter<"employee_door_tasks"> | string
-    retry_count?: IntWithAggregatesFilter<"employee_door_tasks"> | number
-    error?: StringNullableWithAggregatesFilter<"employee_door_tasks"> | string | null
-    created_at?: DateTimeWithAggregatesFilter<"employee_door_tasks"> | Date | string
-    updated_at?: DateTimeNullableWithAggregatesFilter<"employee_door_tasks"> | Date | string | null
   }
 
   export type gatesWhereInput = {
@@ -40030,6 +42644,219 @@ export namespace Prisma {
     added_at?: DateTimeWithAggregatesFilter<"salary_advances"> | Date | string
   }
 
+  export type staffing_positionWhereInput = {
+    AND?: staffing_positionWhereInput | staffing_positionWhereInput[]
+    OR?: staffing_positionWhereInput[]
+    NOT?: staffing_positionWhereInput | staffing_positionWhereInput[]
+    id?: IntFilter<"staffing_position"> | number
+    department_id?: IntFilter<"staffing_position"> | number
+    position_id?: IntFilter<"staffing_position"> | number
+    headcount?: IntFilter<"staffing_position"> | number
+    added_at?: DateTimeFilter<"staffing_position"> | Date | string
+    department?: XOR<DepartmentsScalarRelationFilter, departmentsWhereInput>
+    position?: XOR<PositionsScalarRelationFilter, positionsWhereInput>
+  }
+
+  export type staffing_positionOrderByWithRelationInput = {
+    id?: SortOrder
+    department_id?: SortOrder
+    position_id?: SortOrder
+    headcount?: SortOrder
+    added_at?: SortOrder
+    department?: departmentsOrderByWithRelationInput
+    position?: positionsOrderByWithRelationInput
+  }
+
+  export type staffing_positionWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    department_id_position_id?: staffing_positionDepartment_idPosition_idCompoundUniqueInput
+    AND?: staffing_positionWhereInput | staffing_positionWhereInput[]
+    OR?: staffing_positionWhereInput[]
+    NOT?: staffing_positionWhereInput | staffing_positionWhereInput[]
+    department_id?: IntFilter<"staffing_position"> | number
+    position_id?: IntFilter<"staffing_position"> | number
+    headcount?: IntFilter<"staffing_position"> | number
+    added_at?: DateTimeFilter<"staffing_position"> | Date | string
+    department?: XOR<DepartmentsScalarRelationFilter, departmentsWhereInput>
+    position?: XOR<PositionsScalarRelationFilter, positionsWhereInput>
+  }, "id" | "department_id_position_id">
+
+  export type staffing_positionOrderByWithAggregationInput = {
+    id?: SortOrder
+    department_id?: SortOrder
+    position_id?: SortOrder
+    headcount?: SortOrder
+    added_at?: SortOrder
+    _count?: staffing_positionCountOrderByAggregateInput
+    _avg?: staffing_positionAvgOrderByAggregateInput
+    _max?: staffing_positionMaxOrderByAggregateInput
+    _min?: staffing_positionMinOrderByAggregateInput
+    _sum?: staffing_positionSumOrderByAggregateInput
+  }
+
+  export type staffing_positionScalarWhereWithAggregatesInput = {
+    AND?: staffing_positionScalarWhereWithAggregatesInput | staffing_positionScalarWhereWithAggregatesInput[]
+    OR?: staffing_positionScalarWhereWithAggregatesInput[]
+    NOT?: staffing_positionScalarWhereWithAggregatesInput | staffing_positionScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"staffing_position"> | number
+    department_id?: IntWithAggregatesFilter<"staffing_position"> | number
+    position_id?: IntWithAggregatesFilter<"staffing_position"> | number
+    headcount?: IntWithAggregatesFilter<"staffing_position"> | number
+    added_at?: DateTimeWithAggregatesFilter<"staffing_position"> | Date | string
+  }
+
+  export type staffing_tableWhereInput = {
+    AND?: staffing_tableWhereInput | staffing_tableWhereInput[]
+    OR?: staffing_tableWhereInput[]
+    NOT?: staffing_tableWhereInput | staffing_tableWhereInput[]
+    id?: IntFilter<"staffing_table"> | number
+    name?: StringFilter<"staffing_table"> | string
+    date_from?: DateTimeFilter<"staffing_table"> | Date | string
+    date_to?: DateTimeNullableFilter<"staffing_table"> | Date | string | null
+    status?: BoolFilter<"staffing_table"> | boolean
+    added_by?: IntFilter<"staffing_table"> | number
+    added_at?: DateTimeFilter<"staffing_table"> | Date | string
+    items?: Staffing_table_itemsListRelationFilter
+    addedBy?: XOR<UsersScalarRelationFilter, usersWhereInput>
+  }
+
+  export type staffing_tableOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    date_from?: SortOrder
+    date_to?: SortOrderInput | SortOrder
+    status?: SortOrder
+    added_by?: SortOrder
+    added_at?: SortOrder
+    items?: staffing_table_itemsOrderByRelationAggregateInput
+    addedBy?: usersOrderByWithRelationInput
+  }
+
+  export type staffing_tableWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: staffing_tableWhereInput | staffing_tableWhereInput[]
+    OR?: staffing_tableWhereInput[]
+    NOT?: staffing_tableWhereInput | staffing_tableWhereInput[]
+    name?: StringFilter<"staffing_table"> | string
+    date_from?: DateTimeFilter<"staffing_table"> | Date | string
+    date_to?: DateTimeNullableFilter<"staffing_table"> | Date | string | null
+    status?: BoolFilter<"staffing_table"> | boolean
+    added_by?: IntFilter<"staffing_table"> | number
+    added_at?: DateTimeFilter<"staffing_table"> | Date | string
+    items?: Staffing_table_itemsListRelationFilter
+    addedBy?: XOR<UsersScalarRelationFilter, usersWhereInput>
+  }, "id">
+
+  export type staffing_tableOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    date_from?: SortOrder
+    date_to?: SortOrderInput | SortOrder
+    status?: SortOrder
+    added_by?: SortOrder
+    added_at?: SortOrder
+    _count?: staffing_tableCountOrderByAggregateInput
+    _avg?: staffing_tableAvgOrderByAggregateInput
+    _max?: staffing_tableMaxOrderByAggregateInput
+    _min?: staffing_tableMinOrderByAggregateInput
+    _sum?: staffing_tableSumOrderByAggregateInput
+  }
+
+  export type staffing_tableScalarWhereWithAggregatesInput = {
+    AND?: staffing_tableScalarWhereWithAggregatesInput | staffing_tableScalarWhereWithAggregatesInput[]
+    OR?: staffing_tableScalarWhereWithAggregatesInput[]
+    NOT?: staffing_tableScalarWhereWithAggregatesInput | staffing_tableScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"staffing_table"> | number
+    name?: StringWithAggregatesFilter<"staffing_table"> | string
+    date_from?: DateTimeWithAggregatesFilter<"staffing_table"> | Date | string
+    date_to?: DateTimeNullableWithAggregatesFilter<"staffing_table"> | Date | string | null
+    status?: BoolWithAggregatesFilter<"staffing_table"> | boolean
+    added_by?: IntWithAggregatesFilter<"staffing_table"> | number
+    added_at?: DateTimeWithAggregatesFilter<"staffing_table"> | Date | string
+  }
+
+  export type staffing_table_itemsWhereInput = {
+    AND?: staffing_table_itemsWhereInput | staffing_table_itemsWhereInput[]
+    OR?: staffing_table_itemsWhereInput[]
+    NOT?: staffing_table_itemsWhereInput | staffing_table_itemsWhereInput[]
+    id?: IntFilter<"staffing_table_items"> | number
+    staffing_table_id?: IntFilter<"staffing_table_items"> | number
+    branch_id?: IntFilter<"staffing_table_items"> | number
+    department_id?: IntNullableFilter<"staffing_table_items"> | number | null
+    position_id?: IntFilter<"staffing_table_items"> | number
+    headcount?: IntFilter<"staffing_table_items"> | number
+    salary_type?: StringNullableFilter<"staffing_table_items"> | string | null
+    salary_amount?: DecimalNullableFilter<"staffing_table_items"> | Decimal | DecimalJsLike | number | string | null
+    staffingTable?: XOR<Staffing_tableScalarRelationFilter, staffing_tableWhereInput>
+    branch?: XOR<BranchesScalarRelationFilter, branchesWhereInput>
+    department?: XOR<DepartmentsNullableScalarRelationFilter, departmentsWhereInput> | null
+    position?: XOR<PositionsScalarRelationFilter, positionsWhereInput>
+  }
+
+  export type staffing_table_itemsOrderByWithRelationInput = {
+    id?: SortOrder
+    staffing_table_id?: SortOrder
+    branch_id?: SortOrder
+    department_id?: SortOrderInput | SortOrder
+    position_id?: SortOrder
+    headcount?: SortOrder
+    salary_type?: SortOrderInput | SortOrder
+    salary_amount?: SortOrderInput | SortOrder
+    staffingTable?: staffing_tableOrderByWithRelationInput
+    branch?: branchesOrderByWithRelationInput
+    department?: departmentsOrderByWithRelationInput
+    position?: positionsOrderByWithRelationInput
+  }
+
+  export type staffing_table_itemsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    staffing_table_id_branch_id_department_id_position_id?: staffing_table_itemsStaffing_table_idBranch_idDepartment_idPosition_idCompoundUniqueInput
+    AND?: staffing_table_itemsWhereInput | staffing_table_itemsWhereInput[]
+    OR?: staffing_table_itemsWhereInput[]
+    NOT?: staffing_table_itemsWhereInput | staffing_table_itemsWhereInput[]
+    staffing_table_id?: IntFilter<"staffing_table_items"> | number
+    branch_id?: IntFilter<"staffing_table_items"> | number
+    department_id?: IntNullableFilter<"staffing_table_items"> | number | null
+    position_id?: IntFilter<"staffing_table_items"> | number
+    headcount?: IntFilter<"staffing_table_items"> | number
+    salary_type?: StringNullableFilter<"staffing_table_items"> | string | null
+    salary_amount?: DecimalNullableFilter<"staffing_table_items"> | Decimal | DecimalJsLike | number | string | null
+    staffingTable?: XOR<Staffing_tableScalarRelationFilter, staffing_tableWhereInput>
+    branch?: XOR<BranchesScalarRelationFilter, branchesWhereInput>
+    department?: XOR<DepartmentsNullableScalarRelationFilter, departmentsWhereInput> | null
+    position?: XOR<PositionsScalarRelationFilter, positionsWhereInput>
+  }, "id" | "staffing_table_id_branch_id_department_id_position_id">
+
+  export type staffing_table_itemsOrderByWithAggregationInput = {
+    id?: SortOrder
+    staffing_table_id?: SortOrder
+    branch_id?: SortOrder
+    department_id?: SortOrderInput | SortOrder
+    position_id?: SortOrder
+    headcount?: SortOrder
+    salary_type?: SortOrderInput | SortOrder
+    salary_amount?: SortOrderInput | SortOrder
+    _count?: staffing_table_itemsCountOrderByAggregateInput
+    _avg?: staffing_table_itemsAvgOrderByAggregateInput
+    _max?: staffing_table_itemsMaxOrderByAggregateInput
+    _min?: staffing_table_itemsMinOrderByAggregateInput
+    _sum?: staffing_table_itemsSumOrderByAggregateInput
+  }
+
+  export type staffing_table_itemsScalarWhereWithAggregatesInput = {
+    AND?: staffing_table_itemsScalarWhereWithAggregatesInput | staffing_table_itemsScalarWhereWithAggregatesInput[]
+    OR?: staffing_table_itemsScalarWhereWithAggregatesInput[]
+    NOT?: staffing_table_itemsScalarWhereWithAggregatesInput | staffing_table_itemsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"staffing_table_items"> | number
+    staffing_table_id?: IntWithAggregatesFilter<"staffing_table_items"> | number
+    branch_id?: IntWithAggregatesFilter<"staffing_table_items"> | number
+    department_id?: IntNullableWithAggregatesFilter<"staffing_table_items"> | number | null
+    position_id?: IntWithAggregatesFilter<"staffing_table_items"> | number
+    headcount?: IntWithAggregatesFilter<"staffing_table_items"> | number
+    salary_type?: StringNullableWithAggregatesFilter<"staffing_table_items"> | string | null
+    salary_amount?: DecimalNullableWithAggregatesFilter<"staffing_table_items"> | Decimal | DecimalJsLike | number | string | null
+  }
+
   export type branchesCreateInput = {
     name: string
     status?: boolean
@@ -40048,6 +42875,7 @@ export namespace Prisma {
     departments?: departmentsCreateNestedManyWithoutBranchInput
     doors?: doorsCreateNestedManyWithoutBranchInput
     addedBy: usersCreateNestedOneWithoutBranchesInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutBranchInput
   }
 
   export type branchesUncheckedCreateInput = {
@@ -40069,6 +42897,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
     departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
     doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesUpdateInput = {
@@ -40089,6 +42918,7 @@ export namespace Prisma {
     departments?: departmentsUpdateManyWithoutBranchNestedInput
     doors?: doorsUpdateManyWithoutBranchNestedInput
     addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesUncheckedUpdateInput = {
@@ -40110,6 +42940,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
     doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesCreateManyInput = {
@@ -40161,6 +42992,8 @@ export namespace Prisma {
     employmentOrders?: employment_ordersCreateNestedManyWithoutDepartmentInput
     employees?: employeesCreateNestedManyWithoutDepartmentInput
     branch: branchesCreateNestedOneWithoutDepartmentsInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutDepartmentInput
+    staffingPositions?: staffing_positionCreateNestedManyWithoutDepartmentInput
   }
 
   export type departmentsUncheckedCreateInput = {
@@ -40171,6 +43004,8 @@ export namespace Prisma {
     added_at?: Date | string
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutDepartmentInput
     employees?: employeesUncheckedCreateNestedManyWithoutDepartmentInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutDepartmentInput
+    staffingPositions?: staffing_positionUncheckedCreateNestedManyWithoutDepartmentInput
   }
 
   export type departmentsUpdateInput = {
@@ -40180,6 +43015,8 @@ export namespace Prisma {
     employmentOrders?: employment_ordersUpdateManyWithoutDepartmentNestedInput
     employees?: employeesUpdateManyWithoutDepartmentNestedInput
     branch?: branchesUpdateOneRequiredWithoutDepartmentsNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutDepartmentNestedInput
+    staffingPositions?: staffing_positionUpdateManyWithoutDepartmentNestedInput
   }
 
   export type departmentsUncheckedUpdateInput = {
@@ -40190,6 +43027,8 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutDepartmentNestedInput
     employees?: employeesUncheckedUpdateManyWithoutDepartmentNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutDepartmentNestedInput
+    staffingPositions?: staffing_positionUncheckedUpdateManyWithoutDepartmentNestedInput
   }
 
   export type departmentsCreateManyInput = {
@@ -40327,7 +43166,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
@@ -40364,7 +43202,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
@@ -40400,7 +43237,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
@@ -40437,7 +43273,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -40681,6 +43516,8 @@ export namespace Prisma {
     added_at?: Date | string
     employmentOrders?: employment_ordersCreateNestedManyWithoutPositionInput
     employees?: employeesCreateNestedManyWithoutPositionInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutPositionInput
+    staffingPositions?: staffing_positionCreateNestedManyWithoutPositionInput
   }
 
   export type positionsUncheckedCreateInput = {
@@ -40690,6 +43527,8 @@ export namespace Prisma {
     added_at?: Date | string
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutPositionInput
     employees?: employeesUncheckedCreateNestedManyWithoutPositionInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutPositionInput
+    staffingPositions?: staffing_positionUncheckedCreateNestedManyWithoutPositionInput
   }
 
   export type positionsUpdateInput = {
@@ -40698,6 +43537,8 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employmentOrders?: employment_ordersUpdateManyWithoutPositionNestedInput
     employees?: employeesUpdateManyWithoutPositionNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutPositionNestedInput
+    staffingPositions?: staffing_positionUpdateManyWithoutPositionNestedInput
   }
 
   export type positionsUncheckedUpdateInput = {
@@ -40707,6 +43548,8 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutPositionNestedInput
     employees?: employeesUncheckedUpdateManyWithoutPositionNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutPositionNestedInput
+    staffingPositions?: staffing_positionUncheckedUpdateManyWithoutPositionNestedInput
   }
 
   export type positionsCreateManyInput = {
@@ -41060,6 +43903,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateInput = {
@@ -41091,6 +43935,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUpdateInput = {
@@ -41121,6 +43966,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateInput = {
@@ -41152,6 +43998,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersCreateManyInput = {
@@ -41610,7 +44457,6 @@ export namespace Prisma {
     employees?: employeesCreateNestedManyWithoutDoorsInput
     faceDevices?: face_devicesCreateNestedManyWithoutDoorInput
     facePasses?: face_passesCreateNestedManyWithoutDoorInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutDoorInput
   }
 
   export type doorsUncheckedCreateInput = {
@@ -41624,7 +44470,6 @@ export namespace Prisma {
     employees?: employeesUncheckedCreateNestedManyWithoutDoorsInput
     faceDevices?: face_devicesUncheckedCreateNestedManyWithoutDoorInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutDoorInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutDoorInput
   }
 
   export type doorsUpdateInput = {
@@ -41637,7 +44482,6 @@ export namespace Prisma {
     employees?: employeesUpdateManyWithoutDoorsNestedInput
     faceDevices?: face_devicesUpdateManyWithoutDoorNestedInput
     facePasses?: face_passesUpdateManyWithoutDoorNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutDoorNestedInput
   }
 
   export type doorsUncheckedUpdateInput = {
@@ -41651,7 +44495,6 @@ export namespace Prisma {
     employees?: employeesUncheckedUpdateManyWithoutDoorsNestedInput
     faceDevices?: face_devicesUncheckedUpdateManyWithoutDoorNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutDoorNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutDoorNestedInput
   }
 
   export type doorsCreateManyInput = {
@@ -41785,85 +44628,6 @@ export namespace Prisma {
     is_local?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type employee_door_tasksCreateInput = {
-    action: string
-    status?: string
-    retry_count?: number
-    error?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string | null
-    employee: employeesCreateNestedOneWithoutDoorTasksInput
-    door: doorsCreateNestedOneWithoutDoorTasksInput
-  }
-
-  export type employee_door_tasksUncheckedCreateInput = {
-    id?: number
-    employee_id: number
-    door_id: number
-    action: string
-    status?: string
-    retry_count?: number
-    error?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string | null
-  }
-
-  export type employee_door_tasksUpdateInput = {
-    action?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    retry_count?: IntFieldUpdateOperationsInput | number
-    error?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    employee?: employeesUpdateOneRequiredWithoutDoorTasksNestedInput
-    door?: doorsUpdateOneRequiredWithoutDoorTasksNestedInput
-  }
-
-  export type employee_door_tasksUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    employee_id?: IntFieldUpdateOperationsInput | number
-    door_id?: IntFieldUpdateOperationsInput | number
-    action?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    retry_count?: IntFieldUpdateOperationsInput | number
-    error?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type employee_door_tasksCreateManyInput = {
-    id?: number
-    employee_id: number
-    door_id: number
-    action: string
-    status?: string
-    retry_count?: number
-    error?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string | null
-  }
-
-  export type employee_door_tasksUpdateManyMutationInput = {
-    action?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    retry_count?: IntFieldUpdateOperationsInput | number
-    error?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type employee_door_tasksUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    employee_id?: IntFieldUpdateOperationsInput | number
-    door_id?: IntFieldUpdateOperationsInput | number
-    action?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    retry_count?: IntFieldUpdateOperationsInput | number
-    error?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type gatesCreateInput = {
@@ -42539,6 +45303,197 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type staffing_positionCreateInput = {
+    headcount?: number
+    added_at?: Date | string
+    department: departmentsCreateNestedOneWithoutStaffingPositionsInput
+    position: positionsCreateNestedOneWithoutStaffingPositionsInput
+  }
+
+  export type staffing_positionUncheckedCreateInput = {
+    id?: number
+    department_id: number
+    position_id: number
+    headcount?: number
+    added_at?: Date | string
+  }
+
+  export type staffing_positionUpdateInput = {
+    headcount?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    department?: departmentsUpdateOneRequiredWithoutStaffingPositionsNestedInput
+    position?: positionsUpdateOneRequiredWithoutStaffingPositionsNestedInput
+  }
+
+  export type staffing_positionUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    position_id?: IntFieldUpdateOperationsInput | number
+    headcount?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type staffing_positionCreateManyInput = {
+    id?: number
+    department_id: number
+    position_id: number
+    headcount?: number
+    added_at?: Date | string
+  }
+
+  export type staffing_positionUpdateManyMutationInput = {
+    headcount?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type staffing_positionUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    position_id?: IntFieldUpdateOperationsInput | number
+    headcount?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type staffing_tableCreateInput = {
+    name: string
+    date_from: Date | string
+    date_to?: Date | string | null
+    status?: boolean
+    added_at?: Date | string
+    items?: staffing_table_itemsCreateNestedManyWithoutStaffingTableInput
+    addedBy: usersCreateNestedOneWithoutStaffingTablesInput
+  }
+
+  export type staffing_tableUncheckedCreateInput = {
+    id?: number
+    name: string
+    date_from: Date | string
+    date_to?: Date | string | null
+    status?: boolean
+    added_by: number
+    added_at?: Date | string
+    items?: staffing_table_itemsUncheckedCreateNestedManyWithoutStaffingTableInput
+  }
+
+  export type staffing_tableUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    items?: staffing_table_itemsUpdateManyWithoutStaffingTableNestedInput
+    addedBy?: usersUpdateOneRequiredWithoutStaffingTablesNestedInput
+  }
+
+  export type staffing_tableUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    added_by?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    items?: staffing_table_itemsUncheckedUpdateManyWithoutStaffingTableNestedInput
+  }
+
+  export type staffing_tableCreateManyInput = {
+    id?: number
+    name: string
+    date_from: Date | string
+    date_to?: Date | string | null
+    status?: boolean
+    added_by: number
+    added_at?: Date | string
+  }
+
+  export type staffing_tableUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type staffing_tableUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    added_by?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type staffing_table_itemsCreateInput = {
+    headcount?: number
+    salary_type?: string | null
+    salary_amount?: Decimal | DecimalJsLike | number | string | null
+    staffingTable: staffing_tableCreateNestedOneWithoutItemsInput
+    branch: branchesCreateNestedOneWithoutStaffingTableItemsInput
+    department?: departmentsCreateNestedOneWithoutStaffingTableItemsInput
+    position: positionsCreateNestedOneWithoutStaffingTableItemsInput
+  }
+
+  export type staffing_table_itemsUncheckedCreateInput = {
+    id?: number
+    staffing_table_id: number
+    branch_id: number
+    department_id?: number | null
+    position_id: number
+    headcount?: number
+    salary_type?: string | null
+    salary_amount?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_table_itemsUpdateInput = {
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    staffingTable?: staffing_tableUpdateOneRequiredWithoutItemsNestedInput
+    branch?: branchesUpdateOneRequiredWithoutStaffingTableItemsNestedInput
+    department?: departmentsUpdateOneWithoutStaffingTableItemsNestedInput
+    position?: positionsUpdateOneRequiredWithoutStaffingTableItemsNestedInput
+  }
+
+  export type staffing_table_itemsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    staffing_table_id?: IntFieldUpdateOperationsInput | number
+    branch_id?: IntFieldUpdateOperationsInput | number
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    position_id?: IntFieldUpdateOperationsInput | number
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_table_itemsCreateManyInput = {
+    id?: number
+    staffing_table_id: number
+    branch_id: number
+    department_id?: number | null
+    position_id: number
+    headcount?: number
+    salary_type?: string | null
+    salary_amount?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_table_itemsUpdateManyMutationInput = {
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_table_itemsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    staffing_table_id?: IntFieldUpdateOperationsInput | number
+    branch_id?: IntFieldUpdateOperationsInput | number
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    position_id?: IntFieldUpdateOperationsInput | number
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -42653,6 +45608,12 @@ export namespace Prisma {
     isNot?: usersWhereInput
   }
 
+  export type Staffing_table_itemsListRelationFilter = {
+    every?: staffing_table_itemsWhereInput
+    some?: staffing_table_itemsWhereInput
+    none?: staffing_table_itemsWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -42679,6 +45640,10 @@ export namespace Prisma {
   }
 
   export type doorsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type staffing_table_itemsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -42832,6 +45797,16 @@ export namespace Prisma {
   export type BranchesScalarRelationFilter = {
     is?: branchesWhereInput
     isNot?: branchesWhereInput
+  }
+
+  export type Staffing_positionListRelationFilter = {
+    every?: staffing_positionWhereInput
+    some?: staffing_positionWhereInput
+    none?: staffing_positionWhereInput
+  }
+
+  export type staffing_positionOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type departmentsCountOrderByAggregateInput = {
@@ -42997,12 +45972,6 @@ export namespace Prisma {
     none?: face_passesWhereInput
   }
 
-  export type Employee_door_tasksListRelationFilter = {
-    every?: employee_door_tasksWhereInput
-    some?: employee_door_tasksWhereInput
-    none?: employee_door_tasksWhereInput
-  }
-
   export type UsersNullableScalarRelationFilter = {
     is?: usersWhereInput | null
     isNot?: usersWhereInput | null
@@ -43039,10 +46008,6 @@ export namespace Prisma {
   }
 
   export type face_passesOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type employee_door_tasksOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -43600,6 +46565,12 @@ export namespace Prisma {
     none?: payroll_sheetsWhereInput
   }
 
+  export type Staffing_tableListRelationFilter = {
+    every?: staffing_tableWhereInput
+    some?: staffing_tableWhereInput
+    none?: staffing_tableWhereInput
+  }
+
   export type user_menu_accessOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -43613,6 +46584,10 @@ export namespace Prisma {
   }
 
   export type payroll_sheetsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type staffing_tableOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -44120,56 +47095,6 @@ export namespace Prisma {
     port?: SortOrder
   }
 
-  export type employee_door_tasksCountOrderByAggregateInput = {
-    id?: SortOrder
-    employee_id?: SortOrder
-    door_id?: SortOrder
-    action?: SortOrder
-    status?: SortOrder
-    retry_count?: SortOrder
-    error?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
-  }
-
-  export type employee_door_tasksAvgOrderByAggregateInput = {
-    id?: SortOrder
-    employee_id?: SortOrder
-    door_id?: SortOrder
-    retry_count?: SortOrder
-  }
-
-  export type employee_door_tasksMaxOrderByAggregateInput = {
-    id?: SortOrder
-    employee_id?: SortOrder
-    door_id?: SortOrder
-    action?: SortOrder
-    status?: SortOrder
-    retry_count?: SortOrder
-    error?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
-  }
-
-  export type employee_door_tasksMinOrderByAggregateInput = {
-    id?: SortOrder
-    employee_id?: SortOrder
-    door_id?: SortOrder
-    action?: SortOrder
-    status?: SortOrder
-    retry_count?: SortOrder
-    error?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
-  }
-
-  export type employee_door_tasksSumOrderByAggregateInput = {
-    id?: SortOrder
-    employee_id?: SortOrder
-    door_id?: SortOrder
-    retry_count?: SortOrder
-  }
-
   export type Anpr_camerasListRelationFilter = {
     every?: anpr_camerasWhereInput
     some?: anpr_camerasWhereInput
@@ -44632,6 +47557,191 @@ export namespace Prisma {
     given_by?: SortOrder
   }
 
+  export type DepartmentsScalarRelationFilter = {
+    is?: departmentsWhereInput
+    isNot?: departmentsWhereInput
+  }
+
+  export type PositionsScalarRelationFilter = {
+    is?: positionsWhereInput
+    isNot?: positionsWhereInput
+  }
+
+  export type staffing_positionDepartment_idPosition_idCompoundUniqueInput = {
+    department_id: number
+    position_id: number
+  }
+
+  export type staffing_positionCountOrderByAggregateInput = {
+    id?: SortOrder
+    department_id?: SortOrder
+    position_id?: SortOrder
+    headcount?: SortOrder
+    added_at?: SortOrder
+  }
+
+  export type staffing_positionAvgOrderByAggregateInput = {
+    id?: SortOrder
+    department_id?: SortOrder
+    position_id?: SortOrder
+    headcount?: SortOrder
+  }
+
+  export type staffing_positionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    department_id?: SortOrder
+    position_id?: SortOrder
+    headcount?: SortOrder
+    added_at?: SortOrder
+  }
+
+  export type staffing_positionMinOrderByAggregateInput = {
+    id?: SortOrder
+    department_id?: SortOrder
+    position_id?: SortOrder
+    headcount?: SortOrder
+    added_at?: SortOrder
+  }
+
+  export type staffing_positionSumOrderByAggregateInput = {
+    id?: SortOrder
+    department_id?: SortOrder
+    position_id?: SortOrder
+    headcount?: SortOrder
+  }
+
+  export type staffing_tableCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    date_from?: SortOrder
+    date_to?: SortOrder
+    status?: SortOrder
+    added_by?: SortOrder
+    added_at?: SortOrder
+  }
+
+  export type staffing_tableAvgOrderByAggregateInput = {
+    id?: SortOrder
+    added_by?: SortOrder
+  }
+
+  export type staffing_tableMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    date_from?: SortOrder
+    date_to?: SortOrder
+    status?: SortOrder
+    added_by?: SortOrder
+    added_at?: SortOrder
+  }
+
+  export type staffing_tableMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    date_from?: SortOrder
+    date_to?: SortOrder
+    status?: SortOrder
+    added_by?: SortOrder
+    added_at?: SortOrder
+  }
+
+  export type staffing_tableSumOrderByAggregateInput = {
+    id?: SortOrder
+    added_by?: SortOrder
+  }
+
+  export type DecimalNullableFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type Staffing_tableScalarRelationFilter = {
+    is?: staffing_tableWhereInput
+    isNot?: staffing_tableWhereInput
+  }
+
+  export type staffing_table_itemsStaffing_table_idBranch_idDepartment_idPosition_idCompoundUniqueInput = {
+    staffing_table_id: number
+    branch_id: number
+    department_id: number
+    position_id: number
+  }
+
+  export type staffing_table_itemsCountOrderByAggregateInput = {
+    id?: SortOrder
+    staffing_table_id?: SortOrder
+    branch_id?: SortOrder
+    department_id?: SortOrder
+    position_id?: SortOrder
+    headcount?: SortOrder
+    salary_type?: SortOrder
+    salary_amount?: SortOrder
+  }
+
+  export type staffing_table_itemsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    staffing_table_id?: SortOrder
+    branch_id?: SortOrder
+    department_id?: SortOrder
+    position_id?: SortOrder
+    headcount?: SortOrder
+    salary_amount?: SortOrder
+  }
+
+  export type staffing_table_itemsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    staffing_table_id?: SortOrder
+    branch_id?: SortOrder
+    department_id?: SortOrder
+    position_id?: SortOrder
+    headcount?: SortOrder
+    salary_type?: SortOrder
+    salary_amount?: SortOrder
+  }
+
+  export type staffing_table_itemsMinOrderByAggregateInput = {
+    id?: SortOrder
+    staffing_table_id?: SortOrder
+    branch_id?: SortOrder
+    department_id?: SortOrder
+    position_id?: SortOrder
+    headcount?: SortOrder
+    salary_type?: SortOrder
+    salary_amount?: SortOrder
+  }
+
+  export type staffing_table_itemsSumOrderByAggregateInput = {
+    id?: SortOrder
+    staffing_table_id?: SortOrder
+    branch_id?: SortOrder
+    department_id?: SortOrder
+    position_id?: SortOrder
+    headcount?: SortOrder
+    salary_amount?: SortOrder
+  }
+
+  export type DecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedDecimalNullableFilter<$PrismaModel>
+    _sum?: NestedDecimalNullableFilter<$PrismaModel>
+    _min?: NestedDecimalNullableFilter<$PrismaModel>
+    _max?: NestedDecimalNullableFilter<$PrismaModel>
+  }
+
   export type employeesCreateNestedOneWithoutDirectedBranchesInput = {
     create?: XOR<employeesCreateWithoutDirectedBranchesInput, employeesUncheckedCreateWithoutDirectedBranchesInput>
     connectOrCreate?: employeesCreateOrConnectWithoutDirectedBranchesInput
@@ -44686,6 +47796,13 @@ export namespace Prisma {
     connect?: usersWhereUniqueInput
   }
 
+  export type staffing_table_itemsCreateNestedManyWithoutBranchInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutBranchInput, staffing_table_itemsUncheckedCreateWithoutBranchInput> | staffing_table_itemsCreateWithoutBranchInput[] | staffing_table_itemsUncheckedCreateWithoutBranchInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutBranchInput | staffing_table_itemsCreateOrConnectWithoutBranchInput[]
+    createMany?: staffing_table_itemsCreateManyBranchInputEnvelope
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+  }
+
   export type employment_ordersUncheckedCreateNestedManyWithoutBranchInput = {
     create?: XOR<employment_ordersCreateWithoutBranchInput, employment_ordersUncheckedCreateWithoutBranchInput> | employment_ordersCreateWithoutBranchInput[] | employment_ordersUncheckedCreateWithoutBranchInput[]
     connectOrCreate?: employment_ordersCreateOrConnectWithoutBranchInput | employment_ordersCreateOrConnectWithoutBranchInput[]
@@ -44726,6 +47843,13 @@ export namespace Prisma {
     connectOrCreate?: doorsCreateOrConnectWithoutBranchInput | doorsCreateOrConnectWithoutBranchInput[]
     createMany?: doorsCreateManyBranchInputEnvelope
     connect?: doorsWhereUniqueInput | doorsWhereUniqueInput[]
+  }
+
+  export type staffing_table_itemsUncheckedCreateNestedManyWithoutBranchInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutBranchInput, staffing_table_itemsUncheckedCreateWithoutBranchInput> | staffing_table_itemsCreateWithoutBranchInput[] | staffing_table_itemsUncheckedCreateWithoutBranchInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutBranchInput | staffing_table_itemsCreateOrConnectWithoutBranchInput[]
+    createMany?: staffing_table_itemsCreateManyBranchInputEnvelope
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -44846,6 +47970,20 @@ export namespace Prisma {
     update?: XOR<XOR<usersUpdateToOneWithWhereWithoutBranchesInput, usersUpdateWithoutBranchesInput>, usersUncheckedUpdateWithoutBranchesInput>
   }
 
+  export type staffing_table_itemsUpdateManyWithoutBranchNestedInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutBranchInput, staffing_table_itemsUncheckedCreateWithoutBranchInput> | staffing_table_itemsCreateWithoutBranchInput[] | staffing_table_itemsUncheckedCreateWithoutBranchInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutBranchInput | staffing_table_itemsCreateOrConnectWithoutBranchInput[]
+    upsert?: staffing_table_itemsUpsertWithWhereUniqueWithoutBranchInput | staffing_table_itemsUpsertWithWhereUniqueWithoutBranchInput[]
+    createMany?: staffing_table_itemsCreateManyBranchInputEnvelope
+    set?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    disconnect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    delete?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    update?: staffing_table_itemsUpdateWithWhereUniqueWithoutBranchInput | staffing_table_itemsUpdateWithWhereUniqueWithoutBranchInput[]
+    updateMany?: staffing_table_itemsUpdateManyWithWhereWithoutBranchInput | staffing_table_itemsUpdateManyWithWhereWithoutBranchInput[]
+    deleteMany?: staffing_table_itemsScalarWhereInput | staffing_table_itemsScalarWhereInput[]
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -44946,6 +48084,20 @@ export namespace Prisma {
     deleteMany?: doorsScalarWhereInput | doorsScalarWhereInput[]
   }
 
+  export type staffing_table_itemsUncheckedUpdateManyWithoutBranchNestedInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutBranchInput, staffing_table_itemsUncheckedCreateWithoutBranchInput> | staffing_table_itemsCreateWithoutBranchInput[] | staffing_table_itemsUncheckedCreateWithoutBranchInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutBranchInput | staffing_table_itemsCreateOrConnectWithoutBranchInput[]
+    upsert?: staffing_table_itemsUpsertWithWhereUniqueWithoutBranchInput | staffing_table_itemsUpsertWithWhereUniqueWithoutBranchInput[]
+    createMany?: staffing_table_itemsCreateManyBranchInputEnvelope
+    set?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    disconnect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    delete?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    update?: staffing_table_itemsUpdateWithWhereUniqueWithoutBranchInput | staffing_table_itemsUpdateWithWhereUniqueWithoutBranchInput[]
+    updateMany?: staffing_table_itemsUpdateManyWithWhereWithoutBranchInput | staffing_table_itemsUpdateManyWithWhereWithoutBranchInput[]
+    deleteMany?: staffing_table_itemsScalarWhereInput | staffing_table_itemsScalarWhereInput[]
+  }
+
   export type employment_ordersCreateNestedManyWithoutDepartmentInput = {
     create?: XOR<employment_ordersCreateWithoutDepartmentInput, employment_ordersUncheckedCreateWithoutDepartmentInput> | employment_ordersCreateWithoutDepartmentInput[] | employment_ordersUncheckedCreateWithoutDepartmentInput[]
     connectOrCreate?: employment_ordersCreateOrConnectWithoutDepartmentInput | employment_ordersCreateOrConnectWithoutDepartmentInput[]
@@ -44966,6 +48118,20 @@ export namespace Prisma {
     connect?: branchesWhereUniqueInput
   }
 
+  export type staffing_table_itemsCreateNestedManyWithoutDepartmentInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutDepartmentInput, staffing_table_itemsUncheckedCreateWithoutDepartmentInput> | staffing_table_itemsCreateWithoutDepartmentInput[] | staffing_table_itemsUncheckedCreateWithoutDepartmentInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutDepartmentInput | staffing_table_itemsCreateOrConnectWithoutDepartmentInput[]
+    createMany?: staffing_table_itemsCreateManyDepartmentInputEnvelope
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+  }
+
+  export type staffing_positionCreateNestedManyWithoutDepartmentInput = {
+    create?: XOR<staffing_positionCreateWithoutDepartmentInput, staffing_positionUncheckedCreateWithoutDepartmentInput> | staffing_positionCreateWithoutDepartmentInput[] | staffing_positionUncheckedCreateWithoutDepartmentInput[]
+    connectOrCreate?: staffing_positionCreateOrConnectWithoutDepartmentInput | staffing_positionCreateOrConnectWithoutDepartmentInput[]
+    createMany?: staffing_positionCreateManyDepartmentInputEnvelope
+    connect?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+  }
+
   export type employment_ordersUncheckedCreateNestedManyWithoutDepartmentInput = {
     create?: XOR<employment_ordersCreateWithoutDepartmentInput, employment_ordersUncheckedCreateWithoutDepartmentInput> | employment_ordersCreateWithoutDepartmentInput[] | employment_ordersUncheckedCreateWithoutDepartmentInput[]
     connectOrCreate?: employment_ordersCreateOrConnectWithoutDepartmentInput | employment_ordersCreateOrConnectWithoutDepartmentInput[]
@@ -44978,6 +48144,20 @@ export namespace Prisma {
     connectOrCreate?: employeesCreateOrConnectWithoutDepartmentInput | employeesCreateOrConnectWithoutDepartmentInput[]
     createMany?: employeesCreateManyDepartmentInputEnvelope
     connect?: employeesWhereUniqueInput | employeesWhereUniqueInput[]
+  }
+
+  export type staffing_table_itemsUncheckedCreateNestedManyWithoutDepartmentInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutDepartmentInput, staffing_table_itemsUncheckedCreateWithoutDepartmentInput> | staffing_table_itemsCreateWithoutDepartmentInput[] | staffing_table_itemsUncheckedCreateWithoutDepartmentInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutDepartmentInput | staffing_table_itemsCreateOrConnectWithoutDepartmentInput[]
+    createMany?: staffing_table_itemsCreateManyDepartmentInputEnvelope
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+  }
+
+  export type staffing_positionUncheckedCreateNestedManyWithoutDepartmentInput = {
+    create?: XOR<staffing_positionCreateWithoutDepartmentInput, staffing_positionUncheckedCreateWithoutDepartmentInput> | staffing_positionCreateWithoutDepartmentInput[] | staffing_positionUncheckedCreateWithoutDepartmentInput[]
+    connectOrCreate?: staffing_positionCreateOrConnectWithoutDepartmentInput | staffing_positionCreateOrConnectWithoutDepartmentInput[]
+    createMany?: staffing_positionCreateManyDepartmentInputEnvelope
+    connect?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
   }
 
   export type employment_ordersUpdateManyWithoutDepartmentNestedInput = {
@@ -45016,6 +48196,34 @@ export namespace Prisma {
     update?: XOR<XOR<branchesUpdateToOneWithWhereWithoutDepartmentsInput, branchesUpdateWithoutDepartmentsInput>, branchesUncheckedUpdateWithoutDepartmentsInput>
   }
 
+  export type staffing_table_itemsUpdateManyWithoutDepartmentNestedInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutDepartmentInput, staffing_table_itemsUncheckedCreateWithoutDepartmentInput> | staffing_table_itemsCreateWithoutDepartmentInput[] | staffing_table_itemsUncheckedCreateWithoutDepartmentInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutDepartmentInput | staffing_table_itemsCreateOrConnectWithoutDepartmentInput[]
+    upsert?: staffing_table_itemsUpsertWithWhereUniqueWithoutDepartmentInput | staffing_table_itemsUpsertWithWhereUniqueWithoutDepartmentInput[]
+    createMany?: staffing_table_itemsCreateManyDepartmentInputEnvelope
+    set?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    disconnect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    delete?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    update?: staffing_table_itemsUpdateWithWhereUniqueWithoutDepartmentInput | staffing_table_itemsUpdateWithWhereUniqueWithoutDepartmentInput[]
+    updateMany?: staffing_table_itemsUpdateManyWithWhereWithoutDepartmentInput | staffing_table_itemsUpdateManyWithWhereWithoutDepartmentInput[]
+    deleteMany?: staffing_table_itemsScalarWhereInput | staffing_table_itemsScalarWhereInput[]
+  }
+
+  export type staffing_positionUpdateManyWithoutDepartmentNestedInput = {
+    create?: XOR<staffing_positionCreateWithoutDepartmentInput, staffing_positionUncheckedCreateWithoutDepartmentInput> | staffing_positionCreateWithoutDepartmentInput[] | staffing_positionUncheckedCreateWithoutDepartmentInput[]
+    connectOrCreate?: staffing_positionCreateOrConnectWithoutDepartmentInput | staffing_positionCreateOrConnectWithoutDepartmentInput[]
+    upsert?: staffing_positionUpsertWithWhereUniqueWithoutDepartmentInput | staffing_positionUpsertWithWhereUniqueWithoutDepartmentInput[]
+    createMany?: staffing_positionCreateManyDepartmentInputEnvelope
+    set?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    disconnect?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    delete?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    connect?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    update?: staffing_positionUpdateWithWhereUniqueWithoutDepartmentInput | staffing_positionUpdateWithWhereUniqueWithoutDepartmentInput[]
+    updateMany?: staffing_positionUpdateManyWithWhereWithoutDepartmentInput | staffing_positionUpdateManyWithWhereWithoutDepartmentInput[]
+    deleteMany?: staffing_positionScalarWhereInput | staffing_positionScalarWhereInput[]
+  }
+
   export type employment_ordersUncheckedUpdateManyWithoutDepartmentNestedInput = {
     create?: XOR<employment_ordersCreateWithoutDepartmentInput, employment_ordersUncheckedCreateWithoutDepartmentInput> | employment_ordersCreateWithoutDepartmentInput[] | employment_ordersUncheckedCreateWithoutDepartmentInput[]
     connectOrCreate?: employment_ordersCreateOrConnectWithoutDepartmentInput | employment_ordersCreateOrConnectWithoutDepartmentInput[]
@@ -45042,6 +48250,34 @@ export namespace Prisma {
     update?: employeesUpdateWithWhereUniqueWithoutDepartmentInput | employeesUpdateWithWhereUniqueWithoutDepartmentInput[]
     updateMany?: employeesUpdateManyWithWhereWithoutDepartmentInput | employeesUpdateManyWithWhereWithoutDepartmentInput[]
     deleteMany?: employeesScalarWhereInput | employeesScalarWhereInput[]
+  }
+
+  export type staffing_table_itemsUncheckedUpdateManyWithoutDepartmentNestedInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutDepartmentInput, staffing_table_itemsUncheckedCreateWithoutDepartmentInput> | staffing_table_itemsCreateWithoutDepartmentInput[] | staffing_table_itemsUncheckedCreateWithoutDepartmentInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutDepartmentInput | staffing_table_itemsCreateOrConnectWithoutDepartmentInput[]
+    upsert?: staffing_table_itemsUpsertWithWhereUniqueWithoutDepartmentInput | staffing_table_itemsUpsertWithWhereUniqueWithoutDepartmentInput[]
+    createMany?: staffing_table_itemsCreateManyDepartmentInputEnvelope
+    set?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    disconnect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    delete?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    update?: staffing_table_itemsUpdateWithWhereUniqueWithoutDepartmentInput | staffing_table_itemsUpdateWithWhereUniqueWithoutDepartmentInput[]
+    updateMany?: staffing_table_itemsUpdateManyWithWhereWithoutDepartmentInput | staffing_table_itemsUpdateManyWithWhereWithoutDepartmentInput[]
+    deleteMany?: staffing_table_itemsScalarWhereInput | staffing_table_itemsScalarWhereInput[]
+  }
+
+  export type staffing_positionUncheckedUpdateManyWithoutDepartmentNestedInput = {
+    create?: XOR<staffing_positionCreateWithoutDepartmentInput, staffing_positionUncheckedCreateWithoutDepartmentInput> | staffing_positionCreateWithoutDepartmentInput[] | staffing_positionUncheckedCreateWithoutDepartmentInput[]
+    connectOrCreate?: staffing_positionCreateOrConnectWithoutDepartmentInput | staffing_positionCreateOrConnectWithoutDepartmentInput[]
+    upsert?: staffing_positionUpsertWithWhereUniqueWithoutDepartmentInput | staffing_positionUpsertWithWhereUniqueWithoutDepartmentInput[]
+    createMany?: staffing_positionCreateManyDepartmentInputEnvelope
+    set?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    disconnect?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    delete?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    connect?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    update?: staffing_positionUpdateWithWhereUniqueWithoutDepartmentInput | staffing_positionUpdateWithWhereUniqueWithoutDepartmentInput[]
+    updateMany?: staffing_positionUpdateManyWithWhereWithoutDepartmentInput | staffing_positionUpdateManyWithWhereWithoutDepartmentInput[]
+    deleteMany?: staffing_positionScalarWhereInput | staffing_positionScalarWhereInput[]
   }
 
   export type branchesCreateNestedOneWithoutEmploymentOrdersInput = {
@@ -45177,13 +48413,6 @@ export namespace Prisma {
     connect?: doorsWhereUniqueInput | doorsWhereUniqueInput[]
   }
 
-  export type employee_door_tasksCreateNestedManyWithoutEmployeeInput = {
-    create?: XOR<employee_door_tasksCreateWithoutEmployeeInput, employee_door_tasksUncheckedCreateWithoutEmployeeInput> | employee_door_tasksCreateWithoutEmployeeInput[] | employee_door_tasksUncheckedCreateWithoutEmployeeInput[]
-    connectOrCreate?: employee_door_tasksCreateOrConnectWithoutEmployeeInput | employee_door_tasksCreateOrConnectWithoutEmployeeInput[]
-    createMany?: employee_door_tasksCreateManyEmployeeInputEnvelope
-    connect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-  }
-
   export type usersCreateNestedOneWithoutEmployeeInput = {
     create?: XOR<usersCreateWithoutEmployeeInput, usersUncheckedCreateWithoutEmployeeInput>
     connectOrCreate?: usersCreateOrConnectWithoutEmployeeInput
@@ -45250,13 +48479,6 @@ export namespace Prisma {
     create?: XOR<doorsCreateWithoutEmployeesInput, doorsUncheckedCreateWithoutEmployeesInput> | doorsCreateWithoutEmployeesInput[] | doorsUncheckedCreateWithoutEmployeesInput[]
     connectOrCreate?: doorsCreateOrConnectWithoutEmployeesInput | doorsCreateOrConnectWithoutEmployeesInput[]
     connect?: doorsWhereUniqueInput | doorsWhereUniqueInput[]
-  }
-
-  export type employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput = {
-    create?: XOR<employee_door_tasksCreateWithoutEmployeeInput, employee_door_tasksUncheckedCreateWithoutEmployeeInput> | employee_door_tasksCreateWithoutEmployeeInput[] | employee_door_tasksUncheckedCreateWithoutEmployeeInput[]
-    connectOrCreate?: employee_door_tasksCreateOrConnectWithoutEmployeeInput | employee_door_tasksCreateOrConnectWithoutEmployeeInput[]
-    createMany?: employee_door_tasksCreateManyEmployeeInputEnvelope
-    connect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
   }
 
   export type usersUncheckedCreateNestedOneWithoutEmployeeInput = {
@@ -45413,20 +48635,6 @@ export namespace Prisma {
     deleteMany?: doorsScalarWhereInput | doorsScalarWhereInput[]
   }
 
-  export type employee_door_tasksUpdateManyWithoutEmployeeNestedInput = {
-    create?: XOR<employee_door_tasksCreateWithoutEmployeeInput, employee_door_tasksUncheckedCreateWithoutEmployeeInput> | employee_door_tasksCreateWithoutEmployeeInput[] | employee_door_tasksUncheckedCreateWithoutEmployeeInput[]
-    connectOrCreate?: employee_door_tasksCreateOrConnectWithoutEmployeeInput | employee_door_tasksCreateOrConnectWithoutEmployeeInput[]
-    upsert?: employee_door_tasksUpsertWithWhereUniqueWithoutEmployeeInput | employee_door_tasksUpsertWithWhereUniqueWithoutEmployeeInput[]
-    createMany?: employee_door_tasksCreateManyEmployeeInputEnvelope
-    set?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    disconnect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    delete?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    connect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    update?: employee_door_tasksUpdateWithWhereUniqueWithoutEmployeeInput | employee_door_tasksUpdateWithWhereUniqueWithoutEmployeeInput[]
-    updateMany?: employee_door_tasksUpdateManyWithWhereWithoutEmployeeInput | employee_door_tasksUpdateManyWithWhereWithoutEmployeeInput[]
-    deleteMany?: employee_door_tasksScalarWhereInput | employee_door_tasksScalarWhereInput[]
-  }
-
   export type usersUpdateOneWithoutEmployeeNestedInput = {
     create?: XOR<usersCreateWithoutEmployeeInput, usersUncheckedCreateWithoutEmployeeInput>
     connectOrCreate?: usersCreateOrConnectWithoutEmployeeInput
@@ -45560,20 +48768,6 @@ export namespace Prisma {
     update?: doorsUpdateWithWhereUniqueWithoutEmployeesInput | doorsUpdateWithWhereUniqueWithoutEmployeesInput[]
     updateMany?: doorsUpdateManyWithWhereWithoutEmployeesInput | doorsUpdateManyWithWhereWithoutEmployeesInput[]
     deleteMany?: doorsScalarWhereInput | doorsScalarWhereInput[]
-  }
-
-  export type employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput = {
-    create?: XOR<employee_door_tasksCreateWithoutEmployeeInput, employee_door_tasksUncheckedCreateWithoutEmployeeInput> | employee_door_tasksCreateWithoutEmployeeInput[] | employee_door_tasksUncheckedCreateWithoutEmployeeInput[]
-    connectOrCreate?: employee_door_tasksCreateOrConnectWithoutEmployeeInput | employee_door_tasksCreateOrConnectWithoutEmployeeInput[]
-    upsert?: employee_door_tasksUpsertWithWhereUniqueWithoutEmployeeInput | employee_door_tasksUpsertWithWhereUniqueWithoutEmployeeInput[]
-    createMany?: employee_door_tasksCreateManyEmployeeInputEnvelope
-    set?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    disconnect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    delete?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    connect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    update?: employee_door_tasksUpdateWithWhereUniqueWithoutEmployeeInput | employee_door_tasksUpdateWithWhereUniqueWithoutEmployeeInput[]
-    updateMany?: employee_door_tasksUpdateManyWithWhereWithoutEmployeeInput | employee_door_tasksUpdateManyWithWhereWithoutEmployeeInput[]
-    deleteMany?: employee_door_tasksScalarWhereInput | employee_door_tasksScalarWhereInput[]
   }
 
   export type usersUncheckedUpdateOneWithoutEmployeeNestedInput = {
@@ -45710,6 +48904,20 @@ export namespace Prisma {
     connect?: employeesWhereUniqueInput | employeesWhereUniqueInput[]
   }
 
+  export type staffing_table_itemsCreateNestedManyWithoutPositionInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutPositionInput, staffing_table_itemsUncheckedCreateWithoutPositionInput> | staffing_table_itemsCreateWithoutPositionInput[] | staffing_table_itemsUncheckedCreateWithoutPositionInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutPositionInput | staffing_table_itemsCreateOrConnectWithoutPositionInput[]
+    createMany?: staffing_table_itemsCreateManyPositionInputEnvelope
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+  }
+
+  export type staffing_positionCreateNestedManyWithoutPositionInput = {
+    create?: XOR<staffing_positionCreateWithoutPositionInput, staffing_positionUncheckedCreateWithoutPositionInput> | staffing_positionCreateWithoutPositionInput[] | staffing_positionUncheckedCreateWithoutPositionInput[]
+    connectOrCreate?: staffing_positionCreateOrConnectWithoutPositionInput | staffing_positionCreateOrConnectWithoutPositionInput[]
+    createMany?: staffing_positionCreateManyPositionInputEnvelope
+    connect?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+  }
+
   export type employment_ordersUncheckedCreateNestedManyWithoutPositionInput = {
     create?: XOR<employment_ordersCreateWithoutPositionInput, employment_ordersUncheckedCreateWithoutPositionInput> | employment_ordersCreateWithoutPositionInput[] | employment_ordersUncheckedCreateWithoutPositionInput[]
     connectOrCreate?: employment_ordersCreateOrConnectWithoutPositionInput | employment_ordersCreateOrConnectWithoutPositionInput[]
@@ -45722,6 +48930,20 @@ export namespace Prisma {
     connectOrCreate?: employeesCreateOrConnectWithoutPositionInput | employeesCreateOrConnectWithoutPositionInput[]
     createMany?: employeesCreateManyPositionInputEnvelope
     connect?: employeesWhereUniqueInput | employeesWhereUniqueInput[]
+  }
+
+  export type staffing_table_itemsUncheckedCreateNestedManyWithoutPositionInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutPositionInput, staffing_table_itemsUncheckedCreateWithoutPositionInput> | staffing_table_itemsCreateWithoutPositionInput[] | staffing_table_itemsUncheckedCreateWithoutPositionInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutPositionInput | staffing_table_itemsCreateOrConnectWithoutPositionInput[]
+    createMany?: staffing_table_itemsCreateManyPositionInputEnvelope
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+  }
+
+  export type staffing_positionUncheckedCreateNestedManyWithoutPositionInput = {
+    create?: XOR<staffing_positionCreateWithoutPositionInput, staffing_positionUncheckedCreateWithoutPositionInput> | staffing_positionCreateWithoutPositionInput[] | staffing_positionUncheckedCreateWithoutPositionInput[]
+    connectOrCreate?: staffing_positionCreateOrConnectWithoutPositionInput | staffing_positionCreateOrConnectWithoutPositionInput[]
+    createMany?: staffing_positionCreateManyPositionInputEnvelope
+    connect?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
   }
 
   export type employment_ordersUpdateManyWithoutPositionNestedInput = {
@@ -45752,6 +48974,34 @@ export namespace Prisma {
     deleteMany?: employeesScalarWhereInput | employeesScalarWhereInput[]
   }
 
+  export type staffing_table_itemsUpdateManyWithoutPositionNestedInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutPositionInput, staffing_table_itemsUncheckedCreateWithoutPositionInput> | staffing_table_itemsCreateWithoutPositionInput[] | staffing_table_itemsUncheckedCreateWithoutPositionInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutPositionInput | staffing_table_itemsCreateOrConnectWithoutPositionInput[]
+    upsert?: staffing_table_itemsUpsertWithWhereUniqueWithoutPositionInput | staffing_table_itemsUpsertWithWhereUniqueWithoutPositionInput[]
+    createMany?: staffing_table_itemsCreateManyPositionInputEnvelope
+    set?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    disconnect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    delete?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    update?: staffing_table_itemsUpdateWithWhereUniqueWithoutPositionInput | staffing_table_itemsUpdateWithWhereUniqueWithoutPositionInput[]
+    updateMany?: staffing_table_itemsUpdateManyWithWhereWithoutPositionInput | staffing_table_itemsUpdateManyWithWhereWithoutPositionInput[]
+    deleteMany?: staffing_table_itemsScalarWhereInput | staffing_table_itemsScalarWhereInput[]
+  }
+
+  export type staffing_positionUpdateManyWithoutPositionNestedInput = {
+    create?: XOR<staffing_positionCreateWithoutPositionInput, staffing_positionUncheckedCreateWithoutPositionInput> | staffing_positionCreateWithoutPositionInput[] | staffing_positionUncheckedCreateWithoutPositionInput[]
+    connectOrCreate?: staffing_positionCreateOrConnectWithoutPositionInput | staffing_positionCreateOrConnectWithoutPositionInput[]
+    upsert?: staffing_positionUpsertWithWhereUniqueWithoutPositionInput | staffing_positionUpsertWithWhereUniqueWithoutPositionInput[]
+    createMany?: staffing_positionCreateManyPositionInputEnvelope
+    set?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    disconnect?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    delete?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    connect?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    update?: staffing_positionUpdateWithWhereUniqueWithoutPositionInput | staffing_positionUpdateWithWhereUniqueWithoutPositionInput[]
+    updateMany?: staffing_positionUpdateManyWithWhereWithoutPositionInput | staffing_positionUpdateManyWithWhereWithoutPositionInput[]
+    deleteMany?: staffing_positionScalarWhereInput | staffing_positionScalarWhereInput[]
+  }
+
   export type employment_ordersUncheckedUpdateManyWithoutPositionNestedInput = {
     create?: XOR<employment_ordersCreateWithoutPositionInput, employment_ordersUncheckedCreateWithoutPositionInput> | employment_ordersCreateWithoutPositionInput[] | employment_ordersUncheckedCreateWithoutPositionInput[]
     connectOrCreate?: employment_ordersCreateOrConnectWithoutPositionInput | employment_ordersCreateOrConnectWithoutPositionInput[]
@@ -45778,6 +49028,34 @@ export namespace Prisma {
     update?: employeesUpdateWithWhereUniqueWithoutPositionInput | employeesUpdateWithWhereUniqueWithoutPositionInput[]
     updateMany?: employeesUpdateManyWithWhereWithoutPositionInput | employeesUpdateManyWithWhereWithoutPositionInput[]
     deleteMany?: employeesScalarWhereInput | employeesScalarWhereInput[]
+  }
+
+  export type staffing_table_itemsUncheckedUpdateManyWithoutPositionNestedInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutPositionInput, staffing_table_itemsUncheckedCreateWithoutPositionInput> | staffing_table_itemsCreateWithoutPositionInput[] | staffing_table_itemsUncheckedCreateWithoutPositionInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutPositionInput | staffing_table_itemsCreateOrConnectWithoutPositionInput[]
+    upsert?: staffing_table_itemsUpsertWithWhereUniqueWithoutPositionInput | staffing_table_itemsUpsertWithWhereUniqueWithoutPositionInput[]
+    createMany?: staffing_table_itemsCreateManyPositionInputEnvelope
+    set?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    disconnect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    delete?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    update?: staffing_table_itemsUpdateWithWhereUniqueWithoutPositionInput | staffing_table_itemsUpdateWithWhereUniqueWithoutPositionInput[]
+    updateMany?: staffing_table_itemsUpdateManyWithWhereWithoutPositionInput | staffing_table_itemsUpdateManyWithWhereWithoutPositionInput[]
+    deleteMany?: staffing_table_itemsScalarWhereInput | staffing_table_itemsScalarWhereInput[]
+  }
+
+  export type staffing_positionUncheckedUpdateManyWithoutPositionNestedInput = {
+    create?: XOR<staffing_positionCreateWithoutPositionInput, staffing_positionUncheckedCreateWithoutPositionInput> | staffing_positionCreateWithoutPositionInput[] | staffing_positionUncheckedCreateWithoutPositionInput[]
+    connectOrCreate?: staffing_positionCreateOrConnectWithoutPositionInput | staffing_positionCreateOrConnectWithoutPositionInput[]
+    upsert?: staffing_positionUpsertWithWhereUniqueWithoutPositionInput | staffing_positionUpsertWithWhereUniqueWithoutPositionInput[]
+    createMany?: staffing_positionCreateManyPositionInputEnvelope
+    set?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    disconnect?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    delete?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    connect?: staffing_positionWhereUniqueInput | staffing_positionWhereUniqueInput[]
+    update?: staffing_positionUpdateWithWhereUniqueWithoutPositionInput | staffing_positionUpdateWithWhereUniqueWithoutPositionInput[]
+    updateMany?: staffing_positionUpdateManyWithWhereWithoutPositionInput | staffing_positionUpdateManyWithWhereWithoutPositionInput[]
+    deleteMany?: staffing_positionScalarWhereInput | staffing_positionScalarWhereInput[]
   }
 
   export type usersCreateNestedOneWithoutSessionsInput = {
@@ -45928,6 +49206,13 @@ export namespace Prisma {
     connect?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
   }
 
+  export type staffing_tableCreateNestedManyWithoutAddedByInput = {
+    create?: XOR<staffing_tableCreateWithoutAddedByInput, staffing_tableUncheckedCreateWithoutAddedByInput> | staffing_tableCreateWithoutAddedByInput[] | staffing_tableUncheckedCreateWithoutAddedByInput[]
+    connectOrCreate?: staffing_tableCreateOrConnectWithoutAddedByInput | staffing_tableCreateOrConnectWithoutAddedByInput[]
+    createMany?: staffing_tableCreateManyAddedByInputEnvelope
+    connect?: staffing_tableWhereUniqueInput | staffing_tableWhereUniqueInput[]
+  }
+
   export type user_menu_accessUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<user_menu_accessCreateWithoutUserInput, user_menu_accessUncheckedCreateWithoutUserInput> | user_menu_accessCreateWithoutUserInput[] | user_menu_accessUncheckedCreateWithoutUserInput[]
     connectOrCreate?: user_menu_accessCreateOrConnectWithoutUserInput | user_menu_accessCreateOrConnectWithoutUserInput[]
@@ -45996,6 +49281,13 @@ export namespace Prisma {
     connectOrCreate?: salary_advancesCreateOrConnectWithoutGivenByInput | salary_advancesCreateOrConnectWithoutGivenByInput[]
     createMany?: salary_advancesCreateManyGivenByInputEnvelope
     connect?: salary_advancesWhereUniqueInput | salary_advancesWhereUniqueInput[]
+  }
+
+  export type staffing_tableUncheckedCreateNestedManyWithoutAddedByInput = {
+    create?: XOR<staffing_tableCreateWithoutAddedByInput, staffing_tableUncheckedCreateWithoutAddedByInput> | staffing_tableCreateWithoutAddedByInput[] | staffing_tableUncheckedCreateWithoutAddedByInput[]
+    connectOrCreate?: staffing_tableCreateOrConnectWithoutAddedByInput | staffing_tableCreateOrConnectWithoutAddedByInput[]
+    createMany?: staffing_tableCreateManyAddedByInputEnvelope
+    connect?: staffing_tableWhereUniqueInput | staffing_tableWhereUniqueInput[]
   }
 
   export type usersUpdatebranch_accessInput = {
@@ -46163,6 +49455,20 @@ export namespace Prisma {
     deleteMany?: salary_advancesScalarWhereInput | salary_advancesScalarWhereInput[]
   }
 
+  export type staffing_tableUpdateManyWithoutAddedByNestedInput = {
+    create?: XOR<staffing_tableCreateWithoutAddedByInput, staffing_tableUncheckedCreateWithoutAddedByInput> | staffing_tableCreateWithoutAddedByInput[] | staffing_tableUncheckedCreateWithoutAddedByInput[]
+    connectOrCreate?: staffing_tableCreateOrConnectWithoutAddedByInput | staffing_tableCreateOrConnectWithoutAddedByInput[]
+    upsert?: staffing_tableUpsertWithWhereUniqueWithoutAddedByInput | staffing_tableUpsertWithWhereUniqueWithoutAddedByInput[]
+    createMany?: staffing_tableCreateManyAddedByInputEnvelope
+    set?: staffing_tableWhereUniqueInput | staffing_tableWhereUniqueInput[]
+    disconnect?: staffing_tableWhereUniqueInput | staffing_tableWhereUniqueInput[]
+    delete?: staffing_tableWhereUniqueInput | staffing_tableWhereUniqueInput[]
+    connect?: staffing_tableWhereUniqueInput | staffing_tableWhereUniqueInput[]
+    update?: staffing_tableUpdateWithWhereUniqueWithoutAddedByInput | staffing_tableUpdateWithWhereUniqueWithoutAddedByInput[]
+    updateMany?: staffing_tableUpdateManyWithWhereWithoutAddedByInput | staffing_tableUpdateManyWithWhereWithoutAddedByInput[]
+    deleteMany?: staffing_tableScalarWhereInput | staffing_tableScalarWhereInput[]
+  }
+
   export type user_menu_accessUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<user_menu_accessCreateWithoutUserInput, user_menu_accessUncheckedCreateWithoutUserInput> | user_menu_accessCreateWithoutUserInput[] | user_menu_accessUncheckedCreateWithoutUserInput[]
     connectOrCreate?: user_menu_accessCreateOrConnectWithoutUserInput | user_menu_accessCreateOrConnectWithoutUserInput[]
@@ -46301,6 +49607,20 @@ export namespace Prisma {
     update?: salary_advancesUpdateWithWhereUniqueWithoutGivenByInput | salary_advancesUpdateWithWhereUniqueWithoutGivenByInput[]
     updateMany?: salary_advancesUpdateManyWithWhereWithoutGivenByInput | salary_advancesUpdateManyWithWhereWithoutGivenByInput[]
     deleteMany?: salary_advancesScalarWhereInput | salary_advancesScalarWhereInput[]
+  }
+
+  export type staffing_tableUncheckedUpdateManyWithoutAddedByNestedInput = {
+    create?: XOR<staffing_tableCreateWithoutAddedByInput, staffing_tableUncheckedCreateWithoutAddedByInput> | staffing_tableCreateWithoutAddedByInput[] | staffing_tableUncheckedCreateWithoutAddedByInput[]
+    connectOrCreate?: staffing_tableCreateOrConnectWithoutAddedByInput | staffing_tableCreateOrConnectWithoutAddedByInput[]
+    upsert?: staffing_tableUpsertWithWhereUniqueWithoutAddedByInput | staffing_tableUpsertWithWhereUniqueWithoutAddedByInput[]
+    createMany?: staffing_tableCreateManyAddedByInputEnvelope
+    set?: staffing_tableWhereUniqueInput | staffing_tableWhereUniqueInput[]
+    disconnect?: staffing_tableWhereUniqueInput | staffing_tableWhereUniqueInput[]
+    delete?: staffing_tableWhereUniqueInput | staffing_tableWhereUniqueInput[]
+    connect?: staffing_tableWhereUniqueInput | staffing_tableWhereUniqueInput[]
+    update?: staffing_tableUpdateWithWhereUniqueWithoutAddedByInput | staffing_tableUpdateWithWhereUniqueWithoutAddedByInput[]
+    updateMany?: staffing_tableUpdateManyWithWhereWithoutAddedByInput | staffing_tableUpdateManyWithWhereWithoutAddedByInput[]
+    deleteMany?: staffing_tableScalarWhereInput | staffing_tableScalarWhereInput[]
   }
 
   export type menusCreateNestedOneWithoutChildrenInput = {
@@ -46619,13 +49939,6 @@ export namespace Prisma {
     connect?: face_passesWhereUniqueInput | face_passesWhereUniqueInput[]
   }
 
-  export type employee_door_tasksCreateNestedManyWithoutDoorInput = {
-    create?: XOR<employee_door_tasksCreateWithoutDoorInput, employee_door_tasksUncheckedCreateWithoutDoorInput> | employee_door_tasksCreateWithoutDoorInput[] | employee_door_tasksUncheckedCreateWithoutDoorInput[]
-    connectOrCreate?: employee_door_tasksCreateOrConnectWithoutDoorInput | employee_door_tasksCreateOrConnectWithoutDoorInput[]
-    createMany?: employee_door_tasksCreateManyDoorInputEnvelope
-    connect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-  }
-
   export type employeesUncheckedCreateNestedManyWithoutDoorsInput = {
     create?: XOR<employeesCreateWithoutDoorsInput, employeesUncheckedCreateWithoutDoorsInput> | employeesCreateWithoutDoorsInput[] | employeesUncheckedCreateWithoutDoorsInput[]
     connectOrCreate?: employeesCreateOrConnectWithoutDoorsInput | employeesCreateOrConnectWithoutDoorsInput[]
@@ -46644,13 +49957,6 @@ export namespace Prisma {
     connectOrCreate?: face_passesCreateOrConnectWithoutDoorInput | face_passesCreateOrConnectWithoutDoorInput[]
     createMany?: face_passesCreateManyDoorInputEnvelope
     connect?: face_passesWhereUniqueInput | face_passesWhereUniqueInput[]
-  }
-
-  export type employee_door_tasksUncheckedCreateNestedManyWithoutDoorInput = {
-    create?: XOR<employee_door_tasksCreateWithoutDoorInput, employee_door_tasksUncheckedCreateWithoutDoorInput> | employee_door_tasksCreateWithoutDoorInput[] | employee_door_tasksUncheckedCreateWithoutDoorInput[]
-    connectOrCreate?: employee_door_tasksCreateOrConnectWithoutDoorInput | employee_door_tasksCreateOrConnectWithoutDoorInput[]
-    createMany?: employee_door_tasksCreateManyDoorInputEnvelope
-    connect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
   }
 
   export type branchesUpdateOneWithoutDoorsNestedInput = {
@@ -46704,20 +50010,6 @@ export namespace Prisma {
     deleteMany?: face_passesScalarWhereInput | face_passesScalarWhereInput[]
   }
 
-  export type employee_door_tasksUpdateManyWithoutDoorNestedInput = {
-    create?: XOR<employee_door_tasksCreateWithoutDoorInput, employee_door_tasksUncheckedCreateWithoutDoorInput> | employee_door_tasksCreateWithoutDoorInput[] | employee_door_tasksUncheckedCreateWithoutDoorInput[]
-    connectOrCreate?: employee_door_tasksCreateOrConnectWithoutDoorInput | employee_door_tasksCreateOrConnectWithoutDoorInput[]
-    upsert?: employee_door_tasksUpsertWithWhereUniqueWithoutDoorInput | employee_door_tasksUpsertWithWhereUniqueWithoutDoorInput[]
-    createMany?: employee_door_tasksCreateManyDoorInputEnvelope
-    set?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    disconnect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    delete?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    connect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    update?: employee_door_tasksUpdateWithWhereUniqueWithoutDoorInput | employee_door_tasksUpdateWithWhereUniqueWithoutDoorInput[]
-    updateMany?: employee_door_tasksUpdateManyWithWhereWithoutDoorInput | employee_door_tasksUpdateManyWithWhereWithoutDoorInput[]
-    deleteMany?: employee_door_tasksScalarWhereInput | employee_door_tasksScalarWhereInput[]
-  }
-
   export type employeesUncheckedUpdateManyWithoutDoorsNestedInput = {
     create?: XOR<employeesCreateWithoutDoorsInput, employeesUncheckedCreateWithoutDoorsInput> | employeesCreateWithoutDoorsInput[] | employeesUncheckedCreateWithoutDoorsInput[]
     connectOrCreate?: employeesCreateOrConnectWithoutDoorsInput | employeesCreateOrConnectWithoutDoorsInput[]
@@ -46757,20 +50049,6 @@ export namespace Prisma {
     update?: face_passesUpdateWithWhereUniqueWithoutDoorInput | face_passesUpdateWithWhereUniqueWithoutDoorInput[]
     updateMany?: face_passesUpdateManyWithWhereWithoutDoorInput | face_passesUpdateManyWithWhereWithoutDoorInput[]
     deleteMany?: face_passesScalarWhereInput | face_passesScalarWhereInput[]
-  }
-
-  export type employee_door_tasksUncheckedUpdateManyWithoutDoorNestedInput = {
-    create?: XOR<employee_door_tasksCreateWithoutDoorInput, employee_door_tasksUncheckedCreateWithoutDoorInput> | employee_door_tasksCreateWithoutDoorInput[] | employee_door_tasksUncheckedCreateWithoutDoorInput[]
-    connectOrCreate?: employee_door_tasksCreateOrConnectWithoutDoorInput | employee_door_tasksCreateOrConnectWithoutDoorInput[]
-    upsert?: employee_door_tasksUpsertWithWhereUniqueWithoutDoorInput | employee_door_tasksUpsertWithWhereUniqueWithoutDoorInput[]
-    createMany?: employee_door_tasksCreateManyDoorInputEnvelope
-    set?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    disconnect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    delete?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    connect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
-    update?: employee_door_tasksUpdateWithWhereUniqueWithoutDoorInput | employee_door_tasksUpdateWithWhereUniqueWithoutDoorInput[]
-    updateMany?: employee_door_tasksUpdateManyWithWhereWithoutDoorInput | employee_door_tasksUpdateManyWithWhereWithoutDoorInput[]
-    deleteMany?: employee_door_tasksScalarWhereInput | employee_door_tasksScalarWhereInput[]
   }
 
   export type doorsCreateNestedOneWithoutFaceDevicesInput = {
@@ -46827,34 +50105,6 @@ export namespace Prisma {
     update?: face_passesUpdateWithWhereUniqueWithoutFaceDeviceInput | face_passesUpdateWithWhereUniqueWithoutFaceDeviceInput[]
     updateMany?: face_passesUpdateManyWithWhereWithoutFaceDeviceInput | face_passesUpdateManyWithWhereWithoutFaceDeviceInput[]
     deleteMany?: face_passesScalarWhereInput | face_passesScalarWhereInput[]
-  }
-
-  export type employeesCreateNestedOneWithoutDoorTasksInput = {
-    create?: XOR<employeesCreateWithoutDoorTasksInput, employeesUncheckedCreateWithoutDoorTasksInput>
-    connectOrCreate?: employeesCreateOrConnectWithoutDoorTasksInput
-    connect?: employeesWhereUniqueInput
-  }
-
-  export type doorsCreateNestedOneWithoutDoorTasksInput = {
-    create?: XOR<doorsCreateWithoutDoorTasksInput, doorsUncheckedCreateWithoutDoorTasksInput>
-    connectOrCreate?: doorsCreateOrConnectWithoutDoorTasksInput
-    connect?: doorsWhereUniqueInput
-  }
-
-  export type employeesUpdateOneRequiredWithoutDoorTasksNestedInput = {
-    create?: XOR<employeesCreateWithoutDoorTasksInput, employeesUncheckedCreateWithoutDoorTasksInput>
-    connectOrCreate?: employeesCreateOrConnectWithoutDoorTasksInput
-    upsert?: employeesUpsertWithoutDoorTasksInput
-    connect?: employeesWhereUniqueInput
-    update?: XOR<XOR<employeesUpdateToOneWithWhereWithoutDoorTasksInput, employeesUpdateWithoutDoorTasksInput>, employeesUncheckedUpdateWithoutDoorTasksInput>
-  }
-
-  export type doorsUpdateOneRequiredWithoutDoorTasksNestedInput = {
-    create?: XOR<doorsCreateWithoutDoorTasksInput, doorsUncheckedCreateWithoutDoorTasksInput>
-    connectOrCreate?: doorsCreateOrConnectWithoutDoorTasksInput
-    upsert?: doorsUpsertWithoutDoorTasksInput
-    connect?: doorsWhereUniqueInput
-    update?: XOR<XOR<doorsUpdateToOneWithWhereWithoutDoorTasksInput, doorsUpdateWithoutDoorTasksInput>, doorsUncheckedUpdateWithoutDoorTasksInput>
   }
 
   export type gatesCreatetelegram_chat_idsInput = {
@@ -47252,6 +50502,156 @@ export namespace Prisma {
     update?: XOR<XOR<usersUpdateToOneWithWhereWithoutSalaryAdvancesGivenInput, usersUpdateWithoutSalaryAdvancesGivenInput>, usersUncheckedUpdateWithoutSalaryAdvancesGivenInput>
   }
 
+  export type departmentsCreateNestedOneWithoutStaffingPositionsInput = {
+    create?: XOR<departmentsCreateWithoutStaffingPositionsInput, departmentsUncheckedCreateWithoutStaffingPositionsInput>
+    connectOrCreate?: departmentsCreateOrConnectWithoutStaffingPositionsInput
+    connect?: departmentsWhereUniqueInput
+  }
+
+  export type positionsCreateNestedOneWithoutStaffingPositionsInput = {
+    create?: XOR<positionsCreateWithoutStaffingPositionsInput, positionsUncheckedCreateWithoutStaffingPositionsInput>
+    connectOrCreate?: positionsCreateOrConnectWithoutStaffingPositionsInput
+    connect?: positionsWhereUniqueInput
+  }
+
+  export type departmentsUpdateOneRequiredWithoutStaffingPositionsNestedInput = {
+    create?: XOR<departmentsCreateWithoutStaffingPositionsInput, departmentsUncheckedCreateWithoutStaffingPositionsInput>
+    connectOrCreate?: departmentsCreateOrConnectWithoutStaffingPositionsInput
+    upsert?: departmentsUpsertWithoutStaffingPositionsInput
+    connect?: departmentsWhereUniqueInput
+    update?: XOR<XOR<departmentsUpdateToOneWithWhereWithoutStaffingPositionsInput, departmentsUpdateWithoutStaffingPositionsInput>, departmentsUncheckedUpdateWithoutStaffingPositionsInput>
+  }
+
+  export type positionsUpdateOneRequiredWithoutStaffingPositionsNestedInput = {
+    create?: XOR<positionsCreateWithoutStaffingPositionsInput, positionsUncheckedCreateWithoutStaffingPositionsInput>
+    connectOrCreate?: positionsCreateOrConnectWithoutStaffingPositionsInput
+    upsert?: positionsUpsertWithoutStaffingPositionsInput
+    connect?: positionsWhereUniqueInput
+    update?: XOR<XOR<positionsUpdateToOneWithWhereWithoutStaffingPositionsInput, positionsUpdateWithoutStaffingPositionsInput>, positionsUncheckedUpdateWithoutStaffingPositionsInput>
+  }
+
+  export type staffing_table_itemsCreateNestedManyWithoutStaffingTableInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutStaffingTableInput, staffing_table_itemsUncheckedCreateWithoutStaffingTableInput> | staffing_table_itemsCreateWithoutStaffingTableInput[] | staffing_table_itemsUncheckedCreateWithoutStaffingTableInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutStaffingTableInput | staffing_table_itemsCreateOrConnectWithoutStaffingTableInput[]
+    createMany?: staffing_table_itemsCreateManyStaffingTableInputEnvelope
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+  }
+
+  export type usersCreateNestedOneWithoutStaffingTablesInput = {
+    create?: XOR<usersCreateWithoutStaffingTablesInput, usersUncheckedCreateWithoutStaffingTablesInput>
+    connectOrCreate?: usersCreateOrConnectWithoutStaffingTablesInput
+    connect?: usersWhereUniqueInput
+  }
+
+  export type staffing_table_itemsUncheckedCreateNestedManyWithoutStaffingTableInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutStaffingTableInput, staffing_table_itemsUncheckedCreateWithoutStaffingTableInput> | staffing_table_itemsCreateWithoutStaffingTableInput[] | staffing_table_itemsUncheckedCreateWithoutStaffingTableInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutStaffingTableInput | staffing_table_itemsCreateOrConnectWithoutStaffingTableInput[]
+    createMany?: staffing_table_itemsCreateManyStaffingTableInputEnvelope
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+  }
+
+  export type staffing_table_itemsUpdateManyWithoutStaffingTableNestedInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutStaffingTableInput, staffing_table_itemsUncheckedCreateWithoutStaffingTableInput> | staffing_table_itemsCreateWithoutStaffingTableInput[] | staffing_table_itemsUncheckedCreateWithoutStaffingTableInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutStaffingTableInput | staffing_table_itemsCreateOrConnectWithoutStaffingTableInput[]
+    upsert?: staffing_table_itemsUpsertWithWhereUniqueWithoutStaffingTableInput | staffing_table_itemsUpsertWithWhereUniqueWithoutStaffingTableInput[]
+    createMany?: staffing_table_itemsCreateManyStaffingTableInputEnvelope
+    set?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    disconnect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    delete?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    update?: staffing_table_itemsUpdateWithWhereUniqueWithoutStaffingTableInput | staffing_table_itemsUpdateWithWhereUniqueWithoutStaffingTableInput[]
+    updateMany?: staffing_table_itemsUpdateManyWithWhereWithoutStaffingTableInput | staffing_table_itemsUpdateManyWithWhereWithoutStaffingTableInput[]
+    deleteMany?: staffing_table_itemsScalarWhereInput | staffing_table_itemsScalarWhereInput[]
+  }
+
+  export type usersUpdateOneRequiredWithoutStaffingTablesNestedInput = {
+    create?: XOR<usersCreateWithoutStaffingTablesInput, usersUncheckedCreateWithoutStaffingTablesInput>
+    connectOrCreate?: usersCreateOrConnectWithoutStaffingTablesInput
+    upsert?: usersUpsertWithoutStaffingTablesInput
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutStaffingTablesInput, usersUpdateWithoutStaffingTablesInput>, usersUncheckedUpdateWithoutStaffingTablesInput>
+  }
+
+  export type staffing_table_itemsUncheckedUpdateManyWithoutStaffingTableNestedInput = {
+    create?: XOR<staffing_table_itemsCreateWithoutStaffingTableInput, staffing_table_itemsUncheckedCreateWithoutStaffingTableInput> | staffing_table_itemsCreateWithoutStaffingTableInput[] | staffing_table_itemsUncheckedCreateWithoutStaffingTableInput[]
+    connectOrCreate?: staffing_table_itemsCreateOrConnectWithoutStaffingTableInput | staffing_table_itemsCreateOrConnectWithoutStaffingTableInput[]
+    upsert?: staffing_table_itemsUpsertWithWhereUniqueWithoutStaffingTableInput | staffing_table_itemsUpsertWithWhereUniqueWithoutStaffingTableInput[]
+    createMany?: staffing_table_itemsCreateManyStaffingTableInputEnvelope
+    set?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    disconnect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    delete?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    connect?: staffing_table_itemsWhereUniqueInput | staffing_table_itemsWhereUniqueInput[]
+    update?: staffing_table_itemsUpdateWithWhereUniqueWithoutStaffingTableInput | staffing_table_itemsUpdateWithWhereUniqueWithoutStaffingTableInput[]
+    updateMany?: staffing_table_itemsUpdateManyWithWhereWithoutStaffingTableInput | staffing_table_itemsUpdateManyWithWhereWithoutStaffingTableInput[]
+    deleteMany?: staffing_table_itemsScalarWhereInput | staffing_table_itemsScalarWhereInput[]
+  }
+
+  export type staffing_tableCreateNestedOneWithoutItemsInput = {
+    create?: XOR<staffing_tableCreateWithoutItemsInput, staffing_tableUncheckedCreateWithoutItemsInput>
+    connectOrCreate?: staffing_tableCreateOrConnectWithoutItemsInput
+    connect?: staffing_tableWhereUniqueInput
+  }
+
+  export type branchesCreateNestedOneWithoutStaffingTableItemsInput = {
+    create?: XOR<branchesCreateWithoutStaffingTableItemsInput, branchesUncheckedCreateWithoutStaffingTableItemsInput>
+    connectOrCreate?: branchesCreateOrConnectWithoutStaffingTableItemsInput
+    connect?: branchesWhereUniqueInput
+  }
+
+  export type departmentsCreateNestedOneWithoutStaffingTableItemsInput = {
+    create?: XOR<departmentsCreateWithoutStaffingTableItemsInput, departmentsUncheckedCreateWithoutStaffingTableItemsInput>
+    connectOrCreate?: departmentsCreateOrConnectWithoutStaffingTableItemsInput
+    connect?: departmentsWhereUniqueInput
+  }
+
+  export type positionsCreateNestedOneWithoutStaffingTableItemsInput = {
+    create?: XOR<positionsCreateWithoutStaffingTableItemsInput, positionsUncheckedCreateWithoutStaffingTableItemsInput>
+    connectOrCreate?: positionsCreateOrConnectWithoutStaffingTableItemsInput
+    connect?: positionsWhereUniqueInput
+  }
+
+  export type NullableDecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string | null
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type staffing_tableUpdateOneRequiredWithoutItemsNestedInput = {
+    create?: XOR<staffing_tableCreateWithoutItemsInput, staffing_tableUncheckedCreateWithoutItemsInput>
+    connectOrCreate?: staffing_tableCreateOrConnectWithoutItemsInput
+    upsert?: staffing_tableUpsertWithoutItemsInput
+    connect?: staffing_tableWhereUniqueInput
+    update?: XOR<XOR<staffing_tableUpdateToOneWithWhereWithoutItemsInput, staffing_tableUpdateWithoutItemsInput>, staffing_tableUncheckedUpdateWithoutItemsInput>
+  }
+
+  export type branchesUpdateOneRequiredWithoutStaffingTableItemsNestedInput = {
+    create?: XOR<branchesCreateWithoutStaffingTableItemsInput, branchesUncheckedCreateWithoutStaffingTableItemsInput>
+    connectOrCreate?: branchesCreateOrConnectWithoutStaffingTableItemsInput
+    upsert?: branchesUpsertWithoutStaffingTableItemsInput
+    connect?: branchesWhereUniqueInput
+    update?: XOR<XOR<branchesUpdateToOneWithWhereWithoutStaffingTableItemsInput, branchesUpdateWithoutStaffingTableItemsInput>, branchesUncheckedUpdateWithoutStaffingTableItemsInput>
+  }
+
+  export type departmentsUpdateOneWithoutStaffingTableItemsNestedInput = {
+    create?: XOR<departmentsCreateWithoutStaffingTableItemsInput, departmentsUncheckedCreateWithoutStaffingTableItemsInput>
+    connectOrCreate?: departmentsCreateOrConnectWithoutStaffingTableItemsInput
+    upsert?: departmentsUpsertWithoutStaffingTableItemsInput
+    disconnect?: departmentsWhereInput | boolean
+    delete?: departmentsWhereInput | boolean
+    connect?: departmentsWhereUniqueInput
+    update?: XOR<XOR<departmentsUpdateToOneWithWhereWithoutStaffingTableItemsInput, departmentsUpdateWithoutStaffingTableItemsInput>, departmentsUncheckedUpdateWithoutStaffingTableItemsInput>
+  }
+
+  export type positionsUpdateOneRequiredWithoutStaffingTableItemsNestedInput = {
+    create?: XOR<positionsCreateWithoutStaffingTableItemsInput, positionsUncheckedCreateWithoutStaffingTableItemsInput>
+    connectOrCreate?: positionsCreateOrConnectWithoutStaffingTableItemsInput
+    upsert?: positionsUpsertWithoutStaffingTableItemsInput
+    connect?: positionsWhereUniqueInput
+    update?: XOR<XOR<positionsUpdateToOneWithWhereWithoutStaffingTableItemsInput, positionsUpdateWithoutStaffingTableItemsInput>, positionsUncheckedUpdateWithoutStaffingTableItemsInput>
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -47557,6 +50957,33 @@ export namespace Prisma {
     _max?: NestedDecimalFilter<$PrismaModel>
   }
 
+  export type NestedDecimalNullableFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type NestedDecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedDecimalNullableFilter<$PrismaModel>
+    _sum?: NestedDecimalNullableFilter<$PrismaModel>
+    _min?: NestedDecimalNullableFilter<$PrismaModel>
+    _max?: NestedDecimalNullableFilter<$PrismaModel>
+  }
+
   export type employeesCreateWithoutDirectedBranchesInput = {
     employee_number?: string | null
     last_name?: string | null
@@ -47586,7 +51013,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
     salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
@@ -47622,7 +51048,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
     salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
@@ -47694,7 +51119,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
@@ -47730,7 +51154,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
@@ -47815,6 +51238,8 @@ export namespace Prisma {
     added_at?: Date | string
     employmentOrders?: employment_ordersCreateNestedManyWithoutDepartmentInput
     employees?: employeesCreateNestedManyWithoutDepartmentInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutDepartmentInput
+    staffingPositions?: staffing_positionCreateNestedManyWithoutDepartmentInput
   }
 
   export type departmentsUncheckedCreateWithoutBranchInput = {
@@ -47824,6 +51249,8 @@ export namespace Prisma {
     added_at?: Date | string
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutDepartmentInput
     employees?: employeesUncheckedCreateNestedManyWithoutDepartmentInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutDepartmentInput
+    staffingPositions?: staffing_positionUncheckedCreateNestedManyWithoutDepartmentInput
   }
 
   export type departmentsCreateOrConnectWithoutBranchInput = {
@@ -47845,7 +51272,6 @@ export namespace Prisma {
     employees?: employeesCreateNestedManyWithoutDoorsInput
     faceDevices?: face_devicesCreateNestedManyWithoutDoorInput
     facePasses?: face_passesCreateNestedManyWithoutDoorInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutDoorInput
   }
 
   export type doorsUncheckedCreateWithoutBranchInput = {
@@ -47858,7 +51284,6 @@ export namespace Prisma {
     employees?: employeesUncheckedCreateNestedManyWithoutDoorsInput
     faceDevices?: face_devicesUncheckedCreateNestedManyWithoutDoorInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutDoorInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutDoorInput
   }
 
   export type doorsCreateOrConnectWithoutBranchInput = {
@@ -47898,6 +51323,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutBranchesInput = {
@@ -47928,11 +51354,41 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutBranchesInput = {
     where: usersWhereUniqueInput
     create: XOR<usersCreateWithoutBranchesInput, usersUncheckedCreateWithoutBranchesInput>
+  }
+
+  export type staffing_table_itemsCreateWithoutBranchInput = {
+    headcount?: number
+    salary_type?: string | null
+    salary_amount?: Decimal | DecimalJsLike | number | string | null
+    staffingTable: staffing_tableCreateNestedOneWithoutItemsInput
+    department?: departmentsCreateNestedOneWithoutStaffingTableItemsInput
+    position: positionsCreateNestedOneWithoutStaffingTableItemsInput
+  }
+
+  export type staffing_table_itemsUncheckedCreateWithoutBranchInput = {
+    id?: number
+    staffing_table_id: number
+    department_id?: number | null
+    position_id: number
+    headcount?: number
+    salary_type?: string | null
+    salary_amount?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_table_itemsCreateOrConnectWithoutBranchInput = {
+    where: staffing_table_itemsWhereUniqueInput
+    create: XOR<staffing_table_itemsCreateWithoutBranchInput, staffing_table_itemsUncheckedCreateWithoutBranchInput>
+  }
+
+  export type staffing_table_itemsCreateManyBranchInputEnvelope = {
+    data: staffing_table_itemsCreateManyBranchInput | staffing_table_itemsCreateManyBranchInput[]
+    skipDuplicates?: boolean
   }
 
   export type employeesUpsertWithoutDirectedBranchesInput = {
@@ -47975,7 +51431,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
     salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
@@ -48011,7 +51466,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
     salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -48248,6 +51702,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutBranchesInput = {
@@ -48278,6 +51733,37 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUncheckedUpdateManyWithoutAddedByNestedInput
+  }
+
+  export type staffing_table_itemsUpsertWithWhereUniqueWithoutBranchInput = {
+    where: staffing_table_itemsWhereUniqueInput
+    update: XOR<staffing_table_itemsUpdateWithoutBranchInput, staffing_table_itemsUncheckedUpdateWithoutBranchInput>
+    create: XOR<staffing_table_itemsCreateWithoutBranchInput, staffing_table_itemsUncheckedCreateWithoutBranchInput>
+  }
+
+  export type staffing_table_itemsUpdateWithWhereUniqueWithoutBranchInput = {
+    where: staffing_table_itemsWhereUniqueInput
+    data: XOR<staffing_table_itemsUpdateWithoutBranchInput, staffing_table_itemsUncheckedUpdateWithoutBranchInput>
+  }
+
+  export type staffing_table_itemsUpdateManyWithWhereWithoutBranchInput = {
+    where: staffing_table_itemsScalarWhereInput
+    data: XOR<staffing_table_itemsUpdateManyMutationInput, staffing_table_itemsUncheckedUpdateManyWithoutBranchInput>
+  }
+
+  export type staffing_table_itemsScalarWhereInput = {
+    AND?: staffing_table_itemsScalarWhereInput | staffing_table_itemsScalarWhereInput[]
+    OR?: staffing_table_itemsScalarWhereInput[]
+    NOT?: staffing_table_itemsScalarWhereInput | staffing_table_itemsScalarWhereInput[]
+    id?: IntFilter<"staffing_table_items"> | number
+    staffing_table_id?: IntFilter<"staffing_table_items"> | number
+    branch_id?: IntFilter<"staffing_table_items"> | number
+    department_id?: IntNullableFilter<"staffing_table_items"> | number | null
+    position_id?: IntFilter<"staffing_table_items"> | number
+    headcount?: IntFilter<"staffing_table_items"> | number
+    salary_type?: StringNullableFilter<"staffing_table_items"> | string | null
+    salary_amount?: DecimalNullableFilter<"staffing_table_items"> | Decimal | DecimalJsLike | number | string | null
   }
 
   export type employment_ordersCreateWithoutDepartmentInput = {
@@ -48341,7 +51827,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
@@ -48377,7 +51862,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
@@ -48411,6 +51895,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesCreateNestedManyWithoutBranchInput
     doors?: doorsCreateNestedManyWithoutBranchInput
     addedBy: usersCreateNestedOneWithoutBranchesInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutBranchInput
   }
 
   export type branchesUncheckedCreateWithoutDepartmentsInput = {
@@ -48431,11 +51916,64 @@ export namespace Prisma {
     gates?: gatesUncheckedCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
     doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesCreateOrConnectWithoutDepartmentsInput = {
     where: branchesWhereUniqueInput
     create: XOR<branchesCreateWithoutDepartmentsInput, branchesUncheckedCreateWithoutDepartmentsInput>
+  }
+
+  export type staffing_table_itemsCreateWithoutDepartmentInput = {
+    headcount?: number
+    salary_type?: string | null
+    salary_amount?: Decimal | DecimalJsLike | number | string | null
+    staffingTable: staffing_tableCreateNestedOneWithoutItemsInput
+    branch: branchesCreateNestedOneWithoutStaffingTableItemsInput
+    position: positionsCreateNestedOneWithoutStaffingTableItemsInput
+  }
+
+  export type staffing_table_itemsUncheckedCreateWithoutDepartmentInput = {
+    id?: number
+    staffing_table_id: number
+    branch_id: number
+    position_id: number
+    headcount?: number
+    salary_type?: string | null
+    salary_amount?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_table_itemsCreateOrConnectWithoutDepartmentInput = {
+    where: staffing_table_itemsWhereUniqueInput
+    create: XOR<staffing_table_itemsCreateWithoutDepartmentInput, staffing_table_itemsUncheckedCreateWithoutDepartmentInput>
+  }
+
+  export type staffing_table_itemsCreateManyDepartmentInputEnvelope = {
+    data: staffing_table_itemsCreateManyDepartmentInput | staffing_table_itemsCreateManyDepartmentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type staffing_positionCreateWithoutDepartmentInput = {
+    headcount?: number
+    added_at?: Date | string
+    position: positionsCreateNestedOneWithoutStaffingPositionsInput
+  }
+
+  export type staffing_positionUncheckedCreateWithoutDepartmentInput = {
+    id?: number
+    position_id: number
+    headcount?: number
+    added_at?: Date | string
+  }
+
+  export type staffing_positionCreateOrConnectWithoutDepartmentInput = {
+    where: staffing_positionWhereUniqueInput
+    create: XOR<staffing_positionCreateWithoutDepartmentInput, staffing_positionUncheckedCreateWithoutDepartmentInput>
+  }
+
+  export type staffing_positionCreateManyDepartmentInputEnvelope = {
+    data: staffing_positionCreateManyDepartmentInput | staffing_positionCreateManyDepartmentInput[]
+    skipDuplicates?: boolean
   }
 
   export type employment_ordersUpsertWithWhereUniqueWithoutDepartmentInput = {
@@ -48498,6 +52036,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesUpdateManyWithoutBranchNestedInput
     doors?: doorsUpdateManyWithoutBranchNestedInput
     addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesUncheckedUpdateWithoutDepartmentsInput = {
@@ -48518,6 +52057,50 @@ export namespace Prisma {
     gates?: gatesUncheckedUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
     doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutBranchNestedInput
+  }
+
+  export type staffing_table_itemsUpsertWithWhereUniqueWithoutDepartmentInput = {
+    where: staffing_table_itemsWhereUniqueInput
+    update: XOR<staffing_table_itemsUpdateWithoutDepartmentInput, staffing_table_itemsUncheckedUpdateWithoutDepartmentInput>
+    create: XOR<staffing_table_itemsCreateWithoutDepartmentInput, staffing_table_itemsUncheckedCreateWithoutDepartmentInput>
+  }
+
+  export type staffing_table_itemsUpdateWithWhereUniqueWithoutDepartmentInput = {
+    where: staffing_table_itemsWhereUniqueInput
+    data: XOR<staffing_table_itemsUpdateWithoutDepartmentInput, staffing_table_itemsUncheckedUpdateWithoutDepartmentInput>
+  }
+
+  export type staffing_table_itemsUpdateManyWithWhereWithoutDepartmentInput = {
+    where: staffing_table_itemsScalarWhereInput
+    data: XOR<staffing_table_itemsUpdateManyMutationInput, staffing_table_itemsUncheckedUpdateManyWithoutDepartmentInput>
+  }
+
+  export type staffing_positionUpsertWithWhereUniqueWithoutDepartmentInput = {
+    where: staffing_positionWhereUniqueInput
+    update: XOR<staffing_positionUpdateWithoutDepartmentInput, staffing_positionUncheckedUpdateWithoutDepartmentInput>
+    create: XOR<staffing_positionCreateWithoutDepartmentInput, staffing_positionUncheckedCreateWithoutDepartmentInput>
+  }
+
+  export type staffing_positionUpdateWithWhereUniqueWithoutDepartmentInput = {
+    where: staffing_positionWhereUniqueInput
+    data: XOR<staffing_positionUpdateWithoutDepartmentInput, staffing_positionUncheckedUpdateWithoutDepartmentInput>
+  }
+
+  export type staffing_positionUpdateManyWithWhereWithoutDepartmentInput = {
+    where: staffing_positionScalarWhereInput
+    data: XOR<staffing_positionUpdateManyMutationInput, staffing_positionUncheckedUpdateManyWithoutDepartmentInput>
+  }
+
+  export type staffing_positionScalarWhereInput = {
+    AND?: staffing_positionScalarWhereInput | staffing_positionScalarWhereInput[]
+    OR?: staffing_positionScalarWhereInput[]
+    NOT?: staffing_positionScalarWhereInput | staffing_positionScalarWhereInput[]
+    id?: IntFilter<"staffing_position"> | number
+    department_id?: IntFilter<"staffing_position"> | number
+    position_id?: IntFilter<"staffing_position"> | number
+    headcount?: IntFilter<"staffing_position"> | number
+    added_at?: DateTimeFilter<"staffing_position"> | Date | string
   }
 
   export type branchesCreateWithoutEmploymentOrdersInput = {
@@ -48537,6 +52120,7 @@ export namespace Prisma {
     departments?: departmentsCreateNestedManyWithoutBranchInput
     doors?: doorsCreateNestedManyWithoutBranchInput
     addedBy: usersCreateNestedOneWithoutBranchesInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutBranchInput
   }
 
   export type branchesUncheckedCreateWithoutEmploymentOrdersInput = {
@@ -48557,6 +52141,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
     departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
     doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesCreateOrConnectWithoutEmploymentOrdersInput = {
@@ -48570,6 +52155,8 @@ export namespace Prisma {
     added_at?: Date | string
     employees?: employeesCreateNestedManyWithoutDepartmentInput
     branch: branchesCreateNestedOneWithoutDepartmentsInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutDepartmentInput
+    staffingPositions?: staffing_positionCreateNestedManyWithoutDepartmentInput
   }
 
   export type departmentsUncheckedCreateWithoutEmploymentOrdersInput = {
@@ -48579,6 +52166,8 @@ export namespace Prisma {
     branch_id: number
     added_at?: Date | string
     employees?: employeesUncheckedCreateNestedManyWithoutDepartmentInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutDepartmentInput
+    staffingPositions?: staffing_positionUncheckedCreateNestedManyWithoutDepartmentInput
   }
 
   export type departmentsCreateOrConnectWithoutEmploymentOrdersInput = {
@@ -48591,6 +52180,8 @@ export namespace Prisma {
     status?: boolean
     added_at?: Date | string
     employees?: employeesCreateNestedManyWithoutPositionInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutPositionInput
+    staffingPositions?: staffing_positionCreateNestedManyWithoutPositionInput
   }
 
   export type positionsUncheckedCreateWithoutEmploymentOrdersInput = {
@@ -48599,6 +52190,8 @@ export namespace Prisma {
     status?: boolean
     added_at?: Date | string
     employees?: employeesUncheckedCreateNestedManyWithoutPositionInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutPositionInput
+    staffingPositions?: staffing_positionUncheckedCreateNestedManyWithoutPositionInput
   }
 
   export type positionsCreateOrConnectWithoutEmploymentOrdersInput = {
@@ -48634,7 +52227,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
@@ -48670,7 +52262,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
@@ -48710,6 +52301,7 @@ export namespace Prisma {
     departments?: departmentsUpdateManyWithoutBranchNestedInput
     doors?: doorsUpdateManyWithoutBranchNestedInput
     addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesUncheckedUpdateWithoutEmploymentOrdersInput = {
@@ -48730,6 +52322,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
     doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type departmentsUpsertWithoutEmploymentOrdersInput = {
@@ -48749,6 +52342,8 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employees?: employeesUpdateManyWithoutDepartmentNestedInput
     branch?: branchesUpdateOneRequiredWithoutDepartmentsNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutDepartmentNestedInput
+    staffingPositions?: staffing_positionUpdateManyWithoutDepartmentNestedInput
   }
 
   export type departmentsUncheckedUpdateWithoutEmploymentOrdersInput = {
@@ -48758,6 +52353,8 @@ export namespace Prisma {
     branch_id?: IntFieldUpdateOperationsInput | number
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employees?: employeesUncheckedUpdateManyWithoutDepartmentNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutDepartmentNestedInput
+    staffingPositions?: staffing_positionUncheckedUpdateManyWithoutDepartmentNestedInput
   }
 
   export type positionsUpsertWithoutEmploymentOrdersInput = {
@@ -48776,6 +52373,8 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employees?: employeesUpdateManyWithoutPositionNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutPositionNestedInput
+    staffingPositions?: staffing_positionUpdateManyWithoutPositionNestedInput
   }
 
   export type positionsUncheckedUpdateWithoutEmploymentOrdersInput = {
@@ -48784,6 +52383,8 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employees?: employeesUncheckedUpdateManyWithoutPositionNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutPositionNestedInput
+    staffingPositions?: staffing_positionUncheckedUpdateManyWithoutPositionNestedInput
   }
 
   export type employeesUpsertWithoutEmploymentOrdersInput = {
@@ -48825,7 +52426,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
@@ -48861,7 +52461,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -48885,6 +52484,7 @@ export namespace Prisma {
     departments?: departmentsCreateNestedManyWithoutBranchInput
     doors?: doorsCreateNestedManyWithoutBranchInput
     addedBy: usersCreateNestedOneWithoutBranchesInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutBranchInput
   }
 
   export type branchesUncheckedCreateWithoutEmployeesInput = {
@@ -48905,6 +52505,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
     departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
     doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesCreateOrConnectWithoutEmployeesInput = {
@@ -48918,6 +52519,8 @@ export namespace Prisma {
     added_at?: Date | string
     employmentOrders?: employment_ordersCreateNestedManyWithoutDepartmentInput
     branch: branchesCreateNestedOneWithoutDepartmentsInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutDepartmentInput
+    staffingPositions?: staffing_positionCreateNestedManyWithoutDepartmentInput
   }
 
   export type departmentsUncheckedCreateWithoutEmployeesInput = {
@@ -48927,6 +52530,8 @@ export namespace Prisma {
     branch_id: number
     added_at?: Date | string
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutDepartmentInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutDepartmentInput
+    staffingPositions?: staffing_positionUncheckedCreateNestedManyWithoutDepartmentInput
   }
 
   export type departmentsCreateOrConnectWithoutEmployeesInput = {
@@ -48939,6 +52544,8 @@ export namespace Prisma {
     status?: boolean
     added_at?: Date | string
     employmentOrders?: employment_ordersCreateNestedManyWithoutPositionInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutPositionInput
+    staffingPositions?: staffing_positionCreateNestedManyWithoutPositionInput
   }
 
   export type positionsUncheckedCreateWithoutEmployeesInput = {
@@ -48947,6 +52554,8 @@ export namespace Prisma {
     status?: boolean
     added_at?: Date | string
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutPositionInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutPositionInput
+    staffingPositions?: staffing_positionUncheckedCreateNestedManyWithoutPositionInput
   }
 
   export type positionsCreateOrConnectWithoutEmployeesInput = {
@@ -49162,7 +52771,6 @@ export namespace Prisma {
     branch?: branchesCreateNestedOneWithoutDoorsInput
     faceDevices?: face_devicesCreateNestedManyWithoutDoorInput
     facePasses?: face_passesCreateNestedManyWithoutDoorInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutDoorInput
   }
 
   export type doorsUncheckedCreateWithoutEmployeesInput = {
@@ -49175,43 +52783,11 @@ export namespace Prisma {
     added_at?: Date | string
     faceDevices?: face_devicesUncheckedCreateNestedManyWithoutDoorInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutDoorInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutDoorInput
   }
 
   export type doorsCreateOrConnectWithoutEmployeesInput = {
     where: doorsWhereUniqueInput
     create: XOR<doorsCreateWithoutEmployeesInput, doorsUncheckedCreateWithoutEmployeesInput>
-  }
-
-  export type employee_door_tasksCreateWithoutEmployeeInput = {
-    action: string
-    status?: string
-    retry_count?: number
-    error?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string | null
-    door: doorsCreateNestedOneWithoutDoorTasksInput
-  }
-
-  export type employee_door_tasksUncheckedCreateWithoutEmployeeInput = {
-    id?: number
-    door_id: number
-    action: string
-    status?: string
-    retry_count?: number
-    error?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string | null
-  }
-
-  export type employee_door_tasksCreateOrConnectWithoutEmployeeInput = {
-    where: employee_door_tasksWhereUniqueInput
-    create: XOR<employee_door_tasksCreateWithoutEmployeeInput, employee_door_tasksUncheckedCreateWithoutEmployeeInput>
-  }
-
-  export type employee_door_tasksCreateManyEmployeeInputEnvelope = {
-    data: employee_door_tasksCreateManyEmployeeInput | employee_door_tasksCreateManyEmployeeInput[]
-    skipDuplicates?: boolean
   }
 
   export type usersCreateWithoutEmployeeInput = {
@@ -49241,6 +52817,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutEmployeeInput = {
@@ -49271,6 +52848,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutEmployeeInput = {
@@ -49295,6 +52873,7 @@ export namespace Prisma {
     departments?: departmentsCreateNestedManyWithoutBranchInput
     doors?: doorsCreateNestedManyWithoutBranchInput
     addedBy: usersCreateNestedOneWithoutBranchesInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutBranchInput
   }
 
   export type branchesUncheckedCreateWithoutDirectorInput = {
@@ -49315,6 +52894,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
     departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
     doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesCreateOrConnectWithoutDirectorInput = {
@@ -49453,6 +53033,7 @@ export namespace Prisma {
     departments?: departmentsUpdateManyWithoutBranchNestedInput
     doors?: doorsUpdateManyWithoutBranchNestedInput
     addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesUncheckedUpdateWithoutEmployeesInput = {
@@ -49473,6 +53054,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
     doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type departmentsUpsertWithoutEmployeesInput = {
@@ -49492,6 +53074,8 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employmentOrders?: employment_ordersUpdateManyWithoutDepartmentNestedInput
     branch?: branchesUpdateOneRequiredWithoutDepartmentsNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutDepartmentNestedInput
+    staffingPositions?: staffing_positionUpdateManyWithoutDepartmentNestedInput
   }
 
   export type departmentsUncheckedUpdateWithoutEmployeesInput = {
@@ -49501,6 +53085,8 @@ export namespace Prisma {
     branch_id?: IntFieldUpdateOperationsInput | number
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutDepartmentNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutDepartmentNestedInput
+    staffingPositions?: staffing_positionUncheckedUpdateManyWithoutDepartmentNestedInput
   }
 
   export type positionsUpsertWithoutEmployeesInput = {
@@ -49519,6 +53105,8 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employmentOrders?: employment_ordersUpdateManyWithoutPositionNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutPositionNestedInput
+    staffingPositions?: staffing_positionUpdateManyWithoutPositionNestedInput
   }
 
   export type positionsUncheckedUpdateWithoutEmployeesInput = {
@@ -49527,6 +53115,8 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutPositionNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutPositionNestedInput
+    staffingPositions?: staffing_positionUncheckedUpdateManyWithoutPositionNestedInput
   }
 
   export type work_schedulesUpsertWithoutEmployeesInput = {
@@ -49731,37 +53321,6 @@ export namespace Prisma {
     data: XOR<doorsUpdateManyMutationInput, doorsUncheckedUpdateManyWithoutEmployeesInput>
   }
 
-  export type employee_door_tasksUpsertWithWhereUniqueWithoutEmployeeInput = {
-    where: employee_door_tasksWhereUniqueInput
-    update: XOR<employee_door_tasksUpdateWithoutEmployeeInput, employee_door_tasksUncheckedUpdateWithoutEmployeeInput>
-    create: XOR<employee_door_tasksCreateWithoutEmployeeInput, employee_door_tasksUncheckedCreateWithoutEmployeeInput>
-  }
-
-  export type employee_door_tasksUpdateWithWhereUniqueWithoutEmployeeInput = {
-    where: employee_door_tasksWhereUniqueInput
-    data: XOR<employee_door_tasksUpdateWithoutEmployeeInput, employee_door_tasksUncheckedUpdateWithoutEmployeeInput>
-  }
-
-  export type employee_door_tasksUpdateManyWithWhereWithoutEmployeeInput = {
-    where: employee_door_tasksScalarWhereInput
-    data: XOR<employee_door_tasksUpdateManyMutationInput, employee_door_tasksUncheckedUpdateManyWithoutEmployeeInput>
-  }
-
-  export type employee_door_tasksScalarWhereInput = {
-    AND?: employee_door_tasksScalarWhereInput | employee_door_tasksScalarWhereInput[]
-    OR?: employee_door_tasksScalarWhereInput[]
-    NOT?: employee_door_tasksScalarWhereInput | employee_door_tasksScalarWhereInput[]
-    id?: IntFilter<"employee_door_tasks"> | number
-    employee_id?: IntFilter<"employee_door_tasks"> | number
-    door_id?: IntFilter<"employee_door_tasks"> | number
-    action?: StringFilter<"employee_door_tasks"> | string
-    status?: StringFilter<"employee_door_tasks"> | string
-    retry_count?: IntFilter<"employee_door_tasks"> | number
-    error?: StringNullableFilter<"employee_door_tasks"> | string | null
-    created_at?: DateTimeFilter<"employee_door_tasks"> | Date | string
-    updated_at?: DateTimeNullableFilter<"employee_door_tasks"> | Date | string | null
-  }
-
   export type usersUpsertWithoutEmployeeInput = {
     update: XOR<usersUpdateWithoutEmployeeInput, usersUncheckedUpdateWithoutEmployeeInput>
     create: XOR<usersCreateWithoutEmployeeInput, usersUncheckedCreateWithoutEmployeeInput>
@@ -49800,6 +53359,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutEmployeeInput = {
@@ -49830,6 +53390,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type branchesUpsertWithWhereUniqueWithoutDirectorInput = {
@@ -49973,7 +53534,6 @@ export namespace Prisma {
     employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
@@ -50009,7 +53569,6 @@ export namespace Prisma {
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
@@ -50064,7 +53623,6 @@ export namespace Prisma {
     branch?: branchesCreateNestedOneWithoutDoorsInput
     employees?: employeesCreateNestedManyWithoutDoorsInput
     faceDevices?: face_devicesCreateNestedManyWithoutDoorInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutDoorInput
   }
 
   export type doorsUncheckedCreateWithoutFacePassesInput = {
@@ -50077,7 +53635,6 @@ export namespace Prisma {
     added_at?: Date | string
     employees?: employeesUncheckedCreateNestedManyWithoutDoorsInput
     faceDevices?: face_devicesUncheckedCreateNestedManyWithoutDoorInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutDoorInput
   }
 
   export type doorsCreateOrConnectWithoutFacePassesInput = {
@@ -50124,7 +53681,6 @@ export namespace Prisma {
     employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
@@ -50160,7 +53716,6 @@ export namespace Prisma {
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -50227,7 +53782,6 @@ export namespace Prisma {
     branch?: branchesUpdateOneWithoutDoorsNestedInput
     employees?: employeesUpdateManyWithoutDoorsNestedInput
     faceDevices?: face_devicesUpdateManyWithoutDoorNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutDoorNestedInput
   }
 
   export type doorsUncheckedUpdateWithoutFacePassesInput = {
@@ -50240,7 +53794,6 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employees?: employeesUncheckedUpdateManyWithoutDoorsNestedInput
     faceDevices?: face_devicesUncheckedUpdateManyWithoutDoorNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutDoorNestedInput
   }
 
   export type usersCreateWithoutHolidaysInput = {
@@ -50270,6 +53823,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutHolidaysInput = {
@@ -50300,6 +53854,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutHolidaysInput = {
@@ -50345,6 +53900,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutHolidaysInput = {
@@ -50375,6 +53931,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type employment_ordersCreateWithoutPositionInput = {
@@ -50438,7 +53995,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
@@ -50474,7 +54030,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
@@ -50488,6 +54043,58 @@ export namespace Prisma {
 
   export type employeesCreateManyPositionInputEnvelope = {
     data: employeesCreateManyPositionInput | employeesCreateManyPositionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type staffing_table_itemsCreateWithoutPositionInput = {
+    headcount?: number
+    salary_type?: string | null
+    salary_amount?: Decimal | DecimalJsLike | number | string | null
+    staffingTable: staffing_tableCreateNestedOneWithoutItemsInput
+    branch: branchesCreateNestedOneWithoutStaffingTableItemsInput
+    department?: departmentsCreateNestedOneWithoutStaffingTableItemsInput
+  }
+
+  export type staffing_table_itemsUncheckedCreateWithoutPositionInput = {
+    id?: number
+    staffing_table_id: number
+    branch_id: number
+    department_id?: number | null
+    headcount?: number
+    salary_type?: string | null
+    salary_amount?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_table_itemsCreateOrConnectWithoutPositionInput = {
+    where: staffing_table_itemsWhereUniqueInput
+    create: XOR<staffing_table_itemsCreateWithoutPositionInput, staffing_table_itemsUncheckedCreateWithoutPositionInput>
+  }
+
+  export type staffing_table_itemsCreateManyPositionInputEnvelope = {
+    data: staffing_table_itemsCreateManyPositionInput | staffing_table_itemsCreateManyPositionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type staffing_positionCreateWithoutPositionInput = {
+    headcount?: number
+    added_at?: Date | string
+    department: departmentsCreateNestedOneWithoutStaffingPositionsInput
+  }
+
+  export type staffing_positionUncheckedCreateWithoutPositionInput = {
+    id?: number
+    department_id: number
+    headcount?: number
+    added_at?: Date | string
+  }
+
+  export type staffing_positionCreateOrConnectWithoutPositionInput = {
+    where: staffing_positionWhereUniqueInput
+    create: XOR<staffing_positionCreateWithoutPositionInput, staffing_positionUncheckedCreateWithoutPositionInput>
+  }
+
+  export type staffing_positionCreateManyPositionInputEnvelope = {
+    data: staffing_positionCreateManyPositionInput | staffing_positionCreateManyPositionInput[]
     skipDuplicates?: boolean
   }
 
@@ -50523,6 +54130,38 @@ export namespace Prisma {
     data: XOR<employeesUpdateManyMutationInput, employeesUncheckedUpdateManyWithoutPositionInput>
   }
 
+  export type staffing_table_itemsUpsertWithWhereUniqueWithoutPositionInput = {
+    where: staffing_table_itemsWhereUniqueInput
+    update: XOR<staffing_table_itemsUpdateWithoutPositionInput, staffing_table_itemsUncheckedUpdateWithoutPositionInput>
+    create: XOR<staffing_table_itemsCreateWithoutPositionInput, staffing_table_itemsUncheckedCreateWithoutPositionInput>
+  }
+
+  export type staffing_table_itemsUpdateWithWhereUniqueWithoutPositionInput = {
+    where: staffing_table_itemsWhereUniqueInput
+    data: XOR<staffing_table_itemsUpdateWithoutPositionInput, staffing_table_itemsUncheckedUpdateWithoutPositionInput>
+  }
+
+  export type staffing_table_itemsUpdateManyWithWhereWithoutPositionInput = {
+    where: staffing_table_itemsScalarWhereInput
+    data: XOR<staffing_table_itemsUpdateManyMutationInput, staffing_table_itemsUncheckedUpdateManyWithoutPositionInput>
+  }
+
+  export type staffing_positionUpsertWithWhereUniqueWithoutPositionInput = {
+    where: staffing_positionWhereUniqueInput
+    update: XOR<staffing_positionUpdateWithoutPositionInput, staffing_positionUncheckedUpdateWithoutPositionInput>
+    create: XOR<staffing_positionCreateWithoutPositionInput, staffing_positionUncheckedCreateWithoutPositionInput>
+  }
+
+  export type staffing_positionUpdateWithWhereUniqueWithoutPositionInput = {
+    where: staffing_positionWhereUniqueInput
+    data: XOR<staffing_positionUpdateWithoutPositionInput, staffing_positionUncheckedUpdateWithoutPositionInput>
+  }
+
+  export type staffing_positionUpdateManyWithWhereWithoutPositionInput = {
+    where: staffing_positionScalarWhereInput
+    data: XOR<staffing_positionUpdateManyMutationInput, staffing_positionUncheckedUpdateManyWithoutPositionInput>
+  }
+
   export type usersCreateWithoutSessionsInput = {
     username: string
     password: string
@@ -50550,6 +54189,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutSessionsInput = {
@@ -50580,6 +54220,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutSessionsInput = {
@@ -50625,6 +54266,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutSessionsInput = {
@@ -50655,6 +54297,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersCreateWithoutTimeOffInput = {
@@ -50684,6 +54327,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutTimeOffInput = {
@@ -50714,6 +54358,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutTimeOffInput = {
@@ -50749,7 +54394,6 @@ export namespace Prisma {
     employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
@@ -50785,7 +54429,6 @@ export namespace Prisma {
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
@@ -50835,6 +54478,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutTimeOffInput = {
@@ -50865,6 +54509,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type employeesUpsertWithoutEmployeeTimeOffsInput = {
@@ -50906,7 +54551,6 @@ export namespace Prisma {
     employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
@@ -50942,7 +54586,6 @@ export namespace Prisma {
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -50978,7 +54621,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
     salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
@@ -51014,7 +54656,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
     salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
@@ -51122,6 +54763,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesCreateNestedManyWithoutBranchInput
     departments?: departmentsCreateNestedManyWithoutBranchInput
     doors?: doorsCreateNestedManyWithoutBranchInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutBranchInput
   }
 
   export type branchesUncheckedCreateWithoutAddedByInput = {
@@ -51142,6 +54784,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
     departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
     doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesCreateOrConnectWithoutAddedByInput = {
@@ -51334,6 +54977,35 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type staffing_tableCreateWithoutAddedByInput = {
+    name: string
+    date_from: Date | string
+    date_to?: Date | string | null
+    status?: boolean
+    added_at?: Date | string
+    items?: staffing_table_itemsCreateNestedManyWithoutStaffingTableInput
+  }
+
+  export type staffing_tableUncheckedCreateWithoutAddedByInput = {
+    id?: number
+    name: string
+    date_from: Date | string
+    date_to?: Date | string | null
+    status?: boolean
+    added_at?: Date | string
+    items?: staffing_table_itemsUncheckedCreateNestedManyWithoutStaffingTableInput
+  }
+
+  export type staffing_tableCreateOrConnectWithoutAddedByInput = {
+    where: staffing_tableWhereUniqueInput
+    create: XOR<staffing_tableCreateWithoutAddedByInput, staffing_tableUncheckedCreateWithoutAddedByInput>
+  }
+
+  export type staffing_tableCreateManyAddedByInputEnvelope = {
+    data: staffing_tableCreateManyAddedByInput | staffing_tableCreateManyAddedByInput[]
+    skipDuplicates?: boolean
+  }
+
   export type employeesUpsertWithoutUserInput = {
     update: XOR<employeesUpdateWithoutUserInput, employeesUncheckedUpdateWithoutUserInput>
     create: XOR<employeesCreateWithoutUserInput, employeesUncheckedCreateWithoutUserInput>
@@ -51374,7 +55046,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
     salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
@@ -51410,7 +55081,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
     salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -51628,6 +55298,35 @@ export namespace Prisma {
     data: XOR<salary_advancesUpdateManyMutationInput, salary_advancesUncheckedUpdateManyWithoutGivenByInput>
   }
 
+  export type staffing_tableUpsertWithWhereUniqueWithoutAddedByInput = {
+    where: staffing_tableWhereUniqueInput
+    update: XOR<staffing_tableUpdateWithoutAddedByInput, staffing_tableUncheckedUpdateWithoutAddedByInput>
+    create: XOR<staffing_tableCreateWithoutAddedByInput, staffing_tableUncheckedCreateWithoutAddedByInput>
+  }
+
+  export type staffing_tableUpdateWithWhereUniqueWithoutAddedByInput = {
+    where: staffing_tableWhereUniqueInput
+    data: XOR<staffing_tableUpdateWithoutAddedByInput, staffing_tableUncheckedUpdateWithoutAddedByInput>
+  }
+
+  export type staffing_tableUpdateManyWithWhereWithoutAddedByInput = {
+    where: staffing_tableScalarWhereInput
+    data: XOR<staffing_tableUpdateManyMutationInput, staffing_tableUncheckedUpdateManyWithoutAddedByInput>
+  }
+
+  export type staffing_tableScalarWhereInput = {
+    AND?: staffing_tableScalarWhereInput | staffing_tableScalarWhereInput[]
+    OR?: staffing_tableScalarWhereInput[]
+    NOT?: staffing_tableScalarWhereInput | staffing_tableScalarWhereInput[]
+    id?: IntFilter<"staffing_table"> | number
+    name?: StringFilter<"staffing_table"> | string
+    date_from?: DateTimeFilter<"staffing_table"> | Date | string
+    date_to?: DateTimeNullableFilter<"staffing_table"> | Date | string | null
+    status?: BoolFilter<"staffing_table"> | boolean
+    added_by?: IntFilter<"staffing_table"> | number
+    added_at?: DateTimeFilter<"staffing_table"> | Date | string
+  }
+
   export type menusCreateWithoutChildrenInput = {
     name: string
     path?: string | null
@@ -51802,6 +55501,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutMenuAccessInput = {
@@ -51832,6 +55532,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutMenuAccessInput = {
@@ -51899,6 +55600,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutMenuAccessInput = {
@@ -51929,6 +55631,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type menusUpsertWithoutAccessInput = {
@@ -51987,7 +55690,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
@@ -52023,7 +55725,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
@@ -52127,7 +55828,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
@@ -52163,7 +55863,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
@@ -52240,6 +55939,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutEmployeeScheduleHistoryInput = {
@@ -52270,6 +55970,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutEmployeeScheduleHistoryInput = {
@@ -52316,7 +56017,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
@@ -52352,7 +56052,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -52441,6 +56140,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutEmployeeScheduleHistoryInput = {
@@ -52471,6 +56171,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type employeesCreateWithoutEmployeeSalaryHistoryInput = {
@@ -52501,7 +56202,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
@@ -52537,7 +56237,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
@@ -52576,6 +56275,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutEmployeeSalaryHistoryInput = {
@@ -52606,6 +56306,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutEmployeeSalaryHistoryInput = {
@@ -52652,7 +56353,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
@@ -52688,7 +56388,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -52733,6 +56432,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutEmployeeSalaryHistoryInput = {
@@ -52763,6 +56463,7 @@ export namespace Prisma {
     payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type branchesCreateWithoutDoorsInput = {
@@ -52782,6 +56483,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesCreateNestedManyWithoutBranchInput
     departments?: departmentsCreateNestedManyWithoutBranchInput
     addedBy: usersCreateNestedOneWithoutBranchesInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutBranchInput
   }
 
   export type branchesUncheckedCreateWithoutDoorsInput = {
@@ -52802,6 +56504,7 @@ export namespace Prisma {
     gates?: gatesUncheckedCreateNestedManyWithoutBranchInput
     vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
     departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesCreateOrConnectWithoutDoorsInput = {
@@ -52837,7 +56540,6 @@ export namespace Prisma {
     employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
@@ -52873,7 +56575,6 @@ export namespace Prisma {
     employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
@@ -52961,37 +56662,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type employee_door_tasksCreateWithoutDoorInput = {
-    action: string
-    status?: string
-    retry_count?: number
-    error?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string | null
-    employee: employeesCreateNestedOneWithoutDoorTasksInput
-  }
-
-  export type employee_door_tasksUncheckedCreateWithoutDoorInput = {
-    id?: number
-    employee_id: number
-    action: string
-    status?: string
-    retry_count?: number
-    error?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string | null
-  }
-
-  export type employee_door_tasksCreateOrConnectWithoutDoorInput = {
-    where: employee_door_tasksWhereUniqueInput
-    create: XOR<employee_door_tasksCreateWithoutDoorInput, employee_door_tasksUncheckedCreateWithoutDoorInput>
-  }
-
-  export type employee_door_tasksCreateManyDoorInputEnvelope = {
-    data: employee_door_tasksCreateManyDoorInput | employee_door_tasksCreateManyDoorInput[]
-    skipDuplicates?: boolean
-  }
-
   export type branchesUpsertWithoutDoorsInput = {
     update: XOR<branchesUpdateWithoutDoorsInput, branchesUncheckedUpdateWithoutDoorsInput>
     create: XOR<branchesCreateWithoutDoorsInput, branchesUncheckedCreateWithoutDoorsInput>
@@ -53020,6 +56690,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesUpdateManyWithoutBranchNestedInput
     departments?: departmentsUpdateManyWithoutBranchNestedInput
     addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesUncheckedUpdateWithoutDoorsInput = {
@@ -53040,6 +56711,7 @@ export namespace Prisma {
     gates?: gatesUncheckedUpdateManyWithoutBranchNestedInput
     vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type employeesUpsertWithWhereUniqueWithoutDoorsInput = {
@@ -53108,22 +56780,6 @@ export namespace Prisma {
     data: XOR<face_passesUpdateManyMutationInput, face_passesUncheckedUpdateManyWithoutDoorInput>
   }
 
-  export type employee_door_tasksUpsertWithWhereUniqueWithoutDoorInput = {
-    where: employee_door_tasksWhereUniqueInput
-    update: XOR<employee_door_tasksUpdateWithoutDoorInput, employee_door_tasksUncheckedUpdateWithoutDoorInput>
-    create: XOR<employee_door_tasksCreateWithoutDoorInput, employee_door_tasksUncheckedCreateWithoutDoorInput>
-  }
-
-  export type employee_door_tasksUpdateWithWhereUniqueWithoutDoorInput = {
-    where: employee_door_tasksWhereUniqueInput
-    data: XOR<employee_door_tasksUpdateWithoutDoorInput, employee_door_tasksUncheckedUpdateWithoutDoorInput>
-  }
-
-  export type employee_door_tasksUpdateManyWithWhereWithoutDoorInput = {
-    where: employee_door_tasksScalarWhereInput
-    data: XOR<employee_door_tasksUpdateManyMutationInput, employee_door_tasksUncheckedUpdateManyWithoutDoorInput>
-  }
-
   export type doorsCreateWithoutFaceDevicesInput = {
     name: string
     status?: boolean
@@ -53133,7 +56789,6 @@ export namespace Prisma {
     branch?: branchesCreateNestedOneWithoutDoorsInput
     employees?: employeesCreateNestedManyWithoutDoorsInput
     facePasses?: face_passesCreateNestedManyWithoutDoorInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutDoorInput
   }
 
   export type doorsUncheckedCreateWithoutFaceDevicesInput = {
@@ -53146,7 +56801,6 @@ export namespace Prisma {
     added_at?: Date | string
     employees?: employeesUncheckedCreateNestedManyWithoutDoorsInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutDoorInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutDoorInput
   }
 
   export type doorsCreateOrConnectWithoutFaceDevicesInput = {
@@ -53211,7 +56865,6 @@ export namespace Prisma {
     branch?: branchesUpdateOneWithoutDoorsNestedInput
     employees?: employeesUpdateManyWithoutDoorsNestedInput
     facePasses?: face_passesUpdateManyWithoutDoorNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutDoorNestedInput
   }
 
   export type doorsUncheckedUpdateWithoutFaceDevicesInput = {
@@ -53224,7 +56877,6 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employees?: employeesUncheckedUpdateManyWithoutDoorsNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutDoorNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutDoorNestedInput
   }
 
   export type face_passesUpsertWithWhereUniqueWithoutFaceDeviceInput = {
@@ -53241,230 +56893,6 @@ export namespace Prisma {
   export type face_passesUpdateManyWithWhereWithoutFaceDeviceInput = {
     where: face_passesScalarWhereInput
     data: XOR<face_passesUpdateManyMutationInput, face_passesUncheckedUpdateManyWithoutFaceDeviceInput>
-  }
-
-  export type employeesCreateWithoutDoorTasksInput = {
-    employee_number?: string | null
-    last_name?: string | null
-    first_name?: string | null
-    middle_name?: string | null
-    date_of_birth?: Date | string | null
-    gender?: string | null
-    passport?: string | null
-    passport_expiry_date?: Date | string | null
-    pinfl?: string | null
-    education?: string | null
-    phone?: string | null
-    email?: string | null
-    address?: string | null
-    status?: boolean | null
-    photo?: string | null
-    education_specialty?: string | null
-    added_at?: Date | string
-    updated_at?: Date | string
-    branch?: branchesCreateNestedOneWithoutEmployeesInput
-    department?: departmentsCreateNestedOneWithoutEmployeesInput
-    position?: positionsCreateNestedOneWithoutEmployeesInput
-    workSchedule?: work_schedulesCreateNestedOneWithoutEmployeesInput
-    employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutEmployeeInput
-    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutEmployeeInput
-    employmentOrders?: employment_ordersCreateNestedManyWithoutEmployeeInput
-    employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
-    facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
-    doors?: doorsCreateNestedManyWithoutEmployeesInput
-    user?: usersCreateNestedOneWithoutEmployeeInput
-    directedBranches?: branchesCreateNestedManyWithoutDirectorInput
-    payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
-    salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
-  }
-
-  export type employeesUncheckedCreateWithoutDoorTasksInput = {
-    id?: number
-    employee_number?: string | null
-    last_name?: string | null
-    first_name?: string | null
-    middle_name?: string | null
-    date_of_birth?: Date | string | null
-    gender?: string | null
-    passport?: string | null
-    passport_expiry_date?: Date | string | null
-    pinfl?: string | null
-    education?: string | null
-    phone?: string | null
-    email?: string | null
-    address?: string | null
-    status?: boolean | null
-    photo?: string | null
-    branch_id?: number | null
-    department_id?: number | null
-    position_id?: number | null
-    work_schedule_id?: number | null
-    education_specialty?: string | null
-    added_at?: Date | string
-    updated_at?: Date | string
-    employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutEmployeeInput
-    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutEmployeeInput
-    employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutEmployeeInput
-    employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
-    facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
-    doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
-    user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
-    directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
-    payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
-    salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
-  }
-
-  export type employeesCreateOrConnectWithoutDoorTasksInput = {
-    where: employeesWhereUniqueInput
-    create: XOR<employeesCreateWithoutDoorTasksInput, employeesUncheckedCreateWithoutDoorTasksInput>
-  }
-
-  export type doorsCreateWithoutDoorTasksInput = {
-    name: string
-    status?: boolean
-    latitude?: number | null
-    longitude?: number | null
-    added_at?: Date | string
-    branch?: branchesCreateNestedOneWithoutDoorsInput
-    employees?: employeesCreateNestedManyWithoutDoorsInput
-    faceDevices?: face_devicesCreateNestedManyWithoutDoorInput
-    facePasses?: face_passesCreateNestedManyWithoutDoorInput
-  }
-
-  export type doorsUncheckedCreateWithoutDoorTasksInput = {
-    id?: number
-    name: string
-    status?: boolean
-    branch_id?: number | null
-    latitude?: number | null
-    longitude?: number | null
-    added_at?: Date | string
-    employees?: employeesUncheckedCreateNestedManyWithoutDoorsInput
-    faceDevices?: face_devicesUncheckedCreateNestedManyWithoutDoorInput
-    facePasses?: face_passesUncheckedCreateNestedManyWithoutDoorInput
-  }
-
-  export type doorsCreateOrConnectWithoutDoorTasksInput = {
-    where: doorsWhereUniqueInput
-    create: XOR<doorsCreateWithoutDoorTasksInput, doorsUncheckedCreateWithoutDoorTasksInput>
-  }
-
-  export type employeesUpsertWithoutDoorTasksInput = {
-    update: XOR<employeesUpdateWithoutDoorTasksInput, employeesUncheckedUpdateWithoutDoorTasksInput>
-    create: XOR<employeesCreateWithoutDoorTasksInput, employeesUncheckedCreateWithoutDoorTasksInput>
-    where?: employeesWhereInput
-  }
-
-  export type employeesUpdateToOneWithWhereWithoutDoorTasksInput = {
-    where?: employeesWhereInput
-    data: XOR<employeesUpdateWithoutDoorTasksInput, employeesUncheckedUpdateWithoutDoorTasksInput>
-  }
-
-  export type employeesUpdateWithoutDoorTasksInput = {
-    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
-    last_name?: NullableStringFieldUpdateOperationsInput | string | null
-    first_name?: NullableStringFieldUpdateOperationsInput | string | null
-    middle_name?: NullableStringFieldUpdateOperationsInput | string | null
-    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
-    passport?: NullableStringFieldUpdateOperationsInput | string | null
-    passport_expiry_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    pinfl?: NullableStringFieldUpdateOperationsInput | string | null
-    education?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    photo?: NullableStringFieldUpdateOperationsInput | string | null
-    education_specialty?: NullableStringFieldUpdateOperationsInput | string | null
-    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    branch?: branchesUpdateOneWithoutEmployeesNestedInput
-    department?: departmentsUpdateOneWithoutEmployeesNestedInput
-    position?: positionsUpdateOneWithoutEmployeesNestedInput
-    workSchedule?: work_schedulesUpdateOneWithoutEmployeesNestedInput
-    employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutEmployeeNestedInput
-    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutEmployeeNestedInput
-    employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
-    employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
-    facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
-    doors?: doorsUpdateManyWithoutEmployeesNestedInput
-    user?: usersUpdateOneWithoutEmployeeNestedInput
-    directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
-    payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
-    salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
-  }
-
-  export type employeesUncheckedUpdateWithoutDoorTasksInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    employee_number?: NullableStringFieldUpdateOperationsInput | string | null
-    last_name?: NullableStringFieldUpdateOperationsInput | string | null
-    first_name?: NullableStringFieldUpdateOperationsInput | string | null
-    middle_name?: NullableStringFieldUpdateOperationsInput | string | null
-    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
-    passport?: NullableStringFieldUpdateOperationsInput | string | null
-    passport_expiry_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    pinfl?: NullableStringFieldUpdateOperationsInput | string | null
-    education?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    photo?: NullableStringFieldUpdateOperationsInput | string | null
-    branch_id?: NullableIntFieldUpdateOperationsInput | number | null
-    department_id?: NullableIntFieldUpdateOperationsInput | number | null
-    position_id?: NullableIntFieldUpdateOperationsInput | number | null
-    work_schedule_id?: NullableIntFieldUpdateOperationsInput | number | null
-    education_specialty?: NullableStringFieldUpdateOperationsInput | string | null
-    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutEmployeeNestedInput
-    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutEmployeeNestedInput
-    employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
-    employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
-    facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
-    doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
-    user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
-    directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
-    payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
-    salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
-  }
-
-  export type doorsUpsertWithoutDoorTasksInput = {
-    update: XOR<doorsUpdateWithoutDoorTasksInput, doorsUncheckedUpdateWithoutDoorTasksInput>
-    create: XOR<doorsCreateWithoutDoorTasksInput, doorsUncheckedCreateWithoutDoorTasksInput>
-    where?: doorsWhereInput
-  }
-
-  export type doorsUpdateToOneWithWhereWithoutDoorTasksInput = {
-    where?: doorsWhereInput
-    data: XOR<doorsUpdateWithoutDoorTasksInput, doorsUncheckedUpdateWithoutDoorTasksInput>
-  }
-
-  export type doorsUpdateWithoutDoorTasksInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
-    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
-    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    branch?: branchesUpdateOneWithoutDoorsNestedInput
-    employees?: employeesUpdateManyWithoutDoorsNestedInput
-    faceDevices?: face_devicesUpdateManyWithoutDoorNestedInput
-    facePasses?: face_passesUpdateManyWithoutDoorNestedInput
-  }
-
-  export type doorsUncheckedUpdateWithoutDoorTasksInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    branch_id?: NullableIntFieldUpdateOperationsInput | number | null
-    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
-    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
-    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    employees?: employeesUncheckedUpdateManyWithoutDoorsNestedInput
-    faceDevices?: face_devicesUncheckedUpdateManyWithoutDoorNestedInput
-    facePasses?: face_passesUncheckedUpdateManyWithoutDoorNestedInput
   }
 
   export type branchesCreateWithoutGatesInput = {
@@ -53484,6 +56912,7 @@ export namespace Prisma {
     departments?: departmentsCreateNestedManyWithoutBranchInput
     doors?: doorsCreateNestedManyWithoutBranchInput
     addedBy: usersCreateNestedOneWithoutBranchesInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutBranchInput
   }
 
   export type branchesUncheckedCreateWithoutGatesInput = {
@@ -53504,6 +56933,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
     departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
     doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesCreateOrConnectWithoutGatesInput = {
@@ -53609,6 +57039,7 @@ export namespace Prisma {
     departments?: departmentsUpdateManyWithoutBranchNestedInput
     doors?: doorsUpdateManyWithoutBranchNestedInput
     addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesUncheckedUpdateWithoutGatesInput = {
@@ -53629,6 +57060,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
     doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type anpr_camerasUpsertWithWhereUniqueWithoutGateInput = {
@@ -53803,6 +57235,7 @@ export namespace Prisma {
     departments?: departmentsCreateNestedManyWithoutBranchInput
     doors?: doorsCreateNestedManyWithoutBranchInput
     addedBy: usersCreateNestedOneWithoutBranchesInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutBranchInput
   }
 
   export type branchesUncheckedCreateWithoutVehiclePassesInput = {
@@ -53823,6 +57256,7 @@ export namespace Prisma {
     gates?: gatesUncheckedCreateNestedManyWithoutBranchInput
     departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
     doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutBranchInput
   }
 
   export type branchesCreateOrConnectWithoutVehiclePassesInput = {
@@ -53918,6 +57352,7 @@ export namespace Prisma {
     departments?: departmentsUpdateManyWithoutBranchNestedInput
     doors?: doorsUpdateManyWithoutBranchNestedInput
     addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesUncheckedUpdateWithoutVehiclePassesInput = {
@@ -53938,6 +57373,7 @@ export namespace Prisma {
     gates?: gatesUncheckedUpdateManyWithoutBranchNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
     doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type gatesUpsertWithoutVehiclePassesInput = {
@@ -54110,6 +57546,7 @@ export namespace Prisma {
     employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutPayrollSheetsAddedInput = {
@@ -54140,6 +57577,7 @@ export namespace Prisma {
     employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
     salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutPayrollSheetsAddedInput = {
@@ -54174,6 +57612,7 @@ export namespace Prisma {
     employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
     payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
     salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutPayrollSheetsApprovedInput = {
@@ -54204,6 +57643,7 @@ export namespace Prisma {
     employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
     payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
     salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
+    staffingTables?: staffing_tableUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutPayrollSheetsApprovedInput = {
@@ -54265,6 +57705,7 @@ export namespace Prisma {
     employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutPayrollSheetsAddedInput = {
@@ -54295,6 +57736,7 @@ export namespace Prisma {
     employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
     salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUpsertWithoutPayrollSheetsApprovedInput = {
@@ -54335,6 +57777,7 @@ export namespace Prisma {
     employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
     payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
     salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutPayrollSheetsApprovedInput = {
@@ -54365,6 +57808,7 @@ export namespace Prisma {
     employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
     payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
     salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
+    staffingTables?: staffing_tableUncheckedUpdateManyWithoutAddedByNestedInput
   }
 
   export type payroll_sheetsCreateWithoutItemsInput = {
@@ -54422,7 +57866,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
     salaryAdvances?: salary_advancesCreateNestedManyWithoutEmployeeInput
@@ -54458,7 +57901,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
     salaryAdvances?: salary_advancesUncheckedCreateNestedManyWithoutEmployeeInput
@@ -54566,7 +58008,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
     salaryAdvances?: salary_advancesUpdateManyWithoutEmployeeNestedInput
@@ -54602,7 +58043,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
     salaryAdvances?: salary_advancesUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -54803,7 +58243,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesCreateNestedManyWithoutEmployeeInput
     doors?: doorsCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksCreateNestedManyWithoutEmployeeInput
     user?: usersCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsCreateNestedManyWithoutEmployeeInput
@@ -54839,7 +58278,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedCreateNestedManyWithoutEmployeeInput
     facePasses?: face_passesUncheckedCreateNestedManyWithoutEmployeeInput
     doors?: doorsUncheckedCreateNestedManyWithoutEmployeesInput
-    doorTasks?: employee_door_tasksUncheckedCreateNestedManyWithoutEmployeeInput
     user?: usersUncheckedCreateNestedOneWithoutEmployeeInput
     directedBranches?: branchesUncheckedCreateNestedManyWithoutDirectorInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedCreateNestedManyWithoutEmployeeInput
@@ -54877,6 +58315,7 @@ export namespace Prisma {
     employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
     payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
+    staffingTables?: staffing_tableCreateNestedManyWithoutAddedByInput
   }
 
   export type usersUncheckedCreateWithoutSalaryAdvancesGivenInput = {
@@ -54907,6 +58346,7 @@ export namespace Prisma {
     employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
     payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
     payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
+    staffingTables?: staffing_tableUncheckedCreateNestedManyWithoutAddedByInput
   }
 
   export type usersCreateOrConnectWithoutSalaryAdvancesGivenInput = {
@@ -54954,7 +58394,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
@@ -54990,7 +58429,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -55034,6 +58472,7 @@ export namespace Prisma {
     employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
     payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
+    staffingTables?: staffing_tableUpdateManyWithoutAddedByNestedInput
   }
 
   export type usersUncheckedUpdateWithoutSalaryAdvancesGivenInput = {
@@ -55064,6 +58503,566 @@ export namespace Prisma {
     employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
     payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
     payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
+    staffingTables?: staffing_tableUncheckedUpdateManyWithoutAddedByNestedInput
+  }
+
+  export type departmentsCreateWithoutStaffingPositionsInput = {
+    name?: string | null
+    status?: boolean
+    added_at?: Date | string
+    employmentOrders?: employment_ordersCreateNestedManyWithoutDepartmentInput
+    employees?: employeesCreateNestedManyWithoutDepartmentInput
+    branch: branchesCreateNestedOneWithoutDepartmentsInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutDepartmentInput
+  }
+
+  export type departmentsUncheckedCreateWithoutStaffingPositionsInput = {
+    id?: number
+    name?: string | null
+    status?: boolean
+    branch_id: number
+    added_at?: Date | string
+    employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutDepartmentInput
+    employees?: employeesUncheckedCreateNestedManyWithoutDepartmentInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutDepartmentInput
+  }
+
+  export type departmentsCreateOrConnectWithoutStaffingPositionsInput = {
+    where: departmentsWhereUniqueInput
+    create: XOR<departmentsCreateWithoutStaffingPositionsInput, departmentsUncheckedCreateWithoutStaffingPositionsInput>
+  }
+
+  export type positionsCreateWithoutStaffingPositionsInput = {
+    name: string
+    status?: boolean
+    added_at?: Date | string
+    employmentOrders?: employment_ordersCreateNestedManyWithoutPositionInput
+    employees?: employeesCreateNestedManyWithoutPositionInput
+    staffingTableItems?: staffing_table_itemsCreateNestedManyWithoutPositionInput
+  }
+
+  export type positionsUncheckedCreateWithoutStaffingPositionsInput = {
+    id?: number
+    name: string
+    status?: boolean
+    added_at?: Date | string
+    employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutPositionInput
+    employees?: employeesUncheckedCreateNestedManyWithoutPositionInput
+    staffingTableItems?: staffing_table_itemsUncheckedCreateNestedManyWithoutPositionInput
+  }
+
+  export type positionsCreateOrConnectWithoutStaffingPositionsInput = {
+    where: positionsWhereUniqueInput
+    create: XOR<positionsCreateWithoutStaffingPositionsInput, positionsUncheckedCreateWithoutStaffingPositionsInput>
+  }
+
+  export type departmentsUpsertWithoutStaffingPositionsInput = {
+    update: XOR<departmentsUpdateWithoutStaffingPositionsInput, departmentsUncheckedUpdateWithoutStaffingPositionsInput>
+    create: XOR<departmentsCreateWithoutStaffingPositionsInput, departmentsUncheckedCreateWithoutStaffingPositionsInput>
+    where?: departmentsWhereInput
+  }
+
+  export type departmentsUpdateToOneWithWhereWithoutStaffingPositionsInput = {
+    where?: departmentsWhereInput
+    data: XOR<departmentsUpdateWithoutStaffingPositionsInput, departmentsUncheckedUpdateWithoutStaffingPositionsInput>
+  }
+
+  export type departmentsUpdateWithoutStaffingPositionsInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employmentOrders?: employment_ordersUpdateManyWithoutDepartmentNestedInput
+    employees?: employeesUpdateManyWithoutDepartmentNestedInput
+    branch?: branchesUpdateOneRequiredWithoutDepartmentsNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutDepartmentNestedInput
+  }
+
+  export type departmentsUncheckedUpdateWithoutStaffingPositionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    branch_id?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employmentOrders?: employment_ordersUncheckedUpdateManyWithoutDepartmentNestedInput
+    employees?: employeesUncheckedUpdateManyWithoutDepartmentNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutDepartmentNestedInput
+  }
+
+  export type positionsUpsertWithoutStaffingPositionsInput = {
+    update: XOR<positionsUpdateWithoutStaffingPositionsInput, positionsUncheckedUpdateWithoutStaffingPositionsInput>
+    create: XOR<positionsCreateWithoutStaffingPositionsInput, positionsUncheckedCreateWithoutStaffingPositionsInput>
+    where?: positionsWhereInput
+  }
+
+  export type positionsUpdateToOneWithWhereWithoutStaffingPositionsInput = {
+    where?: positionsWhereInput
+    data: XOR<positionsUpdateWithoutStaffingPositionsInput, positionsUncheckedUpdateWithoutStaffingPositionsInput>
+  }
+
+  export type positionsUpdateWithoutStaffingPositionsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employmentOrders?: employment_ordersUpdateManyWithoutPositionNestedInput
+    employees?: employeesUpdateManyWithoutPositionNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutPositionNestedInput
+  }
+
+  export type positionsUncheckedUpdateWithoutStaffingPositionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employmentOrders?: employment_ordersUncheckedUpdateManyWithoutPositionNestedInput
+    employees?: employeesUncheckedUpdateManyWithoutPositionNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutPositionNestedInput
+  }
+
+  export type staffing_table_itemsCreateWithoutStaffingTableInput = {
+    headcount?: number
+    salary_type?: string | null
+    salary_amount?: Decimal | DecimalJsLike | number | string | null
+    branch: branchesCreateNestedOneWithoutStaffingTableItemsInput
+    department?: departmentsCreateNestedOneWithoutStaffingTableItemsInput
+    position: positionsCreateNestedOneWithoutStaffingTableItemsInput
+  }
+
+  export type staffing_table_itemsUncheckedCreateWithoutStaffingTableInput = {
+    id?: number
+    branch_id: number
+    department_id?: number | null
+    position_id: number
+    headcount?: number
+    salary_type?: string | null
+    salary_amount?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_table_itemsCreateOrConnectWithoutStaffingTableInput = {
+    where: staffing_table_itemsWhereUniqueInput
+    create: XOR<staffing_table_itemsCreateWithoutStaffingTableInput, staffing_table_itemsUncheckedCreateWithoutStaffingTableInput>
+  }
+
+  export type staffing_table_itemsCreateManyStaffingTableInputEnvelope = {
+    data: staffing_table_itemsCreateManyStaffingTableInput | staffing_table_itemsCreateManyStaffingTableInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type usersCreateWithoutStaffingTablesInput = {
+    username: string
+    password: string
+    telegram_id?: string | null
+    status?: boolean
+    access_level?: string | null
+    branch_access?: usersCreatebranch_accessInput | number[]
+    department_access?: usersCreatedepartment_accessInput | number[]
+    language?: string
+    theme?: string
+    sidebar?: string
+    view_mode?: string
+    personal_menus?: usersCreatepersonal_menusInput | string[]
+    active_branch_id?: number | null
+    ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
+    added_at?: Date | string
+    employee?: employeesCreateNestedOneWithoutUserInput
+    menuAccess?: user_menu_accessCreateNestedManyWithoutUserInput
+    sessions?: sessionsCreateNestedManyWithoutUserInput
+    holidays?: holidaysCreateNestedManyWithoutAddedByInput
+    branches?: branchesCreateNestedManyWithoutAddedByInput
+    timeOff?: time_offCreateNestedManyWithoutAddedByInput
+    employeeScheduleHistory?: employee_schedule_historyCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesCreateNestedManyWithoutGivenByInput
+  }
+
+  export type usersUncheckedCreateWithoutStaffingTablesInput = {
+    id?: number
+    username: string
+    password: string
+    telegram_id?: string | null
+    employee_id?: number | null
+    status?: boolean
+    access_level?: string | null
+    branch_access?: usersCreatebranch_accessInput | number[]
+    department_access?: usersCreatedepartment_accessInput | number[]
+    language?: string
+    theme?: string
+    sidebar?: string
+    view_mode?: string
+    personal_menus?: usersCreatepersonal_menusInput | string[]
+    active_branch_id?: number | null
+    ignore_gps_check?: boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
+    added_at?: Date | string
+    menuAccess?: user_menu_accessUncheckedCreateNestedManyWithoutUserInput
+    sessions?: sessionsUncheckedCreateNestedManyWithoutUserInput
+    holidays?: holidaysUncheckedCreateNestedManyWithoutAddedByInput
+    branches?: branchesUncheckedCreateNestedManyWithoutAddedByInput
+    timeOff?: time_offUncheckedCreateNestedManyWithoutAddedByInput
+    employeeScheduleHistory?: employee_schedule_historyUncheckedCreateNestedManyWithoutAddedByInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedCreateNestedManyWithoutAddedByInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedCreateNestedManyWithoutApprovedByInput
+    salaryAdvancesGiven?: salary_advancesUncheckedCreateNestedManyWithoutGivenByInput
+  }
+
+  export type usersCreateOrConnectWithoutStaffingTablesInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutStaffingTablesInput, usersUncheckedCreateWithoutStaffingTablesInput>
+  }
+
+  export type staffing_table_itemsUpsertWithWhereUniqueWithoutStaffingTableInput = {
+    where: staffing_table_itemsWhereUniqueInput
+    update: XOR<staffing_table_itemsUpdateWithoutStaffingTableInput, staffing_table_itemsUncheckedUpdateWithoutStaffingTableInput>
+    create: XOR<staffing_table_itemsCreateWithoutStaffingTableInput, staffing_table_itemsUncheckedCreateWithoutStaffingTableInput>
+  }
+
+  export type staffing_table_itemsUpdateWithWhereUniqueWithoutStaffingTableInput = {
+    where: staffing_table_itemsWhereUniqueInput
+    data: XOR<staffing_table_itemsUpdateWithoutStaffingTableInput, staffing_table_itemsUncheckedUpdateWithoutStaffingTableInput>
+  }
+
+  export type staffing_table_itemsUpdateManyWithWhereWithoutStaffingTableInput = {
+    where: staffing_table_itemsScalarWhereInput
+    data: XOR<staffing_table_itemsUpdateManyMutationInput, staffing_table_itemsUncheckedUpdateManyWithoutStaffingTableInput>
+  }
+
+  export type usersUpsertWithoutStaffingTablesInput = {
+    update: XOR<usersUpdateWithoutStaffingTablesInput, usersUncheckedUpdateWithoutStaffingTablesInput>
+    create: XOR<usersCreateWithoutStaffingTablesInput, usersUncheckedCreateWithoutStaffingTablesInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutStaffingTablesInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutStaffingTablesInput, usersUncheckedUpdateWithoutStaffingTablesInput>
+  }
+
+  export type usersUpdateWithoutStaffingTablesInput = {
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    telegram_id?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    branch_access?: usersUpdatebranch_accessInput | number[]
+    department_access?: usersUpdatedepartment_accessInput | number[]
+    language?: StringFieldUpdateOperationsInput | string
+    theme?: StringFieldUpdateOperationsInput | string
+    sidebar?: StringFieldUpdateOperationsInput | string
+    view_mode?: StringFieldUpdateOperationsInput | string
+    personal_menus?: usersUpdatepersonal_menusInput | string[]
+    active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: employeesUpdateOneWithoutUserNestedInput
+    menuAccess?: user_menu_accessUpdateManyWithoutUserNestedInput
+    sessions?: sessionsUpdateManyWithoutUserNestedInput
+    holidays?: holidaysUpdateManyWithoutAddedByNestedInput
+    branches?: branchesUpdateManyWithoutAddedByNestedInput
+    timeOff?: time_offUpdateManyWithoutAddedByNestedInput
+    employeeScheduleHistory?: employee_schedule_historyUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUpdateManyWithoutGivenByNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutStaffingTablesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    telegram_id?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    branch_access?: usersUpdatebranch_accessInput | number[]
+    department_access?: usersUpdatedepartment_accessInput | number[]
+    language?: StringFieldUpdateOperationsInput | string
+    theme?: StringFieldUpdateOperationsInput | string
+    sidebar?: StringFieldUpdateOperationsInput | string
+    view_mode?: StringFieldUpdateOperationsInput | string
+    personal_menus?: usersUpdatepersonal_menusInput | string[]
+    active_branch_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ignore_gps_check?: BoolFieldUpdateOperationsInput | boolean
+    settings?: NullableJsonNullValueInput | InputJsonValue
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    menuAccess?: user_menu_accessUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: sessionsUncheckedUpdateManyWithoutUserNestedInput
+    holidays?: holidaysUncheckedUpdateManyWithoutAddedByNestedInput
+    branches?: branchesUncheckedUpdateManyWithoutAddedByNestedInput
+    timeOff?: time_offUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeScheduleHistory?: employee_schedule_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    employeeSalaryHistory?: employee_salary_historyUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsAdded?: payroll_sheetsUncheckedUpdateManyWithoutAddedByNestedInput
+    payrollSheetsApproved?: payroll_sheetsUncheckedUpdateManyWithoutApprovedByNestedInput
+    salaryAdvancesGiven?: salary_advancesUncheckedUpdateManyWithoutGivenByNestedInput
+  }
+
+  export type staffing_tableCreateWithoutItemsInput = {
+    name: string
+    date_from: Date | string
+    date_to?: Date | string | null
+    status?: boolean
+    added_at?: Date | string
+    addedBy: usersCreateNestedOneWithoutStaffingTablesInput
+  }
+
+  export type staffing_tableUncheckedCreateWithoutItemsInput = {
+    id?: number
+    name: string
+    date_from: Date | string
+    date_to?: Date | string | null
+    status?: boolean
+    added_by: number
+    added_at?: Date | string
+  }
+
+  export type staffing_tableCreateOrConnectWithoutItemsInput = {
+    where: staffing_tableWhereUniqueInput
+    create: XOR<staffing_tableCreateWithoutItemsInput, staffing_tableUncheckedCreateWithoutItemsInput>
+  }
+
+  export type branchesCreateWithoutStaffingTableItemsInput = {
+    name: string
+    status?: boolean
+    region?: string | null
+    address?: string | null
+    bank_name?: string | null
+    bank_account?: string | null
+    inn?: string | null
+    mfo?: string | null
+    added_at?: Date | string
+    director?: employeesCreateNestedOneWithoutDirectedBranchesInput
+    employmentOrders?: employment_ordersCreateNestedManyWithoutBranchInput
+    employees?: employeesCreateNestedManyWithoutBranchInput
+    gates?: gatesCreateNestedManyWithoutBranchInput
+    vehiclePasses?: vehicle_passesCreateNestedManyWithoutBranchInput
+    departments?: departmentsCreateNestedManyWithoutBranchInput
+    doors?: doorsCreateNestedManyWithoutBranchInput
+    addedBy: usersCreateNestedOneWithoutBranchesInput
+  }
+
+  export type branchesUncheckedCreateWithoutStaffingTableItemsInput = {
+    id?: number
+    name: string
+    status?: boolean
+    director_id?: number | null
+    region?: string | null
+    address?: string | null
+    bank_name?: string | null
+    bank_account?: string | null
+    inn?: string | null
+    mfo?: string | null
+    added_at?: Date | string
+    added_by: number
+    employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutBranchInput
+    employees?: employeesUncheckedCreateNestedManyWithoutBranchInput
+    gates?: gatesUncheckedCreateNestedManyWithoutBranchInput
+    vehiclePasses?: vehicle_passesUncheckedCreateNestedManyWithoutBranchInput
+    departments?: departmentsUncheckedCreateNestedManyWithoutBranchInput
+    doors?: doorsUncheckedCreateNestedManyWithoutBranchInput
+  }
+
+  export type branchesCreateOrConnectWithoutStaffingTableItemsInput = {
+    where: branchesWhereUniqueInput
+    create: XOR<branchesCreateWithoutStaffingTableItemsInput, branchesUncheckedCreateWithoutStaffingTableItemsInput>
+  }
+
+  export type departmentsCreateWithoutStaffingTableItemsInput = {
+    name?: string | null
+    status?: boolean
+    added_at?: Date | string
+    employmentOrders?: employment_ordersCreateNestedManyWithoutDepartmentInput
+    employees?: employeesCreateNestedManyWithoutDepartmentInput
+    branch: branchesCreateNestedOneWithoutDepartmentsInput
+    staffingPositions?: staffing_positionCreateNestedManyWithoutDepartmentInput
+  }
+
+  export type departmentsUncheckedCreateWithoutStaffingTableItemsInput = {
+    id?: number
+    name?: string | null
+    status?: boolean
+    branch_id: number
+    added_at?: Date | string
+    employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutDepartmentInput
+    employees?: employeesUncheckedCreateNestedManyWithoutDepartmentInput
+    staffingPositions?: staffing_positionUncheckedCreateNestedManyWithoutDepartmentInput
+  }
+
+  export type departmentsCreateOrConnectWithoutStaffingTableItemsInput = {
+    where: departmentsWhereUniqueInput
+    create: XOR<departmentsCreateWithoutStaffingTableItemsInput, departmentsUncheckedCreateWithoutStaffingTableItemsInput>
+  }
+
+  export type positionsCreateWithoutStaffingTableItemsInput = {
+    name: string
+    status?: boolean
+    added_at?: Date | string
+    employmentOrders?: employment_ordersCreateNestedManyWithoutPositionInput
+    employees?: employeesCreateNestedManyWithoutPositionInput
+    staffingPositions?: staffing_positionCreateNestedManyWithoutPositionInput
+  }
+
+  export type positionsUncheckedCreateWithoutStaffingTableItemsInput = {
+    id?: number
+    name: string
+    status?: boolean
+    added_at?: Date | string
+    employmentOrders?: employment_ordersUncheckedCreateNestedManyWithoutPositionInput
+    employees?: employeesUncheckedCreateNestedManyWithoutPositionInput
+    staffingPositions?: staffing_positionUncheckedCreateNestedManyWithoutPositionInput
+  }
+
+  export type positionsCreateOrConnectWithoutStaffingTableItemsInput = {
+    where: positionsWhereUniqueInput
+    create: XOR<positionsCreateWithoutStaffingTableItemsInput, positionsUncheckedCreateWithoutStaffingTableItemsInput>
+  }
+
+  export type staffing_tableUpsertWithoutItemsInput = {
+    update: XOR<staffing_tableUpdateWithoutItemsInput, staffing_tableUncheckedUpdateWithoutItemsInput>
+    create: XOR<staffing_tableCreateWithoutItemsInput, staffing_tableUncheckedCreateWithoutItemsInput>
+    where?: staffing_tableWhereInput
+  }
+
+  export type staffing_tableUpdateToOneWithWhereWithoutItemsInput = {
+    where?: staffing_tableWhereInput
+    data: XOR<staffing_tableUpdateWithoutItemsInput, staffing_tableUncheckedUpdateWithoutItemsInput>
+  }
+
+  export type staffing_tableUpdateWithoutItemsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    addedBy?: usersUpdateOneRequiredWithoutStaffingTablesNestedInput
+  }
+
+  export type staffing_tableUncheckedUpdateWithoutItemsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    added_by?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type branchesUpsertWithoutStaffingTableItemsInput = {
+    update: XOR<branchesUpdateWithoutStaffingTableItemsInput, branchesUncheckedUpdateWithoutStaffingTableItemsInput>
+    create: XOR<branchesCreateWithoutStaffingTableItemsInput, branchesUncheckedCreateWithoutStaffingTableItemsInput>
+    where?: branchesWhereInput
+  }
+
+  export type branchesUpdateToOneWithWhereWithoutStaffingTableItemsInput = {
+    where?: branchesWhereInput
+    data: XOR<branchesUpdateWithoutStaffingTableItemsInput, branchesUncheckedUpdateWithoutStaffingTableItemsInput>
+  }
+
+  export type branchesUpdateWithoutStaffingTableItemsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    bank_name?: NullableStringFieldUpdateOperationsInput | string | null
+    bank_account?: NullableStringFieldUpdateOperationsInput | string | null
+    inn?: NullableStringFieldUpdateOperationsInput | string | null
+    mfo?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    director?: employeesUpdateOneWithoutDirectedBranchesNestedInput
+    employmentOrders?: employment_ordersUpdateManyWithoutBranchNestedInput
+    employees?: employeesUpdateManyWithoutBranchNestedInput
+    gates?: gatesUpdateManyWithoutBranchNestedInput
+    vehiclePasses?: vehicle_passesUpdateManyWithoutBranchNestedInput
+    departments?: departmentsUpdateManyWithoutBranchNestedInput
+    doors?: doorsUpdateManyWithoutBranchNestedInput
+    addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
+  }
+
+  export type branchesUncheckedUpdateWithoutStaffingTableItemsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    director_id?: NullableIntFieldUpdateOperationsInput | number | null
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    bank_name?: NullableStringFieldUpdateOperationsInput | string | null
+    bank_account?: NullableStringFieldUpdateOperationsInput | string | null
+    inn?: NullableStringFieldUpdateOperationsInput | string | null
+    mfo?: NullableStringFieldUpdateOperationsInput | string | null
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    added_by?: IntFieldUpdateOperationsInput | number
+    employmentOrders?: employment_ordersUncheckedUpdateManyWithoutBranchNestedInput
+    employees?: employeesUncheckedUpdateManyWithoutBranchNestedInput
+    gates?: gatesUncheckedUpdateManyWithoutBranchNestedInput
+    vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
+    departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
+    doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
+  }
+
+  export type departmentsUpsertWithoutStaffingTableItemsInput = {
+    update: XOR<departmentsUpdateWithoutStaffingTableItemsInput, departmentsUncheckedUpdateWithoutStaffingTableItemsInput>
+    create: XOR<departmentsCreateWithoutStaffingTableItemsInput, departmentsUncheckedCreateWithoutStaffingTableItemsInput>
+    where?: departmentsWhereInput
+  }
+
+  export type departmentsUpdateToOneWithWhereWithoutStaffingTableItemsInput = {
+    where?: departmentsWhereInput
+    data: XOR<departmentsUpdateWithoutStaffingTableItemsInput, departmentsUncheckedUpdateWithoutStaffingTableItemsInput>
+  }
+
+  export type departmentsUpdateWithoutStaffingTableItemsInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employmentOrders?: employment_ordersUpdateManyWithoutDepartmentNestedInput
+    employees?: employeesUpdateManyWithoutDepartmentNestedInput
+    branch?: branchesUpdateOneRequiredWithoutDepartmentsNestedInput
+    staffingPositions?: staffing_positionUpdateManyWithoutDepartmentNestedInput
+  }
+
+  export type departmentsUncheckedUpdateWithoutStaffingTableItemsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    branch_id?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employmentOrders?: employment_ordersUncheckedUpdateManyWithoutDepartmentNestedInput
+    employees?: employeesUncheckedUpdateManyWithoutDepartmentNestedInput
+    staffingPositions?: staffing_positionUncheckedUpdateManyWithoutDepartmentNestedInput
+  }
+
+  export type positionsUpsertWithoutStaffingTableItemsInput = {
+    update: XOR<positionsUpdateWithoutStaffingTableItemsInput, positionsUncheckedUpdateWithoutStaffingTableItemsInput>
+    create: XOR<positionsCreateWithoutStaffingTableItemsInput, positionsUncheckedCreateWithoutStaffingTableItemsInput>
+    where?: positionsWhereInput
+  }
+
+  export type positionsUpdateToOneWithWhereWithoutStaffingTableItemsInput = {
+    where?: positionsWhereInput
+    data: XOR<positionsUpdateWithoutStaffingTableItemsInput, positionsUncheckedUpdateWithoutStaffingTableItemsInput>
+  }
+
+  export type positionsUpdateWithoutStaffingTableItemsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employmentOrders?: employment_ordersUpdateManyWithoutPositionNestedInput
+    employees?: employeesUpdateManyWithoutPositionNestedInput
+    staffingPositions?: staffing_positionUpdateManyWithoutPositionNestedInput
+  }
+
+  export type positionsUncheckedUpdateWithoutStaffingTableItemsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    employmentOrders?: employment_ordersUncheckedUpdateManyWithoutPositionNestedInput
+    employees?: employeesUncheckedUpdateManyWithoutPositionNestedInput
+    staffingPositions?: staffing_positionUncheckedUpdateManyWithoutPositionNestedInput
   }
 
   export type employment_ordersCreateManyBranchInput = {
@@ -55139,6 +59138,16 @@ export namespace Prisma {
     added_at?: Date | string
   }
 
+  export type staffing_table_itemsCreateManyBranchInput = {
+    id?: number
+    staffing_table_id: number
+    department_id?: number | null
+    position_id: number
+    headcount?: number
+    salary_type?: string | null
+    salary_amount?: Decimal | DecimalJsLike | number | string | null
+  }
+
   export type employment_ordersUpdateWithoutBranchInput = {
     type?: NullableStringFieldUpdateOperationsInput | string | null
     date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -55202,7 +59211,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
@@ -55238,7 +59246,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -55338,6 +59345,8 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employmentOrders?: employment_ordersUpdateManyWithoutDepartmentNestedInput
     employees?: employeesUpdateManyWithoutDepartmentNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutDepartmentNestedInput
+    staffingPositions?: staffing_positionUpdateManyWithoutDepartmentNestedInput
   }
 
   export type departmentsUncheckedUpdateWithoutBranchInput = {
@@ -55347,6 +59356,8 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutDepartmentNestedInput
     employees?: employeesUncheckedUpdateManyWithoutDepartmentNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutDepartmentNestedInput
+    staffingPositions?: staffing_positionUncheckedUpdateManyWithoutDepartmentNestedInput
   }
 
   export type departmentsUncheckedUpdateManyWithoutBranchInput = {
@@ -55365,7 +59376,6 @@ export namespace Prisma {
     employees?: employeesUpdateManyWithoutDoorsNestedInput
     faceDevices?: face_devicesUpdateManyWithoutDoorNestedInput
     facePasses?: face_passesUpdateManyWithoutDoorNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutDoorNestedInput
   }
 
   export type doorsUncheckedUpdateWithoutBranchInput = {
@@ -55378,7 +59388,6 @@ export namespace Prisma {
     employees?: employeesUncheckedUpdateManyWithoutDoorsNestedInput
     faceDevices?: face_devicesUncheckedUpdateManyWithoutDoorNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutDoorNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutDoorNestedInput
   }
 
   export type doorsUncheckedUpdateManyWithoutBranchInput = {
@@ -55388,6 +59397,35 @@ export namespace Prisma {
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type staffing_table_itemsUpdateWithoutBranchInput = {
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    staffingTable?: staffing_tableUpdateOneRequiredWithoutItemsNestedInput
+    department?: departmentsUpdateOneWithoutStaffingTableItemsNestedInput
+    position?: positionsUpdateOneRequiredWithoutStaffingTableItemsNestedInput
+  }
+
+  export type staffing_table_itemsUncheckedUpdateWithoutBranchInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    staffing_table_id?: IntFieldUpdateOperationsInput | number
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    position_id?: IntFieldUpdateOperationsInput | number
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_table_itemsUncheckedUpdateManyWithoutBranchInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    staffing_table_id?: IntFieldUpdateOperationsInput | number
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    position_id?: IntFieldUpdateOperationsInput | number
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
   }
 
   export type employment_ordersCreateManyDepartmentInput = {
@@ -55425,6 +59463,23 @@ export namespace Prisma {
     education_specialty?: string | null
     added_at?: Date | string
     updated_at?: Date | string
+  }
+
+  export type staffing_table_itemsCreateManyDepartmentInput = {
+    id?: number
+    staffing_table_id: number
+    branch_id: number
+    position_id: number
+    headcount?: number
+    salary_type?: string | null
+    salary_amount?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_positionCreateManyDepartmentInput = {
+    id?: number
+    position_id: number
+    headcount?: number
+    added_at?: Date | string
   }
 
   export type employment_ordersUpdateWithoutDepartmentInput = {
@@ -55490,7 +59545,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
@@ -55526,7 +59580,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -55556,6 +59609,55 @@ export namespace Prisma {
     education_specialty?: NullableStringFieldUpdateOperationsInput | string | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type staffing_table_itemsUpdateWithoutDepartmentInput = {
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    staffingTable?: staffing_tableUpdateOneRequiredWithoutItemsNestedInput
+    branch?: branchesUpdateOneRequiredWithoutStaffingTableItemsNestedInput
+    position?: positionsUpdateOneRequiredWithoutStaffingTableItemsNestedInput
+  }
+
+  export type staffing_table_itemsUncheckedUpdateWithoutDepartmentInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    staffing_table_id?: IntFieldUpdateOperationsInput | number
+    branch_id?: IntFieldUpdateOperationsInput | number
+    position_id?: IntFieldUpdateOperationsInput | number
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_table_itemsUncheckedUpdateManyWithoutDepartmentInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    staffing_table_id?: IntFieldUpdateOperationsInput | number
+    branch_id?: IntFieldUpdateOperationsInput | number
+    position_id?: IntFieldUpdateOperationsInput | number
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_positionUpdateWithoutDepartmentInput = {
+    headcount?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    position?: positionsUpdateOneRequiredWithoutStaffingPositionsNestedInput
+  }
+
+  export type staffing_positionUncheckedUpdateWithoutDepartmentInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    position_id?: IntFieldUpdateOperationsInput | number
+    headcount?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type staffing_positionUncheckedUpdateManyWithoutDepartmentInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    position_id?: IntFieldUpdateOperationsInput | number
+    headcount?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type employee_schedule_historyCreateManyEmployeeInput = {
@@ -55614,17 +59716,6 @@ export namespace Prisma {
     latitude?: number | null
     longitude?: number | null
     added_at?: Date | string
-  }
-
-  export type employee_door_tasksCreateManyEmployeeInput = {
-    id?: number
-    door_id: number
-    action: string
-    status?: string
-    retry_count?: number
-    error?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string | null
   }
 
   export type branchesCreateManyDirectorInput = {
@@ -55858,7 +59949,6 @@ export namespace Prisma {
     branch?: branchesUpdateOneWithoutDoorsNestedInput
     faceDevices?: face_devicesUpdateManyWithoutDoorNestedInput
     facePasses?: face_passesUpdateManyWithoutDoorNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutDoorNestedInput
   }
 
   export type doorsUncheckedUpdateWithoutEmployeesInput = {
@@ -55871,7 +59961,6 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     faceDevices?: face_devicesUncheckedUpdateManyWithoutDoorNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutDoorNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutDoorNestedInput
   }
 
   export type doorsUncheckedUpdateManyWithoutEmployeesInput = {
@@ -55882,38 +59971,6 @@ export namespace Prisma {
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type employee_door_tasksUpdateWithoutEmployeeInput = {
-    action?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    retry_count?: IntFieldUpdateOperationsInput | number
-    error?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    door?: doorsUpdateOneRequiredWithoutDoorTasksNestedInput
-  }
-
-  export type employee_door_tasksUncheckedUpdateWithoutEmployeeInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    door_id?: IntFieldUpdateOperationsInput | number
-    action?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    retry_count?: IntFieldUpdateOperationsInput | number
-    error?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type employee_door_tasksUncheckedUpdateManyWithoutEmployeeInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    door_id?: IntFieldUpdateOperationsInput | number
-    action?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    retry_count?: IntFieldUpdateOperationsInput | number
-    error?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type branchesUpdateWithoutDirectorInput = {
@@ -55933,6 +59990,7 @@ export namespace Prisma {
     departments?: departmentsUpdateManyWithoutBranchNestedInput
     doors?: doorsUpdateManyWithoutBranchNestedInput
     addedBy?: usersUpdateOneRequiredWithoutBranchesNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesUncheckedUpdateWithoutDirectorInput = {
@@ -55953,6 +60011,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
     doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesUncheckedUpdateManyWithoutDirectorInput = {
@@ -56123,6 +60182,23 @@ export namespace Prisma {
     updated_at?: Date | string
   }
 
+  export type staffing_table_itemsCreateManyPositionInput = {
+    id?: number
+    staffing_table_id: number
+    branch_id: number
+    department_id?: number | null
+    headcount?: number
+    salary_type?: string | null
+    salary_amount?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_positionCreateManyPositionInput = {
+    id?: number
+    department_id: number
+    headcount?: number
+    added_at?: Date | string
+  }
+
   export type employment_ordersUpdateWithoutPositionInput = {
     type?: NullableStringFieldUpdateOperationsInput | string | null
     date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -56186,7 +60262,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
@@ -56222,7 +60297,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -56252,6 +60326,55 @@ export namespace Prisma {
     education_specialty?: NullableStringFieldUpdateOperationsInput | string | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type staffing_table_itemsUpdateWithoutPositionInput = {
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    staffingTable?: staffing_tableUpdateOneRequiredWithoutItemsNestedInput
+    branch?: branchesUpdateOneRequiredWithoutStaffingTableItemsNestedInput
+    department?: departmentsUpdateOneWithoutStaffingTableItemsNestedInput
+  }
+
+  export type staffing_table_itemsUncheckedUpdateWithoutPositionInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    staffing_table_id?: IntFieldUpdateOperationsInput | number
+    branch_id?: IntFieldUpdateOperationsInput | number
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_table_itemsUncheckedUpdateManyWithoutPositionInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    staffing_table_id?: IntFieldUpdateOperationsInput | number
+    branch_id?: IntFieldUpdateOperationsInput | number
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_positionUpdateWithoutPositionInput = {
+    headcount?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    department?: departmentsUpdateOneRequiredWithoutStaffingPositionsNestedInput
+  }
+
+  export type staffing_positionUncheckedUpdateWithoutPositionInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    headcount?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type staffing_positionUncheckedUpdateManyWithoutPositionInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    headcount?: IntFieldUpdateOperationsInput | number
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type user_menu_accessCreateManyUserInput = {
@@ -56355,6 +60478,15 @@ export namespace Prisma {
     added_at?: Date | string
   }
 
+  export type staffing_tableCreateManyAddedByInput = {
+    id?: number
+    name: string
+    date_from: Date | string
+    date_to?: Date | string | null
+    status?: boolean
+    added_at?: Date | string
+  }
+
   export type user_menu_accessUpdateWithoutUserInput = {
     can_view?: BoolFieldUpdateOperationsInput | boolean
     can_add?: BoolFieldUpdateOperationsInput | boolean
@@ -56448,6 +60580,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesUpdateManyWithoutBranchNestedInput
     departments?: departmentsUpdateManyWithoutBranchNestedInput
     doors?: doorsUpdateManyWithoutBranchNestedInput
+    staffingTableItems?: staffing_table_itemsUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesUncheckedUpdateWithoutAddedByInput = {
@@ -56468,6 +60601,7 @@ export namespace Prisma {
     vehiclePasses?: vehicle_passesUncheckedUpdateManyWithoutBranchNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutBranchNestedInput
     doors?: doorsUncheckedUpdateManyWithoutBranchNestedInput
+    staffingTableItems?: staffing_table_itemsUncheckedUpdateManyWithoutBranchNestedInput
   }
 
   export type branchesUncheckedUpdateManyWithoutAddedByInput = {
@@ -56665,6 +60799,34 @@ export namespace Prisma {
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type staffing_tableUpdateWithoutAddedByInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    items?: staffing_table_itemsUpdateManyWithoutStaffingTableNestedInput
+  }
+
+  export type staffing_tableUncheckedUpdateWithoutAddedByInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    items?: staffing_table_itemsUncheckedUpdateManyWithoutStaffingTableNestedInput
+  }
+
+  export type staffing_tableUncheckedUpdateManyWithoutAddedByInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    date_from?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type menusCreateManyParentInput = {
     id?: number
     name: string
@@ -56793,7 +60955,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
@@ -56829,7 +60990,6 @@ export namespace Prisma {
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
     doors?: doorsUncheckedUpdateManyWithoutEmployeesNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -56915,17 +61075,6 @@ export namespace Prisma {
     added_at?: Date | string
   }
 
-  export type employee_door_tasksCreateManyDoorInput = {
-    id?: number
-    employee_id: number
-    action: string
-    status?: string
-    retry_count?: number
-    error?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string | null
-  }
-
   export type employeesUpdateWithoutDoorsInput = {
     employee_number?: NullableStringFieldUpdateOperationsInput | string | null
     last_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56954,7 +61103,6 @@ export namespace Prisma {
     employmentOrders?: employment_ordersUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUpdateManyWithoutEmployeeNestedInput
-    doorTasks?: employee_door_tasksUpdateManyWithoutEmployeeNestedInput
     user?: usersUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUpdateManyWithoutEmployeeNestedInput
@@ -56990,7 +61138,6 @@ export namespace Prisma {
     employmentOrders?: employment_ordersUncheckedUpdateManyWithoutEmployeeNestedInput
     employeeTimeOffs?: time_offUncheckedUpdateManyWithoutEmployeeNestedInput
     facePasses?: face_passesUncheckedUpdateManyWithoutEmployeeNestedInput
-    doorTasks?: employee_door_tasksUncheckedUpdateManyWithoutEmployeeNestedInput
     user?: usersUncheckedUpdateOneWithoutEmployeeNestedInput
     directedBranches?: branchesUncheckedUpdateManyWithoutDirectorNestedInput
     payrollSheetItems?: payroll_sheet_itemsUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -57105,38 +61252,6 @@ export namespace Prisma {
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type employee_door_tasksUpdateWithoutDoorInput = {
-    action?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    retry_count?: IntFieldUpdateOperationsInput | number
-    error?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    employee?: employeesUpdateOneRequiredWithoutDoorTasksNestedInput
-  }
-
-  export type employee_door_tasksUncheckedUpdateWithoutDoorInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    employee_id?: IntFieldUpdateOperationsInput | number
-    action?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    retry_count?: IntFieldUpdateOperationsInput | number
-    error?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type employee_door_tasksUncheckedUpdateManyWithoutDoorInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    employee_id?: IntFieldUpdateOperationsInput | number
-    action?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    retry_count?: IntFieldUpdateOperationsInput | number
-    error?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type face_passesCreateManyFaceDeviceInput = {
@@ -57487,6 +61602,45 @@ export namespace Prisma {
     payment_date?: DateTimeFieldUpdateOperationsInput | Date | string
     note?: NullableStringFieldUpdateOperationsInput | string | null
     added_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type staffing_table_itemsCreateManyStaffingTableInput = {
+    id?: number
+    branch_id: number
+    department_id?: number | null
+    position_id: number
+    headcount?: number
+    salary_type?: string | null
+    salary_amount?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_table_itemsUpdateWithoutStaffingTableInput = {
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    branch?: branchesUpdateOneRequiredWithoutStaffingTableItemsNestedInput
+    department?: departmentsUpdateOneWithoutStaffingTableItemsNestedInput
+    position?: positionsUpdateOneRequiredWithoutStaffingTableItemsNestedInput
+  }
+
+  export type staffing_table_itemsUncheckedUpdateWithoutStaffingTableInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    branch_id?: IntFieldUpdateOperationsInput | number
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    position_id?: IntFieldUpdateOperationsInput | number
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type staffing_table_itemsUncheckedUpdateManyWithoutStaffingTableInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    branch_id?: IntFieldUpdateOperationsInput | number
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    position_id?: IntFieldUpdateOperationsInput | number
+    headcount?: IntFieldUpdateOperationsInput | number
+    salary_type?: NullableStringFieldUpdateOperationsInput | string | null
+    salary_amount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
   }
 
 

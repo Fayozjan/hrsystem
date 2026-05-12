@@ -3,8 +3,12 @@ import { config } from "./config.js";
 import { disconnectAll } from "./utils/prismaForTenant.js";
 import pool from "./db.js";
 
-import { events_checker } from "./utils/hikEventChecker.js";
+import {
+  events_checker_per_tenant,
+  scheduleEventsChecker,
+} from "./utils/hikEventChecker.js";
 import { startNotificationsWorker } from "./workers/notificationsWorker.js";
+import { startDoorTasksWorker } from "./workers/doorTasksWorker.js";
 
 process.on("uncaughtException", (err) => {
   console.error("Uncaught exception:", err);
@@ -25,6 +29,8 @@ process.on("SIGINT", shutdown);
 
 app.listen(config.port, "0.0.0.0", () => {
   console.log(`Server running on port ${config.port}`);
+  // startDoorTasksWorker();
   // startNotificationsWorker();
-  // events_checker(-7);
+  // scheduleEventsChecker();
+  // events_checker_per_tenant(-1);
 });

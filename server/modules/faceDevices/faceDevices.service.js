@@ -97,7 +97,7 @@ export const FaceDevicesService = {
     });
   },
 
-  syncEmployee: async (id) => {
+  syncEmployee: async (id, { removedDoorIds = [] } = {}) => {
     const employee = await EmployeeService.getById(id, { includeDoors: true });
 
     if (!employee) throw new Error("Сотрудник не найден");
@@ -183,5 +183,45 @@ export const FaceDevicesService = {
         }
       }),
     );
+
+    // Сценарий 3: Удаление с устройств убранных дверей
+    if (removedDoorIds.length > 0) {
+      const removedDevices = await FaceDeviceModel.findByDoorIds(removedDoorIds);
+
+      await Promise.allSettled(
+        removedDevices.map(async (device) => {
+          if (device.is_local) {
+            try {
+              await retry(
+                async () => {
+                  await FaceDeviceClient.deleteUser(device.device_ip, id);
+                },
+                {
+                  retries: 3,
+                  delay: 10000,
+                  onError: (err, attempt) => {
+                    console.error(
+                      `FaceDevice ${device.device_ip} (удаление), попытка ${attempt}:`,
+                      err.message,
+                    );
+                  },
+                },
+              );
+            } catch (error) {
+              console.error(
+                `Не удалось удалить пользователя с устройства ${device.device_ip}:`,
+                error.message,
+              );
+            }
+          } else {
+            await EmployeeDoorTasksService.addTask(
+              employee.id,
+              device.door_id,
+              "delete",
+            );
+          }
+        }),
+      );
+    }
   },
 };

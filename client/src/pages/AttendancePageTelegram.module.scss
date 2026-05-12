@@ -3,7 +3,7 @@
   height: 100dvh;
   width: 100%;
   overflow: hidden;
-  background: rgba(18, 18, 18, 0.9);
+  background: var(--tg-bg);
 }
 
 .header {
@@ -17,18 +17,16 @@
   );
   z-index: 200;
   pointer-events: none;
-  background: rgba(18, 18, 18, 0.9);
+  background: var(--tg-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  transition:
-    background 0.25s ease,
-    backdrop-filter 0.25s ease;
+  transition: background 0.25s ease, backdrop-filter 0.25s ease;
 }
 
 .main {
   width: 100%;
   height: 100%;
-  background: rgba(18, 18, 18, 0.9);
+  background: var(--tg-bg);
   overflow-y: auto;
   overscroll-behavior-y: contain;
   -webkit-overflow-scrolling: touch;
@@ -48,7 +46,7 @@
         var(--tg-content-safe-area-inset-top, 0px)
     )
     8px 8px;
-  background: rgba(18, 18, 18, 0.9);
+  background: var(--tg-bg);
 }
 
 .searchBox {
@@ -56,8 +54,8 @@
   display: flex;
   align-items: center;
   gap: 7px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  background: var(--tg-surface);
+  border: 0.5px solid var(--tg-separator);
   border-radius: 10px;
   padding: 0 10px;
   height: 36px;
@@ -67,7 +65,7 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  color: #d6d6d6;
+  color: var(--text-secondary);
 
   svg {
     width: 15px;
@@ -81,11 +79,11 @@
   background: transparent;
   outline: none;
   font-size: 14px;
-  color: var(--tg-theme-text-color, #f3f1f1);
+  color: var(--text-color);
   min-width: 0;
 
   &::placeholder {
-    color: #6b6b70;
+    color: var(--placeholder-color);
   }
 }
 
@@ -96,7 +94,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  color: #8e8e93;
+  color: var(--text-secondary);
 
   svg {
     width: 14px;
@@ -110,8 +108,8 @@
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  border: 0.5px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.08);
+  border: 0.5px solid var(--tg-separator);
+  background: var(--tg-surface);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -119,13 +117,13 @@
   transition: background 0.15s;
 
   svg {
-    color: #d6d6d6;
+    color: var(--text-secondary);
     width: 18px;
     height: 18px;
   }
 
   &:active {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--tg-hover);
   }
 }
 
@@ -142,7 +140,7 @@
   height: 7px;
   background: #ff3b30;
   border-radius: 50%;
-  border: 1px solid rgba(18, 18, 18, 0.96);
+  border: 1px solid var(--bg-color);
 }
 
 .chipsRow {
@@ -158,7 +156,7 @@
   flex-wrap: nowrap;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  background: rgba(18, 18, 18, 0.9);
+  background: var(--tg-bg);
 }
 
 .chip {
@@ -169,7 +167,7 @@
   padding: 0 11px;
   border-radius: 20px;
   border: 1px solid var(--chip-border);
-  background-color: rgba(255, 255, 255, 0.06);
+  background-color: var(--tg-surface);
   color: var(--chip-color);
   font-size: 12px;
   font-weight: 500;
@@ -207,22 +205,20 @@
   height: 16px;
   padding: 0 4px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--tg-separator);
   color: var(--chip-color);
   font-size: 10px;
   font-weight: 700;
   line-height: 1;
-  transition:
-    background 0.18s ease,
-    color 0.18s ease;
+  transition: background 0.18s ease, color 0.18s ease;
 }
 
 .filterPage {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: rgba(18, 18, 18, 0.9);
-  color: #bbb;
+  background: var(--tg-bg);
+  color: var(--text-color);
 
   .filterHeader {
     display: flex;
@@ -237,6 +233,7 @@
   .filterTitle {
     font-size: 16px;
     font-weight: 600;
+    color: var(--text-color);
   }
 
   .filterBody {
@@ -258,6 +255,7 @@
   .fieldLabel {
     font-size: 14px;
     font-weight: 600;
+    color: var(--text-secondary);
     padding-left: 2px;
   }
 
@@ -266,15 +264,14 @@
     width: 100%;
     padding: 0 8px;
     border-radius: 8px;
-    border: 1px solid rgba(162, 161, 168, 0.4);
+    border: 1px solid var(--border-color);
     font-size: 13px;
     font-weight: 500;
     box-sizing: border-box;
     cursor: pointer;
     transition: border-color 0.2s;
-    background: #2e2e2e;
-    color: white;
-
+    background: var(--input-bg);
+    color: var(--text-color);
     appearance: none;
     -webkit-appearance: none;
 
@@ -288,12 +285,12 @@
     height: 38px;
     width: 100%;
     padding: 0 8px;
-    background: #2e2e2e;
+    background: var(--input-bg);
     border-radius: 8px;
-    border: 1px solid rgba(162, 161, 168, 0.4);
+    border: 1px solid var(--border-color);
     font-size: 13px;
     font-weight: 500;
-    color: white;
+    color: var(--text-color);
   }
 
   .resetBtn {
@@ -308,7 +305,7 @@
     text-align: center;
 
     &:active {
-      background: rgba(0, 0, 0, 0.05);
+      background: var(--tg-hover);
     }
   }
 
@@ -394,10 +391,11 @@
   overflow-x: auto;
   flex-wrap: nowrap;
   scrollbar-width: none;
-  background: rgba(18, 18, 18, 0.9);
+  background: var(--tg-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   -webkit-overflow-scrolling: touch;
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -414,9 +412,9 @@
   height: 24px;
   padding: 0 8px 0 9px;
   border-radius: 20px;
-  border: 1px solid var(--tag-border, rgba(255, 255, 255, 0.15));
-  background: var(--tag-bg, rgba(255, 255, 255, 0.07));
-  color: var(--tag-color, #ccc);
+  border: 1px solid var(--tag-border, var(--border-color));
+  background: var(--tag-bg, var(--tg-surface));
+  color: var(--tag-color, var(--text-secondary));
   font-size: 11px;
   font-weight: 500;
   white-space: nowrap;
@@ -447,7 +445,6 @@
     svg {
       width: 10px;
       height: 10px;
-      color: var(--tag-color, #ccc);
     }
   }
 }

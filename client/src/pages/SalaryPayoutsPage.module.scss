@@ -1,4 +1,4 @@
-.page {
+﻿.page {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -8,7 +8,7 @@
 
   .main {
     padding: 2px;
-    background-color: white;
+    background-color: var(--card-bg);
     display: flex;
     flex-direction: column;
     border-radius: 4px;
@@ -26,8 +26,8 @@
     }
 
     .statWidget {
-      background: white;
-      border: 1px solid #e2e8f0;
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
       border-radius: 8px;
       padding: 8px 11px;
       display: flex;
@@ -66,7 +66,7 @@
 
     .statWidgetLabel {
       font-size: 12px;
-      color: #64748b;
+      color: var(--text-secondary);
       font-weight: 500;
       white-space: nowrap;
       overflow: hidden;
@@ -84,12 +84,12 @@
     .statWidgetSub {
       font-size: 11px;
       font-weight: 500;
-      color: #94a3b8;
+      color: var(--placeholder-color);
     }
 
     .statWidgetProgressTrack {
       height: 3px;
-      background: #f1f5f9;
+      background: var(--bg-light);
       border-radius: 2px;
       overflow: hidden;
     }
@@ -125,7 +125,7 @@
         font-size: var(--font-small);
         font-family: inherit;
         cursor: pointer;
-        background: white;
+        background: var(--card-bg);
         transition: border-color 0.2s;
 
         &:focus,
@@ -185,10 +185,10 @@
         .recalcBtn {
           height: 32px;
           padding: 0 12px;
-          border: 1px solid #e2e8f0;
+          border: 1px solid var(--border-subtle);
           border-radius: 4px;
-          background: white;
-          color: #64748b;
+          background: var(--card-bg);
+          color: var(--text-secondary);
           font-size: var(--font-small);
           font-family: inherit;
           font-weight: 500;
@@ -196,7 +196,7 @@
           transition: all 0.15s;
           white-space: nowrap;
 
-          &:hover:not(:disabled) { border-color: #94a3b8; color: #1e293b; }
+          &:hover:not(:disabled) { border-color: var(--placeholder-color); color: var(--text-color); }
           &:disabled { opacity: 0.45; cursor: not-allowed; }
         }
 
@@ -243,7 +243,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #94a3b8;
+      color: var(--placeholder-color);
       font-style: italic;
       font-size: 14px;
     }

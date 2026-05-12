@@ -1,4 +1,4 @@
-.overlay {
+﻿.overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
@@ -9,7 +9,7 @@
 }
 
 .add_order {
-  background: #fff;
+  background: var(--card-bg);
   width: 900px;
   max-height: 90vh;
   overflow-y: auto;
@@ -40,12 +40,12 @@
   right: 15px;
   width: 24px;
   height: 24px;
-  color: #999;
+  color: var(--placeholder-color);
   cursor: pointer;
   transition: 0.2s;
 
   &:hover {
-    color: #000;
+    color: var(--text-color);
     transform: scale(1.1);
   }
 }
@@ -68,7 +68,7 @@
 
   label {
     font-size: 14px;
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 5px;
     font-weight: 500;
   }
@@ -79,7 +79,7 @@
     padding: 8px 10px;
     font-size: 14px;
     border-radius: 6px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     width: 100%;
     transition: 0.2s;
 
@@ -91,7 +91,7 @@
 
     &[readOnly] {
       background: #f7f7f7;
-      color: #555;
+      color: var(--text-secondary);
     }
   }
 

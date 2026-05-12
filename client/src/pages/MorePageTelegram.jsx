@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import styles from "./MorePageTelegram.module.scss";
-import { getUserMenu } from "../api";
+import { getUserMenu, updateProfile } from "../api";
 import { useOpenEmployeesPage } from "../hooks/useOpenEmployeesPage";
 import { t } from "i18next";
 import { useOpenFacePassesPage } from "../hooks/useOpenFacePassesPage";
 import { useOpenVehiclePassesPage } from "../hooks/useOpenVehiclePassesPage";
 import { useOpenAttendancePage } from "../hooks/useOpenAttendancePage";
+import { useAuthStore } from "../stores/authStore";
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
 
@@ -144,6 +145,9 @@ function ListItem({ item, onPress }) {
 
 function MorePageTelegram() {
   const [menuData, setMenuData] = useState([]);
+  const { userSettings, setUserSettings } = useAuthStore();
+  const { theme, language } = userSettings;
+
   const openEmployeesPage = useOpenEmployeesPage();
   const openAttendancePage = useOpenAttendancePage();
   const openFacePassesPage = useOpenFacePassesPage();
@@ -168,20 +172,34 @@ function MorePageTelegram() {
     fetchUserMenu();
   }, []);
 
+  const handleThemeChange = async (value) => {
+    setUserSettings({ theme: value });
+    try {
+      await updateProfile({ theme: value });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const handleLanguageChange = async (value) => {
+    setUserSettings({ language: value });
+    try {
+      await updateProfile({ language: value });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   const items = useMemo(() => buildMenuItems(menuData), [menuData]);
   const visibleItems = items.filter((i) => i.permission.view);
 
   return (
     <div className={styles.page}>
-      <div className={styles.header}>
-        <h1 className={styles.headerTitle}>{t("more")}</h1>
-      </div>
-
       <div className={styles.main}>
-        {visibleItems.length === 0 ? (
-          <p className={styles.empty}>{t("noAccessibleSections")}</p>
-        ) : (
-          <div className={styles.cardList}>
+        <div className={styles.cardList}>
+          {visibleItems.length === 0 ? (
+            <p className={styles.empty}>{t("noAccessibleSections")}</p>
+          ) : (
             <div className={styles.list}>
               {visibleItems.map((item) => (
                 <ListItem
@@ -191,8 +209,45 @@ function MorePageTelegram() {
                 />
               ))}
             </div>
+          )}
+        </div>
+
+        <div className={styles.settingsSection}>
+          <p className={styles.sectionTitle}>{t("settings")}</p>
+          <div className={styles.settingsCard}>
+            <div className={styles.settingsRow}>
+              <span className={styles.settingsLabel}>{t("theme")}</span>
+              <div className={styles.themePills}>
+                <button
+                  className={`${styles.pill} ${theme === "light" ? styles.pillActive : ""}`}
+                  onClick={() => handleThemeChange("light")}
+                >
+                  {t("themeLight")}
+                </button>
+                <button
+                  className={`${styles.pill} ${theme === "dark" ? styles.pillActive : ""}`}
+                  onClick={() => handleThemeChange("dark")}
+                >
+                  {t("themeDark")}
+                </button>
+              </div>
+            </div>
+
+            <div className={styles.settingsRow}>
+              <span className={styles.settingsLabel}>{t("language")}</span>
+              <select
+                value={language}
+                onChange={(e) => handleLanguageChange(e.target.value)}
+                className={styles.languageSelect}
+              >
+                <option value="ru">{t("languageRussian")}</option>
+                <option value="uzCyrl">{t("languageUzbekCyrl")}</option>
+                <option value="uzLatn">{t("languageUzbekLatn")}</option>
+                <option value="en">{t("languageEnglish")}</option>
+              </select>
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

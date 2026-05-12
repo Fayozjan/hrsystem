@@ -9,7 +9,7 @@
 
   .main {
     padding: 2px;
-    background-color: white;
+    background-color: var(--card-bg);
     display: flex;
     flex-direction: column;
     border-radius: 4px;
@@ -25,8 +25,8 @@
     }
 
     .statWidget {
-      background: white;
-      border: 1px solid #e2e8f0;
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
       border-radius: 8px;
       padding: 8px 11px;
       display: flex;
@@ -67,7 +67,7 @@
 
     .statWidgetLabel {
       font-size: 12px;
-      color: #64748b;
+      color: var(--text-secondary);
       font-weight: 500;
       white-space: nowrap;
       overflow: hidden;
@@ -84,7 +84,7 @@
     .statWidgetSub {
       font-size: 12px;
       font-weight: 500;
-      color: #94a3b8;
+      color: var(--placeholder-color);
     }
 
     .typeBar {
@@ -118,7 +118,7 @@
     .typeSegmentName {
       font-size: 10px;
       font-weight: 500;
-      color: #64748b;
+      color: var(--text-secondary);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -134,12 +134,12 @@
     .typeSegmentPct {
       font-size: 10px;
       font-weight: 500;
-      color: #94a3b8;
+      color: var(--placeholder-color);
     }
 
     .statWidgetProgressTrack {
       height: 3px;
-      background: #f1f5f9;
+      background: var(--bg-light);
       border-radius: 2px;
       overflow: hidden;
     }
@@ -228,7 +228,7 @@
           border: 1px solid rgba(162, 161, 168, 0.4);
           cursor: pointer;
           box-sizing: border-box;
-          background-color: white;
+          background-color: var(--card-bg);
           user-select: none;
 
           svg {

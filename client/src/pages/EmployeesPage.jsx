@@ -34,6 +34,7 @@ import AddEmploymentOrder from "../components/AddEmploymentOrder";
 import EmployeeWorkSchedulesHistory from "../components/EmployeeWorkSchedulesHistory";
 import EmployeeSalaryHistory from "../components/EmployeeSalaryHistory";
 
+import Search from "../components/Search";
 import styles from "./EmployeesPage.module.scss";
 import { Icons } from "../icons/icons";
 import { useAuthStore } from "../stores/authStore";
@@ -103,53 +104,76 @@ const StatWidget = ({
   </div>
 );
 
+const spreadPositions = (centers, minGap = 20) => {
+  const pos = [...centers];
+  const n = pos.length;
+  for (let i = 1; i < n; i++) {
+    if (pos[i] < pos[i - 1] + minGap) pos[i] = pos[i - 1] + minGap;
+  }
+  if (pos[n - 1] > 95) {
+    const shift = pos[n - 1] - 95;
+    for (let i = 0; i < n; i++) pos[i] -= shift;
+  }
+  for (let i = n - 2; i >= 0; i--) {
+    if (pos[i] > pos[i + 1] - minGap) pos[i] = pos[i + 1] - minGap;
+  }
+  return pos.map((p) => Math.min(95, Math.max(5, p)));
+};
+
 const GenderWidget = ({ gender, total, t }) => {
   const rows = [
-    { key: "male", color: "#3b82f6", label: t("male"), count: gender.male },
-    {
-      key: "female",
-      color: "#ec4899",
-      label: t("female"),
-      count: gender.female,
-    },
-    {
-      key: "unspecified",
-      color: "#94a3b8",
-      label: t("notSpecified"),
-      count: gender.unspecified,
-    },
+    { key: "male", color: "#3b82f6", count: gender.male },
+    { key: "female", color: "#ec4899", count: gender.female },
+    { key: "unspecified", color: "#94a3b8", count: gender.unspecified },
   ].filter((r) => r.count > 0);
 
   if (!rows.length) return null;
 
+  let cum = 0;
+  const positioned = rows.map((r) => {
+    const pct = (r.count / total) * 100;
+    const center = cum + pct / 2;
+    cum += pct;
+    return { ...r, pct, center };
+  });
+
+  const spreadCenters = spreadPositions(positioned.map((r) => r.center));
+
   return (
     <div className={styles.statWidget}>
       <span className={styles.statWidgetLabel}>{t("statsGender")}</span>
+
+      <div className={styles.typeLabelsRow}>
+        {positioned.map((r, i) => (
+          <span
+            key={r.key}
+            className={styles.typeLabelCount}
+            style={{ left: `${spreadCenters[i]}%`, color: r.color }}
+          >
+            {r.count}
+          </span>
+        ))}
+      </div>
+
       <div className={styles.typeBar}>
-        {rows.map((r) => (
+        {positioned.map((r) => (
           <div
             key={r.key}
             className={styles.typeBarSegment}
-            style={{
-              width: `${(r.count / total) * 100}%`,
-              background: r.color,
-            }}
+            style={{ width: `${r.pct}%`, background: r.color }}
           />
         ))}
       </div>
-      <div className={styles.typeSegmentLabels}>
-        {rows.map((r) => (
-          <div
+
+      <div className={styles.typeLabelsRow}>
+        {positioned.map((r, i) => (
+          <span
             key={r.key}
-            className={styles.typeSegmentLabel}
-            style={{ width: `${(r.count / total) * 100}%`, color: r.color }}
+            className={styles.typeLabelPct}
+            style={{ left: `${spreadCenters[i]}%`, color: r.color }}
           >
-            <span className={styles.typeSegmentName}>{r.label}</span>
-            <span className={styles.typeSegmentCount}>{r.count}</span>
-            <span className={styles.typeSegmentPct}>
-              {Math.round((r.count / total) * 100)}%
-            </span>
-          </div>
+            {Math.round(r.pct)}%
+          </span>
         ))}
       </div>
     </div>
@@ -208,18 +232,29 @@ const BirthdayModal = ({ list, onClose, t }) => {
                     <td className={styles.bdColNum}>{idx + 1}</td>
                     <td className={styles.bdColName}>
                       <div className={styles.empCell}>
-                        {emp.photo && (
-                          <img
-                            src={`/api/employees/image/${emp.photo}`}
-                            alt="employee"
-                            className={
-                              emp.status ? styles.active : styles.terminated
-                            }
-                          />
-                        )}
+                        <div className={`${styles.empAvatar} ${emp.status === false ? styles.inactive : ""}`}>
+                          {emp.photo ? (
+                            <img
+                              src={`/api/employees/image/${emp.photo}`}
+                              alt="employee"
+                              className={styles.empPhoto}
+                            />
+                          ) : (
+                            <div className={`${styles.empInitials} ${emp.status === false ? styles.inactiveInitials : ""}`}>
+                              {(emp.full_name || "")
+                                .split(" ")
+                                .filter(Boolean)
+                                .slice(0, 2)
+                                .map((w) => w[0])
+                                .join("")
+                                .toUpperCase()}
+                            </div>
+                          )}
+                        </div>
                         <div className={styles.empInfo}>
                           <span className={styles.empName}>
-                            {emp.full_name} ({emp.id})
+                            {(emp.full_name || "").replace(/\s+\(?\d+\)?$/, "")}
+                            <span className={styles.empId}> ({emp.id})</span>
                           </span>
                           <span className={styles.empSub}>
                             {[emp.branch, emp.department]
@@ -273,9 +308,10 @@ const EmployeesPage = () => {
     department_id: "",
     employee_id: "",
     position_id: "",
-    status: "",
+    status: "true",
     gender: "",
   });
+
 
   const fetchEmployees = async (
     page = 1,
@@ -324,8 +360,8 @@ const EmployeesPage = () => {
     updateEmployeeDataRef.current = fn;
   };
 
-  const handleSearch = () => {
-    fetchEmployees(1, { ...formData }, pageSize);
+  const handleSearch = (data = formData) => {
+    fetchEmployees(1, { ...data }, pageSize);
   };
 
   const handleSortApply = (sort_by, sort_order) => {
@@ -468,39 +504,7 @@ const EmployeesPage = () => {
 
           <div className={styles.mainHeader}>
             <div className={styles.filterWrapper}>
-              <div className={styles.searchInput}>
-                <span onClick={handleSearch}>{Icons.search}</span>
-                <input
-                  type="text"
-                  placeholder={t("search")}
-                  value={formData.search || ""}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      search: e.target.value,
-                    }))
-                  }
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      handleSearch();
-                    }
-                  }}
-                />
-
-                {formData.search && (
-                  <span
-                    className={styles.clearBtn}
-                    onClick={() => {
-                      setFormData((prev) => ({
-                        ...prev,
-                        search: "",
-                      }));
-                    }}
-                  >
-                    {Icons.clear}
-                  </span>
-                )}
-              </div>
+              <Search formData={formData} setFormData={setFormData} onSearch={handleSearch} />
 
               <EmployeeFilter
                 formData={formData}

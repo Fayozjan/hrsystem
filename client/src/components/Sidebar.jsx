@@ -25,28 +25,16 @@ const Sidebar = ({ menuData }) => {
 
   const toggleSidebar = () => setSidebarState(!isOpen);
 
-  const toggleItem = useCallback(
-    (id) => {
-      setOpenItems((prev) => {
+  const toggleItem = useCallback((id) => {
+    setOpenItems((prev) => {
+      if (prev[id]) {
         const newState = { ...prev };
-        if (newState[id]) {
-          delete newState[id];
-        } else {
-          // Ограничение: не более 2-х открытых разделов верхнего уровня
-          const topLevelOpenIds = Object.keys(newState).filter((key) =>
-            menuData.some((item) => item.id === key),
-          );
-
-          if (topLevelOpenIds.length >= 2) {
-            delete newState[topLevelOpenIds[0]];
-          }
-          newState[id] = true;
-        }
+        delete newState[id];
         return newState;
-      });
-    },
-    [menuData],
-  );
+      }
+      return { [id]: true };
+    });
+  }, []);
 
   useEffect(() => {
     const newOpenItems = {};

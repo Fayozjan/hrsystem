@@ -15,7 +15,7 @@ const signTokens = (userId, username) => {
 };
 
 export const AuthService = {
-  login: async (username, password, language) => {
+  login: async (username, password, language, theme) => {
     const user = await AuthModel.findUserByUsername(username);
 
     if (!user) {
@@ -42,6 +42,12 @@ export const AuthService = {
       user.language = (
         await AuthModel.updateUserLanguage(user.id, language)
       ).language;
+    }
+
+    if (theme && theme !== user.theme) {
+      user.theme = (
+        await AuthModel.updateUserTheme(user.id, theme)
+      ).theme;
     }
 
     const refreshToken = jwt.sign({ id: user.id }, process.env.REFRESH_SECRET, {

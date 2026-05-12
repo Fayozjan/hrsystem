@@ -19,6 +19,11 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type tenants = $Result.DefaultSelection<Prisma.$tenantsPayload>
 /**
+ * Model employee_door_tasks
+ * 
+ */
+export type employee_door_tasks = $Result.DefaultSelection<Prisma.$employee_door_tasksPayload>
+/**
  * Model tenant_telegram_users
  * 
  */
@@ -173,6 +178,16 @@ export class PrismaClient<
     * ```
     */
   get tenants(): Prisma.tenantsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.employee_door_tasks`: Exposes CRUD operations for the **employee_door_tasks** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Employee_door_tasks
+    * const employee_door_tasks = await prisma.employee_door_tasks.findMany()
+    * ```
+    */
+  get employee_door_tasks(): Prisma.employee_door_tasksDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.tenant_telegram_users`: Exposes CRUD operations for the **tenant_telegram_users** model.
@@ -634,6 +649,7 @@ export namespace Prisma {
 
   export const ModelName: {
     tenants: 'tenants',
+    employee_door_tasks: 'employee_door_tasks',
     tenant_telegram_users: 'tenant_telegram_users',
     notifications_outbox: 'notifications_outbox'
   };
@@ -654,7 +670,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "tenants" | "tenant_telegram_users" | "notifications_outbox"
+      modelProps: "tenants" | "employee_door_tasks" | "tenant_telegram_users" | "notifications_outbox"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -729,6 +745,80 @@ export namespace Prisma {
           count: {
             args: Prisma.tenantsCountArgs<ExtArgs>
             result: $Utils.Optional<TenantsCountAggregateOutputType> | number
+          }
+        }
+      }
+      employee_door_tasks: {
+        payload: Prisma.$employee_door_tasksPayload<ExtArgs>
+        fields: Prisma.employee_door_tasksFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.employee_door_tasksFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.employee_door_tasksFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>
+          }
+          findFirst: {
+            args: Prisma.employee_door_tasksFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.employee_door_tasksFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>
+          }
+          findMany: {
+            args: Prisma.employee_door_tasksFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>[]
+          }
+          create: {
+            args: Prisma.employee_door_tasksCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>
+          }
+          createMany: {
+            args: Prisma.employee_door_tasksCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.employee_door_tasksCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>[]
+          }
+          delete: {
+            args: Prisma.employee_door_tasksDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>
+          }
+          update: {
+            args: Prisma.employee_door_tasksUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>
+          }
+          deleteMany: {
+            args: Prisma.employee_door_tasksDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.employee_door_tasksUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.employee_door_tasksUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>[]
+          }
+          upsert: {
+            args: Prisma.employee_door_tasksUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$employee_door_tasksPayload>
+          }
+          aggregate: {
+            args: Prisma.Employee_door_tasksAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmployee_door_tasks>
+          }
+          groupBy: {
+            args: Prisma.employee_door_tasksGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Employee_door_tasksGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.employee_door_tasksCountArgs<ExtArgs>
+            result: $Utils.Optional<Employee_door_tasksCountAggregateOutputType> | number
           }
         }
       }
@@ -973,6 +1063,7 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     tenants?: tenantsOmit
+    employee_door_tasks?: employee_door_tasksOmit
     tenant_telegram_users?: tenant_telegram_usersOmit
     notifications_outbox?: notifications_outboxOmit
   }
@@ -1056,10 +1147,12 @@ export namespace Prisma {
 
   export type TenantsCountOutputType = {
     telegram_users: number
+    door_tasks: number
   }
 
   export type TenantsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     telegram_users?: boolean | TenantsCountOutputTypeCountTelegram_usersArgs
+    door_tasks?: boolean | TenantsCountOutputTypeCountDoor_tasksArgs
   }
 
   // Custom InputTypes
@@ -1078,6 +1171,13 @@ export namespace Prisma {
    */
   export type TenantsCountOutputTypeCountTelegram_usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: tenant_telegram_usersWhereInput
+  }
+
+  /**
+   * TenantsCountOutputType without action
+   */
+  export type TenantsCountOutputTypeCountDoor_tasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: employee_door_tasksWhereInput
   }
 
 
@@ -1276,6 +1376,7 @@ export namespace Prisma {
     subdomain?: boolean
     schema?: boolean
     telegram_users?: boolean | tenants$telegram_usersArgs<ExtArgs>
+    door_tasks?: boolean | tenants$door_tasksArgs<ExtArgs>
     _count?: boolean | TenantsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tenants"]>
 
@@ -1303,6 +1404,7 @@ export namespace Prisma {
   export type tenantsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "subdomain" | "schema", ExtArgs["result"]["tenants"]>
   export type tenantsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     telegram_users?: boolean | tenants$telegram_usersArgs<ExtArgs>
+    door_tasks?: boolean | tenants$door_tasksArgs<ExtArgs>
     _count?: boolean | TenantsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type tenantsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1312,6 +1414,7 @@ export namespace Prisma {
     name: "tenants"
     objects: {
       telegram_users: Prisma.$tenant_telegram_usersPayload<ExtArgs>[]
+      door_tasks: Prisma.$employee_door_tasksPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -1713,6 +1816,7 @@ export namespace Prisma {
   export interface Prisma__tenantsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     telegram_users<T extends tenants$telegram_usersArgs<ExtArgs> = {}>(args?: Subset<T, tenants$telegram_usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tenant_telegram_usersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    door_tasks<T extends tenants$door_tasksArgs<ExtArgs> = {}>(args?: Subset<T, tenants$door_tasksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2158,6 +2262,30 @@ export namespace Prisma {
   }
 
   /**
+   * tenants.door_tasks
+   */
+  export type tenants$door_tasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_door_tasks
+     */
+    select?: employee_door_tasksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_door_tasks
+     */
+    omit?: employee_door_tasksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_door_tasksInclude<ExtArgs> | null
+    where?: employee_door_tasksWhereInput
+    orderBy?: employee_door_tasksOrderByWithRelationInput | employee_door_tasksOrderByWithRelationInput[]
+    cursor?: employee_door_tasksWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Employee_door_tasksScalarFieldEnum | Employee_door_tasksScalarFieldEnum[]
+  }
+
+  /**
    * tenants without action
    */
   export type tenantsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2173,6 +2301,1179 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: tenantsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model employee_door_tasks
+   */
+
+  export type AggregateEmployee_door_tasks = {
+    _count: Employee_door_tasksCountAggregateOutputType | null
+    _avg: Employee_door_tasksAvgAggregateOutputType | null
+    _sum: Employee_door_tasksSumAggregateOutputType | null
+    _min: Employee_door_tasksMinAggregateOutputType | null
+    _max: Employee_door_tasksMaxAggregateOutputType | null
+  }
+
+  export type Employee_door_tasksAvgAggregateOutputType = {
+    id: number | null
+    tenant_id: number | null
+    employee_id: number | null
+    door_id: number | null
+    retry_count: number | null
+  }
+
+  export type Employee_door_tasksSumAggregateOutputType = {
+    id: number | null
+    tenant_id: number | null
+    employee_id: number | null
+    door_id: number | null
+    retry_count: number | null
+  }
+
+  export type Employee_door_tasksMinAggregateOutputType = {
+    id: number | null
+    tenant_id: number | null
+    employee_id: number | null
+    door_id: number | null
+    action: string | null
+    status: string | null
+    retry_count: number | null
+    error: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type Employee_door_tasksMaxAggregateOutputType = {
+    id: number | null
+    tenant_id: number | null
+    employee_id: number | null
+    door_id: number | null
+    action: string | null
+    status: string | null
+    retry_count: number | null
+    error: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type Employee_door_tasksCountAggregateOutputType = {
+    id: number
+    tenant_id: number
+    employee_id: number
+    door_id: number
+    action: number
+    status: number
+    retry_count: number
+    error: number
+    created_at: number
+    updated_at: number
+    _all: number
+  }
+
+
+  export type Employee_door_tasksAvgAggregateInputType = {
+    id?: true
+    tenant_id?: true
+    employee_id?: true
+    door_id?: true
+    retry_count?: true
+  }
+
+  export type Employee_door_tasksSumAggregateInputType = {
+    id?: true
+    tenant_id?: true
+    employee_id?: true
+    door_id?: true
+    retry_count?: true
+  }
+
+  export type Employee_door_tasksMinAggregateInputType = {
+    id?: true
+    tenant_id?: true
+    employee_id?: true
+    door_id?: true
+    action?: true
+    status?: true
+    retry_count?: true
+    error?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type Employee_door_tasksMaxAggregateInputType = {
+    id?: true
+    tenant_id?: true
+    employee_id?: true
+    door_id?: true
+    action?: true
+    status?: true
+    retry_count?: true
+    error?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type Employee_door_tasksCountAggregateInputType = {
+    id?: true
+    tenant_id?: true
+    employee_id?: true
+    door_id?: true
+    action?: true
+    status?: true
+    retry_count?: true
+    error?: true
+    created_at?: true
+    updated_at?: true
+    _all?: true
+  }
+
+  export type Employee_door_tasksAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which employee_door_tasks to aggregate.
+     */
+    where?: employee_door_tasksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of employee_door_tasks to fetch.
+     */
+    orderBy?: employee_door_tasksOrderByWithRelationInput | employee_door_tasksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: employee_door_tasksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` employee_door_tasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` employee_door_tasks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned employee_door_tasks
+    **/
+    _count?: true | Employee_door_tasksCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Employee_door_tasksAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Employee_door_tasksSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Employee_door_tasksMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Employee_door_tasksMaxAggregateInputType
+  }
+
+  export type GetEmployee_door_tasksAggregateType<T extends Employee_door_tasksAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmployee_door_tasks]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEmployee_door_tasks[P]>
+      : GetScalarType<T[P], AggregateEmployee_door_tasks[P]>
+  }
+
+
+
+
+  export type employee_door_tasksGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: employee_door_tasksWhereInput
+    orderBy?: employee_door_tasksOrderByWithAggregationInput | employee_door_tasksOrderByWithAggregationInput[]
+    by: Employee_door_tasksScalarFieldEnum[] | Employee_door_tasksScalarFieldEnum
+    having?: employee_door_tasksScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Employee_door_tasksCountAggregateInputType | true
+    _avg?: Employee_door_tasksAvgAggregateInputType
+    _sum?: Employee_door_tasksSumAggregateInputType
+    _min?: Employee_door_tasksMinAggregateInputType
+    _max?: Employee_door_tasksMaxAggregateInputType
+  }
+
+  export type Employee_door_tasksGroupByOutputType = {
+    id: number
+    tenant_id: number
+    employee_id: number
+    door_id: number
+    action: string
+    status: string
+    retry_count: number
+    error: string | null
+    created_at: Date
+    updated_at: Date | null
+    _count: Employee_door_tasksCountAggregateOutputType | null
+    _avg: Employee_door_tasksAvgAggregateOutputType | null
+    _sum: Employee_door_tasksSumAggregateOutputType | null
+    _min: Employee_door_tasksMinAggregateOutputType | null
+    _max: Employee_door_tasksMaxAggregateOutputType | null
+  }
+
+  type GetEmployee_door_tasksGroupByPayload<T extends employee_door_tasksGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Employee_door_tasksGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Employee_door_tasksGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Employee_door_tasksGroupByOutputType[P]>
+            : GetScalarType<T[P], Employee_door_tasksGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type employee_door_tasksSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenant_id?: boolean
+    employee_id?: boolean
+    door_id?: boolean
+    action?: boolean
+    status?: boolean
+    retry_count?: boolean
+    error?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    tenant?: boolean | tenantsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employee_door_tasks"]>
+
+  export type employee_door_tasksSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenant_id?: boolean
+    employee_id?: boolean
+    door_id?: boolean
+    action?: boolean
+    status?: boolean
+    retry_count?: boolean
+    error?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    tenant?: boolean | tenantsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employee_door_tasks"]>
+
+  export type employee_door_tasksSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenant_id?: boolean
+    employee_id?: boolean
+    door_id?: boolean
+    action?: boolean
+    status?: boolean
+    retry_count?: boolean
+    error?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    tenant?: boolean | tenantsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employee_door_tasks"]>
+
+  export type employee_door_tasksSelectScalar = {
+    id?: boolean
+    tenant_id?: boolean
+    employee_id?: boolean
+    door_id?: boolean
+    action?: boolean
+    status?: boolean
+    retry_count?: boolean
+    error?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }
+
+  export type employee_door_tasksOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tenant_id" | "employee_id" | "door_id" | "action" | "status" | "retry_count" | "error" | "created_at" | "updated_at", ExtArgs["result"]["employee_door_tasks"]>
+  export type employee_door_tasksInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | tenantsDefaultArgs<ExtArgs>
+  }
+  export type employee_door_tasksIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | tenantsDefaultArgs<ExtArgs>
+  }
+  export type employee_door_tasksIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | tenantsDefaultArgs<ExtArgs>
+  }
+
+  export type $employee_door_tasksPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "employee_door_tasks"
+    objects: {
+      tenant: Prisma.$tenantsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      tenant_id: number
+      employee_id: number
+      door_id: number
+      action: string
+      status: string
+      retry_count: number
+      error: string | null
+      created_at: Date
+      updated_at: Date | null
+    }, ExtArgs["result"]["employee_door_tasks"]>
+    composites: {}
+  }
+
+  type employee_door_tasksGetPayload<S extends boolean | null | undefined | employee_door_tasksDefaultArgs> = $Result.GetResult<Prisma.$employee_door_tasksPayload, S>
+
+  type employee_door_tasksCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<employee_door_tasksFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Employee_door_tasksCountAggregateInputType | true
+    }
+
+  export interface employee_door_tasksDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['employee_door_tasks'], meta: { name: 'employee_door_tasks' } }
+    /**
+     * Find zero or one Employee_door_tasks that matches the filter.
+     * @param {employee_door_tasksFindUniqueArgs} args - Arguments to find a Employee_door_tasks
+     * @example
+     * // Get one Employee_door_tasks
+     * const employee_door_tasks = await prisma.employee_door_tasks.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends employee_door_tasksFindUniqueArgs>(args: SelectSubset<T, employee_door_tasksFindUniqueArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Employee_door_tasks that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {employee_door_tasksFindUniqueOrThrowArgs} args - Arguments to find a Employee_door_tasks
+     * @example
+     * // Get one Employee_door_tasks
+     * const employee_door_tasks = await prisma.employee_door_tasks.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends employee_door_tasksFindUniqueOrThrowArgs>(args: SelectSubset<T, employee_door_tasksFindUniqueOrThrowArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Employee_door_tasks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {employee_door_tasksFindFirstArgs} args - Arguments to find a Employee_door_tasks
+     * @example
+     * // Get one Employee_door_tasks
+     * const employee_door_tasks = await prisma.employee_door_tasks.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends employee_door_tasksFindFirstArgs>(args?: SelectSubset<T, employee_door_tasksFindFirstArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Employee_door_tasks that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {employee_door_tasksFindFirstOrThrowArgs} args - Arguments to find a Employee_door_tasks
+     * @example
+     * // Get one Employee_door_tasks
+     * const employee_door_tasks = await prisma.employee_door_tasks.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends employee_door_tasksFindFirstOrThrowArgs>(args?: SelectSubset<T, employee_door_tasksFindFirstOrThrowArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Employee_door_tasks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {employee_door_tasksFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Employee_door_tasks
+     * const employee_door_tasks = await prisma.employee_door_tasks.findMany()
+     * 
+     * // Get first 10 Employee_door_tasks
+     * const employee_door_tasks = await prisma.employee_door_tasks.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const employee_door_tasksWithIdOnly = await prisma.employee_door_tasks.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends employee_door_tasksFindManyArgs>(args?: SelectSubset<T, employee_door_tasksFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Employee_door_tasks.
+     * @param {employee_door_tasksCreateArgs} args - Arguments to create a Employee_door_tasks.
+     * @example
+     * // Create one Employee_door_tasks
+     * const Employee_door_tasks = await prisma.employee_door_tasks.create({
+     *   data: {
+     *     // ... data to create a Employee_door_tasks
+     *   }
+     * })
+     * 
+     */
+    create<T extends employee_door_tasksCreateArgs>(args: SelectSubset<T, employee_door_tasksCreateArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Employee_door_tasks.
+     * @param {employee_door_tasksCreateManyArgs} args - Arguments to create many Employee_door_tasks.
+     * @example
+     * // Create many Employee_door_tasks
+     * const employee_door_tasks = await prisma.employee_door_tasks.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends employee_door_tasksCreateManyArgs>(args?: SelectSubset<T, employee_door_tasksCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Employee_door_tasks and returns the data saved in the database.
+     * @param {employee_door_tasksCreateManyAndReturnArgs} args - Arguments to create many Employee_door_tasks.
+     * @example
+     * // Create many Employee_door_tasks
+     * const employee_door_tasks = await prisma.employee_door_tasks.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Employee_door_tasks and only return the `id`
+     * const employee_door_tasksWithIdOnly = await prisma.employee_door_tasks.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends employee_door_tasksCreateManyAndReturnArgs>(args?: SelectSubset<T, employee_door_tasksCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Employee_door_tasks.
+     * @param {employee_door_tasksDeleteArgs} args - Arguments to delete one Employee_door_tasks.
+     * @example
+     * // Delete one Employee_door_tasks
+     * const Employee_door_tasks = await prisma.employee_door_tasks.delete({
+     *   where: {
+     *     // ... filter to delete one Employee_door_tasks
+     *   }
+     * })
+     * 
+     */
+    delete<T extends employee_door_tasksDeleteArgs>(args: SelectSubset<T, employee_door_tasksDeleteArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Employee_door_tasks.
+     * @param {employee_door_tasksUpdateArgs} args - Arguments to update one Employee_door_tasks.
+     * @example
+     * // Update one Employee_door_tasks
+     * const employee_door_tasks = await prisma.employee_door_tasks.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends employee_door_tasksUpdateArgs>(args: SelectSubset<T, employee_door_tasksUpdateArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Employee_door_tasks.
+     * @param {employee_door_tasksDeleteManyArgs} args - Arguments to filter Employee_door_tasks to delete.
+     * @example
+     * // Delete a few Employee_door_tasks
+     * const { count } = await prisma.employee_door_tasks.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends employee_door_tasksDeleteManyArgs>(args?: SelectSubset<T, employee_door_tasksDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Employee_door_tasks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {employee_door_tasksUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Employee_door_tasks
+     * const employee_door_tasks = await prisma.employee_door_tasks.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends employee_door_tasksUpdateManyArgs>(args: SelectSubset<T, employee_door_tasksUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Employee_door_tasks and returns the data updated in the database.
+     * @param {employee_door_tasksUpdateManyAndReturnArgs} args - Arguments to update many Employee_door_tasks.
+     * @example
+     * // Update many Employee_door_tasks
+     * const employee_door_tasks = await prisma.employee_door_tasks.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Employee_door_tasks and only return the `id`
+     * const employee_door_tasksWithIdOnly = await prisma.employee_door_tasks.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends employee_door_tasksUpdateManyAndReturnArgs>(args: SelectSubset<T, employee_door_tasksUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Employee_door_tasks.
+     * @param {employee_door_tasksUpsertArgs} args - Arguments to update or create a Employee_door_tasks.
+     * @example
+     * // Update or create a Employee_door_tasks
+     * const employee_door_tasks = await prisma.employee_door_tasks.upsert({
+     *   create: {
+     *     // ... data to create a Employee_door_tasks
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Employee_door_tasks we want to update
+     *   }
+     * })
+     */
+    upsert<T extends employee_door_tasksUpsertArgs>(args: SelectSubset<T, employee_door_tasksUpsertArgs<ExtArgs>>): Prisma__employee_door_tasksClient<$Result.GetResult<Prisma.$employee_door_tasksPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Employee_door_tasks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {employee_door_tasksCountArgs} args - Arguments to filter Employee_door_tasks to count.
+     * @example
+     * // Count the number of Employee_door_tasks
+     * const count = await prisma.employee_door_tasks.count({
+     *   where: {
+     *     // ... the filter for the Employee_door_tasks we want to count
+     *   }
+     * })
+    **/
+    count<T extends employee_door_tasksCountArgs>(
+      args?: Subset<T, employee_door_tasksCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Employee_door_tasksCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Employee_door_tasks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Employee_door_tasksAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Employee_door_tasksAggregateArgs>(args: Subset<T, Employee_door_tasksAggregateArgs>): Prisma.PrismaPromise<GetEmployee_door_tasksAggregateType<T>>
+
+    /**
+     * Group by Employee_door_tasks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {employee_door_tasksGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends employee_door_tasksGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: employee_door_tasksGroupByArgs['orderBy'] }
+        : { orderBy?: employee_door_tasksGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, employee_door_tasksGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmployee_door_tasksGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the employee_door_tasks model
+   */
+  readonly fields: employee_door_tasksFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for employee_door_tasks.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__employee_door_tasksClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tenant<T extends tenantsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, tenantsDefaultArgs<ExtArgs>>): Prisma__tenantsClient<$Result.GetResult<Prisma.$tenantsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the employee_door_tasks model
+   */
+  interface employee_door_tasksFieldRefs {
+    readonly id: FieldRef<"employee_door_tasks", 'Int'>
+    readonly tenant_id: FieldRef<"employee_door_tasks", 'Int'>
+    readonly employee_id: FieldRef<"employee_door_tasks", 'Int'>
+    readonly door_id: FieldRef<"employee_door_tasks", 'Int'>
+    readonly action: FieldRef<"employee_door_tasks", 'String'>
+    readonly status: FieldRef<"employee_door_tasks", 'String'>
+    readonly retry_count: FieldRef<"employee_door_tasks", 'Int'>
+    readonly error: FieldRef<"employee_door_tasks", 'String'>
+    readonly created_at: FieldRef<"employee_door_tasks", 'DateTime'>
+    readonly updated_at: FieldRef<"employee_door_tasks", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * employee_door_tasks findUnique
+   */
+  export type employee_door_tasksFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_door_tasks
+     */
+    select?: employee_door_tasksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_door_tasks
+     */
+    omit?: employee_door_tasksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_door_tasksInclude<ExtArgs> | null
+    /**
+     * Filter, which employee_door_tasks to fetch.
+     */
+    where: employee_door_tasksWhereUniqueInput
+  }
+
+  /**
+   * employee_door_tasks findUniqueOrThrow
+   */
+  export type employee_door_tasksFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_door_tasks
+     */
+    select?: employee_door_tasksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_door_tasks
+     */
+    omit?: employee_door_tasksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_door_tasksInclude<ExtArgs> | null
+    /**
+     * Filter, which employee_door_tasks to fetch.
+     */
+    where: employee_door_tasksWhereUniqueInput
+  }
+
+  /**
+   * employee_door_tasks findFirst
+   */
+  export type employee_door_tasksFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_door_tasks
+     */
+    select?: employee_door_tasksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_door_tasks
+     */
+    omit?: employee_door_tasksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_door_tasksInclude<ExtArgs> | null
+    /**
+     * Filter, which employee_door_tasks to fetch.
+     */
+    where?: employee_door_tasksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of employee_door_tasks to fetch.
+     */
+    orderBy?: employee_door_tasksOrderByWithRelationInput | employee_door_tasksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for employee_door_tasks.
+     */
+    cursor?: employee_door_tasksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` employee_door_tasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` employee_door_tasks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of employee_door_tasks.
+     */
+    distinct?: Employee_door_tasksScalarFieldEnum | Employee_door_tasksScalarFieldEnum[]
+  }
+
+  /**
+   * employee_door_tasks findFirstOrThrow
+   */
+  export type employee_door_tasksFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_door_tasks
+     */
+    select?: employee_door_tasksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_door_tasks
+     */
+    omit?: employee_door_tasksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_door_tasksInclude<ExtArgs> | null
+    /**
+     * Filter, which employee_door_tasks to fetch.
+     */
+    where?: employee_door_tasksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of employee_door_tasks to fetch.
+     */
+    orderBy?: employee_door_tasksOrderByWithRelationInput | employee_door_tasksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for employee_door_tasks.
+     */
+    cursor?: employee_door_tasksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` employee_door_tasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` employee_door_tasks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of employee_door_tasks.
+     */
+    distinct?: Employee_door_tasksScalarFieldEnum | Employee_door_tasksScalarFieldEnum[]
+  }
+
+  /**
+   * employee_door_tasks findMany
+   */
+  export type employee_door_tasksFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_door_tasks
+     */
+    select?: employee_door_tasksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_door_tasks
+     */
+    omit?: employee_door_tasksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_door_tasksInclude<ExtArgs> | null
+    /**
+     * Filter, which employee_door_tasks to fetch.
+     */
+    where?: employee_door_tasksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of employee_door_tasks to fetch.
+     */
+    orderBy?: employee_door_tasksOrderByWithRelationInput | employee_door_tasksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing employee_door_tasks.
+     */
+    cursor?: employee_door_tasksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` employee_door_tasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` employee_door_tasks.
+     */
+    skip?: number
+    distinct?: Employee_door_tasksScalarFieldEnum | Employee_door_tasksScalarFieldEnum[]
+  }
+
+  /**
+   * employee_door_tasks create
+   */
+  export type employee_door_tasksCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_door_tasks
+     */
+    select?: employee_door_tasksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_door_tasks
+     */
+    omit?: employee_door_tasksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_door_tasksInclude<ExtArgs> | null
+    /**
+     * The data needed to create a employee_door_tasks.
+     */
+    data: XOR<employee_door_tasksCreateInput, employee_door_tasksUncheckedCreateInput>
+  }
+
+  /**
+   * employee_door_tasks createMany
+   */
+  export type employee_door_tasksCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many employee_door_tasks.
+     */
+    data: employee_door_tasksCreateManyInput | employee_door_tasksCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * employee_door_tasks createManyAndReturn
+   */
+  export type employee_door_tasksCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_door_tasks
+     */
+    select?: employee_door_tasksSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_door_tasks
+     */
+    omit?: employee_door_tasksOmit<ExtArgs> | null
+    /**
+     * The data used to create many employee_door_tasks.
+     */
+    data: employee_door_tasksCreateManyInput | employee_door_tasksCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_door_tasksIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * employee_door_tasks update
+   */
+  export type employee_door_tasksUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_door_tasks
+     */
+    select?: employee_door_tasksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_door_tasks
+     */
+    omit?: employee_door_tasksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_door_tasksInclude<ExtArgs> | null
+    /**
+     * The data needed to update a employee_door_tasks.
+     */
+    data: XOR<employee_door_tasksUpdateInput, employee_door_tasksUncheckedUpdateInput>
+    /**
+     * Choose, which employee_door_tasks to update.
+     */
+    where: employee_door_tasksWhereUniqueInput
+  }
+
+  /**
+   * employee_door_tasks updateMany
+   */
+  export type employee_door_tasksUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update employee_door_tasks.
+     */
+    data: XOR<employee_door_tasksUpdateManyMutationInput, employee_door_tasksUncheckedUpdateManyInput>
+    /**
+     * Filter which employee_door_tasks to update
+     */
+    where?: employee_door_tasksWhereInput
+    /**
+     * Limit how many employee_door_tasks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * employee_door_tasks updateManyAndReturn
+   */
+  export type employee_door_tasksUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_door_tasks
+     */
+    select?: employee_door_tasksSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_door_tasks
+     */
+    omit?: employee_door_tasksOmit<ExtArgs> | null
+    /**
+     * The data used to update employee_door_tasks.
+     */
+    data: XOR<employee_door_tasksUpdateManyMutationInput, employee_door_tasksUncheckedUpdateManyInput>
+    /**
+     * Filter which employee_door_tasks to update
+     */
+    where?: employee_door_tasksWhereInput
+    /**
+     * Limit how many employee_door_tasks to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_door_tasksIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * employee_door_tasks upsert
+   */
+  export type employee_door_tasksUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_door_tasks
+     */
+    select?: employee_door_tasksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_door_tasks
+     */
+    omit?: employee_door_tasksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_door_tasksInclude<ExtArgs> | null
+    /**
+     * The filter to search for the employee_door_tasks to update in case it exists.
+     */
+    where: employee_door_tasksWhereUniqueInput
+    /**
+     * In case the employee_door_tasks found by the `where` argument doesn't exist, create a new employee_door_tasks with this data.
+     */
+    create: XOR<employee_door_tasksCreateInput, employee_door_tasksUncheckedCreateInput>
+    /**
+     * In case the employee_door_tasks was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<employee_door_tasksUpdateInput, employee_door_tasksUncheckedUpdateInput>
+  }
+
+  /**
+   * employee_door_tasks delete
+   */
+  export type employee_door_tasksDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_door_tasks
+     */
+    select?: employee_door_tasksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_door_tasks
+     */
+    omit?: employee_door_tasksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_door_tasksInclude<ExtArgs> | null
+    /**
+     * Filter which employee_door_tasks to delete.
+     */
+    where: employee_door_tasksWhereUniqueInput
+  }
+
+  /**
+   * employee_door_tasks deleteMany
+   */
+  export type employee_door_tasksDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which employee_door_tasks to delete
+     */
+    where?: employee_door_tasksWhereInput
+    /**
+     * Limit how many employee_door_tasks to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * employee_door_tasks without action
+   */
+  export type employee_door_tasksDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the employee_door_tasks
+     */
+    select?: employee_door_tasksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the employee_door_tasks
+     */
+    omit?: employee_door_tasksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: employee_door_tasksInclude<ExtArgs> | null
   }
 
 
@@ -4360,6 +5661,22 @@ export namespace Prisma {
   export type TenantsScalarFieldEnum = (typeof TenantsScalarFieldEnum)[keyof typeof TenantsScalarFieldEnum]
 
 
+  export const Employee_door_tasksScalarFieldEnum: {
+    id: 'id',
+    tenant_id: 'tenant_id',
+    employee_id: 'employee_id',
+    door_id: 'door_id',
+    action: 'action',
+    status: 'status',
+    retry_count: 'retry_count',
+    error: 'error',
+    created_at: 'created_at',
+    updated_at: 'updated_at'
+  };
+
+  export type Employee_door_tasksScalarFieldEnum = (typeof Employee_door_tasksScalarFieldEnum)[keyof typeof Employee_door_tasksScalarFieldEnum]
+
+
   export const Tenant_telegram_usersScalarFieldEnum: {
     telegram_id: 'telegram_id',
     tenant_id: 'tenant_id',
@@ -4408,6 +5725,14 @@ export namespace Prisma {
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
   export const JsonNullValueFilter: {
     DbNull: typeof DbNull,
     JsonNull: typeof JsonNull,
@@ -4415,14 +5740,6 @@ export namespace Prisma {
   };
 
   export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
-
-
-  export const NullsOrder: {
-    first: 'first',
-    last: 'last'
-  };
-
-  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -4526,6 +5843,7 @@ export namespace Prisma {
     subdomain?: StringFilter<"tenants"> | string
     schema?: StringFilter<"tenants"> | string
     telegram_users?: Tenant_telegram_usersListRelationFilter
+    door_tasks?: Employee_door_tasksListRelationFilter
   }
 
   export type tenantsOrderByWithRelationInput = {
@@ -4534,6 +5852,7 @@ export namespace Prisma {
     subdomain?: SortOrder
     schema?: SortOrder
     telegram_users?: tenant_telegram_usersOrderByRelationAggregateInput
+    door_tasks?: employee_door_tasksOrderByRelationAggregateInput
   }
 
   export type tenantsWhereUniqueInput = Prisma.AtLeast<{
@@ -4545,6 +5864,7 @@ export namespace Prisma {
     name?: StringFilter<"tenants"> | string
     schema?: StringFilter<"tenants"> | string
     telegram_users?: Tenant_telegram_usersListRelationFilter
+    door_tasks?: Employee_door_tasksListRelationFilter
   }, "id" | "subdomain">
 
   export type tenantsOrderByWithAggregationInput = {
@@ -4567,6 +5887,88 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"tenants"> | string
     subdomain?: StringWithAggregatesFilter<"tenants"> | string
     schema?: StringWithAggregatesFilter<"tenants"> | string
+  }
+
+  export type employee_door_tasksWhereInput = {
+    AND?: employee_door_tasksWhereInput | employee_door_tasksWhereInput[]
+    OR?: employee_door_tasksWhereInput[]
+    NOT?: employee_door_tasksWhereInput | employee_door_tasksWhereInput[]
+    id?: IntFilter<"employee_door_tasks"> | number
+    tenant_id?: IntFilter<"employee_door_tasks"> | number
+    employee_id?: IntFilter<"employee_door_tasks"> | number
+    door_id?: IntFilter<"employee_door_tasks"> | number
+    action?: StringFilter<"employee_door_tasks"> | string
+    status?: StringFilter<"employee_door_tasks"> | string
+    retry_count?: IntFilter<"employee_door_tasks"> | number
+    error?: StringNullableFilter<"employee_door_tasks"> | string | null
+    created_at?: DateTimeFilter<"employee_door_tasks"> | Date | string
+    updated_at?: DateTimeNullableFilter<"employee_door_tasks"> | Date | string | null
+    tenant?: XOR<TenantsScalarRelationFilter, tenantsWhereInput>
+  }
+
+  export type employee_door_tasksOrderByWithRelationInput = {
+    id?: SortOrder
+    tenant_id?: SortOrder
+    employee_id?: SortOrder
+    door_id?: SortOrder
+    action?: SortOrder
+    status?: SortOrder
+    retry_count?: SortOrder
+    error?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrderInput | SortOrder
+    tenant?: tenantsOrderByWithRelationInput
+  }
+
+  export type employee_door_tasksWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: employee_door_tasksWhereInput | employee_door_tasksWhereInput[]
+    OR?: employee_door_tasksWhereInput[]
+    NOT?: employee_door_tasksWhereInput | employee_door_tasksWhereInput[]
+    tenant_id?: IntFilter<"employee_door_tasks"> | number
+    employee_id?: IntFilter<"employee_door_tasks"> | number
+    door_id?: IntFilter<"employee_door_tasks"> | number
+    action?: StringFilter<"employee_door_tasks"> | string
+    status?: StringFilter<"employee_door_tasks"> | string
+    retry_count?: IntFilter<"employee_door_tasks"> | number
+    error?: StringNullableFilter<"employee_door_tasks"> | string | null
+    created_at?: DateTimeFilter<"employee_door_tasks"> | Date | string
+    updated_at?: DateTimeNullableFilter<"employee_door_tasks"> | Date | string | null
+    tenant?: XOR<TenantsScalarRelationFilter, tenantsWhereInput>
+  }, "id">
+
+  export type employee_door_tasksOrderByWithAggregationInput = {
+    id?: SortOrder
+    tenant_id?: SortOrder
+    employee_id?: SortOrder
+    door_id?: SortOrder
+    action?: SortOrder
+    status?: SortOrder
+    retry_count?: SortOrder
+    error?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrderInput | SortOrder
+    _count?: employee_door_tasksCountOrderByAggregateInput
+    _avg?: employee_door_tasksAvgOrderByAggregateInput
+    _max?: employee_door_tasksMaxOrderByAggregateInput
+    _min?: employee_door_tasksMinOrderByAggregateInput
+    _sum?: employee_door_tasksSumOrderByAggregateInput
+  }
+
+  export type employee_door_tasksScalarWhereWithAggregatesInput = {
+    AND?: employee_door_tasksScalarWhereWithAggregatesInput | employee_door_tasksScalarWhereWithAggregatesInput[]
+    OR?: employee_door_tasksScalarWhereWithAggregatesInput[]
+    NOT?: employee_door_tasksScalarWhereWithAggregatesInput | employee_door_tasksScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"employee_door_tasks"> | number
+    tenant_id?: IntWithAggregatesFilter<"employee_door_tasks"> | number
+    employee_id?: IntWithAggregatesFilter<"employee_door_tasks"> | number
+    door_id?: IntWithAggregatesFilter<"employee_door_tasks"> | number
+    action?: StringWithAggregatesFilter<"employee_door_tasks"> | string
+    status?: StringWithAggregatesFilter<"employee_door_tasks"> | string
+    retry_count?: IntWithAggregatesFilter<"employee_door_tasks"> | number
+    error?: StringNullableWithAggregatesFilter<"employee_door_tasks"> | string | null
+    created_at?: DateTimeWithAggregatesFilter<"employee_door_tasks"> | Date | string
+    updated_at?: DateTimeNullableWithAggregatesFilter<"employee_door_tasks"> | Date | string | null
   }
 
   export type tenant_telegram_usersWhereInput = {
@@ -4701,6 +6103,7 @@ export namespace Prisma {
     subdomain: string
     schema: string
     telegram_users?: tenant_telegram_usersCreateNestedManyWithoutTenantInput
+    door_tasks?: employee_door_tasksCreateNestedManyWithoutTenantInput
   }
 
   export type tenantsUncheckedCreateInput = {
@@ -4709,6 +6112,7 @@ export namespace Prisma {
     subdomain: string
     schema: string
     telegram_users?: tenant_telegram_usersUncheckedCreateNestedManyWithoutTenantInput
+    door_tasks?: employee_door_tasksUncheckedCreateNestedManyWithoutTenantInput
   }
 
   export type tenantsUpdateInput = {
@@ -4716,6 +6120,7 @@ export namespace Prisma {
     subdomain?: StringFieldUpdateOperationsInput | string
     schema?: StringFieldUpdateOperationsInput | string
     telegram_users?: tenant_telegram_usersUpdateManyWithoutTenantNestedInput
+    door_tasks?: employee_door_tasksUpdateManyWithoutTenantNestedInput
   }
 
   export type tenantsUncheckedUpdateInput = {
@@ -4724,6 +6129,7 @@ export namespace Prisma {
     subdomain?: StringFieldUpdateOperationsInput | string
     schema?: StringFieldUpdateOperationsInput | string
     telegram_users?: tenant_telegram_usersUncheckedUpdateManyWithoutTenantNestedInput
+    door_tasks?: employee_door_tasksUncheckedUpdateManyWithoutTenantNestedInput
   }
 
   export type tenantsCreateManyInput = {
@@ -4744,6 +6150,93 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     subdomain?: StringFieldUpdateOperationsInput | string
     schema?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type employee_door_tasksCreateInput = {
+    employee_id: number
+    door_id: number
+    action: string
+    status?: string
+    retry_count?: number
+    error?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string | null
+    tenant: tenantsCreateNestedOneWithoutDoor_tasksInput
+  }
+
+  export type employee_door_tasksUncheckedCreateInput = {
+    id?: number
+    tenant_id: number
+    employee_id: number
+    door_id: number
+    action: string
+    status?: string
+    retry_count?: number
+    error?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string | null
+  }
+
+  export type employee_door_tasksUpdateInput = {
+    employee_id?: IntFieldUpdateOperationsInput | number
+    door_id?: IntFieldUpdateOperationsInput | number
+    action?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    retry_count?: IntFieldUpdateOperationsInput | number
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    tenant?: tenantsUpdateOneRequiredWithoutDoor_tasksNestedInput
+  }
+
+  export type employee_door_tasksUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tenant_id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    door_id?: IntFieldUpdateOperationsInput | number
+    action?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    retry_count?: IntFieldUpdateOperationsInput | number
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type employee_door_tasksCreateManyInput = {
+    id?: number
+    tenant_id: number
+    employee_id: number
+    door_id: number
+    action: string
+    status?: string
+    retry_count?: number
+    error?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string | null
+  }
+
+  export type employee_door_tasksUpdateManyMutationInput = {
+    employee_id?: IntFieldUpdateOperationsInput | number
+    door_id?: IntFieldUpdateOperationsInput | number
+    action?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    retry_count?: IntFieldUpdateOperationsInput | number
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type employee_door_tasksUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tenant_id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    door_id?: IntFieldUpdateOperationsInput | number
+    action?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    retry_count?: IntFieldUpdateOperationsInput | number
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type tenant_telegram_usersCreateInput = {
@@ -4907,7 +6400,17 @@ export namespace Prisma {
     none?: tenant_telegram_usersWhereInput
   }
 
+  export type Employee_door_tasksListRelationFilter = {
+    every?: employee_door_tasksWhereInput
+    some?: employee_door_tasksWhereInput
+    none?: employee_door_tasksWhereInput
+  }
+
   export type tenant_telegram_usersOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type employee_door_tasksOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -4974,6 +6477,21 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -4985,9 +6503,126 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type TenantsScalarRelationFilter = {
     is?: tenantsWhereInput
     isNot?: tenantsWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type employee_door_tasksCountOrderByAggregateInput = {
+    id?: SortOrder
+    tenant_id?: SortOrder
+    employee_id?: SortOrder
+    door_id?: SortOrder
+    action?: SortOrder
+    status?: SortOrder
+    retry_count?: SortOrder
+    error?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type employee_door_tasksAvgOrderByAggregateInput = {
+    id?: SortOrder
+    tenant_id?: SortOrder
+    employee_id?: SortOrder
+    door_id?: SortOrder
+    retry_count?: SortOrder
+  }
+
+  export type employee_door_tasksMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tenant_id?: SortOrder
+    employee_id?: SortOrder
+    door_id?: SortOrder
+    action?: SortOrder
+    status?: SortOrder
+    retry_count?: SortOrder
+    error?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type employee_door_tasksMinOrderByAggregateInput = {
+    id?: SortOrder
+    tenant_id?: SortOrder
+    employee_id?: SortOrder
+    door_id?: SortOrder
+    action?: SortOrder
+    status?: SortOrder
+    retry_count?: SortOrder
+    error?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type employee_door_tasksSumOrderByAggregateInput = {
+    id?: SortOrder
+    tenant_id?: SortOrder
+    employee_id?: SortOrder
+    door_id?: SortOrder
+    retry_count?: SortOrder
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type tenant_telegram_usersTelegram_idTenant_idCompoundUniqueInput = {
@@ -5021,20 +6656,6 @@ export namespace Prisma {
     tenant_id?: SortOrder
   }
 
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
   export type EnumNotificationSourceTypeFilter<$PrismaModel = never> = {
     equals?: $Enums.NotificationSourceType | EnumNotificationSourceTypeFieldRefInput<$PrismaModel>
     in?: $Enums.NotificationSourceType[] | ListEnumNotificationSourceTypeFieldRefInput<$PrismaModel>
@@ -5063,26 +6684,6 @@ export namespace Prisma {
     gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
-
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
   }
 
   export type notifications_outboxCountOrderByAggregateInput = {
@@ -5168,24 +6769,6 @@ export namespace Prisma {
     _max?: NestedJsonFilter<$PrismaModel>
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
   export type tenant_telegram_usersCreateNestedManyWithoutTenantInput = {
     create?: XOR<tenant_telegram_usersCreateWithoutTenantInput, tenant_telegram_usersUncheckedCreateWithoutTenantInput> | tenant_telegram_usersCreateWithoutTenantInput[] | tenant_telegram_usersUncheckedCreateWithoutTenantInput[]
     connectOrCreate?: tenant_telegram_usersCreateOrConnectWithoutTenantInput | tenant_telegram_usersCreateOrConnectWithoutTenantInput[]
@@ -5193,11 +6776,25 @@ export namespace Prisma {
     connect?: tenant_telegram_usersWhereUniqueInput | tenant_telegram_usersWhereUniqueInput[]
   }
 
+  export type employee_door_tasksCreateNestedManyWithoutTenantInput = {
+    create?: XOR<employee_door_tasksCreateWithoutTenantInput, employee_door_tasksUncheckedCreateWithoutTenantInput> | employee_door_tasksCreateWithoutTenantInput[] | employee_door_tasksUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: employee_door_tasksCreateOrConnectWithoutTenantInput | employee_door_tasksCreateOrConnectWithoutTenantInput[]
+    createMany?: employee_door_tasksCreateManyTenantInputEnvelope
+    connect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
+  }
+
   export type tenant_telegram_usersUncheckedCreateNestedManyWithoutTenantInput = {
     create?: XOR<tenant_telegram_usersCreateWithoutTenantInput, tenant_telegram_usersUncheckedCreateWithoutTenantInput> | tenant_telegram_usersCreateWithoutTenantInput[] | tenant_telegram_usersUncheckedCreateWithoutTenantInput[]
     connectOrCreate?: tenant_telegram_usersCreateOrConnectWithoutTenantInput | tenant_telegram_usersCreateOrConnectWithoutTenantInput[]
     createMany?: tenant_telegram_usersCreateManyTenantInputEnvelope
     connect?: tenant_telegram_usersWhereUniqueInput | tenant_telegram_usersWhereUniqueInput[]
+  }
+
+  export type employee_door_tasksUncheckedCreateNestedManyWithoutTenantInput = {
+    create?: XOR<employee_door_tasksCreateWithoutTenantInput, employee_door_tasksUncheckedCreateWithoutTenantInput> | employee_door_tasksCreateWithoutTenantInput[] | employee_door_tasksUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: employee_door_tasksCreateOrConnectWithoutTenantInput | employee_door_tasksCreateOrConnectWithoutTenantInput[]
+    createMany?: employee_door_tasksCreateManyTenantInputEnvelope
+    connect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -5216,6 +6813,20 @@ export namespace Prisma {
     update?: tenant_telegram_usersUpdateWithWhereUniqueWithoutTenantInput | tenant_telegram_usersUpdateWithWhereUniqueWithoutTenantInput[]
     updateMany?: tenant_telegram_usersUpdateManyWithWhereWithoutTenantInput | tenant_telegram_usersUpdateManyWithWhereWithoutTenantInput[]
     deleteMany?: tenant_telegram_usersScalarWhereInput | tenant_telegram_usersScalarWhereInput[]
+  }
+
+  export type employee_door_tasksUpdateManyWithoutTenantNestedInput = {
+    create?: XOR<employee_door_tasksCreateWithoutTenantInput, employee_door_tasksUncheckedCreateWithoutTenantInput> | employee_door_tasksCreateWithoutTenantInput[] | employee_door_tasksUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: employee_door_tasksCreateOrConnectWithoutTenantInput | employee_door_tasksCreateOrConnectWithoutTenantInput[]
+    upsert?: employee_door_tasksUpsertWithWhereUniqueWithoutTenantInput | employee_door_tasksUpsertWithWhereUniqueWithoutTenantInput[]
+    createMany?: employee_door_tasksCreateManyTenantInputEnvelope
+    set?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
+    disconnect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
+    delete?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
+    connect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
+    update?: employee_door_tasksUpdateWithWhereUniqueWithoutTenantInput | employee_door_tasksUpdateWithWhereUniqueWithoutTenantInput[]
+    updateMany?: employee_door_tasksUpdateManyWithWhereWithoutTenantInput | employee_door_tasksUpdateManyWithWhereWithoutTenantInput[]
+    deleteMany?: employee_door_tasksScalarWhereInput | employee_door_tasksScalarWhereInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -5240,14 +6851,50 @@ export namespace Prisma {
     deleteMany?: tenant_telegram_usersScalarWhereInput | tenant_telegram_usersScalarWhereInput[]
   }
 
-  export type tenantsCreateNestedOneWithoutTelegram_usersInput = {
-    create?: XOR<tenantsCreateWithoutTelegram_usersInput, tenantsUncheckedCreateWithoutTelegram_usersInput>
-    connectOrCreate?: tenantsCreateOrConnectWithoutTelegram_usersInput
+  export type employee_door_tasksUncheckedUpdateManyWithoutTenantNestedInput = {
+    create?: XOR<employee_door_tasksCreateWithoutTenantInput, employee_door_tasksUncheckedCreateWithoutTenantInput> | employee_door_tasksCreateWithoutTenantInput[] | employee_door_tasksUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: employee_door_tasksCreateOrConnectWithoutTenantInput | employee_door_tasksCreateOrConnectWithoutTenantInput[]
+    upsert?: employee_door_tasksUpsertWithWhereUniqueWithoutTenantInput | employee_door_tasksUpsertWithWhereUniqueWithoutTenantInput[]
+    createMany?: employee_door_tasksCreateManyTenantInputEnvelope
+    set?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
+    disconnect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
+    delete?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
+    connect?: employee_door_tasksWhereUniqueInput | employee_door_tasksWhereUniqueInput[]
+    update?: employee_door_tasksUpdateWithWhereUniqueWithoutTenantInput | employee_door_tasksUpdateWithWhereUniqueWithoutTenantInput[]
+    updateMany?: employee_door_tasksUpdateManyWithWhereWithoutTenantInput | employee_door_tasksUpdateManyWithWhereWithoutTenantInput[]
+    deleteMany?: employee_door_tasksScalarWhereInput | employee_door_tasksScalarWhereInput[]
+  }
+
+  export type tenantsCreateNestedOneWithoutDoor_tasksInput = {
+    create?: XOR<tenantsCreateWithoutDoor_tasksInput, tenantsUncheckedCreateWithoutDoor_tasksInput>
+    connectOrCreate?: tenantsCreateOrConnectWithoutDoor_tasksInput
     connect?: tenantsWhereUniqueInput
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type tenantsUpdateOneRequiredWithoutDoor_tasksNestedInput = {
+    create?: XOR<tenantsCreateWithoutDoor_tasksInput, tenantsUncheckedCreateWithoutDoor_tasksInput>
+    connectOrCreate?: tenantsCreateOrConnectWithoutDoor_tasksInput
+    upsert?: tenantsUpsertWithoutDoor_tasksInput
+    connect?: tenantsWhereUniqueInput
+    update?: XOR<XOR<tenantsUpdateToOneWithWhereWithoutDoor_tasksInput, tenantsUpdateWithoutDoor_tasksInput>, tenantsUncheckedUpdateWithoutDoor_tasksInput>
+  }
+
+  export type tenantsCreateNestedOneWithoutTelegram_usersInput = {
+    create?: XOR<tenantsCreateWithoutTelegram_usersInput, tenantsUncheckedCreateWithoutTelegram_usersInput>
+    connectOrCreate?: tenantsCreateOrConnectWithoutTelegram_usersInput
+    connect?: tenantsWhereUniqueInput
   }
 
   export type tenantsUpdateOneRequiredWithoutTelegram_usersNestedInput = {
@@ -5260,10 +6907,6 @@ export namespace Prisma {
 
   export type EnumNotificationSourceTypeFieldUpdateOperationsInput = {
     set?: $Enums.NotificationSourceType
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -5335,6 +6978,20 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -5344,6 +7001,45 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -5360,25 +7056,25 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type NestedEnumNotificationSourceTypeFilter<$PrismaModel = never> = {
     equals?: $Enums.NotificationSourceType | EnumNotificationSourceTypeFieldRefInput<$PrismaModel>
     in?: $Enums.NotificationSourceType[] | ListEnumNotificationSourceTypeFieldRefInput<$PrismaModel>
     notIn?: $Enums.NotificationSourceType[] | ListEnumNotificationSourceTypeFieldRefInput<$PrismaModel>
     not?: NestedEnumNotificationSourceTypeFilter<$PrismaModel> | $Enums.NotificationSourceType
-  }
-
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedEnumNotificationSourceTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -5414,34 +7110,6 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type tenant_telegram_usersCreateWithoutTenantInput = {
     telegram_id: string
     created_at?: Date | string
@@ -5459,6 +7127,39 @@ export namespace Prisma {
 
   export type tenant_telegram_usersCreateManyTenantInputEnvelope = {
     data: tenant_telegram_usersCreateManyTenantInput | tenant_telegram_usersCreateManyTenantInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type employee_door_tasksCreateWithoutTenantInput = {
+    employee_id: number
+    door_id: number
+    action: string
+    status?: string
+    retry_count?: number
+    error?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string | null
+  }
+
+  export type employee_door_tasksUncheckedCreateWithoutTenantInput = {
+    id?: number
+    employee_id: number
+    door_id: number
+    action: string
+    status?: string
+    retry_count?: number
+    error?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string | null
+  }
+
+  export type employee_door_tasksCreateOrConnectWithoutTenantInput = {
+    where: employee_door_tasksWhereUniqueInput
+    create: XOR<employee_door_tasksCreateWithoutTenantInput, employee_door_tasksUncheckedCreateWithoutTenantInput>
+  }
+
+  export type employee_door_tasksCreateManyTenantInputEnvelope = {
+    data: employee_door_tasksCreateManyTenantInput | employee_door_tasksCreateManyTenantInput[]
     skipDuplicates?: boolean
   }
 
@@ -5487,10 +7188,89 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"tenant_telegram_users"> | Date | string
   }
 
+  export type employee_door_tasksUpsertWithWhereUniqueWithoutTenantInput = {
+    where: employee_door_tasksWhereUniqueInput
+    update: XOR<employee_door_tasksUpdateWithoutTenantInput, employee_door_tasksUncheckedUpdateWithoutTenantInput>
+    create: XOR<employee_door_tasksCreateWithoutTenantInput, employee_door_tasksUncheckedCreateWithoutTenantInput>
+  }
+
+  export type employee_door_tasksUpdateWithWhereUniqueWithoutTenantInput = {
+    where: employee_door_tasksWhereUniqueInput
+    data: XOR<employee_door_tasksUpdateWithoutTenantInput, employee_door_tasksUncheckedUpdateWithoutTenantInput>
+  }
+
+  export type employee_door_tasksUpdateManyWithWhereWithoutTenantInput = {
+    where: employee_door_tasksScalarWhereInput
+    data: XOR<employee_door_tasksUpdateManyMutationInput, employee_door_tasksUncheckedUpdateManyWithoutTenantInput>
+  }
+
+  export type employee_door_tasksScalarWhereInput = {
+    AND?: employee_door_tasksScalarWhereInput | employee_door_tasksScalarWhereInput[]
+    OR?: employee_door_tasksScalarWhereInput[]
+    NOT?: employee_door_tasksScalarWhereInput | employee_door_tasksScalarWhereInput[]
+    id?: IntFilter<"employee_door_tasks"> | number
+    tenant_id?: IntFilter<"employee_door_tasks"> | number
+    employee_id?: IntFilter<"employee_door_tasks"> | number
+    door_id?: IntFilter<"employee_door_tasks"> | number
+    action?: StringFilter<"employee_door_tasks"> | string
+    status?: StringFilter<"employee_door_tasks"> | string
+    retry_count?: IntFilter<"employee_door_tasks"> | number
+    error?: StringNullableFilter<"employee_door_tasks"> | string | null
+    created_at?: DateTimeFilter<"employee_door_tasks"> | Date | string
+    updated_at?: DateTimeNullableFilter<"employee_door_tasks"> | Date | string | null
+  }
+
+  export type tenantsCreateWithoutDoor_tasksInput = {
+    name: string
+    subdomain: string
+    schema: string
+    telegram_users?: tenant_telegram_usersCreateNestedManyWithoutTenantInput
+  }
+
+  export type tenantsUncheckedCreateWithoutDoor_tasksInput = {
+    id?: number
+    name: string
+    subdomain: string
+    schema: string
+    telegram_users?: tenant_telegram_usersUncheckedCreateNestedManyWithoutTenantInput
+  }
+
+  export type tenantsCreateOrConnectWithoutDoor_tasksInput = {
+    where: tenantsWhereUniqueInput
+    create: XOR<tenantsCreateWithoutDoor_tasksInput, tenantsUncheckedCreateWithoutDoor_tasksInput>
+  }
+
+  export type tenantsUpsertWithoutDoor_tasksInput = {
+    update: XOR<tenantsUpdateWithoutDoor_tasksInput, tenantsUncheckedUpdateWithoutDoor_tasksInput>
+    create: XOR<tenantsCreateWithoutDoor_tasksInput, tenantsUncheckedCreateWithoutDoor_tasksInput>
+    where?: tenantsWhereInput
+  }
+
+  export type tenantsUpdateToOneWithWhereWithoutDoor_tasksInput = {
+    where?: tenantsWhereInput
+    data: XOR<tenantsUpdateWithoutDoor_tasksInput, tenantsUncheckedUpdateWithoutDoor_tasksInput>
+  }
+
+  export type tenantsUpdateWithoutDoor_tasksInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    subdomain?: StringFieldUpdateOperationsInput | string
+    schema?: StringFieldUpdateOperationsInput | string
+    telegram_users?: tenant_telegram_usersUpdateManyWithoutTenantNestedInput
+  }
+
+  export type tenantsUncheckedUpdateWithoutDoor_tasksInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    subdomain?: StringFieldUpdateOperationsInput | string
+    schema?: StringFieldUpdateOperationsInput | string
+    telegram_users?: tenant_telegram_usersUncheckedUpdateManyWithoutTenantNestedInput
+  }
+
   export type tenantsCreateWithoutTelegram_usersInput = {
     name: string
     subdomain: string
     schema: string
+    door_tasks?: employee_door_tasksCreateNestedManyWithoutTenantInput
   }
 
   export type tenantsUncheckedCreateWithoutTelegram_usersInput = {
@@ -5498,6 +7278,7 @@ export namespace Prisma {
     name: string
     subdomain: string
     schema: string
+    door_tasks?: employee_door_tasksUncheckedCreateNestedManyWithoutTenantInput
   }
 
   export type tenantsCreateOrConnectWithoutTelegram_usersInput = {
@@ -5520,6 +7301,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     subdomain?: StringFieldUpdateOperationsInput | string
     schema?: StringFieldUpdateOperationsInput | string
+    door_tasks?: employee_door_tasksUpdateManyWithoutTenantNestedInput
   }
 
   export type tenantsUncheckedUpdateWithoutTelegram_usersInput = {
@@ -5527,11 +7309,24 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     subdomain?: StringFieldUpdateOperationsInput | string
     schema?: StringFieldUpdateOperationsInput | string
+    door_tasks?: employee_door_tasksUncheckedUpdateManyWithoutTenantNestedInput
   }
 
   export type tenant_telegram_usersCreateManyTenantInput = {
     telegram_id: string
     created_at?: Date | string
+  }
+
+  export type employee_door_tasksCreateManyTenantInput = {
+    id?: number
+    employee_id: number
+    door_id: number
+    action: string
+    status?: string
+    retry_count?: number
+    error?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string | null
   }
 
   export type tenant_telegram_usersUpdateWithoutTenantInput = {
@@ -5547,6 +7342,41 @@ export namespace Prisma {
   export type tenant_telegram_usersUncheckedUpdateManyWithoutTenantInput = {
     telegram_id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type employee_door_tasksUpdateWithoutTenantInput = {
+    employee_id?: IntFieldUpdateOperationsInput | number
+    door_id?: IntFieldUpdateOperationsInput | number
+    action?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    retry_count?: IntFieldUpdateOperationsInput | number
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type employee_door_tasksUncheckedUpdateWithoutTenantInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    door_id?: IntFieldUpdateOperationsInput | number
+    action?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    retry_count?: IntFieldUpdateOperationsInput | number
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type employee_door_tasksUncheckedUpdateManyWithoutTenantInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_id?: IntFieldUpdateOperationsInput | number
+    door_id?: IntFieldUpdateOperationsInput | number
+    action?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    retry_count?: IntFieldUpdateOperationsInput | number
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
 

@@ -5,7 +5,7 @@
   height: 100dvh;
   width: 100%;
   overflow: hidden;
-  background: rgba(18, 18, 18, 0.9);
+  background: var(--tg-bg);
 }
 
 // ─── Header ───────────────────────────────────────────────────────────────────
@@ -15,7 +15,7 @@
   top: 0;
   z-index: 100;
   padding: 16px 16px 10px;
-  background: rgba(18, 18, 18, 0.95);
+  background: var(--card-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding-top: calc(
@@ -27,7 +27,7 @@
 .headerTitle {
   font-size: 22px;
   font-weight: 700;
-  color: #f3f1f1;
+  color: var(--text-color);
   letter-spacing: -0.3px;
   margin: 0;
 }
@@ -50,12 +50,12 @@
 // ─── Card list wrapper ────────────────────────────────────────────────────────
 
 .cardList {
-  padding: 8px 12px calc(env(safe-area-inset-bottom, 0px) + 80px);
+  padding: 8px 12px 0;
 }
 
 .empty {
   text-align: center;
-  color: #555;
+  color: var(--text-secondary);
   margin-top: 40px;
   font-size: 14px;
 }
@@ -65,8 +65,8 @@
 .list {
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.04);
-  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  background: var(--card-bg);
+  border: 0.5px solid var(--border-color);
   border-radius: 14px;
   overflow: hidden;
 }
@@ -80,7 +80,7 @@
   padding: 12px 14px;
   cursor: pointer;
   transition: background 0.15s;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 0.5px solid var(--border-subtle);
   outline: none;
 
   &:last-child {
@@ -88,7 +88,7 @@
   }
 
   &:active {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--select-hover-color);
   }
 }
 
@@ -129,6 +129,11 @@
   color: #f59e0b;
 }
 
+.iconGray {
+  background: rgba(120, 120, 128, 0.18);
+  color: #8e8e93;
+}
+
 // ─── Item body ────────────────────────────────────────────────────────────────
 
 .itemBody {
@@ -142,7 +147,7 @@
 .itemTitle {
   font-size: 15px;
   font-weight: 500;
-  color: #f0f0f0;
+  color: var(--text-color);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -151,7 +156,7 @@
 
 .itemSub {
   font-size: 12px;
-  color: #666;
+  color: var(--text-secondary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -162,7 +167,92 @@
 
 .itemChevron {
   flex-shrink: 0;
-  color: #444;
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
+}
+
+// ─── Settings section ─────────────────────────────────────────────────────────
+
+.settingsSection {
+  padding: 16px 12px calc(env(safe-area-inset-bottom, 0px) + 80px);
+}
+
+.sectionTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 4px;
+}
+
+.settingsCard {
+  background: var(--card-bg);
+  border: 0.5px solid var(--border-color);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.settingsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 0.5px solid var(--border-subtle);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.settingsLabel {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+// ─── Theme pills ──────────────────────────────────────────────────────────────
+
+.themePills {
+  display: flex;
+  background: var(--tg-bg);
+  border-radius: 8px;
+  padding: 2px;
+  gap: 2px;
+  border: 0.5px solid var(--border-color);
+}
+
+.pill {
+  padding: 4px 14px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  outline: none;
+}
+
+.pillActive {
+  background: var(--card-bg);
+  color: var(--text-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+// ─── Language select ──────────────────────────────────────────────────────────
+
+.languageSelect {
+  background: var(--tg-bg);
+  color: var(--text-color);
+  border: 0.5px solid var(--border-color);
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 13px;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  max-width: 160px;
 }

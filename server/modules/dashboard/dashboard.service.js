@@ -85,13 +85,18 @@ function getLast6Months() {
 }
 
 export const DashboardService = {
-  getSummary: async (userId) => {
+  getSummary: async (userId, branchId = null) => {
     const user = await UserModel.getById(Number(userId));
     if (!user) throw new Error("Пользователь не найден");
 
     const employeeWhere = buildEmployeeAccess(user);
     const branchWhere = buildBranchAccess(user);
     const deptWhere = buildDeptAccess(user);
+    if (branchId) {
+      employeeWhere.branch_id = Number(branchId);
+      branchWhere.id = Number(branchId);
+      deptWhere.branch_id = Number(branchId);
+    }
     const { start: dayStart, end: dayEnd } = getDayRange();
 
     const [
@@ -133,11 +138,19 @@ export const DashboardService = {
     };
   },
 
-  getAnalytics: async (userId) => {
+  getAnalytics: async (userId, branchId = null) => {
     const user = await UserModel.getById(Number(userId));
     if (!user) throw new Error("Пользователь не найден");
 
     const employeeWhere = buildEmployeeAccess(user);
+    if (branchId) employeeWhere.branch_id = Number(branchId);
+
+    const orderWhere = {};
+    if (user.access_level === "branch" && user.branch_access?.length) {
+      orderWhere.branch_id = { in: user.branch_access };
+    }
+    if (branchId) orderWhere.branch_id = Number(branchId);
+
     const { start: dayStart, end: dayEnd } = getDayRange();
     const last7Days = getLast7Days();
     const last30Days = getLast30Days();
@@ -164,8 +177,8 @@ export const DashboardService = {
       DashboardModel.employeesByDepartment(employeeWhere),
       DashboardModel.doorTrafficByHour(dayStart, dayEnd, employeeWhere),
       DashboardModel.vehicleTrafficByHour(dayStart, dayEnd),
-      DashboardModel.hiringDynamics(last6Months),
-      DashboardModel.hiringDynamicsByDay(last7Days),
+      DashboardModel.hiringDynamics(last6Months, orderWhere),
+      DashboardModel.hiringDynamicsByDay(last7Days, orderWhere),
       DashboardModel.topDepartmentsByActivity(dayStart, dayEnd, employeeWhere),
       DashboardModel.branchActivity(dayStart, dayEnd, employeeWhere),
       DashboardModel.topLateArrivals(dayStart, dayEnd, 5, employeeWhere),
@@ -190,11 +203,12 @@ export const DashboardService = {
     };
   },
 
-  getFeeds: async (userId) => {
+  getFeeds: async (userId, branchId = null) => {
     const user = await UserModel.getById(Number(userId));
     if (!user) throw new Error("Пользователь не найден");
 
     const employeeWhere = buildEmployeeAccess(user);
+    if (branchId) employeeWhere.branch_id = Number(branchId);
     const { start: dayStart, end: dayEnd } = getDayRange();
 
     const [recentFacePasses, recentVehiclePasses, vehiclePassesToday, upcomingBirthdays, recentTimeOffs] =
@@ -215,11 +229,12 @@ export const DashboardService = {
     };
   },
 
-  getFinance: async (userId) => {
+  getFinance: async (userId, branchId = null) => {
     const user = await UserModel.getById(Number(userId));
     if (!user) throw new Error("Пользователь не найден");
 
     const employeeWhere = buildEmployeeAccess(user);
+    if (branchId) employeeWhere.branch_id = Number(branchId);
 
     const [stats, recentPayments, recentAdvances, salaryByBranch, salaryByDept] = await Promise.all([
       DashboardModel.financeStats(employeeWhere),

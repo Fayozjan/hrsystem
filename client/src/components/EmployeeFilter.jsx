@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import EmployeeFilterForm from "./EmployeeFilterForm";
+import { Icons } from "../icons/icons";
 
 import styles from "./EmployeeFilterForm.module.scss";
 
@@ -233,21 +234,7 @@ const EmployeeFilter = ({ formData, viewMode, setFormData, onSubmit, t }) => {
         className={`${styles.toggleBtn} + ${activeCount ? styles.active : ""}`}
         onClick={toggleOpen}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="200"
-          height="200"
-          viewBox="0 0 32 32"
-        >
-          <path
-            fill="none"
-            stroke="#000000"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M2 5s4-2 14-2s14 2 14 2L19 18v9l-6 3V18L2 5Z"
-          />
-        </svg>
+        {Icons.filter}
         {activeCount > 0 && <span className={styles.badge}>{activeCount}</span>}
       </div>
 

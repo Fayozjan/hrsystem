@@ -40,9 +40,10 @@ model departments {
   branch_id        Int
   added_at DateTime @default(now()) @db.Timestamptz(6)
 
-  employmentOrders employment_orders[]
-  employees        employees[]
-  branch    branches    @relation(fields: [branch_id], references: [id])
+  employmentOrders   employment_orders[]
+  employees          employees[]
+  branch             branches               @relation(fields: [branch_id], references: [id])
+  staffingPositions  staffing_position[]
 }
 
 model employment_orders {
@@ -98,7 +99,6 @@ model employees {
   employeeTimeOffs   time_off[]  @relation("employeeTimeOffs")
   facePasses        face_passes[]
   doors           doors[]
-  doorTasks    employee_door_tasks[]
   user users?
   directedBranches   branches[] @relation("BranchDirector")
   payrollSheetItems  payroll_sheet_items[]
@@ -146,8 +146,9 @@ model positions {
   status           Boolean            @default(true)
   added_at         DateTime @default(now()) @db.Timestamptz(6)
 
-  employmentOrders employment_orders[]
-  employees employees[]
+  employmentOrders   employment_orders[]
+  employees          employees[]
+  staffingPositions  staffing_position[]
 }
 
 model sessions {
@@ -336,7 +337,6 @@ model doors {
   employees    employees[]
   faceDevices face_devices[]
   facePasses  face_passes[]
-  doorTasks    employee_door_tasks[]
 }
 
 model face_devices {
@@ -355,23 +355,6 @@ model face_devices {
 
   door      doors     @relation(fields: [door_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   facePasses  face_passes[]
-}
-
-model employee_door_tasks {
-  id           Int       @id @default(autoincrement())
-  employee_id  Int
-  door_id      Int
-  action       String    @db.VarChar(50) // "add", "update", "delete"
-  status       String    @db.VarChar(50) @default("pending")
-  retry_count  Int       @default(0)
-  error       String?   
-  created_at   DateTime  @default(now()) @db.Timestamptz(6)
-  updated_at   DateTime? @db.Timestamptz(6)
-
-  employee     employees @relation(fields: [employee_id], references: [id])
-  door         doors     @relation(fields: [door_id], references: [id])
-
-  @@index([status, created_at])
 }
 
 model gates {
@@ -510,3 +493,17 @@ model salary_advances {
   @@index([employee_id])
   @@index([advance_date])
 }
+
+model staffing_position {
+  id            Int         @id @default(autoincrement())
+  department_id Int
+  position_id   Int
+  headcount     Int         @default(1)
+  added_at      DateTime    @default(now()) @db.Timestamptz(6)
+
+  department departments @relation(fields: [department_id], references: [id], onDelete: Cascade)
+  position   positions   @relation(fields: [position_id],   references: [id])
+
+  @@unique([department_id, position_id])
+}
+

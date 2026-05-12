@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import EmployeeCell from "./EmployeeCell";
 import styles from "./MonthlyLateReport.module.scss";
 
 function formatLateMinutesToHours(minutes) {
@@ -18,17 +19,14 @@ const EmployeesTable = ({ data = [], onMore }) => {
       label: t("fullName"),
       accessor: "employeeFullName",
       render: (_, item) => (
-        <div className={styles.empCell}>
-          {item.employeePhoto && (
-            <img src={`/api/employees/image/${item.employeePhoto}`} alt="photo" />
-          )}
-          <div className={styles.empInfo}>
-            <span className={styles.empName}>{item.employeeFullName}</span>
-            <span className={styles.empSub}>
-              {[item.branchName, item.departmentName].filter(Boolean).join(" / ")}
-            </span>
-          </div>
-        </div>
+        <EmployeeCell
+          photo={item.employeePhoto}
+          fullName={item.employeeFullName}
+          id={item.employeeId}
+          branch={item.branchName}
+          department={item.departmentName}
+          active={item.employeeStatus !== false}
+        />
       ),
     },
     { label: t("position"), accessor: "positionName" },

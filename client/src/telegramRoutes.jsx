@@ -21,10 +21,12 @@ import VehicleCamerasPage from "./pages/VehicleCamerasPage";
 import NotFoundPageTelegram from "./pages/NotFoundPageTelegram";
 import HomePageTelegram from "./pages/HomePageTelegram";
 import MorePageTelegram from "./pages/MorePageTelegram";
+import FinancePageTelegram from "./pages/FinancePageTelegram";
 
 const telegramRoutes = (
   <>
     <Route path="home" element={<HomePageTelegram />} key="home" />,
+    <Route path="finance" element={<FinancePageTelegram />} key="finance" />,
     <Route path="more" element={<MorePageTelegram />} key="more" />,
     <Route path="branches" element={<BranchesPage />} key="branches" />,
     <Route path="departments" element={<DepartmentsPage />} key="departments" />

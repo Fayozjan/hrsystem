@@ -10,16 +10,17 @@ import Badge from "../components/Badge";
 import Pagination from "../components/Pagination";
 import SortArrow from "../components/SortArrow";
 
-import { deleteDoorById, getDoors } from "../api/index";
+import { deleteDoorById, getDoors, syncDoor, syncAllDoors } from "../api/index";
 import CenterModal from "../components/CenterModal";
 import OverlaySidebar from "../components/OverlaySidebar";
 import Loading from "../components/Loading";
 import TableFilter from "../components/TableFilter";
 import DownloadButton from "../components/DownloadButton";
 
+import Search from "../components/Search";
 import styles from "./DoorsPage.module.scss";
 import { ActionCell } from "../components/ActionButtons";
-import { DoorOpen, Users, CheckCircle } from "lucide-react";
+import { DoorOpen, Users, CheckCircle, RefreshCcw } from "lucide-react";
 import { Icons } from "../icons/icons";
 
 const StatWidget = ({ icon: Icon, color, label, value, sub, progress }) => (
@@ -69,10 +70,14 @@ const DoorsPage = () => {
   const { canAdd, canEdit, canDelete } = usePermissions(currentPath);
   const { t } = useTranslation();
 
+  const [syncingAll, setSyncingAll] = useState(false);
+  const [syncingDoorId, setSyncingDoorId] = useState(null);
+
   const [formData, setFormData] = useState({
     search: "",
     status: "",
   });
+
 
   const handleEditClick = (id) => {
     setSelectedItem(id);
@@ -166,9 +171,31 @@ const DoorsPage = () => {
     await fetchData(1, formData);
   };
 
-  const handleSearch = () => {
+  const handleSearch = (data = formData) => {
     setCurrentPage(1);
-    fetchData(1, formData, pageSize);
+    fetchData(1, data, pageSize);
+  };
+
+  const handleSyncAll = async () => {
+    setSyncingAll(true);
+    try {
+      await syncAllDoors();
+    } catch (err) {
+      console.error("Ошибка синхронизации:", err);
+    } finally {
+      setSyncingAll(false);
+    }
+  };
+
+  const handleSyncDoor = async (doorId) => {
+    setSyncingDoorId(doorId);
+    try {
+      await syncDoor(doorId);
+    } catch (err) {
+      console.error("Ошибка синхронизации двери:", err);
+    } finally {
+      setSyncingDoorId(null);
+    }
   };
 
   const handleDelete = async (itemId) => {
@@ -214,60 +241,7 @@ const DoorsPage = () => {
           )}
           <div className={styles.mainHeader}>
             <div className={styles.filterWrapper}>
-              <div className={styles.searchInput}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="19"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fill="#000000"
-                    d="M15.096 5.904a6.5 6.5 0 1 0-9.192 9.192a6.5 6.5 0 0 0 9.192-9.192ZM4.49 4.49a8.5 8.5 0 0 1 12.686 11.272l5.345 5.345l-1.414 1.414l-5.345-5.345A8.501 8.501 0 0 1 4.49 4.49Z"
-                  />
-                </svg>
-                <input
-                  type="text"
-                  placeholder={t("search")}
-                  value={formData.search || ""}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      search: e.target.value,
-                    }))
-                  }
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      handleSearch();
-                    }
-                  }}
-                />
-
-                {formData.search && (
-                  <svg
-                    className={styles.clearBtn}
-                    onClick={() => {
-                      setFormData((prev) => ({
-                        ...prev,
-                        search: "",
-                      }));
-                    }}
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="19"
-                    height="18"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="none"
-                      stroke="#000000"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                )}
-              </div>
+              <Search formData={formData} setFormData={setFormData} onSearch={handleSearch} />
 
               <TableFilter
                 formData={formData}
@@ -290,6 +264,12 @@ const DoorsPage = () => {
               {canAdd && (
                 <Button text={t("add")} onClick={() => setModalType("add")} />
               )}
+
+              <Button
+                text={t("syncAll")}
+                onClick={handleSyncAll}
+                disabled={syncingAll}
+              />
 
               <div className={styles.refreshBtn} onClick={() => fetchData()}>
                 {Icons.refresh}
@@ -349,6 +329,7 @@ const DoorsPage = () => {
                       />
                     </span>
                   </th>
+                  <th>{t("sync")}</th>
                   {(canEdit || canDelete) && <th>{t("action")}</th>}
                 </tr>
               </thead>
@@ -368,6 +349,19 @@ const DoorsPage = () => {
                       <td>{item.employees_count || 0}</td>
                       <td>
                         <Badge text={item.status} />
+                      </td>
+                      <td>
+                        <button
+                          className={styles.syncBtn}
+                          onClick={() => handleSyncDoor(item.id)}
+                          disabled={syncingDoorId === item.id}
+                          title={t("sync")}
+                        >
+                          <RefreshCcw
+                            size={15}
+                            className={syncingDoorId === item.id ? styles.spinning : ""}
+                          />
+                        </button>
                       </td>
                       {
                         <ActionCell

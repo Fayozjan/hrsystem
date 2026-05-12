@@ -5,14 +5,14 @@
   z-index: 10001;
   padding: 8px 16px;
   border-radius: 50px;
-  background: #ffffff;
+  background: var(--card-bg);
   font-size: var(--font-small);
   display: flex;
   align-items: center;
   gap: 15px;
   cursor: pointer;
   user-select: none;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   animation: reveal 0.5s cubic-bezier(0.2, 1, 0.3, 1) forwards;
   transition: transform 0.2s ease;
 

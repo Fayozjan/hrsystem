@@ -5,6 +5,7 @@ import { useAlertStore } from "../stores/alertStore";
 import CenterModal from "./CenterModal";
 import { ActionButton } from "./ActionButtons";
 import { Icons } from "../icons/icons";
+import EmployeeCell from "./EmployeeCell";
 import styles from "./AdvancesTable.module.scss";
 
 const fmt = (n) =>
@@ -82,12 +83,16 @@ const AdvancesTable = ({ advances = [], onDeleted, onEdit }) => {
                   <tr key={adv.id}>
                     <td className={styles.numColTd}>{idx + 1}</td>
                     <td>
-                      <div className={styles.empCell}>
-                        <span className={styles.empName}>{getFullName(emp)} ({emp.id})</span>
-                        <span className={styles.empSub}>
-                          {[emp.branch?.name, emp.department?.name].filter(Boolean).join(" / ")}
-                        </span>
-                      </div>
+                      <EmployeeCell
+                        photo={emp?.photo}
+                        lastName={emp?.last_name}
+                        firstName={emp?.first_name}
+                        middleName={emp?.middle_name}
+                        id={emp?.id}
+                        branch={emp?.branch?.name}
+                        department={emp?.department?.name}
+                        active={emp?.status}
+                      />
                     </td>
                     <td className={styles.dateCell}>{fmtDate(adv.advance_date)}</td>
                     <td className={styles.amountCell}>{fmt(adv.amount)}</td>

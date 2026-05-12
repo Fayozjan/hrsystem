@@ -510,6 +510,7 @@
   "confirmNewPassword": "Подтвердите новый пароль",
   "theme": "Тема",
   "themeLight": "Светлая",
+  "themeDark": "Тёмная",
   "language": "Язык",
   "languageRussian": "Русский",
   "languageUzbekCyrl": "Узбекский (кириллица)",
@@ -814,5 +815,17 @@
   "attendanceForMonth": "Посещаемость за месяц",
   "monthTotal": "Итог за месяц:",
   "daysWord": "дней",
-  "hoursWord": "часов"
+  "hoursWord": "часов",
+  "staffing": "Штатное расписание",
+  "staffingPlan": "По штату (План)",
+  "nonStaffed": "Не по штату",
+  "inStaff": "В штате",
+  "vacancies": "Вакансии",
+  "hasStaff": "Есть штат",
+  "hasVacancies": "Есть вакансии",
+  "searchByBranchDept": "Поиск по филиалу, отделу",
+  "noPositionsAssigned": "Должности не назначены",
+  "nonStaffedBadge": "НЕ ПО ШТАТУ",
+  "staffingLoadError": "Ошибка загрузки",
+  "staffingPositionsLoadError": "Ошибка загрузки позиций"
 }

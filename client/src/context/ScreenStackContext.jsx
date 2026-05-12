@@ -53,7 +53,7 @@ export const ScreenStackRenderer = () => {
 
   return (
     <div
-      style={{ position: "fixed", inset: 0, zIndex: 500, overflow: "hidden" }}
+      style={{ position: "fixed", inset: 0, zIndex: 500, overflow: "hidden", background: "var(--tg-bg)" }}
     >
       {screens.map((screen, i) => {
         const isTop = i === screens.length - 1;

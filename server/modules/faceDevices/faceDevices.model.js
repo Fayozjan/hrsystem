@@ -53,4 +53,12 @@ export const FaceDeviceModel = {
       select: { door_id: true, device_ip: true, is_local: true },
     });
   },
+
+  findByDoorIds: async (doorIds) => {
+    const prisma = prismaContext.get();
+    return prisma.face_devices.findMany({
+      where: { door_id: { in: doorIds }, status: true },
+      select: { door_id: true, device_ip: true, is_local: true },
+    });
+  },
 };

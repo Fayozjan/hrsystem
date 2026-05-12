@@ -10,6 +10,7 @@ router.use(authMiddleware);
 
 router.get("/", DepartmentsController.getDepartments);
 router.get("/active", DepartmentsController.getActiveDepartments);
+router.get("/staffing-overview", DepartmentsController.getStaffingOverview);
 router.get("/:id", DepartmentsController.getDepartment);
 router.post("/", DepartmentsController.addDepartment);
 router.put("/:id", DepartmentsController.editDepartment);

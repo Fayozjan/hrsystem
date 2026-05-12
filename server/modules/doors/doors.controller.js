@@ -65,4 +65,24 @@ export const DoorsController = {
       res.status(500).json({ error: "Ошибка при обновлении двери" });
     }
   },
+
+  syncOne: async (req, res) => {
+    try {
+      const result = await DoorsService.syncDoor(req.params.id, req.tenant?.schema);
+      res.json({ success: true, result });
+    } catch (err) {
+      console.error("Ошибка при синхронизации двери:", err);
+      res.status(500).json({ error: err.message || "Ошибка при синхронизации" });
+    }
+  },
+
+  syncAll: async (req, res) => {
+    try {
+      const result = await DoorsService.syncAllDoors(req.tenant?.schema);
+      res.json({ success: true, result });
+    } catch (err) {
+      console.error("Ошибка при синхронизации дверей:", err);
+      res.status(500).json({ error: err.message || "Ошибка при синхронизации" });
+    }
+  },
 };

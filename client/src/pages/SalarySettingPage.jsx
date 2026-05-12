@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Users, UserCheck, UserX, Wallet, TrendingUp } from "lucide-react";
 
+import { useAuthStore } from "../stores/authStore";
 import { useAlertStore } from "../stores/alertStore";
 import { usePermissions } from "../hooks/usePermissions";
 import { salaryHistoryApi } from "../api/salaryHistory";
@@ -14,6 +15,7 @@ import SalaryTable from "../components/SalaryTable";
 import OverlaySidebar from "../components/OverlaySidebar";
 import EmployeeSalaryHistory from "../components/EmployeeSalaryHistory";
 
+import Search from "../components/Search";
 import styles from "./SalarySettingPage.module.scss";
 import { Icons } from "../icons/icons";
 
@@ -123,6 +125,7 @@ const initialFilters = {
 const SalarySettingPage = () => {
   const { t } = useTranslation();
   const { showAlert } = useAlertStore();
+  const { viewMode, activeBranchId } = useAuthStore((s) => s.userSettings) || {};
   const currentPath = window.location.pathname;
   const { canAdd, canEdit, canDelete } = usePermissions(currentPath);
 
@@ -152,6 +155,7 @@ const SalarySettingPage = () => {
         pageSize: size,
         ...filters,
         no_salary: filters.no_salary,
+        branch_id: viewMode === "branch" && activeBranchId ? activeBranchId : filters.branch_id,
       };
 
       const res = await salaryHistoryApi.getEmployeesWithSalary(params);
@@ -175,8 +179,14 @@ const SalarySettingPage = () => {
     fetchData(1, formData, pageSize);
   }, []);
 
-  const handleSearch = () => {
-    fetchData(1, formData, pageSize);
+  useEffect(() => {
+    if (viewMode === "branch") {
+      fetchData(1, formData, pageSize);
+    }
+  }, [activeBranchId]);
+
+  const handleSearch = (data = formData) => {
+    fetchData(1, data, pageSize);
   };
 
   const handleFormSubmit = (e) => {
@@ -288,30 +298,7 @@ const SalarySettingPage = () => {
         <div className={styles.mainHeader}>
           <div className={styles.filterWrapper}>
             {/* Search */}
-            <div className={styles.searchInput}>
-              <span onClick={handleSearch}>{Icons.search}</span>
-              <input
-                type="text"
-                placeholder={t("search")}
-                value={formData.search}
-                onChange={(e) =>
-                  setFormData((prev) => ({ ...prev, search: e.target.value }))
-                }
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") handleSearch();
-                }}
-              />
-              {formData.search && (
-                <span
-                  className={styles.clearBtn}
-                  onClick={() =>
-                    setFormData((prev) => ({ ...prev, search: "" }))
-                  }
-                >
-                  {Icons.clear}
-                </span>
-              )}
-            </div>
+            <Search formData={formData} setFormData={setFormData} onSearch={handleSearch} />
 
             {/* Filter */}
             <SalaryFilter

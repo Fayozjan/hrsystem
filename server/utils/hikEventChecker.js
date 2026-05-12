@@ -16,6 +16,10 @@ import {
 } from "../modules/employees/employees.model.js";
 import { notificationsOutboxService } from "../modules/notificationsOutbox/notificationsOutbox.service.js";
 import { telegramBotsService } from "../modules/telegramBots/telegramBots.service.js";
+import { prismaPublic, getPrismaForTenant } from "./prismaForTenant.js";
+import { tenantContext } from "./tenantContext.js";
+import { prismaContext } from "./prismaContext.js";
+import { RemoteFaceDeviceClient } from "./faceDeviceFunction.js";
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
@@ -94,6 +98,8 @@ function parseMultipartResponse(buffer, boundary) {
 }
 
 function buildPhotoPath(info) {
+  const tenant = tenantContext.get();
+  const schema = tenant?.schema ?? DEFAULT_TENANT;
   const d = new Date(info.time);
   const year = d.getFullYear().toString();
   const month = (d.getMonth() + 1).toString().padStart(2, "0");
@@ -103,14 +109,14 @@ function buildPhotoPath(info) {
     "..",
     "uploads",
     "face-passes",
-    DEFAULT_TENANT,
+    schema,
     year,
     month,
   );
   return {
     folderPath,
     imagePath: path.join(folderPath, fileName),
-    relativePath: `${DEFAULT_TENANT}/${year}/${month}/${fileName}`,
+    relativePath: `${schema}/${year}/${month}/${fileName}`,
   };
 }
 
@@ -128,9 +134,9 @@ async function savePhotoFromBuffer(buffer, info) {
   return relativePath;
 }
 
-async function downloadPhotoByUrl(imageUrl, info) {
+async function downloadPhotoByUrl(imageUrl, info, password) {
   const { folderPath, imagePath, relativePath } = buildPhotoPath(info);
-  const client = new fetch(USERNAME, PASSWORD);
+  const client = new fetch(USERNAME, password ?? PASSWORD);
 
   for (let attempt = 1; attempt <= 5; attempt++) {
     const controller = new AbortController();
@@ -171,21 +177,26 @@ async function resolveEventPhoto(e) {
   if (e._photoBuffer) {
     return savePhotoFromBuffer(e._photoBuffer, e);
   }
-  if (e.pictureURL) {
-    const ip = new URL(e.pictureURL).hostname;
-    return enqueuePhoto(ip, () => downloadPhotoByUrl(e.pictureURL, e));
+  if (e.pictureURL && e.device?.is_local) {
+    const parsedUrl = new URL(e.pictureURL);
+    parsedUrl.hostname = e.device.device_ip;
+    parsedUrl.port = String(e.device.port ?? 80);
+    const photoUrl = parsedUrl.toString();
+    return enqueuePhoto(e.device.device_ip, () =>
+      downloadPhotoByUrl(photoUrl, e, e.device?.password),
+    );
   }
   return null;
 }
 
 // ─── Client factory ───────────────────────────────────────────────────────────
 
-export function createHikClient() {
-  return new fetch(USERNAME, PASSWORD);
+export function createHikClient(password) {
+  return new fetch(USERNAME, password ?? PASSWORD);
 }
 
-async function fetchEventsBatch(client, deviceIp, postData) {
-  const url = `http://${deviceIp}${API_ACS_EVENT}`;
+async function fetchEventsBatch(client, deviceIp, port, postData) {
+  const url = `http://${deviceIp}:${port ?? 80}${API_ACS_EVENT}`;
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     const controller = new AbortController();
@@ -252,7 +263,23 @@ async function fetchEventsBatch(client, deviceIp, postData) {
 }
 
 async function fetchAllBatchesForDevice(device, startTime, endTime) {
-  const client = createHikClient();
+  if (!device.is_local) {
+    if (!device.serial_number) {
+      console.warn(
+        `⚠️ Удалённое устройство без serial_number: ${device.device_ip}`,
+      );
+      return [];
+    }
+    const events = await RemoteFaceDeviceClient.getEvents(
+      device.serial_number,
+      startTime,
+      endTime,
+    );
+    return events.map((e) => ({ ...e, device }));
+  }
+
+  const client = createHikClient(device.password);
+
   let position = 0;
   const allEvents = [];
 
@@ -269,7 +296,12 @@ async function fetchAllBatchesForDevice(device, startTime, endTime) {
       },
     };
 
-    const batch = await fetchEventsBatch(client, device.device_ip, postData);
+    const batch = await fetchEventsBatch(
+      client,
+      device.device_ip,
+      device.port,
+      postData,
+    );
     if (!batch.length) break;
 
     allEvents.push(...batch.map((e) => ({ ...e, device })));
@@ -340,10 +372,7 @@ async function ensureEmployeeExists(empId, info, allEmployeeIds) {
 
 // ─── Main checker ─────────────────────────────────────────────────────────────
 
-export async function events_checker(from, to) {
-  const { startTime, endTime } =
-    typeof from === "number" ? getDayRange(from) : getRange(from, to);
-
+async function _runEventsForRange(startTime, endTime) {
   const [allActiveDoors, existedIds, allEmployeeIds, employeeSubscribers] =
     await Promise.all([
       DoorModel.findActive(),
@@ -446,6 +475,34 @@ export async function events_checker(from, to) {
   console.log("🏁 Все двери обработаны");
 }
 
+export async function events_checker(from, to) {
+  const { startTime, endTime } =
+    typeof from === "number" ? getDayRange(from) : getRange(from, to);
+  await _runEventsForRange(startTime, endTime);
+}
+
+export async function events_checker_per_tenant(from, to) {
+  const { startTime, endTime } =
+    typeof from === "number" ? getDayRange(from) : getRange(from, to);
+
+  const tenants = await prismaPublic.tenants.findMany();
+  console.log(`🏢 Найдено тенантов: ${tenants.length}`);
+
+  for (const tenant of tenants) {
+    console.log(`🏢 [${tenant.schema}] Начинаем проверку...`);
+    const prisma = getPrismaForTenant(tenant.schema);
+    try {
+      await prismaContext.run(prisma, () =>
+        tenantContext.run(tenant, () => _runEventsForRange(startTime, endTime)),
+      );
+    } catch (err) {
+      console.error(`❌ [${tenant.schema}] Ошибка:`, err.message);
+    }
+  }
+
+  console.log("🏁 Все тенанты обработаны");
+}
+
 // ─── Scheduler ────────────────────────────────────────────────────────────────
 
 export function scheduleEventsChecker() {
@@ -482,7 +539,7 @@ export function scheduleEventsChecker() {
           console.log(
             `🚀 [${label}] ${startTime.toISOString()} → ${endTime.toISOString()}`,
           );
-          await events_checker(startTime, endTime);
+          await events_checker_per_tenant(startTime, endTime);
         } catch (err) {
           console.error(`❌ [${label}] Ошибка:`, err.message);
         } finally {

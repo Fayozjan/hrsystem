@@ -10,7 +10,7 @@
   .options {
     margin-top: 4px;
     position: absolute;
-    background-color: #fff;
+    background-color: var(--card-bg);
     max-height: 300px;
     overflow-y: auto;
     border: 1px solid rgba(162, 161, 168, 0.2);
@@ -31,7 +31,7 @@
     .option {
       padding: 4px;
       cursor: pointer;
-      border-bottom: 1px solid #f1f1f1;
+      border-bottom: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
 

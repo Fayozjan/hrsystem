@@ -43,11 +43,12 @@ export const DashboardController = {
 
   all: async (req, res) => {
     try {
+      const branchId = req.query.branch_id || null;
       const [summary, analytics, feeds, finance] = await Promise.all([
-        DashboardService.getSummary(req.user.id),
-        DashboardService.getAnalytics(req.user.id),
-        DashboardService.getFeeds(req.user.id),
-        DashboardService.getFinance(req.user.id),
+        DashboardService.getSummary(req.user.id, branchId),
+        DashboardService.getAnalytics(req.user.id, branchId),
+        DashboardService.getFeeds(req.user.id, branchId),
+        DashboardService.getFinance(req.user.id, branchId),
       ]);
       res.json({ success: true, data: { summary, analytics, feeds, finance } });
     } catch (err) {

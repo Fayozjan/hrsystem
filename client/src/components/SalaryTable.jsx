@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 import Badge from "./Badge";
+import EmployeeCell from "./EmployeeCell";
 import styles from "./SalaryTable.module.scss";
 
 const SALARY_TYPE_COLORS = {
@@ -69,12 +70,7 @@ const SalaryTable = ({
                 {t("employeeNumber")}
               </span>
             </th>
-            <th>
-              <span className={styles.headerContent}>{t("branch")}</span>
-            </th>
-            <th>
-              <span className={styles.headerContent}>{t("department")}</span>
-            </th>
+
             <th>
               <span className={styles.headerContent}>{t("position")}</span>
             </th>
@@ -107,27 +103,18 @@ const SalaryTable = ({
                 >
                   <td>{(currentPage - 1) * pageSize + i + 1}</td>
                   <td>
-                    <div className={styles.employeeCell}>
-                      {item.photo && (
-                        <img
-                          src={`/api/employees/image/${item.photo}`}
-                          alt=""
-                          className={
-                            item.status ? styles.active : styles.terminated
-                          }
-                        />
-                      )}
-                      <span>
-                        {[item.last_name, item.first_name, item.middle_name]
-                          .filter(Boolean)
-                          .join(" ")}{" "}
-                        {`(${item.id})`}
-                      </span>
-                    </div>
+                    <EmployeeCell
+                      photo={item.photo}
+                      lastName={item.last_name}
+                      firstName={item.first_name}
+                      middleName={item.middle_name}
+                      id={item.id}
+                      branch={item.branch?.name}
+                      department={item.department?.name}
+                      active={item.status}
+                    />
                   </td>
                   <td>{item.employee_number || "—"}</td>
-                  <td>{item.branch?.name || "—"}</td>
-                  <td>{item.department?.name || "—"}</td>
                   <td>{item.position?.name || "—"}</td>
                   <td>
                     {salary ? (

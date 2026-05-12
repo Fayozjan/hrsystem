@@ -14,7 +14,7 @@
   cursor: pointer;
   box-sizing: border-box;
   transition: all 0.1s;
-  background: white;
+  background: var(--card-bg);
 
   &:hover {
     border: 1px solid var(--third-color);

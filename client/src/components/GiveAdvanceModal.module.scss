@@ -1,4 +1,4 @@
-.overlay {
+﻿.overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
@@ -9,7 +9,7 @@
 }
 
 .modal {
-  background: white;
+  background: var(--card-bg);
   border-radius: 10px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
   width: min(920px, 96vw);
@@ -24,14 +24,14 @@
   align-items: center;
   justify-content: space-between;
   padding: 14px 18px;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--border-subtle);
   flex-shrink: 0;
 }
 
 .title {
   font-size: 15px;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--text-color);
 }
 
 .closeBtn {
@@ -40,16 +40,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-subtle);
   border-radius: 6px;
-  background: white;
-  color: #64748b;
+  background: var(--card-bg);
+  color: var(--text-secondary);
   cursor: pointer;
   transition: all 0.15s;
 
   &:hover {
-    border-color: #94a3b8;
-    color: #1e293b;
+    border-color: var(--placeholder-color);
+    color: var(--text-color);
   }
 }
 
@@ -66,7 +66,7 @@
 }
 
 .loadingMsg {
-  color: #94a3b8;
+  color: var(--placeholder-color);
   font-size: 13px;
   text-align: center;
   padding: 24px 0;
@@ -79,7 +79,7 @@
   padding: 0 4px;
   font-size: 11px;
   font-weight: 600;
-  color: #94a3b8;
+  color: var(--placeholder-color);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -89,8 +89,8 @@
   align-items: center;
   gap: 8px;
   padding: 6px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: var(--bg-light);
+  border: 1px solid var(--border-subtle);
   border-radius: 6px;
 }
 
@@ -98,11 +98,11 @@
   width: 100%;
   height: 34px;
   padding: 0 10px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-subtle);
   border-radius: 5px;
   font-size: 13px;
   font-family: inherit;
-  background: white;
+  background: var(--card-bg);
   box-sizing: border-box;
   transition: border-color 0.15s;
 
@@ -158,23 +158,23 @@
   justify-content: flex-end;
   gap: 8px;
   padding: 12px 18px;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid var(--border-subtle);
   flex-shrink: 0;
 }
 
 .cancelBtn {
   height: 34px;
   padding: 0 14px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-subtle);
   border-radius: 5px;
-  background: white;
-  color: #64748b;
+  background: var(--card-bg);
+  color: var(--text-secondary);
   font-size: 13px;
   font-family: inherit;
   cursor: pointer;
   transition: all 0.15s;
 
-  &:hover { border-color: #94a3b8; color: #1e293b; }
+  &:hover { border-color: var(--placeholder-color); color: var(--text-color); }
 }
 
 .saveBtn {
@@ -207,9 +207,9 @@
   justify-content: space-between;
   height: 34px;
   padding: 0 10px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-subtle);
   border-radius: 5px;
-  background: white;
+  background: var(--card-bg);
   cursor: pointer;
   font-size: 13px;
   transition: border-color 0.15s;
@@ -220,27 +220,27 @@
     border-color: #7c3aed;
   }
 
-  svg { flex-shrink: 0; color: #94a3b8; }
+  svg { flex-shrink: 0; color: var(--placeholder-color); }
 }
 
 .empSelectValue {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: #1e293b;
+  color: var(--text-color);
   font-weight: 500;
 }
 
 .empSelectPlaceholder {
-  color: #94a3b8;
+  color: var(--placeholder-color);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .empSelectDropdown {
-  background: white;
-  border: 1px solid #e2e8f0;
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
   border-radius: 7px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
   overflow: hidden;
@@ -252,7 +252,7 @@
   height: 34px;
   padding: 0 10px;
   border: none;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--border-subtle);
   font-size: 13px;
   font-family: inherit;
   box-sizing: border-box;
@@ -272,7 +272,7 @@
   cursor: pointer;
   transition: background 0.1s;
 
-  &:hover { background: #f8fafc; }
+  &:hover { background: var(--bg-light); }
 
   &.empSelectItemActive { background: #faf5ff; }
 }
@@ -280,18 +280,18 @@
 .empSelectItemName {
   font-size: 13px;
   font-weight: 500;
-  color: #1e293b;
+  color: var(--text-color);
 }
 
 .empSelectItemSub {
   font-size: 11px;
-  color: #94a3b8;
+  color: var(--placeholder-color);
 }
 
 .empSelectEmpty {
   padding: 14px 10px;
   text-align: center;
-  color: #94a3b8;
+  color: var(--placeholder-color);
   font-size: 13px;
   font-style: italic;
 }

@@ -1,4 +1,4 @@
-.tableContainer {
+﻿.tableContainer {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
@@ -15,7 +15,7 @@
   thead {
     position: sticky;
     top: 0;
-    background: white;
+    background: var(--card-bg);
     z-index: 10;
   }
 
@@ -29,14 +29,14 @@
 
   th {
     font-weight: 600;
-    color: #475569;
+    color: var(--text-secondary);
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
   }
 
   tbody tr:hover td {
-    background: #f8fafc;
+    background: var(--bg-light);
   }
 }
 
@@ -46,7 +46,7 @@
 }
 
 .numColTd {
-  color: #94a3b8;
+  color: var(--placeholder-color);
   font-size: 11px;
 }
 
@@ -59,16 +59,16 @@
 
 .empName {
   font-weight: 600;
-  color: #1e293b;
+  color: var(--text-color);
 }
 
 .empSub {
   font-size: 11px;
-  color: #94a3b8;
+  color: var(--placeholder-color);
 }
 
 .dateCell {
-  color: #475569;
+  color: var(--text-secondary);
 }
 
 .amountCol {
@@ -85,12 +85,12 @@
   max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #64748b;
+  color: var(--text-secondary);
   font-style: italic;
 }
 
 .givenByCell {
-  color: #94a3b8;
+  color: var(--placeholder-color);
   font-size: 11px;
 }
 
@@ -100,7 +100,7 @@
 
 .noData {
   padding: 32px !important;
-  color: #94a3b8;
+  color: var(--placeholder-color);
   font-style: italic;
   text-align: center !important;
 }

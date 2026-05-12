@@ -4,6 +4,7 @@ import { Wallet, Users, TrendingUp, Hash } from "lucide-react";
 
 import { payrollApi } from "../api/payroll";
 import { useAlertStore } from "../stores/alertStore";
+import { useAuthStore } from "../stores/authStore";
 
 import Loading from "../components/Loading";
 import Pagination from "../components/Pagination";
@@ -13,6 +14,7 @@ import AdvancesTable from "../components/AdvancesTable";
 import GiveAdvanceModal from "../components/GiveAdvanceModal";
 import { Icons } from "../icons/icons";
 
+import Search from "../components/Search";
 import styles from "./SalaryAdvancesPage.module.scss";
 
 const fmt = (n) =>
@@ -56,6 +58,7 @@ const StatWidget = ({ icon: Icon, color, label, value, sub }) => (
 const SalaryAdvancesPage = () => {
   const { t } = useTranslation();
   const { showAlert } = useAlertStore();
+  const { viewMode, activeBranchId } = useAuthStore((s) => s.userSettings) || {};
 
   const [month, setMonth] = useState(getCurrentMonth());
   const [formData, setFormData] = useState(initialFilters);
@@ -83,7 +86,7 @@ const SalaryAdvancesPage = () => {
         page,
         pageSize: size,
         search: filters.search,
-        branch_id: filters.branch_id,
+        branch_id: viewMode === "branch" && activeBranchId ? activeBranchId : filters.branch_id,
         department_id: filters.department_id,
         position_id: filters.position_id,
         sort_by: filters.sort_by,
@@ -113,9 +116,15 @@ const SalaryAdvancesPage = () => {
     fetchAdvances(month, reset, 1, pageSize);
   }, [month]);
 
+  useEffect(() => {
+    if (viewMode === "branch") {
+      fetchAdvances(month, formData, 1, pageSize);
+    }
+  }, [activeBranchId]);
+
   // ── Handlers ───────────────────────────────────────────────────────────────
 
-  const handleSearch = () => fetchAdvances(month, formData, 1, pageSize);
+  const handleSearch = (data = formData) => fetchAdvances(month, data, 1, pageSize);
 
   const handleFormSubmit = (e) => {
     e?.preventDefault();
@@ -243,24 +252,7 @@ const SalaryAdvancesPage = () => {
               className={styles.monthInput}
             />
 
-            <div className={styles.searchInput}>
-              <span onClick={handleSearch}>{Icons.search}</span>
-              <input
-                type="text"
-                placeholder={t("search")}
-                value={formData.search}
-                onChange={(e) => setFormData((prev) => ({ ...prev, search: e.target.value }))}
-                onKeyDown={(e) => { if (e.key === "Enter") handleSearch(); }}
-              />
-              {formData.search && (
-                <span
-                  className={styles.clearBtn}
-                  onClick={() => setFormData((prev) => ({ ...prev, search: "" }))}
-                >
-                  {Icons.clear}
-                </span>
-              )}
-            </div>
+            <Search formData={formData} setFormData={setFormData} onSearch={handleSearch} />
 
             <PayrollFilter
               formData={formData}

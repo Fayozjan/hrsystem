@@ -509,6 +509,7 @@
   "confirmNewPassword": "Янги паролни тасдиқланг",
   "theme": "Мавзу",
   "themeLight": "Кундузги",
+  "themeDark": "Тунги",
   "language": "Тил",
   "languageRussian": "Рус тили",
   "languageUzbekCyrl": "Ўзбек тили (кирилл)",
@@ -813,5 +814,17 @@
   "attendanceForMonth": "Ойлик давомат",
   "monthTotal": "Ойлик жами:",
   "daysWord": "кун",
-  "hoursWord": "соат"
+  "hoursWord": "соат",
+  "staffing": "Штат жадвали",
+  "staffingPlan": "Штат бўйича (Режа)",
+  "nonStaffed": "Штатдан ташқари",
+  "inStaff": "Штатда",
+  "vacancies": "Вакансиялар",
+  "hasStaff": "Штат мавжуд",
+  "hasVacancies": "Ваканcия мавжуд",
+  "searchByBranchDept": "Филиал, бўлим бўйича қидириш",
+  "noPositionsAssigned": "Лавозимлар тайинланмаган",
+  "nonStaffedBadge": "ШТАТДАН ТАШҚАРИ",
+  "staffingLoadError": "Юклаш хатоси",
+  "staffingPositionsLoadError": "Лавозимларни юклашда хато"
 }

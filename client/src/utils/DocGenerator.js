@@ -366,6 +366,22 @@ export const exportEmployeesToExcel = (data, fileName = "users.xlsx") => {
   XLSX.writeFile(wb, fileName);
 };
 
+export const exportStaffingToExcel = (data, fileName = "staffing.xlsx") => {
+  const excelData = data.map((d, i) => ({
+    "№": i + 1,
+    Отдел: d.name,
+    Филиал: d.branch_name,
+    "По штату": d.planned || 0,
+    "По факту": d.actual || 0,
+    "Не по штату": d.non_staffed || 0,
+    Вакансии: d.vacancies || 0,
+  }));
+  const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.json_to_sheet(excelData);
+  XLSX.utils.book_append_sheet(wb, ws, "Штатное расписание");
+  XLSX.writeFile(wb, fileName);
+};
+
 export const downloadEmployeesAtWorkToExcel = (
   data,
   absentUsers,

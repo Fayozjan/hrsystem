@@ -18,6 +18,8 @@ import OverlaySidebar from "../components/OverlaySidebar";
 import AddTimeOff from "../components/AddTimeOff";
 import EditTimeOff from "../components/EditTimeOff";
 
+import EmployeeCell from "../components/EmployeeCell";
+import Search from "../components/Search";
 import styles from "./TimeOffPage.module.scss";
 import { formatIsoToLocalDate, formatIsoToLocalDateTime } from "../utils/date";
 import { CalendarOff, Building2, Clock } from "lucide-react";
@@ -76,12 +78,13 @@ const TimeOffPage = () => {
   const now = DateTime.now().setZone("Asia/Tashkent");
 
   const [formData, setFormData] = useState({
-    date_from: now.startOf("month").toFormat("yyyy-MM-dd 00:00"),
+    date_from: now.toFormat("yyyy-MM-dd 00:00"),
     date_to: now.toFormat("yyyy-MM-dd 23:59"),
     branch_id: null,
     department_id: null,
     position_id: null,
   });
+
 
   const fetchData = async (
     page = currentPage,
@@ -135,9 +138,9 @@ const TimeOffPage = () => {
     setCurrentPage(1);
   }, []);
 
-  const handleSearch = () => {
+  const handleSearch = (data = formData) => {
     setCurrentPage(1);
-    fetchData(1, formData, pageSize);
+    fetchData(1, data, pageSize);
   };
 
   const getSortedData = () => {
@@ -238,61 +241,7 @@ const TimeOffPage = () => {
           )}
           <div className={styles.mainHeader}>
             <div className={styles.filterWrapper}>
-              <div className={styles.searchInput}>
-                <svg
-                  onClick={() => handleSearch()}
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="19"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fill="#000000"
-                    d="M15.096 5.904a6.5 6.5 0 1 0-9.192 9.192a6.5 6.5 0 0 0 9.192-9.192ZM4.49 4.49a8.5 8.5 0 0 1 12.686 11.272l5.345 5.345l-1.414 1.414l-5.345-5.345A8.501 8.501 0 0 1 4.49 4.49Z"
-                  />
-                </svg>
-                <input
-                  type="text"
-                  placeholder={t("search")}
-                  value={formData.search || ""}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      search: e.target.value,
-                    }))
-                  }
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      handleSearch();
-                    }
-                  }}
-                />
-
-                {formData.search && (
-                  <svg
-                    className={styles.clearBtn}
-                    onClick={() => {
-                      setFormData((prev) => ({
-                        ...prev,
-                        search: "",
-                      }));
-                    }}
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="19"
-                    height="18"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="none"
-                      stroke="#000000"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                )}
-              </div>
+              <Search formData={formData} setFormData={setFormData} onSearch={handleSearch} />
 
               <TimeOffFilter
                 formData={formData}
@@ -339,7 +288,6 @@ const TimeOffPage = () => {
               <thead>
                 <tr>
                   <th>№</th>
-                  <th>{t("number")}</th>
                   <th className={styles.table_name_header}>{t("employee")}</th>
                   <th>{t("position")}</th>
                   <th>{t("type")}</th>
@@ -356,29 +304,15 @@ const TimeOffPage = () => {
                   getSortedData().map((item, i) => (
                     <tr key={item.id}>
                       <td>{(currentPage - 1) * pageSize + i + 1}</td>
-                      <td>{item.id}</td>
                       <td>
-                        <div className={styles.empCell}>
-                          {item.employee_photo && (
-                            <img
-                              src={`/api/employees/image/${item.employee_photo}`}
-                              alt="employee"
-                              className={
-                                item.employee_status ? styles.active : styles.terminated
-                              }
-                            />
-                          )}
-                          <div className={styles.empInfo}>
-                            <span className={styles.empName}>
-                              {item.employeeFullName}
-                            </span>
-                            <span className={styles.empSub}>
-                              {[item.branch_name, item.department_name]
-                                .filter(Boolean)
-                                .join(" / ")}
-                            </span>
-                          </div>
-                        </div>
+                        <EmployeeCell
+                          photo={item.employee_photo}
+                          fullName={item.employeeFullName}
+                          id={item.employee_id}
+                          branch={item.branch_name}
+                          department={item.department_name}
+                          active={item.employee_status !== false}
+                        />
                       </td>
                       <td>{item.position_name}</td>
                       <td>{t(item.type)}</td>
@@ -409,7 +343,7 @@ const TimeOffPage = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="11">{t("noData")}</td>
+                    <td colSpan="10">{t("noData")}</td>
                   </tr>
                 )}
               </tbody>

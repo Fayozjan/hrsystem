@@ -23,6 +23,7 @@ import SalarySettingPage from "./pages/SalarySettingPage";
 import PayrollPage from "./pages/PayrollPage";
 import SalaryPayoutsPage from "./pages/SalaryPayoutsPage";
 import SalaryAdvancesPage from "./pages/SalaryAdvancesPage";
+import StaffingPage from "./pages/StaffingPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 const Routes = [
@@ -86,6 +87,7 @@ const Routes = [
     element={<VehicleCamerasPage />}
     key="vehicle-cameras"
   />,
+  <Route path="staffing" element={<StaffingPage />} key="staffing" />,
   <Route path="*" element={<NotFoundPage />} />,
 ];
 

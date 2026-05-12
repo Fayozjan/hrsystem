@@ -509,6 +509,7 @@
   "confirmNewPassword": "Confirm new password",
   "theme": "Theme",
   "themeLight": "Light",
+  "themeDark": "Dark",
   "language": "Language",
   "languageRussian": "Russian",
   "languageUzbekCyrl": "Uzbek (Cyrillic)",
@@ -813,5 +814,17 @@
   "attendanceForMonth": "Monthly Attendance",
   "monthTotal": "Month total:",
   "daysWord": "days",
-  "hoursWord": "hours"
+  "hoursWord": "hours",
+  "staffing": "Staffing",
+  "staffingPlan": "Headcount (Plan)",
+  "nonStaffed": "Non-Staffed",
+  "inStaff": "In Roster",
+  "vacancies": "Vacancies",
+  "hasStaff": "Has headcount",
+  "hasVacancies": "Has vacancies",
+  "searchByBranchDept": "Search by branch, department",
+  "noPositionsAssigned": "No positions assigned",
+  "nonStaffedBadge": "NOT IN ROSTER",
+  "staffingLoadError": "Loading error",
+  "staffingPositionsLoadError": "Error loading positions"
 }

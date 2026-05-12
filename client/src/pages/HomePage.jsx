@@ -48,6 +48,7 @@ import {
   Legend,
 } from "recharts";
 import { getDashboardAll } from "../api/dashboard";
+import { getDepartmentsStaffingOverview } from "../api/departments";
 import { getAttendance } from "../api/attendance";
 import { getEmploymentOrders } from "../api/employmentOrders";
 import { EmployeeService } from "../api";
@@ -526,45 +527,55 @@ const DIRECTION_STYLE = {
 
 const PassItem = ({ item, t, isVehicle }) => {
   const dir = DIRECTION_STYLE[item.direction] ?? DIRECTION_STYLE.unknown;
-  const imgSrc = isVehicle
-    ? item.photo
-      ? `/api/vehicle-passes/image/${item.photo}`
-      : null
-    : item.photo
-      ? `/api/face-passes/image/${item.photo}`
-      : item.employee?.photo
-        ? `/api/employees/image/${item.employee.photo}`
-        : null;
+
+  if (isVehicle) {
+    const imgSrc = item.photo ? `/api/vehicle-passes/image/${item.photo}` : null;
+    return (
+      <div className={styles.feedItem}>
+        <div className={`${styles.feedAvatar} ${styles.feedAvatarCar}`}>
+          {imgSrc ? <img src={imgSrc} alt="" /> : <Car size={16} strokeWidth={1.5} />}
+        </div>
+        <div className={styles.feedInfo}>
+          <span className={styles.feedName}>{item.plate_number || "—"}</span>
+          <span className={styles.feedSub}>{item.gate?.name || "—"}</span>
+        </div>
+        <div className={styles.feedRight}>
+          <span className={styles.feedDateTime}>{fmtDateTime(item.date)}</span>
+          <span className={styles[dir.badge]}>{t(dir.key)}</span>
+        </div>
+      </div>
+    );
+  }
+
+  const imgSrc = item.photo
+    ? `/api/face-passes/image/${item.photo}`
+    : item.employee?.photo
+      ? `/api/employees/image/${item.employee.photo}`
+      : null;
 
   return (
     <div className={styles.feedItem}>
-      <div
-        className={`${styles.feedAvatar} ${isVehicle ? styles.feedAvatarCar : ""}`}
-        style={isVehicle ? {} : { background: dir.bg }}
-      >
-        {imgSrc ? (
-          <img src={imgSrc} alt="" />
-        ) : isVehicle ? (
-          <Car size={16} strokeWidth={1.5} />
-        ) : (
-          <span className={styles.feedInitials}>{initials(item.employee)}</span>
-        )}
-      </div>
-      <div className={styles.feedInfo}>
-        <span className={styles.feedName}>
-          {isVehicle
-            ? item.plate_number || "—"
-            : `${fullName(item.employee)} (${item.employee?.id || item.employee_id})`}
-        </span>
-        <span className={styles.feedSub}>
-          {isVehicle
-            ? item.gate?.name || "—"
-            : [item.employee?.branch?.name, item.employee?.department?.name]
-                .filter(Boolean)
-                .join(" / ") ||
+      <div className={styles.empCell}>
+        <div className={styles.empAvatar}>
+          {imgSrc ? (
+            <img src={imgSrc} alt="" className={styles.empPhoto} />
+          ) : (
+            <div className={styles.empInitials}>{initials(item.employee)}</div>
+          )}
+        </div>
+        <div className={styles.empInfo}>
+          <span className={styles.empName}>
+            {fullName(item.employee)}
+            <span className={styles.empId}> ({item.employee?.id || item.employee_id})</span>
+          </span>
+          <span className={styles.empSub}>
+            {[item.employee?.branch?.name, item.employee?.department?.name]
+              .filter(Boolean)
+              .join(" / ") ||
               item.door?.name ||
               "—"}
-        </span>
+          </span>
+        </div>
       </div>
       <div className={styles.feedRight}>
         <span className={styles.feedDateTime}>{fmtDateTime(item.date)}</span>
@@ -577,22 +588,26 @@ const PassItem = ({ item, t, isVehicle }) => {
 // ─── Time-off item ───────────────────────────────────────────────────────────────
 const TimeOffItem = ({ item, t }) => (
   <div className={styles.feedItem}>
-    <div
-      className={styles.feedAvatar}
-      style={{ background: "linear-gradient(135deg,#ef4444,#dc2626)" }}
-    >
-      <span className={styles.feedInitials}>{initials(item.employee)}</span>
-    </div>
-    <div className={styles.feedInfo}>
-      <span
-        className={styles.feedName}
-      >{`${fullName(item.employee)} (${item.employee.id})`}</span>
-      <span className={styles.feedSub}>
-        {[item.employee?.branch?.name, item.employee?.department?.name]
-          .filter(Boolean)
-          .join(" / ") || "—"}
-      </span>
-      <span className={styles.feedSub}>{item.reason || "—"}</span>
+    <div className={styles.empCell}>
+      <div className={styles.empAvatar}>
+        {item.employee?.photo ? (
+          <img src={`/api/employees/image/${item.employee.photo}`} alt="" className={styles.empPhoto} />
+        ) : (
+          <div className={styles.empInitials}>{initials(item.employee)}</div>
+        )}
+      </div>
+      <div className={styles.empInfo}>
+        <span className={styles.empName}>
+          {fullName(item.employee)}
+          <span className={styles.empId}> ({item.employee.id})</span>
+        </span>
+        <span className={styles.empSub}>
+          {[item.employee?.branch?.name, item.employee?.department?.name]
+            .filter(Boolean)
+            .join(" / ") || "—"}
+        </span>
+        <span className={styles.empSub}>{item.reason || "—"}</span>
+      </div>
     </div>
     <div className={styles.feedRight}>
       <span className={styles.feedDateTime}>
@@ -608,22 +623,25 @@ const BirthdayItem = ({ item, t }) => {
   const isToday = item.daysLeft === 0;
   return (
     <div className={`${styles.bdayItem} ${isToday ? styles.bdayToday : ""}`}>
-      <div className={styles.bdayAvatar}>
-        {item.photo ? (
-          <img src={`/api/employees/image/${item.photo}`} alt="" />
-        ) : (
-          <span>{initials(item)}</span>
-        )}
-      </div>
-      <div className={styles.bdayInfo}>
-        <span
-          className={styles.bdayName}
-        >{`${fullName(item)} (${item.id})`}</span>
-        <span className={styles.bdayDept}>
-          {[item.branch?.name, item.department?.name]
-            .filter(Boolean)
-            .join(" / ") || "—"}
-        </span>
+      <div className={styles.empCell}>
+        <div className={styles.empAvatar}>
+          {item.photo ? (
+            <img src={`/api/employees/image/${item.photo}`} alt="" className={styles.empPhoto} />
+          ) : (
+            <div className={styles.empInitials}>{initials(item)}</div>
+          )}
+        </div>
+        <div className={styles.empInfo}>
+          <span className={styles.empName}>
+            {fullName(item)}
+            <span className={styles.empId}> ({item.id})</span>
+          </span>
+          <span className={styles.empSub}>
+            {[item.branch?.name, item.department?.name]
+              .filter(Boolean)
+              .join(" / ") || "—"}
+          </span>
+        </div>
       </div>
       <div className={styles.bdayRight}>
         <span className={styles.bdayDate}>
@@ -649,23 +667,26 @@ const PaymentItem = ({ item }) => {
   const emp = item.item?.employee;
   return (
     <div className={styles.feedItem}>
-      <div
-        className={styles.feedAvatar}
-        style={{ background: "linear-gradient(135deg,#10b981,#059669)" }}
-      >
-        <span className={styles.feedInitials}>{initials(emp)}</span>
-      </div>
-      <div className={styles.feedInfo}>
-        <span className={styles.feedName}>
-          {fullName(emp)}
-          {emp?.id ? ` (${emp.id})` : ""}
-        </span>
-        <span className={styles.feedSub}>
-          {[emp?.branch?.name, emp?.department?.name]
-            .filter(Boolean)
-            .join(" / ") || "—"}
-        </span>
-        {item.note && <span className={styles.feedSub}>{item.note}</span>}
+      <div className={styles.empCell}>
+        <div className={styles.empAvatar}>
+          {emp?.photo ? (
+            <img src={`/api/employees/image/${emp.photo}`} alt="" className={styles.empPhoto} />
+          ) : (
+            <div className={styles.empInitials}>{initials(emp)}</div>
+          )}
+        </div>
+        <div className={styles.empInfo}>
+          <span className={styles.empName}>
+            {fullName(emp)}
+            {emp?.id ? <span className={styles.empId}> ({emp.id})</span> : ""}
+          </span>
+          <span className={styles.empSub}>
+            {[emp?.branch?.name, emp?.department?.name]
+              .filter(Boolean)
+              .join(" / ") || "—"}
+          </span>
+          {item.note && <span className={styles.empSub}>{item.note}</span>}
+        </div>
       </div>
       <div className={styles.feedRight}>
         <span className={styles.feedDateTime}>
@@ -684,23 +705,26 @@ const AdvanceItem = ({ item }) => {
   const emp = item.employee;
   return (
     <div className={styles.feedItem}>
-      <div
-        className={styles.feedAvatar}
-        style={{ background: "linear-gradient(135deg,#f59e0b,#d97706)" }}
-      >
-        <span className={styles.feedInitials}>{initials(emp)}</span>
-      </div>
-      <div className={styles.feedInfo}>
-        <span className={styles.feedName}>
-          {fullName(emp)}
-          {emp?.id ? ` (${emp.id})` : ""}
-        </span>
-        <span className={styles.feedSub}>
-          {[emp?.branch?.name, emp?.department?.name]
-            .filter(Boolean)
-            .join(" / ") || "—"}
-        </span>
-        {item.note && <span className={styles.feedSub}>{item.note}</span>}
+      <div className={styles.empCell}>
+        <div className={styles.empAvatar}>
+          {emp?.photo ? (
+            <img src={`/api/employees/image/${emp.photo}`} alt="" className={styles.empPhoto} />
+          ) : (
+            <div className={styles.empInitials}>{initials(emp)}</div>
+          )}
+        </div>
+        <div className={styles.empInfo}>
+          <span className={styles.empName}>
+            {fullName(emp)}
+            {emp?.id ? <span className={styles.empId}> ({emp.id})</span> : ""}
+          </span>
+          <span className={styles.empSub}>
+            {[emp?.branch?.name, emp?.department?.name]
+              .filter(Boolean)
+              .join(" / ") || "—"}
+          </span>
+          {item.note && <span className={styles.empSub}>{item.note}</span>}
+        </div>
       </div>
       <div className={styles.feedRight}>
         <span className={styles.feedDateTime}>
@@ -762,23 +786,25 @@ const PieLegend = ({ data, nameKey = "branch" }) => {
 // ─── Top arrivals/departures list ────────────────────────────────────────────────
 const ArrivalItem = ({ item, timeKey, label }) => (
   <div className={styles.arrItem}>
-    <div className={styles.arrAvatar}>
-      {item.employee?.photo ? (
-        <img src={`/api/employees/image/${item.employee.photo}`} alt="" />
-      ) : (
-        <span>{initials(item.employee)}</span>
-      )}
-    </div>
-    <div className={styles.arrInfo}>
-      <span className={styles.arrName}>
-        {fullName(item.employee)}
-        {item.employee?.id ? ` (${item.employee.id})` : ""}
-      </span>
-      <span className={styles.arrDept}>
-        {[item.employee?.branch?.name, item.employee?.department?.name]
-          .filter(Boolean)
-          .join(" / ") || "—"}
-      </span>
+    <div className={styles.empCell}>
+      <div className={styles.empAvatar}>
+        {item.employee?.photo ? (
+          <img src={`/api/employees/image/${item.employee.photo}`} alt="" className={styles.empPhoto} />
+        ) : (
+          <div className={styles.empInitials}>{initials(item.employee)}</div>
+        )}
+      </div>
+      <div className={styles.empInfo}>
+        <span className={styles.empName}>
+          {fullName(item.employee)}
+          {item.employee?.id ? <span className={styles.empId}> ({item.employee.id})</span> : ""}
+        </span>
+        <span className={styles.empSub}>
+          {[item.employee?.branch?.name, item.employee?.department?.name]
+            .filter(Boolean)
+            .join(" / ") || "—"}
+        </span>
+      </div>
     </div>
     <div className={styles.arrTime}>
       <span className={styles.arrTimeVal}>{fmtTime(item[timeKey])}</span>
@@ -808,21 +834,24 @@ const fmtLateMin = (mins) => {
 // ─── Late item (schedule / actual / late minutes) ─────────────────────────────────
 const LateItem = ({ emp }) => (
   <div className={styles.lateItem}>
-    <div className={styles.arrAvatar}>
-      {emp.employeePhoto ? (
-        <img src={`/api/employees/image/${emp.employeePhoto}`} alt="" />
-      ) : (
-        <span>{attInitials(emp.employeeFullName)}</span>
-      )}
+    <div className={styles.empCell}>
+      <div className={styles.empAvatar}>
+        {emp.employeePhoto ? (
+          <img src={`/api/employees/image/${emp.employeePhoto}`} alt="" className={styles.empPhoto} />
+        ) : (
+          <div className={styles.empInitials}>{attInitials(emp.employeeFullName)}</div>
+        )}
+      </div>
+      <div className={styles.empInfo}>
+        <span className={styles.empName}>
+          {(emp.employeeFullName || "—").replace(/\s*\(\d+\)\s*$/, "")}
+          {emp.employeeId ? <span className={styles.empId}> ({emp.employeeId})</span> : ""}
+        </span>
+        <span className={styles.empSub}>
+          {[emp.branchName, emp.departmentName].filter(Boolean).join(" / ") || "—"}
+        </span>
+      </div>
     </div>
-    <div className={styles.lateInfo}>
-      <span className={styles.arrName}>{emp.employeeFullName || "—"}</span>
-      <span className={styles.arrDept}>
-        {[emp.branchName, emp.departmentName].filter(Boolean).join(" / ") ||
-          "—"}
-      </span>
-    </div>
-
     <div className={styles.lateTimes}>
       <span className={styles.lateTimeChip}>
         <span className={styles.lateTimeLbl}>{i18t("scheduleLabel")}</span>
@@ -842,19 +871,23 @@ const LateItem = ({ emp }) => (
 // ─── Attendance list item (attendance module data shape) ─────────────────────────
 const AttItem = ({ emp, timeVal, timeLabel }) => (
   <div className={styles.arrItem}>
-    <div className={styles.arrAvatar}>
-      {emp.employeePhoto ? (
-        <img src={`/api/employees/image/${emp.employeePhoto}`} alt="" />
-      ) : (
-        <span>{attInitials(emp.employeeFullName)}</span>
-      )}
-    </div>
-    <div className={styles.arrInfo}>
-      <span className={styles.arrName}>{emp.employeeFullName || "—"}</span>
-      <span className={styles.arrDept}>
-        {[emp.branchName, emp.departmentName].filter(Boolean).join(" / ") ||
-          "—"}
-      </span>
+    <div className={styles.empCell}>
+      <div className={styles.empAvatar}>
+        {emp.employeePhoto ? (
+          <img src={`/api/employees/image/${emp.employeePhoto}`} alt="" className={styles.empPhoto} />
+        ) : (
+          <div className={styles.empInitials}>{attInitials(emp.employeeFullName)}</div>
+        )}
+      </div>
+      <div className={styles.empInfo}>
+        <span className={styles.empName}>
+          {(emp.employeeFullName || "—").replace(/\s*\(\d+\)\s*$/, "")}
+          {emp.employeeId ? <span className={styles.empId}> ({emp.employeeId})</span> : ""}
+        </span>
+        <span className={styles.empSub}>
+          {[emp.branchName, emp.departmentName].filter(Boolean).join(" / ") || "—"}
+        </span>
+      </div>
     </div>
     {timeVal && (
       <div className={styles.arrTime}>
@@ -1078,6 +1111,7 @@ const HomePage = () => {
   const { t } = useTranslation();
   const user = useAuthStore((s) => s.user);
   const access = useAuthStore((s) => s.access);
+  const { viewMode, activeBranchId } = useAuthStore((s) => s.userSettings) || {};
 
   const [summary, setSummary] = useState(null);
   const [analytics, setAnalytics] = useState(null);
@@ -1099,6 +1133,8 @@ const HomePage = () => {
   const [newEmployees, setNewEmployees] = useState([]);
   const [terminatedEmployees, setTerminatedEmployees] = useState([]);
   const [ordersLoading, setOrdersLoading] = useState(true);
+  const [vacanciesCount, setVacanciesCount] = useState(null);
+  const [vacLoading, setVacLoading] = useState(true);
   const branchDropRef = useRef(null);
 
   // ── access helpers ────────────────────────────────────────────────────────────
@@ -1113,13 +1149,17 @@ const HomePage = () => {
   // ── menu items for search ─────────────────────────────────────────────────────
   const menuItems = access?.menu?.filter((m) => m.path) ?? [];
 
+  // ── branch filter from viewMode ───────────────────────────────────────────────
+  const branchFilter = viewMode === "branch" && activeBranchId ? activeBranchId : null;
+
   // ── data loading ──────────────────────────────────────────────────────────────
   useEffect(() => {
     setSumLoading(true);
     setAnaLoading(true);
     setFeedLoading(true);
     setFinLoading(true);
-    getDashboardAll()
+    const params = branchFilter ? { branch_id: branchFilter } : {};
+    getDashboardAll(params)
       .then(({ summary, analytics, feeds, finance }) => {
         setSummary(summary);
         setAnalytics(analytics);
@@ -1133,12 +1173,25 @@ const HomePage = () => {
         setFeedLoading(false);
         setFinLoading(false);
       });
-  }, [refreshKey]);
+  }, [refreshKey, branchFilter]);
+
+  useEffect(() => {
+    setVacLoading(true);
+    const params = branchFilter ? { branch_id: branchFilter } : {};
+    getDepartmentsStaffingOverview(params)
+      .then(({ data }) => {
+        const total = (data || []).reduce((s, d) => s + (d.vacancies || 0), 0);
+        setVacanciesCount(total);
+      })
+      .catch(console.error)
+      .finally(() => setVacLoading(false));
+  }, [refreshKey, branchFilter]);
 
   useEffect(() => {
     setAttLoading(true);
     const today = new Date().toISOString().split("T")[0];
-    getAttendance({ filters: { date: today } })
+    const filters = branchFilter ? { date: today, branch_id: branchFilter } : { date: today };
+    getAttendance({ filters })
       .then((res) => {
         setAttendanceData(res.data);
         const firstId = res.data.branches?.[0]?.id;
@@ -1150,7 +1203,7 @@ const HomePage = () => {
       })
       .catch(console.error)
       .finally(() => setAttLoading(false));
-  }, [refreshKey]);
+  }, [refreshKey, branchFilter]);
 
   const handleRefresh = useCallback(() => {
     setRefreshing(true);
@@ -1174,9 +1227,10 @@ const HomePage = () => {
   // ── Employment orders (new hires + terminated) ────────────────────────────────
   useEffect(() => {
     setOrdersLoading(true);
+    const extraFilter = branchFilter ? { branch_id: branchFilter } : {};
     Promise.all([
-      getEmploymentOrders({ filters: { type: "hire" }, pageSize: 5 }),
-      getEmploymentOrders({ filters: { type: "terminate" }, pageSize: 5 }),
+      getEmploymentOrders({ filters: { type: "hire", ...extraFilter }, pageSize: 5 }),
+      getEmploymentOrders({ filters: { type: "terminate", ...extraFilter }, pageSize: 5 }),
     ])
       .then(([hires, terms]) => {
         setNewEmployees(hires.data ?? []);
@@ -1184,7 +1238,7 @@ const HomePage = () => {
       })
       .catch(console.error)
       .finally(() => setOrdersLoading(false));
-  }, [refreshKey]);
+  }, [refreshKey, branchFilter]);
 
   // ── Branch dropdown outside click ─────────────────────────────────────────────
   useEffect(() => {
@@ -1829,12 +1883,15 @@ const HomePage = () => {
             loading={sumLoading}
             pct={null}
           />
-          <MockCard
-            icon={UserCircle}
-            color="#ec4899"
+          <StatCard
+            icon={Briefcase}
             label={t("dashboard.totalVacancies")}
-            value="—"
-            sub={t("dashboard.comingSoon")}
+            value={vacanciesCount}
+            gradient="linear-gradient(135deg,#f59e0b,#d97706)"
+            bg="rgba(245,158,11,0.12)"
+            stroke="#f59e0b"
+            loading={vacLoading}
+            pct={null}
           />
         </motion.div>
 
@@ -1946,45 +2003,37 @@ const HomePage = () => {
               <div className={styles.orderList}>
                 {newEmployees.map((o) => (
                   <div key={o.id} className={styles.orderItem}>
-                    <div
-                      className={styles.orderAvatar}
-                      style={{
-                        background: "linear-gradient(135deg,#22c55e,#16a34a)",
-                      }}
-                    >
-                      <span>
-                        {(
-                          [o.employee?.last_name, o.employee?.first_name]
+                    <div className={styles.empCell}>
+                      <div className={styles.empAvatar}>
+                        {o.employee?.photo ? (
+                          <img src={`/api/employees/image/${o.employee.photo}`} alt="" className={styles.empPhoto} />
+                        ) : (
+                          <div className={styles.empInitials}>
+                            {([o.employee?.last_name, o.employee?.first_name]
+                              .filter(Boolean)
+                              .join(" ") || "")
+                              .trim()
+                              .split(/\s+/)
+                              .map((w) => w[0])
+                              .join("")
+                              .slice(0, 2)
+                              .toUpperCase() || "?"}
+                          </div>
+                        )}
+                      </div>
+                      <div className={styles.empInfo}>
+                        <span className={styles.empName}>
+                          {[o.employee?.last_name, o.employee?.first_name, o.employee?.middle_name]
                             .filter(Boolean)
-                            .join(" ") || ""
-                        )
-                          .trim()
-                          .split(/\s+/)
-                          .map((w) => w[0])
-                          .join("")
-                          .slice(0, 2)
-                          .toUpperCase() || "?"}
-                      </span>
-                    </div>
-                    <div className={styles.orderInfo}>
-                      <span className={styles.orderName}>
-                        {[
-                          o.employee?.last_name,
-                          o.employee?.first_name,
-                          o.employee?.middle_name,
-                        ]
-                          .filter(Boolean)
-                          .join(" ") || "—"}
-                        {o.employee?.id ? ` (${o.employee.id})` : ""}
-                      </span>
-                      <span className={styles.orderDate}>
-                        {[
-                          o.employee?.branch?.name,
-                          o.employee?.department?.name,
-                        ]
-                          .filter(Boolean)
-                          .join(" / ") || "—"}
-                      </span>
+                            .join(" ") || "—"}
+                          {o.employee?.id ? <span className={styles.empId}> ({o.employee.id})</span> : ""}
+                        </span>
+                        <span className={styles.empSub}>
+                          {[o.employee?.branch?.name, o.employee?.department?.name]
+                            .filter(Boolean)
+                            .join(" / ") || "—"}
+                        </span>
+                      </div>
                     </div>
                     <div className={styles.feedRight}>
                       <span className={styles.feedDateTime}>
@@ -2011,45 +2060,37 @@ const HomePage = () => {
               <div className={styles.orderList}>
                 {terminatedEmployees.map((o) => (
                   <div key={o.id} className={styles.orderItem}>
-                    <div
-                      className={styles.orderAvatar}
-                      style={{
-                        background: "linear-gradient(135deg,#ef4444,#dc2626)",
-                      }}
-                    >
-                      <span>
-                        {(
-                          [o.employee?.last_name, o.employee?.first_name]
+                    <div className={styles.empCell}>
+                      <div className={styles.empAvatar}>
+                        {o.employee?.photo ? (
+                          <img src={`/api/employees/image/${o.employee.photo}`} alt="" className={styles.empPhoto} />
+                        ) : (
+                          <div className={styles.empInitials}>
+                            {([o.employee?.last_name, o.employee?.first_name]
+                              .filter(Boolean)
+                              .join(" ") || "")
+                              .trim()
+                              .split(/\s+/)
+                              .map((w) => w[0])
+                              .join("")
+                              .slice(0, 2)
+                              .toUpperCase() || "?"}
+                          </div>
+                        )}
+                      </div>
+                      <div className={styles.empInfo}>
+                        <span className={styles.empName}>
+                          {[o.employee?.last_name, o.employee?.first_name, o.employee?.middle_name]
                             .filter(Boolean)
-                            .join(" ") || ""
-                        )
-                          .trim()
-                          .split(/\s+/)
-                          .map((w) => w[0])
-                          .join("")
-                          .slice(0, 2)
-                          .toUpperCase() || "?"}
-                      </span>
-                    </div>
-                    <div className={styles.orderInfo}>
-                      <span className={styles.orderName}>
-                        {[
-                          o.employee?.last_name,
-                          o.employee?.first_name,
-                          o.employee?.middle_name,
-                        ]
-                          .filter(Boolean)
-                          .join(" ") || "—"}
-                        {o.employee?.id ? ` (${o.employee.id})` : ""}
-                      </span>
-                      <span className={styles.orderDate}>
-                        {[
-                          o.employee?.branch?.name,
-                          o.employee?.department?.name,
-                        ]
-                          .filter(Boolean)
-                          .join(" / ") || "—"}
-                      </span>
+                            .join(" ") || "—"}
+                          {o.employee?.id ? <span className={styles.empId}> ({o.employee.id})</span> : ""}
+                        </span>
+                        <span className={styles.empSub}>
+                          {[o.employee?.branch?.name, o.employee?.department?.name]
+                            .filter(Boolean)
+                            .join(" / ") || "—"}
+                        </span>
+                      </div>
                     </div>
                     <div className={styles.feedRight}>
                       <span className={styles.feedDateTime}>

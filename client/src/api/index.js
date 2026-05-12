@@ -22,3 +22,4 @@ export * from "./workScheduleHistory";
 export * from "./salaryHistory";
 export * from "./dashboard";
 export * from "./payroll";
+export * from "./staffingPosition";

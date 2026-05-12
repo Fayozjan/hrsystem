@@ -29,6 +29,7 @@ const AuthPageTelegram = () => {
       return;
     }
 
+    const terminal = result.errorCode === "NOT_REGISTERED" || result.errorCode === "DISABLED";
     setStatus(
       result.errorCode === "NOT_REGISTERED"
         ? "not_found"
@@ -37,7 +38,7 @@ const AuthPageTelegram = () => {
           : "error",
     );
     setError(result.message || t("loginErrorTelegram"));
-    authStarted.current = false;
+    if (!terminal) authStarted.current = false;
   };
 
   useEffect(() => {
@@ -130,10 +131,7 @@ const AuthPageTelegram = () => {
         <p className={styles.text}>{error}</p>
         <button
           className={styles.retryButton}
-          onClick={() => {
-            authStarted.current = false;
-            authenticate();
-          }}
+          onClick={authenticate}
         >
           {t("retry")}
         </button>

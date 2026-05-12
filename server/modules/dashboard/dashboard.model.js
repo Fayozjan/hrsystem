@@ -242,16 +242,16 @@ export const DashboardModel = {
     return Object.values(hourMap);
   },
 
-  hiringDynamics: async (months) => {
+  hiringDynamics: async (months, orderWhere = {}) => {
     const prisma = prismaContext.get();
     const results = await Promise.all(
       months.map(async ({ start, end, label }) => {
         const [hired, terminated] = await Promise.all([
           prisma.employment_orders.count({
-            where: { date: { gte: start, lte: end }, type: "hire" },
+            where: { date: { gte: start, lte: end }, type: "hire", ...orderWhere },
           }),
           prisma.employment_orders.count({
-            where: { date: { gte: start, lte: end }, type: "terminate" },
+            where: { date: { gte: start, lte: end }, type: "terminate", ...orderWhere },
           }),
         ]);
         return { month: label, hired, terminated };
@@ -711,16 +711,16 @@ export const DashboardModel = {
     return Object.values(map).sort((a, b) => b.total - a.total);
   },
 
-  hiringDynamicsByDay: async (days) => {
+  hiringDynamicsByDay: async (days, orderWhere = {}) => {
     const prisma = prismaContext.get();
     const results = await Promise.all(
       days.map(async ({ start, end, label }) => {
         const [hired, terminated] = await Promise.all([
           prisma.employment_orders.count({
-            where: { date: { gte: start, lte: end }, type: "hire" },
+            where: { date: { gte: start, lte: end }, type: "hire", ...orderWhere },
           }),
           prisma.employment_orders.count({
-            where: { date: { gte: start, lte: end }, type: "terminate" },
+            where: { date: { gte: start, lte: end }, type: "terminate", ...orderWhere },
           }),
         ]);
         return { date: label, hired, terminated };
@@ -748,6 +748,7 @@ export const DashboardModel = {
             first_name: true,
             last_name: true,
             middle_name: true,
+            photo: true,
             branch: { select: { name: true } },
             department: { select: { name: true } },
           },

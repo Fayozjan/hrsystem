@@ -127,6 +127,19 @@ exports.Prisma.TenantsScalarFieldEnum = {
   schema: 'schema'
 };
 
+exports.Prisma.Employee_door_tasksScalarFieldEnum = {
+  id: 'id',
+  tenant_id: 'tenant_id',
+  employee_id: 'employee_id',
+  door_id: 'door_id',
+  action: 'action',
+  status: 'status',
+  retry_count: 'retry_count',
+  error: 'error',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
 exports.Prisma.Tenant_telegram_usersScalarFieldEnum = {
   telegram_id: 'telegram_id',
   tenant_id: 'tenant_id',
@@ -160,15 +173,15 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 exports.Prisma.JsonNullValueFilter = {
   DbNull: Prisma.DbNull,
   JsonNull: Prisma.JsonNull,
   AnyNull: Prisma.AnyNull
-};
-
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
 };
 exports.NotificationSourceType = exports.$Enums.NotificationSourceType = {
   face_pass: 'face_pass',
@@ -177,6 +190,7 @@ exports.NotificationSourceType = exports.$Enums.NotificationSourceType = {
 
 exports.Prisma.ModelName = {
   tenants: 'tenants',
+  employee_door_tasks: 'employee_door_tasks',
   tenant_telegram_users: 'tenant_telegram_users',
   notifications_outbox: 'notifications_outbox'
 };

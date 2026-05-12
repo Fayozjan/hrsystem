@@ -75,6 +75,7 @@ const PositionsPage = () => {
     status: "",
   });
 
+
   const currentPath = window.location.pathname;
   const { canAdd, canEdit, canDelete } = usePermissions(currentPath);
 
@@ -187,9 +188,9 @@ const PositionsPage = () => {
     await fetchData(1, formData);
   };
 
-  const handleSearch = (formData) => {
+  const handleSearch = (data = formData) => {
     setCurrentPage(1);
-    fetchData(1, formData, pageSize);
+    fetchData(1, data, pageSize);
   };
 
   return (
@@ -226,7 +227,7 @@ const PositionsPage = () => {
               <Search
                 formData={formData}
                 setFormData={setFormData}
-                handleSearch={handleSearch}
+                onSearch={handleSearch}
               />
 
               <TableFilter

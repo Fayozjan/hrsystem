@@ -1,7 +1,9 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+﻿import { useState, useRef, useEffect, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { payrollApi } from "../api/payroll";
 import { useAlertStore } from "../stores/alertStore";
+import { Icons } from "../icons/icons";
+import EmployeeCell from "./EmployeeCell";
 import styles from "./PayoutsTable.module.scss";
 
 const fmt = (n) =>
@@ -18,57 +20,6 @@ const fmtDate = (d) => {
 };
 
 const today = () => new Date().toISOString().slice(0, 10);
-
-const IconCheck = () => (
-  <svg
-    width="13"
-    height="13"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-);
-
-const IconUndo = () => (
-  <svg
-    width="13"
-    height="13"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M3 7v6h6" />
-    <path d="M3 13C5 8.5 9.5 5 15 5a9 9 0 0 1 6 15" />
-  </svg>
-);
-
-const IconTrash = () => (
-  <svg
-    width="12"
-    height="12"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polyline points="3 6 5 6 21 6" />
-    <path d="M19 6l-1 14H6L5 6" />
-    <path d="M10 11v6M14 11v6" />
-    <path d="M9 6V4h6v2" />
-  </svg>
-);
-
-// ── AmountPickerPopover (debt only) ────────────────────────────────────────────
 
 const QUICK_PCTS = [25, 50, 75, 100];
 
@@ -174,8 +125,10 @@ function AmountPickerPopover({
             placeholder="0"
             onChange={(e) => {
               const raw = e.target.value.replace(/\D/g, "");
-              if (raw === "") { setAmount(""); setPct(""); }
-              else applyAmount(raw);
+              if (raw === "") {
+                setAmount("");
+                setPct("");
+              } else applyAmount(raw);
             }}
           />
         </div>
@@ -222,9 +175,6 @@ function AmountPickerPopover({
     </div>
   );
 }
-
-// ── PaymentPopover ─────────────────────────────────────────────────────────────
-// Dedicated popover for payments: date picker + history + new amount
 
 function PaymentPopover({ item, onSave, onDelete, onClose }) {
   const { t } = useTranslation();
@@ -395,7 +345,7 @@ function PaymentPopover({ item, onSave, onDelete, onClose }) {
                   disabled={deletingId === log.id}
                   title={t("confirmDelete")}
                 >
-                  <IconTrash />
+                  {Icons.trash}
                 </button>
               </div>
             ))
@@ -432,8 +382,10 @@ function PaymentPopover({ item, onSave, onDelete, onClose }) {
                 placeholder="0"
                 onChange={(e) => {
                   const raw = e.target.value.replace(/\D/g, "");
-                  if (raw === "") { setAmount(""); setPct(""); }
-                  else applyAmount(raw);
+                  if (raw === "") {
+                    setAmount("");
+                    setPct("");
+                  } else applyAmount(raw);
                 }}
               />
             </div>
@@ -498,8 +450,6 @@ function PaymentPopover({ item, onSave, onDelete, onClose }) {
     </div>
   );
 }
-
-// ── PayoutsTable ───────────────────────────────────────────────────────────────
 
 const PayoutsTable = ({
   items = [],
@@ -670,18 +620,17 @@ const PayoutsTable = ({
 
                   <td className={styles.numColTd}>{idx + 1}</td>
 
-                  {/* Сотрудник */}
                   <td>
-                    <div className={styles.empCell}>
-                      <span
-                        className={styles.empName}
-                      >{`${getFullName(emp)} (${emp.id})`}</span>
-                      <span className={styles.empSub}>
-                        {[emp.branch?.name, emp.department?.name]
-                          .filter(Boolean)
-                          .join(" / ")}
-                      </span>
-                    </div>
+                    <EmployeeCell
+                      photo={emp?.photo}
+                      lastName={emp?.last_name}
+                      firstName={emp?.first_name}
+                      middleName={emp?.middle_name}
+                      id={emp?.id}
+                      branch={emp?.branch?.name}
+                      department={emp?.department?.name}
+                      active={emp?.status}
+                    />
                   </td>
 
                   {/* Остаток зарплаты */}
@@ -719,7 +668,9 @@ const PayoutsTable = ({
                   </td>
 
                   {/* Авансы */}
-                  <td className={`${styles.numCell} ${advanceAmt > 0 ? styles.advanceVal : ""}`}>
+                  <td
+                    className={`${styles.numCell} ${advanceAmt > 0 ? styles.advanceVal : ""}`}
+                  >
                     {advanceAmt > 0 ? fmt(advanceAmt) : "—"}
                   </td>
 
@@ -741,7 +692,7 @@ const PayoutsTable = ({
                     {isPaid ? (
                       <div className={styles.actionsCellInner}>
                         <span className={styles.paidBadge}>
-                          <IconCheck /> {t("paid")}
+                          {Icons.check} {t("paid")}
                         </span>
                         <button
                           className={`${styles.payItemBtn} ${isPayActive ? styles.payItemBtnActive : ""}`}
@@ -755,7 +706,7 @@ const PayoutsTable = ({
                           onClick={() => onRevertItem(item.id)}
                           title={t("markUnpaid")}
                         >
-                          <IconUndo />
+                          {Icons.undo}
                         </button>
                       </div>
                     ) : (
@@ -769,7 +720,7 @@ const PayoutsTable = ({
                           </>
                         ) : (
                           <>
-                            <IconCheck /> {t("markPaid")}
+                            {Icons.check} {t("markPaid")}
                           </>
                         )}
                       </button>
@@ -782,7 +733,6 @@ const PayoutsTable = ({
         </tbody>
       </table>
 
-      {/* ── Popovers ─────────────────────────────────────────────────────────── */}
       {activePopover && activeItem && (
         <div style={getPopoverStyle(activePopover.rect)}>
           {activePopover.type === "payment" && (
@@ -800,7 +750,8 @@ const PayoutsTable = ({
               const debtDed = Number(activeItem.debt_deduction || 0);
               const maxDeduct = Math.min(
                 debtBal,
-                Number(activeItem.accrued || 0) + Number(activeItem.salary_balance || 0),
+                Number(activeItem.accrued || 0) +
+                  Number(activeItem.salary_balance || 0),
               );
               const rows = [
                 {

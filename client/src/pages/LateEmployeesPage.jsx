@@ -14,6 +14,8 @@ import DownloadButton from "../components/DownloadButton";
 import { formatLateMinutesToHours } from "../helpers/time";
 import MonthlyLateReport from "../components/MonthlyLateReport";
 
+import EmployeeCell from "../components/EmployeeCell";
+import Search from "../components/Search";
 import styles from "./LateEmployeesPage.module.scss";
 import { DownloadLate } from "../utils/downloadDoc";
 import { Clock, AlarmClock, Users, Coffee, Wallet } from "lucide-react";
@@ -124,25 +126,16 @@ const LateEmployeesPage = () => {
       accessor: "employeeFullName",
       group: "day",
       render: (_, item) => (
-        <div className={styles.empCell}>
-          {item.employeePhoto && (
-            <img
-              src={`/api/employees/image/${item.employeePhoto}`}
-              alt="photo"
-            />
-          )}
-          <div className={styles.empInfo}>
-            <span className={styles.empName}>{item.employeeFullName}</span>
-            <span className={styles.empSub}>
-              {[item.branchName, item.departmentName]
-                .filter(Boolean)
-                .join(" / ")}
-            </span>
-          </div>
-        </div>
+        <EmployeeCell
+          photo={item.employeePhoto}
+          fullName={item.employeeFullName}
+          id={item.employeeId}
+          branch={item.branchName}
+          department={item.departmentName}
+          active={item.employeeStatus !== false}
+        />
       ),
     },
-    { label: t("employeeNumber"), accessor: "employeeNumber", group: "day" },
     { label: t("position"), accessor: "positionName", group: "day" },
 
     {
@@ -395,9 +388,9 @@ const LateEmployeesPage = () => {
     await fetchData(1, formData);
   };
 
-  const handleSearch = () => {
+  const handleSearch = (data = formData) => {
     setCurrentPage(1);
-    fetchData(1, formData, pageSize);
+    fetchData(1, data, pageSize);
   };
 
   const handleSortApply = (sort_by, sort_order) => {
@@ -528,61 +521,7 @@ const LateEmployeesPage = () => {
           )}
           <div className={styles.mainHeader}>
             <div className={styles.filterWrapper}>
-              <div className={styles.searchInput}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="19"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fill="#000000"
-                    d="M15.096 5.904a6.5 6.5 0 1 0-9.192 9.192a6.5 6.5 0 0 0 9.192-9.192ZM4.49 4.49a8.5 8.5 0 0 1 12.686 11.272l5.345 5.345l-1.414 1.414l-5.345-5.345A8.501 8.501 0 0 1 4.49 4.49Z"
-                  />
-                </svg>
-
-                <input
-                  type="text"
-                  placeholder={t("search")}
-                  value={formData.search || ""}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      search: e.target.value,
-                    }))
-                  }
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      handleSearch();
-                    }
-                  }}
-                />
-
-                {formData.search && (
-                  <svg
-                    className={styles.clearBtn}
-                    onClick={() => {
-                      setFormData((prev) => ({
-                        ...prev,
-                        search: "",
-                      }));
-                    }}
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="19"
-                    height="18"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="none"
-                      stroke="#000000"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                )}
-              </div>
+              <Search formData={formData} setFormData={setFormData} onSearch={handleSearch} />
 
               <LateTableFilter
                 formData={formData}

@@ -5,7 +5,7 @@
   height: 100dvh;
   width: 100%;
   overflow: hidden;
-  background: rgba(18, 18, 18, 0.9);
+  background: var(--tg-bg);
 }
 
 // ─── Fixed safe-area header ───────────────────────────────────────────────────
@@ -21,7 +21,7 @@
   );
   z-index: 200;
   pointer-events: none;
-  background: rgba(18, 18, 18, 0.9);
+  background: var(--tg-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -31,7 +31,7 @@
 .main {
   width: 100%;
   height: 100%;
-  background: rgba(18, 18, 18, 0.9);
+  background: var(--tg-bg);
   overflow-y: auto;
   overscroll-behavior-y: contain;
   -webkit-overflow-scrolling: touch;
@@ -53,7 +53,7 @@
         var(--tg-content-safe-area-inset-top, 0px)
     )
     8px 8px;
-  background: rgba(18, 18, 18, 0.9);
+  background: var(--tg-bg);
 }
 
 .searchBox {
@@ -61,8 +61,8 @@
   display: flex;
   align-items: center;
   gap: 7px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  background: var(--tg-surface);
+  border: 0.5px solid var(--tg-separator);
   border-radius: 10px;
   padding: 0 10px;
   height: 36px;
@@ -72,7 +72,7 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  color: #d6d6d6;
+  color: var(--text-secondary);
 
   svg {
     width: 15px;
@@ -86,11 +86,11 @@
   background: transparent;
   outline: none;
   font-size: 14px;
-  color: var(--tg-theme-text-color, #f3f1f1);
+  color: var(--text-color);
   min-width: 0;
 
   &::placeholder {
-    color: #6b6b70;
+    color: var(--placeholder-color);
   }
 }
 
@@ -101,7 +101,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  color: #8e8e93;
+  color: var(--text-secondary);
 
   svg {
     width: 14px;
@@ -115,8 +115,8 @@
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  border: 0.5px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.08);
+  border: 0.5px solid var(--tg-separator);
+  background: var(--tg-surface);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -124,13 +124,13 @@
   transition: background 0.15s;
 
   svg {
-    color: #d6d6d6;
+    color: var(--text-secondary);
     width: 18px;
     height: 18px;
   }
 
   &:active {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--tg-hover);
   }
 }
 
@@ -147,7 +147,7 @@
   height: 7px;
   background: #ff3b30;
   border-radius: 50%;
-  border: 1px solid rgba(18, 18, 18, 0.96);
+  border: 1px solid var(--bg-color);
 }
 
 // ─── Active filters bar ───────────────────────────────────────────────────────
@@ -166,7 +166,7 @@
   overflow-x: auto;
   flex-wrap: nowrap;
   scrollbar-width: none;
-  background: rgba(18, 18, 18, 0.9);
+  background: var(--tg-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   -webkit-overflow-scrolling: touch;
@@ -187,9 +187,9 @@
   height: 24px;
   padding: 0 8px 0 9px;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.07);
-  color: #ccc;
+  border: 1px solid var(--border-color);
+  background: var(--tg-surface);
+  color: var(--text-secondary);
   font-size: 11px;
   font-weight: 500;
   white-space: nowrap;
@@ -220,7 +220,6 @@
     svg {
       width: 10px;
       height: 10px;
-      color: #ccc;
     }
   }
 }
@@ -237,7 +236,7 @@
 
 .empty {
   text-align: center;
-  color: #555;
+  color: var(--text-secondary);
   margin-top: 40px;
   font-size: 14px;
 }
@@ -262,27 +261,14 @@
   opacity: 0.3;
   animation: dotPulse 1.2s ease-in-out infinite;
 
-  &:nth-child(1) {
-    animation-delay: 0s;
-  }
-  &:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  &:nth-child(3) {
-    animation-delay: 0.4s;
-  }
+  &:nth-child(1) { animation-delay: 0s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.4s; }
 }
 
 @keyframes dotPulse {
-  0%,
-  100% {
-    opacity: 0.3;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
 }
 
 // ─── Floating action button ───────────────────────────────────────────────────
@@ -305,10 +291,8 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-  transition:
-    transform 0.15s ease,
-    opacity 0.15s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.15s ease, opacity 0.15s ease;
 
   svg {
     fill: #fff;
@@ -328,8 +312,8 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  background: var(--card-bg);
+  border: 0.5px solid var(--tg-separator);
   border-radius: 12px;
   padding: 10px;
   transition: background 0.15s;
@@ -340,7 +324,7 @@
   cursor: pointer;
 
   &:active {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--tg-hover);
   }
 }
 
@@ -350,7 +334,7 @@
   height: 44px;
   border-radius: 50%;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--tg-avatar-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -373,7 +357,7 @@
 .avatarFallback {
   font-size: 18px;
   font-weight: 600;
-  color: #9a9aaa;
+  color: var(--text-secondary);
 }
 
 .cardBody {
@@ -388,7 +372,7 @@
   font-size: 14px;
   font-weight: 600;
   margin: 0;
-  color: #f0f0f0;
+  color: var(--text-color);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -396,7 +380,7 @@
 
 .cardSub {
   font-size: 12px;
-  color: #a0a0a8;
+  color: var(--text-secondary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -405,7 +389,7 @@
 
 .cardMeta {
   font-size: 11px;
-  color: #666;
+  color: var(--text-secondary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -418,8 +402,8 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: rgba(18, 18, 18, 1);
-  color: #bbb;
+  background: var(--tg-bg);
+  color: var(--text-color);
 
   .filterHeader {
     display: flex;
@@ -434,7 +418,7 @@
   .filterTitle {
     font-size: 16px;
     font-weight: 600;
-    color: #f0f0f0;
+    color: var(--text-color);
   }
 
   .filterBody {
@@ -456,7 +440,7 @@
   .fieldLabel {
     font-size: 14px;
     font-weight: 600;
-    color: #bbb;
+    color: var(--text-secondary);
     padding-left: 2px;
   }
 
@@ -464,12 +448,12 @@
     height: 38px;
     width: 100%;
     padding: 0 8px;
-    background: #2e2e2e;
+    background: var(--input-bg);
     border-radius: 8px;
-    border: 1px solid rgba(162, 161, 168, 0.4);
+    border: 1px solid var(--border-color);
     font-size: 13px;
     font-weight: 500;
-    color: white;
+    color: var(--text-color);
   }
 
   .directionGroup {
@@ -485,15 +469,13 @@
     gap: 6px;
     height: 38px;
     border-radius: 8px;
-    border: 1px solid rgba(162, 161, 168, 0.25);
-    background: rgba(255, 255, 255, 0.06);
-    color: #bbb;
+    border: 1px solid var(--border-color);
+    background: var(--tg-surface);
+    color: var(--text-secondary);
     font-size: 13px;
     font-weight: 500;
     cursor: pointer;
-    transition:
-      border-color 0.2s,
-      background 0.2s;
+    transition: border-color 0.2s, background 0.2s;
 
     input[type="checkbox"] {
       display: none;
@@ -519,7 +501,7 @@
     text-align: center;
 
     &:active {
-      background: rgba(0, 0, 0, 0.1);
+      background: var(--tg-hover);
     }
   }
 

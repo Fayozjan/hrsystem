@@ -18,6 +18,10 @@ export const EmployeeController = {
     } catch (err) {
       console.error("Ошибка при добавлении сотрудника:", err);
 
+      if (file?.path) {
+        fs.unlink(file.path, () => {});
+      }
+
       if (err.code === "P2002") {
         return res.status(400).json({
           error: `Сотрудник с таким ПИНФЛ уже существует`,

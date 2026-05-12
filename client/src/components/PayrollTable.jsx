@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { payrollApi } from "../api/payroll";
 import { useAlertStore } from "../stores/alertStore";
+import { Icons } from "../icons/icons";
+import EmployeeCell from "./EmployeeCell";
 import styles from "./PayrollTable.module.scss";
 
 const fmt = (n) =>
@@ -13,38 +15,6 @@ const SALARY_TYPE_LABELS = {
   piecework: "salaryTypePiecework",
 };
 
-// ── Icons ──────────────────────────────────────────────────────────────────────
-
-const IconCheck = () => (
-  <svg
-    width="13"
-    height="13"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-);
-
-const IconUndo = () => (
-  <svg
-    width="13"
-    height="13"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M3 7v6h6" />
-    <path d="M3 13C5 8.5 9.5 5 15 5a9 9 0 0 1 6 15" />
-  </svg>
-);
 
 // ── AdjustmentPopover ──────────────────────────────────────────────────────────
 
@@ -291,16 +261,16 @@ const PayrollTable = ({
                   <td className={styles.numColTd}>{idx + 1}</td>
 
                   <td>
-                    <div className={styles.empCell}>
-                      <span className={styles.empName}>
-                        {`${getFullName(emp)} (${emp.id})`}
-                      </span>
-                      <span className={styles.empSub}>
-                        {[emp.branch?.name, emp.department?.name]
-                          .filter(Boolean)
-                          .join(" / ")}
-                      </span>
-                    </div>
+                    <EmployeeCell
+                      photo={emp.photo}
+                      lastName={emp.last_name}
+                      firstName={emp.first_name}
+                      middleName={emp.middle_name}
+                      id={emp.id}
+                      branch={emp.branch?.name}
+                      department={emp.department?.name}
+                      active={emp.status}
+                    />
                   </td>
 
                   <td>
@@ -420,7 +390,7 @@ const PayrollTable = ({
                         onClick={() => onApproveItem(item.id)}
                         title={t("approveItem")}
                       >
-                        <IconCheck /> {t("approveItem")}
+                        {Icons.check} {t("approveItem")}
                       </button>
                     ) : (
                       <>
@@ -430,7 +400,7 @@ const PayrollTable = ({
                           <span className={styles.partiallyPaidBadge}>{t("statusPartiallyPaid")}</span>
                         ) : (
                           <span className={styles.approvedBadge}>
-                            <IconCheck /> {t("approved")}
+                            {Icons.check} {t("approved")}
                           </span>
                         )}
                         <button
@@ -438,7 +408,7 @@ const PayrollTable = ({
                           onClick={() => onUnapproveItem(item.id)}
                           title={t("unapproveItem")}
                         >
-                          <IconUndo />
+                          {Icons.undo}
                         </button>
                       </>
                     )}

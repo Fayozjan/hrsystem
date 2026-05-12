@@ -360,18 +360,6 @@ exports.Prisma.Face_devicesScalarFieldEnum = {
   updated_at: 'updated_at'
 };
 
-exports.Prisma.Employee_door_tasksScalarFieldEnum = {
-  id: 'id',
-  employee_id: 'employee_id',
-  door_id: 'door_id',
-  action: 'action',
-  status: 'status',
-  retry_count: 'retry_count',
-  error: 'error',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-};
-
 exports.Prisma.GatesScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -470,6 +458,35 @@ exports.Prisma.Salary_advancesScalarFieldEnum = {
   added_at: 'added_at'
 };
 
+exports.Prisma.Staffing_positionScalarFieldEnum = {
+  id: 'id',
+  department_id: 'department_id',
+  position_id: 'position_id',
+  headcount: 'headcount',
+  added_at: 'added_at'
+};
+
+exports.Prisma.Staffing_tableScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  date_from: 'date_from',
+  date_to: 'date_to',
+  status: 'status',
+  added_by: 'added_by',
+  added_at: 'added_at'
+};
+
+exports.Prisma.Staffing_table_itemsScalarFieldEnum = {
+  id: 'id',
+  staffing_table_id: 'staffing_table_id',
+  branch_id: 'branch_id',
+  department_id: 'department_id',
+  position_id: 'position_id',
+  headcount: 'headcount',
+  salary_type: 'salary_type',
+  salary_amount: 'salary_amount'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -517,14 +534,16 @@ exports.Prisma.ModelName = {
   employee_salary_history: 'employee_salary_history',
   doors: 'doors',
   face_devices: 'face_devices',
-  employee_door_tasks: 'employee_door_tasks',
   gates: 'gates',
   anpr_cameras: 'anpr_cameras',
   vehicle_passes: 'vehicle_passes',
   payroll_sheets: 'payroll_sheets',
   payroll_sheet_items: 'payroll_sheet_items',
   payroll_payment_logs: 'payroll_payment_logs',
-  salary_advances: 'salary_advances'
+  salary_advances: 'salary_advances',
+  staffing_position: 'staffing_position',
+  staffing_table: 'staffing_table',
+  staffing_table_items: 'staffing_table_items'
 };
 
 /**

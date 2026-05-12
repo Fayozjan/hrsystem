@@ -1,8 +1,8 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  background: #fff;
-  border-right: 1px solid #e5e7eb;
+  background: var(--card-bg);
+  border-right: 1px solid var(--border-subtle);
   transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   height: 100vh;
@@ -76,8 +76,8 @@
         top: 0;
         pointer-events: none;
         transition: opacity 0.15s;
-        background: #fff;
-        border: 1px solid #e5e7eb;
+        background: var(--card-bg);
+        border: 1px solid var(--border-subtle);
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         padding: 6px;
@@ -98,10 +98,10 @@
           padding: 6px 10px;
           font-weight: 600;
           font-size: 11px;
-          color: #9ca3af;
+          color: var(--placeholder-color);
           text-transform: uppercase;
           letter-spacing: 0.05em;
-          border-bottom: 1px solid #f3f4f6;
+          border-bottom: 1px solid var(--border-subtle);
           margin-bottom: 4px;
         }
 
@@ -123,12 +123,12 @@
             padding: 5px 10px;
             border-radius: 6px;
             font-size: 13px;
-            color: #374151;
+            color: var(--text-color);
             text-decoration: none;
             transition: background 0.1s;
 
             &:hover {
-              background: #f3f4f6;
+              background: var(--bg-light);
             }
 
             &.active {
@@ -155,7 +155,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 8px;
-  border-bottom: 1px solid #f3f4f6;
+  border-bottom: 1px solid var(--border-subtle);
 
   .logoWrapper {
     display: flex;
@@ -183,7 +183,7 @@
     transition: background 0.1s;
 
     &:hover {
-      background: #f3f4f6;
+      background: var(--bg-light);
     }
 
     svg {
@@ -211,11 +211,11 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #d1d5db;
+    background: var(--scroll-color);
     border-radius: 4px;
 
     &:hover {
-      background: #9ca3af;
+      background: var(--placeholder-color);
     }
   }
 
@@ -232,15 +232,15 @@
       text-decoration: none;
       font-size: var(--font-small);
       font-weight: 500;
-      color: #2a2828;
+      color: var(--text-color);
       transition:
         background 0.1s,
         color 0.1s;
       position: relative;
 
       &:hover {
-        background: #f9fafb;
-        color: #111827;
+        background: var(--bg-light);
+        color: var(--text-color);
       }
 
       span {
@@ -304,7 +304,7 @@
   li {
     margin-left: 16px;
     padding-left: 18px;
-    border-left: 2px solid #e5e7eb;
+    border-left: 2px solid var(--border-subtle);
 
     &.activeMenu {
       border-left-color: #2563eb;
@@ -318,12 +318,12 @@
       border-radius: 6px;
       text-decoration: none;
       font-size: var(--font-small);
-      color: #232323;
+      color: var(--text-color);
       transition: all 0.1s;
 
       &:hover {
-        background: #f9fafb;
-        color: #000;
+        background: var(--bg-light);
+        color: var(--text-color);
       }
     }
 

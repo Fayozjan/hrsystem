@@ -90,4 +90,14 @@ export const DepartmentsService = {
   deleteDepartment: async (id) => {
     return DepartmentsModel.delete(id);
   },
+
+  getStaffingOverview: async ({ userId, branch_id, department_id }) => {
+    const user = await UserModel.getById(Number(userId));
+    if (!user) throw new Error("Пользователь не найден");
+    const where = buildDepartmentAccess(user);
+    if (branch_id) where.branch_id = branch_id;
+    if (department_id) where.id = department_id;
+    const rows = await DepartmentsModel.getStaffingOverview(where);
+    return { data: rows };
+  },
 };

@@ -44,27 +44,42 @@ const SORT_FIELD_MAP = {
   monthly_late_money: "monthlyLateMoney",
 };
 
+function getLateNumericPriority(emp, s) {
+  if (String(emp.employeeId) === s) return 1;
+  if (String(emp.employeeNumber || "") === s) return 2;
+  if ((emp.pinfl || "").includes(s)) return 3;
+  return 4;
+}
+
 function applySearchSortPaginate(list, { search, sort_by, sort_order, pageNum, pageSizeNum }) {
   let result = list;
+  const isNumeric = search && /^\d+$/.test(search.trim());
 
   if (search) {
-    const s = search.toLowerCase();
+    const s = search.trim();
+    const sLower = s.toLowerCase();
     result = result.filter(
       (e) =>
-        e.employeeFullName?.toLowerCase().includes(s) ||
-        String(e.employeeNumber || "").includes(s),
+        e.employeeFullName?.toLowerCase().includes(sLower) ||
+        String(e.employeeNumber || "").includes(s) ||
+        (isNumeric && (String(e.employeeId) === s || (e.pinfl || "").includes(s))),
     );
   }
 
-  const sortField = SORT_FIELD_MAP[sort_by] || "employeeFullName";
-  const sortDir = sort_order === "desc" ? -1 : 1;
-  result = [...result].sort((a, b) => {
-    const aVal = a[sortField] ?? "";
-    const bVal = b[sortField] ?? "";
-    if (typeof aVal === "number" && typeof bVal === "number")
-      return (aVal - bVal) * sortDir;
-    return String(aVal).localeCompare(String(bVal)) * sortDir;
-  });
+  if (isNumeric) {
+    const s = search.trim();
+    result = [...result].sort((a, b) => getLateNumericPriority(a, s) - getLateNumericPriority(b, s));
+  } else {
+    const sortField = SORT_FIELD_MAP[sort_by] || "employeeFullName";
+    const sortDir = sort_order === "desc" ? -1 : 1;
+    result = [...result].sort((a, b) => {
+      const aVal = a[sortField] ?? "";
+      const bVal = b[sortField] ?? "";
+      if (typeof aVal === "number" && typeof bVal === "number")
+        return (aVal - bVal) * sortDir;
+      return String(aVal).localeCompare(String(bVal)) * sortDir;
+    });
+  }
 
   const totalItems = result.length;
   const totalPages = Math.max(1, Math.ceil(totalItems / pageSizeNum));

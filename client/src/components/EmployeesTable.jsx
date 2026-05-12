@@ -4,6 +4,7 @@ import { formatDate, getBirthdayInfo, getExpiryBadge } from "../utils/utils";
 
 import Badge from "../components/Badge";
 import { ActionCell } from "./ActionButtons";
+import EmployeeCell from "./EmployeeCell";
 
 import styles from "./EmployeesTable.module.scss";
 
@@ -66,39 +67,16 @@ const EmployeesTable = ({
               <tr key={item.id}>
                 <td>{(currentPage - 1) * pageSize + i + 1}</td>
                 <td>
-                  <div className={styles.empCell}>
-                    {item.photo ? (
-                      <img
-                        src={`/api/employees/image/${item.photo}`}
-                        alt="employee"
-                        className={
-                          item.status ? styles.active : styles.terminated
-                        }
-                      />
-                    ) : (
-                      <div
-                        className={`${styles.avatar} ${item.status ? styles.active : styles.terminated}`}
-                      >
-                        {[item.last_name, item.first_name]
-                          .filter(Boolean)
-                          .map((n) => n[0].toUpperCase())
-                          .join("")}
-                      </div>
-                    )}
-                    <div className={styles.empInfo}>
-                      <span className={styles.empName}>
-                        {[item.last_name, item.first_name, item.middle_name]
-                          .filter(Boolean)
-                          .join(" ")}{" "}
-                        ({item.id})
-                      </span>
-                      <span className={styles.empSub}>
-                        {[item.branch?.name, item.department?.name]
-                          .filter(Boolean)
-                          .join(" / ")}
-                      </span>
-                    </div>
-                  </div>
+                  <EmployeeCell
+                    photo={item.photo}
+                    lastName={item.last_name}
+                    firstName={item.first_name}
+                    middleName={item.middle_name}
+                    id={item.id}
+                    branch={item.branch?.name}
+                    department={item.department?.name}
+                    active={item.status}
+                  />
                 </td>
                 <td>
                   {item.date_of_birth &&
